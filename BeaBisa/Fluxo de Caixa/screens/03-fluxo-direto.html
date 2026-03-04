@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fluxo de Caixa Direto — BeaBisa IA</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --primary: #0EA5E9; --accent: #06B6D4; --success: #10B981;
+      --danger: #EF4444; --warning: #F59E0B; --violet: #8B5CF6;
+      --bg: #060B18; --sidebar-bg: #080D1C; --card: #0D1829;
+      --border: rgba(255,255,255,0.07); --border2: rgba(255,255,255,0.12);
+      --text: #F1F5F9; --muted: #64748B; --muted2: #94A3B8;
+      --sidebar-w: 240px;
+    }
+    body { font-family: 'Inter', sans-serif; background: var(--bg); color: var(--text); display: flex; min-height: 100vh; }
+
+    /* Sidebar (same as dashboard) */
+    .sidebar { width: var(--sidebar-w); background: var(--sidebar-bg); border-right: 1px solid var(--border); display: flex; flex-direction: column; position: fixed; top: 0; left: 0; height: 100vh; z-index: 100; overflow-y: auto; }
+    .sidebar-logo { padding: 20px 20px 16px; border-bottom: 1px solid var(--border); display: flex; align-items: center; gap: 10px; }
+    .logo-icon { width: 36px; height: 36px; border-radius: 10px; background: linear-gradient(135deg, var(--primary), var(--accent)); display: flex; align-items: center; justify-content: center; flex-shrink: 0; box-shadow: 0 0 16px rgba(14,165,233,0.3); }
+    .logo-icon svg { width: 18px; height: 18px; fill: white; }
+    .logo-text { font-size: 14px; font-weight: 700; color: var(--text); }
+    .logo-text span { display: block; font-size: 10px; font-weight: 400; color: var(--muted); text-transform: uppercase; letter-spacing: 1px; }
+    .nav { padding: 12px 0; flex: 1; }
+    .nav-section { margin-bottom: 4px; }
+    .nav-section-title { padding: 8px 20px 4px; font-size: 10px; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; color: var(--muted); }
+    .nav-item { display: flex; align-items: center; gap: 10px; padding: 8px 20px; font-size: 13px; color: var(--muted2); cursor: pointer; transition: all 0.15s; text-decoration: none; position: relative; }
+    .nav-item:hover { color: var(--text); background: rgba(255,255,255,0.04); }
+    .nav-item.active { color: var(--primary); background: rgba(14,165,233,0.08); }
+    .nav-item.active::before { content: ''; position: absolute; left: 0; top: 50%; transform: translateY(-50%); width: 3px; height: 20px; background: var(--primary); border-radius: 0 3px 3px 0; }
+    .nav-item svg { width: 15px; height: 15px; flex-shrink: 0; stroke: currentColor; fill: none; stroke-width: 1.8; }
+    .nav-sub { padding-left: 44px; font-size: 12.5px; }
+    .nav-badge { margin-left: auto; background: rgba(14,165,233,0.15); color: var(--primary); border-radius: 4px; padding: 1px 6px; font-size: 10px; font-weight: 600; }
+    .sidebar-footer { padding: 16px 20px; border-top: 1px solid var(--border); font-size: 11px; color: var(--muted); }
+    .last-update { display: flex; align-items: center; gap: 6px; }
+    .last-update-dot { width: 6px; height: 6px; background: var(--success); border-radius: 50%; }
+
+    /* Main layout */
+    .main { margin-left: var(--sidebar-w); flex: 1; display: flex; flex-direction: column; }
+    .topbar { position: sticky; top: 0; z-index: 50; background: rgba(6,11,24,0.85); backdrop-filter: blur(12px); border-bottom: 1px solid var(--border); padding: 0 28px; height: 60px; display: flex; align-items: center; gap: 16px; }
+    .topbar-breadcrumb { font-size: 13px; color: var(--muted2); display: flex; align-items: center; gap: 6px; }
+    .topbar-breadcrumb a { color: var(--muted2); text-decoration: none; }
+    .topbar-breadcrumb a:hover { color: var(--text); }
+    .topbar-breadcrumb strong { color: var(--text); font-weight: 600; }
+    .topbar-sep { color: var(--muted); }
+    .topbar-right { margin-left: auto; display: flex; align-items: center; gap: 10px; }
+    .source-badge { display: flex; align-items: center; gap: 6px; background: rgba(245,158,11,0.1); border: 1px solid rgba(245,158,11,0.2); border-radius: 8px; padding: 5px 10px; font-size: 11px; font-weight: 600; color: #F59E0B; }
+    .source-badge svg { width: 12px; height: 12px; stroke: currentColor; fill: none; stroke-width: 2; }
+    .user-chip { display: flex; align-items: center; gap: 8px; background: rgba(255,255,255,0.05); border: 1px solid var(--border); border-radius: 20px; padding: 5px 12px 5px 6px; }
+    .user-avatar { width: 26px; height: 26px; border-radius: 50%; background: linear-gradient(135deg, var(--primary), var(--accent)); display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: 700; color: white; }
+    .user-name { font-size: 12px; font-weight: 500; color: var(--muted2); }
+
+    .content { padding: 28px; flex: 1; }
+
+    /* Filter bar */
+    .filter-bar {
+      display: flex; align-items: center; gap: 12px; flex-wrap: wrap;
+      background: var(--card); border: 1px solid var(--border);
+      border-radius: 14px; padding: 16px 20px; margin-bottom: 24px;
+    }
+    .filter-group { display: flex; align-items: center; gap: 8px; }
+    .filter-label { font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; color: var(--muted); white-space: nowrap; }
+    .period-pills { display: flex; gap: 4px; }
+    .pill {
+      padding: 5px 12px; border-radius: 20px; font-size: 12px; font-weight: 500;
+      border: 1px solid var(--border); color: var(--muted2); cursor: pointer;
+      transition: all 0.15s; background: transparent;
+      font-family: 'Inter', sans-serif;
+    }
+    .pill:hover { border-color: var(--border2); color: var(--text); }
+    .pill.active { background: rgba(14,165,233,0.15); border-color: rgba(14,165,233,0.4); color: var(--primary); font-weight: 600; }
+    .filter-sep { height: 24px; width: 1px; background: var(--border); }
+    .filter-select {
+      background: rgba(255,255,255,0.05); border: 1px solid var(--border);
+      border-radius: 8px; padding: 6px 12px; font-family: 'Inter', sans-serif;
+      font-size: 12px; color: var(--muted2); outline: none; cursor: pointer;
+    }
+    .btn-action {
+      display: flex; align-items: center; gap: 6px;
+      padding: 7px 14px; border-radius: 8px; font-family: 'Inter', sans-serif;
+      font-size: 12px; font-weight: 600; cursor: pointer; border: 1px solid var(--border);
+      transition: all 0.15s; background: transparent; color: var(--muted2);
+    }
+    .btn-action:hover { border-color: var(--border2); color: var(--text); }
+    .btn-action.primary { background: linear-gradient(135deg, var(--primary), var(--accent)); border-color: transparent; color: white; box-shadow: 0 2px 12px rgba(14,165,233,0.25); }
+    .btn-action.primary:hover { box-shadow: 0 4px 20px rgba(14,165,233,0.4); transform: translateY(-1px); }
+    .btn-action svg { width: 13px; height: 13px; stroke: currentColor; fill: none; stroke-width: 2; }
+    .filter-right { margin-left: auto; display: flex; align-items: center; gap: 8px; }
+    .update-info { font-size: 11px; color: var(--muted); display: flex; align-items: center; gap: 5px; }
+    .update-dot { width: 5px; height: 5px; background: var(--success); border-radius: 50%; }
+
+    /* KPI grid */
+    .kpi-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 14px; margin-bottom: 24px; }
+    .kpi-card { background: var(--card); border: 1px solid var(--border); border-radius: 14px; padding: 18px; position: relative; overflow: hidden; transition: all 0.2s; }
+    .kpi-card:hover { border-color: var(--border2); transform: translateY(-2px); }
+    .kpi-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px; background: var(--kpi-color, var(--primary)); }
+    .kpi-label { font-size: 10px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; color: var(--muted); margin-bottom: 8px; }
+    .kpi-value { font-size: 20px; font-weight: 800; letter-spacing: -0.8px; color: var(--text); margin-bottom: 5px; }
+    .kpi-value.positive { color: var(--success); }
+    .kpi-value.negative { color: var(--danger); }
+    .kpi-delta { font-size: 11px; font-weight: 500; }
+    .kpi-delta.up { color: var(--success); }
+    .kpi-delta.down { color: var(--danger); }
+    .kpi-delta.neutral { color: var(--muted); }
+
+    /* Chart grid */
+    .grid-2 { display: grid; grid-template-columns: 1.4fr 1fr; gap: 16px; margin-bottom: 24px; }
+    .chart-card { background: var(--card); border: 1px solid var(--border); border-radius: 14px; padding: 20px; }
+    .chart-card-header { display: flex; align-items: flex-start; justify-content: space-between; margin-bottom: 20px; }
+    .chart-card-title { font-size: 14px; font-weight: 700; color: var(--text); }
+    .chart-card-sub { font-size: 11px; color: var(--muted); margin-top: 2px; }
+    .chart-wrap { position: relative; height: 200px; }
+    .tag { display: inline-flex; align-items: center; gap: 4px; padding: 3px 8px; border-radius: 6px; font-size: 11px; font-weight: 600; }
+    .tag.blue { background: rgba(14,165,233,0.1); color: var(--primary); }
+    .tag.amber { background: rgba(245,158,11,0.1); color: var(--warning); }
+
+    /* DFC Table */
+    .table-section { background: var(--card); border: 1px solid var(--border); border-radius: 14px; overflow: hidden; }
+    .table-header { padding: 20px 24px; border-bottom: 1px solid var(--border); display: flex; align-items: center; justify-content: space-between; }
+    .table-title { font-size: 14px; font-weight: 700; color: var(--text); }
+    .table-period { font-size: 12px; color: var(--muted); margin-top: 2px; }
+    .dfc-table { width: 100%; border-collapse: collapse; }
+    .dfc-table th { padding: 10px 24px; text-align: left; font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; color: var(--muted); background: rgba(255,255,255,0.02); border-bottom: 1px solid var(--border); }
+    .dfc-table th:last-child { text-align: right; }
+    .dfc-table td { padding: 10px 24px; font-size: 13px; color: var(--muted2); border-bottom: 1px solid rgba(255,255,255,0.03); }
+    .dfc-table td:last-child { text-align: right; font-variant-numeric: tabular-nums; font-weight: 500; }
+    .dfc-table tr:hover td { background: rgba(255,255,255,0.02); }
+
+    /* Row types */
+    .row-section td { background: rgba(14,165,233,0.06); font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; color: var(--primary); padding: 8px 24px; }
+    .row-section td:first-child { border-left: 3px solid var(--primary); padding-left: 21px; }
+    .row-item td:first-child { padding-left: 40px; }
+    .row-subtotal td { background: rgba(255,255,255,0.03); font-weight: 700; color: var(--text); border-top: 1px solid var(--border); }
+    .row-subtotal td:first-child { padding-left: 24px; }
+    .row-total td { background: rgba(14,165,233,0.08); font-size: 14px; font-weight: 800; color: var(--text); border-top: 2px solid rgba(14,165,233,0.3); }
+    .row-total td:first-child { border-left: 3px solid var(--accent); padding-left: 21px; }
+    .row-balance td { background: rgba(255,255,255,0.02); font-size: 12px; font-weight: 500; color: var(--muted2); font-style: italic; }
+    .row-balance td:first-child { padding-left: 40px; }
+
+    .value-positive { color: var(--success) !important; }
+    .value-negative { color: var(--danger) !important; }
+    .value-neutral { color: var(--muted2) !important; }
+  </style>
+</head>
+<body>
+
+<!-- Sidebar -->
+<aside class="sidebar">
+  <div class="sidebar-logo">
+    <div class="logo-icon">
+      <svg viewBox="0 0 24 24"><path d="M3 3h7v7H3V3zm0 11h7v7H3v-7zm11-11h7v7h-7V3zm4 11v2h-4v-2h4zm0 4v2h-4v-2h4zm-4-2h2v2h-2v-2z"/></svg>
+    </div>
+    <div class="logo-text">BeaBisa IA <span>Analytics Platform</span></div>
+  </div>
+  <nav class="nav">
+    <div class="nav-section">
+      <a class="nav-item" href="02-dashboard.html">
+        <svg viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
+        Dashboard
+      </a>
+    </div>
+    <div class="nav-section">
+      <div class="nav-section-title">Financeiro</div>
+      <a class="nav-item nav-sub" href="#"><svg viewBox="0 0 24 24"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>Contas a Pagar</a>
+      <a class="nav-item nav-sub" href="#"><svg viewBox="0 0 24 24"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>Contas a Receber</a>
+      <a class="nav-item nav-sub" href="#"><svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg>Tesouraria</a>
+    </div>
+    <div class="nav-section">
+      <div class="nav-section-title">Controladoria</div>
+      <a class="nav-item nav-sub" href="#"><svg viewBox="0 0 24 24"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>DRE</a>
+      <a class="nav-item nav-sub" href="#"><svg viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/></svg>Balanço Patrimonial</a>
+      <a class="nav-item nav-sub active" href="03-fluxo-direto.html">
+        <svg viewBox="0 0 24 24"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+        Fluxo Caixa Direto <span class="nav-badge">Excel</span>
+      </a>
+      <a class="nav-item nav-sub" href="04-fluxo-indireto.html"><svg viewBox="0 0 24 24"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>Fluxo Caixa Indireto</a>
+      <a class="nav-item nav-sub" href="#"><svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>Highlights</a>
+      <a class="nav-item nav-sub" href="#"><svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/></svg>Inf. Gerenciais</a>
+    </div>
+    <div class="nav-section">
+      <div class="nav-section-title">Fiscal</div>
+      <a class="nav-item nav-sub" href="#"><svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/></svg>Nota Fiscal</a>
+    </div>
+    <div class="nav-section">
+      <div class="nav-section-title">Suprimentos</div>
+      <a class="nav-item nav-sub" href="#"><svg viewBox="0 0 24 24"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/></svg>Compras</a>
+      <a class="nav-item nav-sub" href="#"><svg viewBox="0 0 24 24"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8"/></svg>Estoque</a>
+      <a class="nav-item nav-sub" href="#"><svg viewBox="0 0 24 24"><path d="M9 11l3 3L22 4"/></svg>Pedidos</a>
+    </div>
+    <div class="nav-section">
+      <div class="nav-section-title">Recursos Humanos</div>
+      <a class="nav-item nav-sub" href="#"><svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg>Salários e Encargos</a>
+      <a class="nav-item nav-sub" href="#"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/></svg>Prov. Férias e 13º</a>
+    </div>
+    <div class="nav-section">
+      <div class="nav-section-title">Pecuária</div>
+      <a class="nav-item nav-sub" href="#"><svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg>Rebanho</a>
+    </div>
+    <div class="nav-section">
+      <div class="nav-section-title">Empreendimentos</div>
+      <a class="nav-item nav-sub" href="#"><svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg>Vendas</a>
+      <a class="nav-item nav-sub" href="#"><svg viewBox="0 0 24 24"><polygon points="1 6 1 22 8 18 16 22 23 18 23 2 16 6 8 2 1 6"/></svg>Obras</a>
+    </div>
+  </nav>
+  <div class="sidebar-footer">
+    <div class="last-update">
+      <div class="last-update-dot"></div>
+      Fonte Excel · Carga: 04/03/2026 08:30
+    </div>
+  </div>
+</aside>
+
+<!-- Main -->
+<main class="main">
+  <header class="topbar">
+    <div class="topbar-breadcrumb">
+      <a href="02-dashboard.html">Dashboard</a>
+      <span class="topbar-sep">›</span>
+      Controladoria
+      <span class="topbar-sep">›</span>
+      <strong>Fluxo de Caixa Direto</strong>
+    </div>
+    <div class="topbar-right">
+      <div class="source-badge">
+        <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+        Base: Excel
+      </div>
+      <div class="user-chip">
+        <div class="user-avatar">LM</div>
+        <span class="user-name">Leandro M.</span>
+      </div>
+    </div>
+  </header>
+
+  <div class="content">
+
+    <!-- Filter Bar -->
+    <div class="filter-bar">
+      <div class="filter-group">
+        <span class="filter-label">Período</span>
+        <div class="period-pills">
+          <button class="pill" onclick="setPeriod(this)">Out/25</button>
+          <button class="pill" onclick="setPeriod(this)">Nov/25</button>
+          <button class="pill" onclick="setPeriod(this)">Dez/25</button>
+          <button class="pill active" onclick="setPeriod(this)">Jan/26</button>
+          <button class="pill" onclick="setPeriod(this)">T1 2026</button>
+          <button class="pill" onclick="setPeriod(this)">2026</button>
+        </div>
+      </div>
+      <div class="filter-sep"></div>
+      <div class="filter-group">
+        <span class="filter-label">Empresa</span>
+        <select class="filter-select" onchange="setEmpresa(this)">
+          <option>BeaBisa Agro</option>
+          <option>BeaBisa Empreendimentos</option>
+          <option>BeaBisa Pecuária</option>
+          <option>Consolidado</option>
+        </select>
+      </div>
+      <div class="filter-right">
+        <div class="update-info">
+          <div class="update-dot"></div>
+          Atualizado em 04/03/2026 às 08:30
+        </div>
+        <button class="btn-action">
+          <svg viewBox="0 0 24 24"><polyline points="1 4 1 10 7 10"/><path d="M3.51 15a9 9 0 1 0 .49-3"/></svg>
+          Atualizar
+        </button>
+        <button class="btn-action">
+          <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/></svg>
+          PDF
+        </button>
+        <button class="btn-action primary">
+          <svg viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+          Exportar Excel
+        </button>
+      </div>
+    </div>
+
+    <!-- KPI Cards -->
+    <div class="kpi-grid">
+      <div class="kpi-card" style="--kpi-color: #64748B">
+        <div class="kpi-label">Saldo Inicial</div>
+        <div class="kpi-value">R$ 2,34M</div>
+        <div class="kpi-delta neutral">Dez/2025</div>
+      </div>
+      <div class="kpi-card" style="--kpi-color: #10B981">
+        <div class="kpi-label">Ativ. Operacionais</div>
+        <div class="kpi-value positive">+ R$ 1,34M</div>
+        <div class="kpi-delta up">▲ +16,5% vs dez/25</div>
+      </div>
+      <div class="kpi-card" style="--kpi-color: #EF4444">
+        <div class="kpi-label">Ativ. Investimento</div>
+        <div class="kpi-value negative">- R$ 3,55M</div>
+        <div class="kpi-delta down">▼ -97,2% vs dez/25</div>
+      </div>
+      <div class="kpi-card" style="--kpi-color: #0EA5E9">
+        <div class="kpi-label">Ativ. Financiamento</div>
+        <div class="kpi-value positive">+ R$ 1,50M</div>
+        <div class="kpi-delta down">▼ -25,0% vs dez/25</div>
+      </div>
+      <div class="kpi-card" style="--kpi-color: #06B6D4">
+        <div class="kpi-label">Saldo Final</div>
+        <div class="kpi-value">R$ 1,63M</div>
+        <div class="kpi-delta down">▼ -30,3% vs dez/25</div>
+      </div>
+    </div>
+
+    <!-- Charts -->
+    <div class="grid-2">
+      <div class="chart-card">
+        <div class="chart-card-header">
+          <div>
+            <div class="chart-card-title">Atividades por Categoria — Comparativo</div>
+            <div class="chart-card-sub">Jan/2026 vs Dez/2025 (R$ mil)</div>
+          </div>
+          <span class="tag blue">FCD</span>
+        </div>
+        <div class="chart-wrap"><canvas id="actChart"></canvas></div>
+      </div>
+      <div class="chart-card">
+        <div class="chart-card-header">
+          <div>
+            <div class="chart-card-title">Evolução do Saldo de Caixa</div>
+            <div class="chart-card-sub">Últimos 6 meses (R$ mil)</div>
+          </div>
+          <span class="tag amber">Direto</span>
+        </div>
+        <div class="chart-wrap"><canvas id="saldoChart"></canvas></div>
+      </div>
+    </div>
+
+    <!-- DFC Table -->
+    <div class="table-section">
+      <div class="table-header">
+        <div>
+          <div class="table-title">Demonstração do Fluxo de Caixa Direto</div>
+          <div class="table-period">BeaBisa Agro &nbsp;·&nbsp; Janeiro 2026 &nbsp;·&nbsp; Base: Planilha Excel</div>
+        </div>
+        <div style="display:flex;gap:8px">
+          <span class="tag blue">v2.0</span>
+          <span class="tag amber">Excel</span>
+        </div>
+      </div>
+      <table class="dfc-table">
+        <thead>
+          <tr>
+            <th style="width:70%">Descrição</th>
+            <th>Jan/2026 (R$)</th>
+            <th>Dez/2025 (R$)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- Operacional -->
+          <tr class="row-section"><td colspan="3">Atividades Operacionais</td></tr>
+          <tr class="row-item"><td>Recebimentos de clientes e adiantamentos</td><td class="value-positive">4.520.000</td><td class="value-positive">3.980.000</td></tr>
+          <tr class="row-item"><td>Pagamentos a fornecedores de bens e serviços</td><td class="value-negative">(2.150.000)</td><td class="value-negative">(1.940.000)</td></tr>
+          <tr class="row-item"><td>Pagamentos de pessoal e encargos sociais</td><td class="value-negative">(890.000)</td><td class="value-negative">(860.000)</td></tr>
+          <tr class="row-item"><td>Recolhimento de tributos e contribuições</td><td class="value-negative">(320.000)</td><td class="value-negative">(290.000)</td></tr>
+          <tr class="row-item"><td>Outras receitas e despesas operacionais</td><td class="value-positive">180.000</td><td class="value-positive">110.000</td></tr>
+          <tr class="row-subtotal"><td>Caixa líquido das atividades operacionais</td><td class="value-positive">1.340.000</td><td class="value-positive">1.000.000</td></tr>
+
+          <!-- Investimento -->
+          <tr class="row-section"><td colspan="3">Atividades de Investimento</td></tr>
+          <tr class="row-item"><td>Aquisição de propriedades rurais e benfeitorias</td><td class="value-negative">(2.800.000)</td><td class="value-negative">(800.000)</td></tr>
+          <tr class="row-item"><td>Venda de ativos imobilizados</td><td class="value-positive">450.000</td><td class="value-positive">120.000</td></tr>
+          <tr class="row-item"><td>Aplicações em títulos financeiros</td><td class="value-negative">(1.200.000)</td><td class="value-negative">(1.120.000)</td></tr>
+          <tr class="row-subtotal"><td>Caixa líquido das atividades de investimento</td><td class="value-negative">(3.550.000)</td><td class="value-negative">(1.800.000)</td></tr>
+
+          <!-- Financiamento -->
+          <tr class="row-section"><td colspan="3">Atividades de Financiamento</td></tr>
+          <tr class="row-item"><td>Captação de empréstimos e financiamentos rurais</td><td class="value-positive">3.000.000</td><td class="value-positive">3.500.000</td></tr>
+          <tr class="row-item"><td>Amortização de financiamentos e empréstimos</td><td class="value-negative">(1.500.000)</td><td class="value-negative">(1.500.000)</td></tr>
+          <tr class="row-subtotal"><td>Caixa líquido das atividades de financiamento</td><td class="value-positive">1.500.000</td><td class="value-positive">2.000.000</td></tr>
+
+          <!-- Totais -->
+          <tr class="row-balance"><td>Saldo de caixa e equivalentes no início do período</td><td class="value-neutral">2.340.000</td><td class="value-neutral">2.340.000</td></tr>
+          <tr class="row-balance"><td>Variação líquida do caixa no período</td><td class="value-negative">(710.000)</td><td class="value-positive">1.200.000</td></tr>
+          <tr class="row-total"><td>Saldo de Caixa e Equivalentes no Final do Período</td><td>1.630.000</td><td>2.340.000</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+  </div>
+</main>
+
+<script>
+Chart.defaults.color = '#64748B';
+Chart.defaults.borderColor = 'rgba(255,255,255,0.06)';
+Chart.defaults.font.family = 'Inter';
+
+new Chart(document.getElementById('actChart'), {
+  type: 'bar',
+  data: {
+    labels: ['Operacional', 'Investimento', 'Financiamento'],
+    datasets: [
+      { label: 'Jan/2026', data: [1340, -3550, 1500], backgroundColor: ['rgba(16,185,129,0.75)', 'rgba(239,68,68,0.75)', 'rgba(14,165,233,0.75)'], borderRadius: 6, borderSkipped: false },
+      { label: 'Dez/2025', data: [1000, -1800, 2000], backgroundColor: ['rgba(16,185,129,0.25)', 'rgba(239,68,68,0.25)', 'rgba(14,165,233,0.25)'], borderRadius: 6, borderSkipped: false }
+    ]
+  },
+  options: {
+    responsive: true, maintainAspectRatio: false,
+    indexAxis: 'y',
+    plugins: { legend: { labels: { boxWidth: 10, font: { size: 11 } } } },
+    scales: {
+      x: { grid: { color: 'rgba(255,255,255,0.04)' }, ticks: { callback: v => 'R$' + v + 'k' } },
+      y: { grid: { display: false } }
+    }
+  }
+});
+
+new Chart(document.getElementById('saldoChart'), {
+  type: 'line',
+  data: {
+    labels: ['Ago', 'Set', 'Out', 'Nov', 'Dez', 'Jan'],
+    datasets: [{
+      label: 'Saldo Final (R$ mil)',
+      data: [3600, 2850, 3100, 2700, 2340, 1630],
+      borderColor: '#06B6D4',
+      backgroundColor: 'rgba(6,182,212,0.1)',
+      borderWidth: 2.5, fill: true, tension: 0.4,
+      pointBackgroundColor: '#06B6D4', pointRadius: 4, pointHoverRadius: 7,
+    }]
+  },
+  options: {
+    responsive: true, maintainAspectRatio: false,
+    plugins: { legend: { display: false } },
+    scales: {
+      x: { grid: { color: 'rgba(255,255,255,0.04)' } },
+      y: { grid: { color: 'rgba(255,255,255,0.04)' }, ticks: { callback: v => 'R$' + v + 'k' } }
+    }
+  }
+});
+
+function setPeriod(el) {
+  document.querySelectorAll('.pill').forEach(p => p.classList.remove('active'));
+  el.classList.add('active');
+}
+function setEmpresa(el) { /* update data based on company */ }
+</script>
+</body>
+</html>
