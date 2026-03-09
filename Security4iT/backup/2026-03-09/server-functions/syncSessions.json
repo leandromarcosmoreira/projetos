@@ -1,0 +1,10 @@
+{
+  "id": 264,
+  "name": "syncSessions",
+  "type": "SQL",
+  "description": "Lista sessoes de sync com resumo",
+  "code": "SELECT SYNC_SESSION,\n      MIN(DATA) AS INICIO, MAX(DATA) AS FIM,\n      COUNT(*) AS TOTAL_REQUESTS,\n      SUM(TICKETS_COUNT) AS TOTAL_TICKETS,\n      SUM(CASE WHEN RESPONSE_CODE >= 400 THEN 1 ELSE 0 END) AS TOTAL_ERROS,\n      SUM(DURACAO_MS) AS DURACAO_TOTAL_MS\n    FROM REQUEST_LOG\n    GROUP BY SYNC_SESSION\n    ORDER BY INICIO DESC\n    LIMIT {{limit}}",
+  "createdBy": "leandro.moreira@neuonsolucoes.com",
+  "createdAt": "2026-03-08T21:07:09",
+  "updatedAt": "2026-03-08T21:07:09"
+}

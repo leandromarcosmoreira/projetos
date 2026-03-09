@@ -1,0 +1,10 @@
+{
+  "id": 135,
+  "name": "acoesPorTicket",
+  "type": "SQL",
+  "description": "Acoes ticket",
+  "code": "SELECT A.ACTION_ID, A.TIPO_NOME, A.ORIGEM_NOME, A.DESCRICAO, A.STATUS, A.JUSTIFICATIVA, A.CRIADO_EM, A.CRIADO_POR_NOME, A.CRIADO_POR_EMAIL, A.TAGS_TEXTO FROM ACOES A WHERE A.TICKET_ID = {{ticketId}} AND A.IS_DELETED = 0 ORDER BY A.CRIADO_EM",
+  "createdBy": "leandro.moreira@neuonsolucoes.com",
+  "createdAt": "2026-03-05T22:27:27",
+  "updatedAt": "2026-03-05T22:27:27"
+}

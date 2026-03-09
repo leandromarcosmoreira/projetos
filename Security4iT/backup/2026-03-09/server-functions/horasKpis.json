@@ -1,0 +1,10 @@
+{
+  "id": 125,
+  "name": "horasKpis",
+  "type": "SQL",
+  "description": "KPIs horas",
+  "code": "SELECT COUNT(*) AS TOTAL_APONTAMENTOS, ROUND(SUM(CAST(AP.TEMPO_CONTABIL AS DECIMAL)), 1) AS TOTAL_HORAS, COUNT(DISTINCT AP.CRIADO_POR_NOME) AS TOTAL_ANALISTAS, COUNT(DISTINCT AP.TICKET_ID) AS TOTAL_TICKETS FROM APONTAMENTOS AP WHERE ('{{mes}}' = '' OR SUBSTRING(AP.DATA, 1, 7) = '{{mes}}') AND ('{{analista}}' = '' OR AP.CRIADO_POR_NOME = '{{analista}}') AND ('{{equipe}}' = '' OR AP.EQUIPE_NOME = '{{equipe}}') AND ('{{tipo}}' = '' OR AP.TIPO_TRABALHO = '{{tipo}}') AND ('{{atividade}}' = '' OR AP.ATIVIDADE = '{{atividade}}')\nAND ('{{dataInicio}}' = '' OR SUBSTRING(AP.DATA, 1, 10) >= '{{dataInicio}}')\nAND ('{{dataFim}}' = '' OR SUBSTRING(AP.DATA, 1, 10) <= '{{dataFim}}')",
+  "createdBy": "leandro.moreira@neuonsolucoes.com",
+  "createdAt": "2026-03-05T22:27:25",
+  "updatedAt": "2026-03-07T18:09:05"
+}

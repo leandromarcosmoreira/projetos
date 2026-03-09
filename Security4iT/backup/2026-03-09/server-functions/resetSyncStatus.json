@@ -1,0 +1,10 @@
+{
+  "id": 219,
+  "name": "resetSyncStatus",
+  "type": "SQL",
+  "description": "Reseta status de sync para forcar recarga total",
+  "code": "UPDATE SYNC_STATUS SET STATUS = 'RESET', TIPO = 'PENDING_FULL', ENDPOINT = 'tickets/past', TOTAL_PROCESSADOS = 0, ULTIMO_SYNC = '', ERRO = '' WHERE ID = (SELECT MAX(s.ID) FROM (SELECT ID FROM SYNC_STATUS) s)",
+  "createdBy": "leandro.moreira@neuonsolucoes.com",
+  "createdAt": "2026-03-07T14:11:19",
+  "updatedAt": "2026-03-07T14:11:19"
+}

@@ -1,0 +1,371 @@
+{
+  "name": "TICKETS",
+  "columns": [
+    {
+      "name": "ID",
+      "type": "INT",
+      "isPk": true,
+      "nullable": false
+    },
+    {
+      "name": "PROTOCOLO",
+      "type": "TEXT(50)",
+      "isPk": false,
+      "nullable": true
+    },
+    {
+      "name": "TIPO",
+      "type": "INT",
+      "isPk": false,
+      "nullable": true
+    },
+    {
+      "name": "TIPO_NOME",
+      "type": "TEXT(30)",
+      "isPk": false,
+      "nullable": true
+    },
+    {
+      "name": "ASSUNTO",
+      "type": "TEXT(500)",
+      "isPk": false,
+      "nullable": true
+    },
+    {
+      "name": "CATEGORIA",
+      "type": "TEXT(200)",
+      "isPk": false,
+      "nullable": true
+    },
+    {
+      "name": "URGENCIA",
+      "type": "TEXT(50)",
+      "isPk": false,
+      "nullable": true
+    },
+    {
+      "name": "STATUS",
+      "type": "TEXT(100)",
+      "isPk": false,
+      "nullable": true
+    },
+    {
+      "name": "STATUS_BASE",
+      "type": "TEXT(50)",
+      "isPk": false,
+      "nullable": true
+    },
+    {
+      "name": "JUSTIFICATIVA",
+      "type": "TEXT(500)",
+      "isPk": false,
+      "nullable": true
+    },
+    {
+      "name": "ORIGEM",
+      "type": "INT",
+      "isPk": false,
+      "nullable": true
+    },
+    {
+      "name": "ORIGEM_NOME",
+      "type": "TEXT(50)",
+      "isPk": false,
+      "nullable": true
+    },
+    {
+      "name": "CRIADO_EM",
+      "type": "TEXT(19)",
+      "isPk": false,
+      "nullable": true
+    },
+    {
+      "name": "ATUALIZADO_EM",
+      "type": "TEXT(19)",
+      "isPk": false,
+      "nullable": true
+    },
+    {
+      "name": "RESOLVIDO_EM",
+      "type": "TEXT(19)",
+      "isPk": false,
+      "nullable": true
+    },
+    {
+      "name": "REABERTO_EM",
+      "type": "TEXT(19)",
+      "isPk": false,
+      "nullable": true
+    },
+    {
+      "name": "FECHADO_EM",
+      "type": "TEXT(19)",
+      "isPk": false,
+      "nullable": true
+    },
+    {
+      "name": "CANCELADO_EM",
+      "type": "TEXT(19)",
+      "isPk": false,
+      "nullable": true
+    },
+    {
+      "name": "ULTIMA_ACAO_EM",
+      "type": "TEXT(19)",
+      "isPk": false,
+      "nullable": true
+    },
+    {
+      "name": "QTD_ACOES",
+      "type": "INT",
+      "isPk": false,
+      "nullable": true
+    },
+    {
+      "name": "TEMPO_VIDA_MINUTOS",
+      "type": "TEXT(20)",
+      "isPk": false,
+      "nullable": true
+    },
+    {
+      "name": "TEMPO_PARADO",
+      "type": "TEXT(20)",
+      "isPk": false,
+      "nullable": true
+    },
+    {
+      "name": "TEMPO_PARADO_UTIL",
+      "type": "TEXT(20)",
+      "isPk": false,
+      "nullable": true
+    },
+    {
+      "name": "RESOLVIDO_PRIMEIRO_CONTATO",
+      "type": "INT",
+      "isPk": false,
+      "nullable": true
+    },
+    {
+      "name": "ORIGEM_EMAIL",
+      "type": "TEXT(300)",
+      "isPk": false,
+      "nullable": true
+    },
+    {
+      "name": "SERVICO_NIVEL1_ID",
+      "type": "INT",
+      "isPk": false,
+      "nullable": true
+    },
+    {
+      "name": "SERVICO_NIVEL1",
+      "type": "TEXT(200)",
+      "isPk": false,
+      "nullable": true
+    },
+    {
+      "name": "SERVICO_NIVEL2",
+      "type": "TEXT(200)",
+      "isPk": false,
+      "nullable": true
+    },
+    {
+      "name": "SERVICO_NIVEL3",
+      "type": "TEXT(200)",
+      "isPk": false,
+      "nullable": true
+    },
+    {
+      "name": "FORMULARIO_CONTATO",
+      "type": "TEXT(200)",
+      "isPk": false,
+      "nullable": true
+    },
+    {
+      "name": "CC",
+      "type": "TEXT(500)",
+      "isPk": false,
+      "nullable": true
+    },
+    {
+      "name": "CHAT_WIDGET",
+      "type": "TEXT(200)",
+      "isPk": false,
+      "nullable": true
+    },
+    {
+      "name": "CHAT_GRUPO",
+      "type": "TEXT(200)",
+      "isPk": false,
+      "nullable": true
+    },
+    {
+      "name": "CHAT_TEMPO_CONVERSA",
+      "type": "TEXT(50)",
+      "isPk": false,
+      "nullable": true
+    },
+    {
+      "name": "CHAT_TEMPO_ESPERA",
+      "type": "TEXT(50)",
+      "isPk": false,
+      "nullable": true
+    },
+    {
+      "name": "SEQUENCIA",
+      "type": "TEXT(50)",
+      "isPk": false,
+      "nullable": true
+    },
+    {
+      "name": "SLA_ACORDO",
+      "type": "TEXT(200)",
+      "isPk": false,
+      "nullable": true
+    },
+    {
+      "name": "SLA_REGRA",
+      "type": "TEXT(200)",
+      "isPk": false,
+      "nullable": true
+    },
+    {
+      "name": "SLA_TEMPO_SOLUCAO",
+      "type": "INT",
+      "isPk": false,
+      "nullable": true
+    },
+    {
+      "name": "SLA_TEMPO_RESPOSTA",
+      "type": "INT",
+      "isPk": false,
+      "nullable": true
+    },
+    {
+      "name": "SLA_DATA_SOLUCAO",
+      "type": "TEXT(19)",
+      "isPk": false,
+      "nullable": true
+    },
+    {
+      "name": "SLA_DATA_RESPOSTA",
+      "type": "TEXT(19)",
+      "isPk": false,
+      "nullable": true
+    },
+    {
+      "name": "SLA_SOLUCAO_PAUSADA",
+      "type": "INT",
+      "isPk": false,
+      "nullable": true
+    },
+    {
+      "name": "SLA_SOLUCAO_ALTERADA_USER",
+      "type": "INT",
+      "isPk": false,
+      "nullable": true
+    },
+    {
+      "name": "SLA_RESPOSTA_REAL",
+      "type": "TEXT(19)",
+      "isPk": false,
+      "nullable": true
+    },
+    {
+      "name": "IS_DELETED",
+      "type": "INT",
+      "isPk": false,
+      "nullable": true
+    },
+    {
+      "name": "OWNER_ID",
+      "type": "TEXT(50)",
+      "isPk": false,
+      "nullable": true
+    },
+    {
+      "name": "OWNER_NOME",
+      "type": "TEXT(200)",
+      "isPk": false,
+      "nullable": true
+    },
+    {
+      "name": "OWNER_EMAIL",
+      "type": "TEXT(200)",
+      "isPk": false,
+      "nullable": true
+    },
+    {
+      "name": "OWNER_TELEFONE",
+      "type": "TEXT(50)",
+      "isPk": false,
+      "nullable": true
+    },
+    {
+      "name": "OWNER_TIPO_PESSOA",
+      "type": "INT",
+      "isPk": false,
+      "nullable": true
+    },
+    {
+      "name": "OWNER_TIPO_PERFIL",
+      "type": "INT",
+      "isPk": false,
+      "nullable": true
+    },
+    {
+      "name": "OWNER_FOTO",
+      "type": "TEXT(200)",
+      "isPk": false,
+      "nullable": true
+    },
+    {
+      "name": "EQUIPE",
+      "type": "TEXT(200)",
+      "isPk": false,
+      "nullable": true
+    },
+    {
+      "name": "CRIADO_POR_ID",
+      "type": "TEXT(50)",
+      "isPk": false,
+      "nullable": true
+    },
+    {
+      "name": "CRIADO_POR_NOME",
+      "type": "TEXT(200)",
+      "isPk": false,
+      "nullable": true
+    },
+    {
+      "name": "CRIADO_POR_EMAIL",
+      "type": "TEXT(200)",
+      "isPk": false,
+      "nullable": true
+    },
+    {
+      "name": "CRIADO_POR_TIPO_PESSOA",
+      "type": "INT",
+      "isPk": false,
+      "nullable": true
+    },
+    {
+      "name": "CRIADO_POR_TIPO_PERFIL",
+      "type": "INT",
+      "isPk": false,
+      "nullable": true
+    },
+    {
+      "name": "TAGS_TEXTO",
+      "type": "TEXT(500)",
+      "isPk": false,
+      "nullable": true
+    },
+    {
+      "name": "SERVICO_COMPLETO",
+      "type": "TEXT(500)",
+      "isPk": false,
+      "nullable": true
+    }
+  ]
+}

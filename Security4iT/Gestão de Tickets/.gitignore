@@ -1,0 +1,10 @@
+# Ignorar arquivos temporários e de dados
+mysql_data/
+*.log
+archive/
+logs/
+.DS_Store
+*.tmp
+*.bak
+*.swp
+*~

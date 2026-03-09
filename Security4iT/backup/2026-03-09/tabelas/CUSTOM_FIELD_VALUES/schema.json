@@ -1,0 +1,41 @@
+{
+  "name": "CUSTOM_FIELD_VALUES",
+  "columns": [
+    {
+      "name": "ID",
+      "type": "INT",
+      "isPk": true,
+      "nullable": false
+    },
+    {
+      "name": "TICKET_ID",
+      "type": "INT",
+      "isPk": false,
+      "nullable": true
+    },
+    {
+      "name": "CUSTOM_FIELD_ID",
+      "type": "INT",
+      "isPk": false,
+      "nullable": true
+    },
+    {
+      "name": "CUSTOM_FIELD_RULE_ID",
+      "type": "INT",
+      "isPk": false,
+      "nullable": true
+    },
+    {
+      "name": "LINE_NUM",
+      "type": "INT",
+      "isPk": false,
+      "nullable": true
+    },
+    {
+      "name": "VALOR",
+      "type": "TEXT(500)",
+      "isPk": false,
+      "nullable": true
+    }
+  ]
+}

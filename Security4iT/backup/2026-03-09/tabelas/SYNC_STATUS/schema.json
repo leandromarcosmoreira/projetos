@@ -1,0 +1,53 @@
+{
+  "name": "SYNC_STATUS",
+  "columns": [
+    {
+      "name": "ID",
+      "type": "INT",
+      "isPk": true,
+      "nullable": false
+    },
+    {
+      "name": "STATUS",
+      "type": "TEXT(50)",
+      "isPk": false,
+      "nullable": true
+    },
+    {
+      "name": "TIPO",
+      "type": "TEXT(50)",
+      "isPk": false,
+      "nullable": true
+    },
+    {
+      "name": "ENDPOINT",
+      "type": "TEXT(50)",
+      "isPk": false,
+      "nullable": true
+    },
+    {
+      "name": "TOTAL_PROCESSADOS",
+      "type": "INT",
+      "isPk": false,
+      "nullable": true
+    },
+    {
+      "name": "ULTIMO_SYNC",
+      "type": "TEXT(19)",
+      "isPk": false,
+      "nullable": true
+    },
+    {
+      "name": "ERRO",
+      "type": "TEXT(500)",
+      "isPk": false,
+      "nullable": true
+    },
+    {
+      "name": "CRIADO_EM",
+      "type": "TEXT(19)",
+      "isPk": false,
+      "nullable": true
+    }
+  ]
+}

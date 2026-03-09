@@ -1,0 +1,27 @@
+{
+  "name": "projetos",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/leandromarcosmoreira/projetos.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/leandromarcosmoreira/projetos/issues"
+  },
+  "homepage": "https://github.com/leandromarcosmoreira/projetos#readme",
+  "dependencies": {
+    "dotenv": "^17.3.1",
+    "mitra-interactions-sdk": "^1.0.36",
+    "mitra-sdk": "^1.0.41",
+    "puppeteer": "^24.38.0"
+  }
+}

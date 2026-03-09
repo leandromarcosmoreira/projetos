@@ -1,0 +1,10 @@
+{
+  "id": 284,
+  "name": "tempoResolucaoFaixasDias",
+  "type": "SQL",
+  "description": "Tempo resolucao faixas em dias",
+  "code": "SELECT CASE WHEN CAST(T.TEMPO_VIDA_MINUTOS AS DECIMAL) / 1440 <= 7 THEN '0 a 7 dias' WHEN CAST(T.TEMPO_VIDA_MINUTOS AS DECIMAL) / 1440 <= 15 THEN '8 a 15 dias' WHEN CAST(T.TEMPO_VIDA_MINUTOS AS DECIMAL) / 1440 <= 21 THEN '15 a 21 dias' WHEN CAST(T.TEMPO_VIDA_MINUTOS AS DECIMAL) / 1440 <= 28 THEN '21 a 28 dias' ELSE 'Acima de 28 dias' END AS name, COUNT(*) AS value FROM TICKETS T WHERE ('{{mes}}' = '' OR SUBSTRING(T.CRIADO_EM, 1, 7) = '{{mes}}') AND ('{{status}}' = '' OR T.STATUS = '{{status}}') AND ('{{categoria}}' = '' OR T.CATEGORIA = '{{categoria}}') AND ('{{analista}}' = '' OR T.OWNER_NOME = '{{analista}}') AND ('{{urgencia}}' = '' OR T.URGENCIA = '{{urgencia}}') AND ('{{equipe}}' = '' OR T.EQUIPE = '{{equipe}}') AND ('{{origem}}' = '' OR T.ORIGEM_NOME = '{{origem}}') AND CAST(T.TEMPO_VIDA_MINUTOS AS DECIMAL) > 0 GROUP BY name ORDER BY MIN(CAST(T.TEMPO_VIDA_MINUTOS AS DECIMAL))",
+  "createdBy": "leandro.moreira@neuonsolucoes.com",
+  "createdAt": "2026-03-09T02:59:18",
+  "updatedAt": "2026-03-09T02:59:18"
+}

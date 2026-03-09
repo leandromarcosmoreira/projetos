@@ -1,0 +1,2391 @@
+{
+  "project": {
+    "id": 19983,
+    "name": "Security4iT-Gestão de Tickets"
+  },
+  "inventory": {
+    "jdbcs": [
+      {
+        "id": 1,
+        "name": "Auto connect"
+      }
+    ],
+    "tables": [
+      {
+        "name": "ACOES",
+        "columns": [
+          {
+            "name": "ID",
+            "type": "INT",
+            "isPk": true,
+            "nullable": false
+          },
+          {
+            "name": "TICKET_ID",
+            "type": "INT",
+            "isPk": false,
+            "nullable": true
+          },
+          {
+            "name": "ACTION_ID",
+            "type": "INT",
+            "isPk": false,
+            "nullable": true
+          },
+          {
+            "name": "TIPO",
+            "type": "INT",
+            "isPk": false,
+            "nullable": true
+          },
+          {
+            "name": "TIPO_NOME",
+            "type": "TEXT(50)",
+            "isPk": false,
+            "nullable": true
+          },
+          {
+            "name": "ORIGEM",
+            "type": "INT",
+            "isPk": false,
+            "nullable": true
+          },
+          {
+            "name": "ORIGEM_NOME",
+            "type": "TEXT(50)",
+            "isPk": false,
+            "nullable": true
+          },
+          {
+            "name": "DESCRICAO",
+            "type": "TEXT(5000)",
+            "isPk": false,
+            "nullable": true
+          },
+          {
+            "name": "STATUS",
+            "type": "TEXT(100)",
+            "isPk": false,
+            "nullable": true
+          },
+          {
+            "name": "JUSTIFICATIVA",
+            "type": "TEXT(500)",
+            "isPk": false,
+            "nullable": true
+          },
+          {
+            "name": "CRIADO_EM",
+            "type": "TEXT(19)",
+            "isPk": false,
+            "nullable": true
+          },
+          {
+            "name": "IS_DELETED",
+            "type": "INT",
+            "isPk": false,
+            "nullable": true
+          },
+          {
+            "name": "CRIADO_POR_ID",
+            "type": "TEXT(50)",
+            "isPk": false,
+            "nullable": true
+          },
+          {
+            "name": "CRIADO_POR_NOME",
+            "type": "TEXT(200)",
+            "isPk": false,
+            "nullable": true
+          },
+          {
+            "name": "CRIADO_POR_EMAIL",
+            "type": "TEXT(200)",
+            "isPk": false,
+            "nullable": true
+          },
+          {
+            "name": "CRIADO_POR_TIPO_PESSOA",
+            "type": "INT",
+            "isPk": false,
+            "nullable": true
+          },
+          {
+            "name": "CRIADO_POR_TIPO_PERFIL",
+            "type": "INT",
+            "isPk": false,
+            "nullable": true
+          },
+          {
+            "name": "TAGS_TEXTO",
+            "type": "TEXT(500)",
+            "isPk": false,
+            "nullable": true
+          },
+          {
+            "name": "HTML_DESCRICAO",
+            "type": "TEXT(5000)",
+            "isPk": false,
+            "nullable": true
+          }
+        ]
+      },
+      {
+        "name": "ACOES_ANEXOS",
+        "columns": [
+          {
+            "name": "ID",
+            "type": "INT",
+            "isPk": true,
+            "nullable": false
+          },
+          {
+            "name": "TICKET_ID",
+            "type": "INT",
+            "isPk": false,
+            "nullable": true
+          },
+          {
+            "name": "ACTION_ID",
+            "type": "INT",
+            "isPk": false,
+            "nullable": true
+          },
+          {
+            "name": "NOME_ARQUIVO",
+            "type": "TEXT(500)",
+            "isPk": false,
+            "nullable": true
+          },
+          {
+            "name": "TAMANHO_BYTES",
+            "type": "INT",
+            "isPk": false,
+            "nullable": true
+          },
+          {
+            "name": "CRIADO_EM",
+            "type": "TEXT(19)",
+            "isPk": false,
+            "nullable": true
+          },
+          {
+            "name": "PATH",
+            "type": "TEXT(500)",
+            "isPk": false,
+            "nullable": true
+          }
+        ]
+      },
+      {
+        "name": "ACOES_DESPESAS",
+        "columns": [
+          {
+            "name": "ID",
+            "type": "INT",
+            "isPk": true,
+            "nullable": false
+          },
+          {
+            "name": "TICKET_ID",
+            "type": "INT",
+            "isPk": false,
+            "nullable": true
+          },
+          {
+            "name": "ACTION_ID",
+            "type": "INT",
+            "isPk": false,
+            "nullable": true
+          },
+          {
+            "name": "TIPO",
+            "type": "TEXT(200)",
+            "isPk": false,
+            "nullable": true
+          },
+          {
+            "name": "VALOR",
+            "type": "DECIMAL(15,2)",
+            "isPk": false,
+            "nullable": true
+          },
+          {
+            "name": "DATA",
+            "type": "TEXT(19)",
+            "isPk": false,
+            "nullable": true
+          },
+          {
+            "name": "DESCRICAO",
+            "type": "TEXT(500)",
+            "isPk": false,
+            "nullable": true
+          }
+        ]
+      },
+      {
+        "name": "ANALISTAS",
+        "columns": [
+          {
+            "name": "ID",
+            "type": "INT",
+            "isPk": true,
+            "nullable": false
+          },
+          {
+            "name": "MOVIDESK_ID",
+            "type": "TEXT(50)",
+            "isPk": false,
+            "nullable": true
+          },
+          {
+            "name": "NOME",
+            "type": "TEXT(200)",
+            "isPk": false,
+            "nullable": true
+          },
+          {
+            "name": "EMAIL",
+            "type": "TEXT(200)",
+            "isPk": false,
+            "nullable": true
+          },
+          {
+            "name": "TELEFONE",
+            "type": "TEXT(50)",
+            "isPk": false,
+            "nullable": true
+          },
+          {
+            "name": "EQUIPE",
+            "type": "TEXT(200)",
+            "isPk": false,
+            "nullable": true
+          },
+          {
+            "name": "TIPO_PESSOA",
+            "type": "INT",
+            "isPk": false,
+            "nullable": true
+          },
+          {
+            "name": "TIPO_PERFIL",
+            "type": "INT",
+            "isPk": false,
+            "nullable": true
+          },
+          {
+            "name": "FOTO",
+            "type": "TEXT(300)",
+            "isPk": false,
+            "nullable": true
+          }
+        ]
+      },
+      {
+        "name": "APONTAMENTOS",
+        "columns": [
+          {
+            "name": "ID",
+            "type": "INT",
+            "isPk": true,
+            "nullable": false
+          },
+          {
+            "name": "MOVIDESK_TA_ID",
+            "type": "INT",
+            "isPk": false,
+            "nullable": true
+          },
+          {
+            "name": "TICKET_ID",
+            "type": "INT",
+            "isPk": false,
+            "nullable": true
+          },
+          {
+            "name": "ACTION_ID",
+            "type": "INT",
+            "isPk": false,
+            "nullable": true
+          },
+          {
+            "name": "ATIVIDADE",
+            "type": "TEXT(200)",
+            "isPk": false,
+            "nullable": true
+          },
+          {
+            "name": "DATA",
+            "type": "TEXT(19)",
+            "isPk": false,
+            "nullable": true
+          },
+          {
+            "name": "HORA_INICIO",
+            "type": "TEXT(10)",
+            "isPk": false,
+            "nullable": true
+          },
+          {
+            "name": "HORA_FIM",
+            "type": "TEXT(10)",
+            "isPk": false,
+            "nullable": true
+          },
+          {
+            "name": "TEMPO_TRABALHO",
+            "type": "TEXT(10)",
+            "isPk": false,
+            "nullable": true
+          },
+          {
+            "name": "TEMPO_CONTABIL",
+            "type": "TEXT(30)",
+            "isPk": false,
+            "nullable": true
+          },
+          {
+            "name": "TIPO_TRABALHO",
+            "type": "TEXT(200)",
+            "isPk": false,
+            "nullable": true
+          },
+          {
+            "name": "CRIADO_POR_ID",
+            "type": "TEXT(50)",
+            "isPk": false,
+            "nullable": true
+          },
+          {
+            "name": "CRIADO_POR_NOME",
+            "type": "TEXT(200)",
+            "isPk": false,
+            "nullable": true
+          },
+          {
+            "name": "CRIADO_POR_EMAIL",
+            "type": "TEXT(200)",
+            "isPk": false,
+            "nullable": true
+          },
+          {
+            "name": "EQUIPE_ID",
+            "type": "INT",
+            "isPk": false,
+            "nullable": true
+          },
+          {
+            "name": "EQUIPE_NOME",
+            "type": "TEXT(200)",
+            "isPk": false,
+            "nullable": true
+          }
+        ]
+      },
+      {
+        "name": "AUDIT_LOG",
+        "columns": [
+          {
+            "name": "ID",
+            "type": "INT",
+            "isPk": true,
+            "nullable": false
+          },
+          {
+            "name": "USUARIO",
+            "type": "TEXT(200)",
+            "isPk": false,
+            "nullable": true
+          },
+          {
+            "name": "ACAO",
+            "type": "TEXT(100)",
+            "isPk": false,
+            "nullable": true
+          },
+          {
+            "name": "CAMPO",
+            "type": "TEXT(100)",
+            "isPk": false,
+            "nullable": true
+          },
+          {
+            "name": "VALOR_ANTERIOR",
+            "type": "TEXT(500)",
+            "isPk": false,
+            "nullable": true
+          },
+          {
+            "name": "VALOR_NOVO",
+            "type": "TEXT(500)",
+            "isPk": false,
+            "nullable": true
+          },
+          {
+            "name": "DETALHES",
+            "type": "TEXT(1000)",
+            "isPk": false,
+            "nullable": true
+          },
+          {
+            "name": "DATA",
+            "type": "TEXT(19)",
+            "isPk": false,
+            "nullable": true
+          }
+        ]
+      },
+      {
+        "name": "CLIENTES",
+        "columns": [
+          {
+            "name": "ID",
+            "type": "INT",
+            "isPk": true,
+            "nullable": false
+          },
+          {
+            "name": "MOVIDESK_ID",
+            "type": "TEXT(50)",
+            "isPk": false,
+            "nullable": true
+          },
+          {
+            "name": "NOME",
+            "type": "TEXT(300)",
+            "isPk": false,
+            "nullable": true
+          },
+          {
+            "name": "EMAIL",
+            "type": "TEXT(200)",
+            "isPk": false,
+            "nullable": true
+          },
+          {
+            "name": "TELEFONE",
+            "type": "TEXT(50)",
+            "isPk": false,
+            "nullable": true
+          },
+          {
+            "name": "TIPO_PESSOA",
+            "type": "INT",
+            "isPk": false,
+            "nullable": true
+          },
+          {
+            "name": "TIPO_PERFIL",
+            "type": "INT",
+            "isPk": false,
+            "nullable": true
+          },
+          {
+            "name": "ORG_NOME",
+            "type": "TEXT(300)",
+            "isPk": false,
+            "nullable": true
+          },
+          {
+            "name": "ENDERECO",
+            "type": "TEXT(300)",
+            "isPk": false,
+            "nullable": true
+          },
+          {
+            "name": "CIDADE",
+            "type": "TEXT(100)",
+            "isPk": false,
+            "nullable": true
+          },
+          {
+            "name": "CEP",
+            "type": "TEXT(20)",
+            "isPk": false,
+            "nullable": true
+          }
+        ]
+      },
+      {
+        "name": "CONFIGURACOES",
+        "columns": [
+          {
+            "name": "ID",
+            "type": "INT",
+            "isPk": true,
+            "nullable": false
+          },
+          {
+            "name": "CHAVE",
+            "type": "TEXT(100)",
+            "isPk": false,
+            "nullable": true
+          },
+          {
+            "name": "VALOR",
+            "type": "TEXT(500)",
+            "isPk": false,
+            "nullable": true
+          },
+          {
+            "name": "DESCRICAO",
+            "type": "TEXT(200)",
+            "isPk": false,
+            "nullable": true
+          },
+          {
+            "name": "GRUPO",
+            "type": "TEXT(50)",
+            "isPk": false,
+            "nullable": true
+          },
+          {
+            "name": "ATUALIZADO_EM",
+            "type": "TEXT(19)",
+            "isPk": false,
+            "nullable": true
+          },
+          {
+            "name": "ATUALIZADO_POR",
+            "type": "TEXT(200)",
+            "isPk": false,
+            "nullable": true
+          }
+        ]
+      },
+      {
+        "name": "CUSTOM_FIELD_ITEMS",
+        "columns": [
+          {
+            "name": "ID",
+            "type": "INT",
+            "isPk": true,
+            "nullable": false
+          },
+          {
+            "name": "TICKET_ID",
+            "type": "INT",
+            "isPk": false,
+            "nullable": true
+          },
+          {
+            "name": "CUSTOM_FIELD_ID",
+            "type": "INT",
+            "isPk": false,
+            "nullable": true
+          },
+          {
+            "name": "CUSTOM_FIELD_RULE_ID",
+            "type": "INT",
+            "isPk": false,
+            "nullable": true
+          },
+          {
+            "name": "LINE_NUM",
+            "type": "INT",
+            "isPk": false,
+            "nullable": true
+          },
+          {
+            "name": "ITEM_VALOR",
+            "type": "TEXT(500)",
+            "isPk": false,
+            "nullable": true
+          },
+          {
+            "name": "PERSON_ID",
+            "type": "TEXT(50)",
+            "isPk": false,
+            "nullable": true
+          },
+          {
+            "name": "CLIENT_ID",
+            "type": "TEXT(50)",
+            "isPk": false,
+            "nullable": true
+          },
+          {
+            "name": "TEAM",
+            "type": "TEXT(200)",
+            "isPk": false,
+            "nullable": true
+          },
+          {
+            "name": "STORAGE_FILE_GUID",
+            "type": "TEXT(100)",
+            "isPk": false,
+            "nullable": true
+          },
+          {
+            "name": "FILE_NAME",
+            "type": "TEXT(300)",
+            "isPk": false,
+            "nullable": true
+          }
+        ]
+      },
+      {
+        "name": "CUSTOM_FIELD_VALUES",
+        "columns": [
+          {
+            "name": "ID",
+            "type": "INT",
+            "isPk": true,
+            "nullable": false
+          },
+          {
+            "name": "TICKET_ID",
+            "type": "INT",
+            "isPk": false,
+            "nullable": true
+          },
+          {
+            "name": "CUSTOM_FIELD_ID",
+            "type": "INT",
+            "isPk": false,
+            "nullable": true
+          },
+          {
+            "name": "CUSTOM_FIELD_RULE_ID",
+            "type": "INT",
+            "isPk": false,
+            "nullable": true
+          },
+          {
+            "name": "LINE_NUM",
+            "type": "INT",
+            "isPk": false,
+            "nullable": true
+          },
+          {
+            "name": "VALOR",
+            "type": "TEXT(500)",
+            "isPk": false,
+            "nullable": true
+          }
+        ]
+      },
+      {
+        "name": "INT_USER",
+        "columns": [
+          {
+            "name": "ID",
+            "type": "INT",
+            "isPk": true,
+            "nullable": false
+          },
+          {
+            "name": "DESCR",
+            "type": "TEXT(256)",
+            "isPk": false,
+            "nullable": true
+          },
+          {
+            "name": "ISDEV",
+            "type": "INT",
+            "isPk": false,
+            "nullable": true
+          },
+          {
+            "name": "CUSTOM_DOMAIN",
+            "type": "TEXT(100)",
+            "isPk": false,
+            "nullable": true
+          }
+        ]
+      },
+      {
+        "name": "OWNER_HISTORICO",
+        "columns": [
+          {
+            "name": "ID",
+            "type": "INT",
+            "isPk": true,
+            "nullable": false
+          },
+          {
+            "name": "TICKET_ID",
+            "type": "INT",
+            "isPk": false,
+            "nullable": true
+          },
+          {
+            "name": "EQUIPE",
+            "type": "TEXT(200)",
+            "isPk": false,
+            "nullable": true
+          },
+          {
+            "name": "DATA_MUDANCA",
+            "type": "TEXT(19)",
+            "isPk": false,
+            "nullable": true
+          },
+          {
+            "name": "TEMPO_PERMANENCIA",
+            "type": "TEXT(30)",
+            "isPk": false,
+            "nullable": true
+          },
+          {
+            "name": "TEMPO_PERMANENCIA_UTIL",
+            "type": "TEXT(30)",
+            "isPk": false,
+            "nullable": true
+          }
+        ]
+      },
+      {
+        "name": "PESQUISAS",
+        "columns": [
+          {
+            "name": "ID",
+            "type": "INT",
+            "isPk": true,
+            "nullable": false
+          },
+          {
+            "name": "SURVEY_ID",
+            "type": "TEXT(50)",
+            "isPk": false,
+            "nullable": true
+          },
+          {
+            "name": "QUESTION_ID",
+            "type": "TEXT(50)",
+            "isPk": false,
+            "nullable": true
+          },
+          {
+            "name": "TIPO",
+            "type": "INT",
+            "isPk": false,
+            "nullable": true
+          },
+          {
+            "name": "CLIENT_ID",
+            "type": "TEXT(50)",
+            "isPk": false,
+            "nullable": true
+          },
+          {
+            "name": "TICKET_ID",
+            "type": "INT",
+            "isPk": false,
+            "nullable": true
+          },
+          {
+            "name": "DATA_RESPOSTA",
+            "type": "TEXT(19)",
+            "isPk": false,
+            "nullable": true
+          },
+          {
+            "name": "COMENTARIO",
+            "type": "TEXT(1000)",
+            "isPk": false,
+            "nullable": true
+          },
+          {
+            "name": "VALOR",
+            "type": "INT",
+            "isPk": false,
+            "nullable": true
+          }
+        ]
+      },
+      {
+        "name": "REQUEST_LOG",
+        "columns": [
+          {
+            "name": "ID",
+            "type": "INT",
+            "isPk": true,
+            "nullable": false
+          },
+          {
+            "name": "SYNC_SESSION",
+            "type": "TEXT(50)",
+            "isPk": false,
+            "nullable": true
+          },
+          {
+            "name": "TIPO",
+            "type": "TEXT(30)",
+            "isPk": false,
+            "nullable": true
+          },
+          {
+            "name": "REQUEST_URL",
+            "type": "TEXT(2000)",
+            "isPk": false,
+            "nullable": true
+          },
+          {
+            "name": "REQUEST_METHOD",
+            "type": "TEXT(10)",
+            "isPk": false,
+            "nullable": true
+          },
+          {
+            "name": "RESPONSE_CODE",
+            "type": "INT",
+            "isPk": false,
+            "nullable": true
+          },
+          {
+            "name": "RESPONSE_BODY",
+            "type": "TEXT(4000)",
+            "isPk": false,
+            "nullable": true
+          },
+          {
+            "name": "TICKETS_COUNT",
+            "type": "INT",
+            "isPk": false,
+            "nullable": true
+          },
+          {
+            "name": "ERRO",
+            "type": "TEXT(1000)",
+            "isPk": false,
+            "nullable": true
+          },
+          {
+            "name": "DURACAO_MS",
+            "type": "INT",
+            "isPk": false,
+            "nullable": true
+          },
+          {
+            "name": "DATA",
+            "type": "TEXT(19)",
+            "isPk": false,
+            "nullable": true
+          }
+        ]
+      },
+      {
+        "name": "STATUS_HISTORICO",
+        "columns": [
+          {
+            "name": "ID",
+            "type": "INT",
+            "isPk": true,
+            "nullable": false
+          },
+          {
+            "name": "TICKET_ID",
+            "type": "INT",
+            "isPk": false,
+            "nullable": true
+          },
+          {
+            "name": "STATUS",
+            "type": "TEXT(100)",
+            "isPk": false,
+            "nullable": true
+          },
+          {
+            "name": "JUSTIFICATIVA",
+            "type": "TEXT(500)",
+            "isPk": false,
+            "nullable": true
+          },
+          {
+            "name": "DATA_MUDANCA",
+            "type": "TEXT(19)",
+            "isPk": false,
+            "nullable": true
+          },
+          {
+            "name": "TEMPO_PERMANENCIA",
+            "type": "TEXT(30)",
+            "isPk": false,
+            "nullable": true
+          },
+          {
+            "name": "TEMPO_PERMANENCIA_UTIL",
+            "type": "TEXT(30)",
+            "isPk": false,
+            "nullable": true
+          }
+        ]
+      },
+      {
+        "name": "SYNC_AUDIT",
+        "columns": [
+          {
+            "name": "ID",
+            "type": "INT",
+            "isPk": true,
+            "nullable": false
+          },
+          {
+            "name": "TIPO",
+            "type": "TEXT(30)",
+            "isPk": false,
+            "nullable": true
+          },
+          {
+            "name": "MENSAGEM",
+            "type": "TEXT(500)",
+            "isPk": false,
+            "nullable": true
+          },
+          {
+            "name": "DETALHES",
+            "type": "TEXT(2000)",
+            "isPk": false,
+            "nullable": true
+          },
+          {
+            "name": "ENDPOINT",
+            "type": "TEXT(100)",
+            "isPk": false,
+            "nullable": true
+          },
+          {
+            "name": "TICKETS_PROCESSADOS",
+            "type": "INT",
+            "isPk": false,
+            "nullable": true
+          },
+          {
+            "name": "TICKETS_INSERIDOS",
+            "type": "INT",
+            "isPk": false,
+            "nullable": true
+          },
+          {
+            "name": "TICKETS_ATUALIZADOS",
+            "type": "INT",
+            "isPk": false,
+            "nullable": true
+          },
+          {
+            "name": "TICKETS_ERRO",
+            "type": "INT",
+            "isPk": false,
+            "nullable": true
+          },
+          {
+            "name": "DURACAO_SEG",
+            "type": "INT",
+            "isPk": false,
+            "nullable": true
+          },
+          {
+            "name": "DATA",
+            "type": "TEXT(19)",
+            "isPk": false,
+            "nullable": true
+          }
+        ]
+      },
+      {
+        "name": "SYNC_LOG",
+        "columns": [
+          {
+            "name": "ID",
+            "type": "INT",
+            "isPk": true,
+            "nullable": false
+          },
+          {
+            "name": "TIPO",
+            "type": "TEXT(30)",
+            "isPk": false,
+            "nullable": true
+          },
+          {
+            "name": "MENSAGEM",
+            "type": "TEXT(500)",
+            "isPk": false,
+            "nullable": true
+          },
+          {
+            "name": "DETALHES",
+            "type": "TEXT(2000)",
+            "isPk": false,
+            "nullable": true
+          },
+          {
+            "name": "DATA",
+            "type": "TEXT(19)",
+            "isPk": false,
+            "nullable": true
+          }
+        ]
+      },
+      {
+        "name": "SYNC_STATUS",
+        "columns": [
+          {
+            "name": "ID",
+            "type": "INT",
+            "isPk": true,
+            "nullable": false
+          },
+          {
+            "name": "STATUS",
+            "type": "TEXT(50)",
+            "isPk": false,
+            "nullable": true
+          },
+          {
+            "name": "TIPO",
+            "type": "TEXT(50)",
+            "isPk": false,
+            "nullable": true
+          },
+          {
+            "name": "ENDPOINT",
+            "type": "TEXT(50)",
+            "isPk": false,
+            "nullable": true
+          },
+          {
+            "name": "TOTAL_PROCESSADOS",
+            "type": "INT",
+            "isPk": false,
+            "nullable": true
+          },
+          {
+            "name": "ULTIMO_SYNC",
+            "type": "TEXT(19)",
+            "isPk": false,
+            "nullable": true
+          },
+          {
+            "name": "ERRO",
+            "type": "TEXT(500)",
+            "isPk": false,
+            "nullable": true
+          },
+          {
+            "name": "CRIADO_EM",
+            "type": "TEXT(19)",
+            "isPk": false,
+            "nullable": true
+          }
+        ]
+      },
+      {
+        "name": "TICKETS",
+        "columns": [
+          {
+            "name": "ID",
+            "type": "INT",
+            "isPk": true,
+            "nullable": false
+          },
+          {
+            "name": "PROTOCOLO",
+            "type": "TEXT(50)",
+            "isPk": false,
+            "nullable": true
+          },
+          {
+            "name": "TIPO",
+            "type": "INT",
+            "isPk": false,
+            "nullable": true
+          },
+          {
+            "name": "TIPO_NOME",
+            "type": "TEXT(30)",
+            "isPk": false,
+            "nullable": true
+          },
+          {
+            "name": "ASSUNTO",
+            "type": "TEXT(500)",
+            "isPk": false,
+            "nullable": true
+          },
+          {
+            "name": "CATEGORIA",
+            "type": "TEXT(200)",
+            "isPk": false,
+            "nullable": true
+          },
+          {
+            "name": "URGENCIA",
+            "type": "TEXT(50)",
+            "isPk": false,
+            "nullable": true
+          },
+          {
+            "name": "STATUS",
+            "type": "TEXT(100)",
+            "isPk": false,
+            "nullable": true
+          },
+          {
+            "name": "STATUS_BASE",
+            "type": "TEXT(50)",
+            "isPk": false,
+            "nullable": true
+          },
+          {
+            "name": "JUSTIFICATIVA",
+            "type": "TEXT(500)",
+            "isPk": false,
+            "nullable": true
+          },
+          {
+            "name": "ORIGEM",
+            "type": "INT",
+            "isPk": false,
+            "nullable": true
+          },
+          {
+            "name": "ORIGEM_NOME",
+            "type": "TEXT(50)",
+            "isPk": false,
+            "nullable": true
+          },
+          {
+            "name": "CRIADO_EM",
+            "type": "TEXT(19)",
+            "isPk": false,
+            "nullable": true
+          },
+          {
+            "name": "ATUALIZADO_EM",
+            "type": "TEXT(19)",
+            "isPk": false,
+            "nullable": true
+          },
+          {
+            "name": "RESOLVIDO_EM",
+            "type": "TEXT(19)",
+            "isPk": false,
+            "nullable": true
+          },
+          {
+            "name": "REABERTO_EM",
+            "type": "TEXT(19)",
+            "isPk": false,
+            "nullable": true
+          },
+          {
+            "name": "FECHADO_EM",
+            "type": "TEXT(19)",
+            "isPk": false,
+            "nullable": true
+          },
+          {
+            "name": "CANCELADO_EM",
+            "type": "TEXT(19)",
+            "isPk": false,
+            "nullable": true
+          },
+          {
+            "name": "ULTIMA_ACAO_EM",
+            "type": "TEXT(19)",
+            "isPk": false,
+            "nullable": true
+          },
+          {
+            "name": "QTD_ACOES",
+            "type": "INT",
+            "isPk": false,
+            "nullable": true
+          },
+          {
+            "name": "TEMPO_VIDA_MINUTOS",
+            "type": "TEXT(20)",
+            "isPk": false,
+            "nullable": true
+          },
+          {
+            "name": "TEMPO_PARADO",
+            "type": "TEXT(20)",
+            "isPk": false,
+            "nullable": true
+          },
+          {
+            "name": "TEMPO_PARADO_UTIL",
+            "type": "TEXT(20)",
+            "isPk": false,
+            "nullable": true
+          },
+          {
+            "name": "RESOLVIDO_PRIMEIRO_CONTATO",
+            "type": "INT",
+            "isPk": false,
+            "nullable": true
+          },
+          {
+            "name": "ORIGEM_EMAIL",
+            "type": "TEXT(300)",
+            "isPk": false,
+            "nullable": true
+          },
+          {
+            "name": "SERVICO_NIVEL1_ID",
+            "type": "INT",
+            "isPk": false,
+            "nullable": true
+          },
+          {
+            "name": "SERVICO_NIVEL1",
+            "type": "TEXT(200)",
+            "isPk": false,
+            "nullable": true
+          },
+          {
+            "name": "SERVICO_NIVEL2",
+            "type": "TEXT(200)",
+            "isPk": false,
+            "nullable": true
+          },
+          {
+            "name": "SERVICO_NIVEL3",
+            "type": "TEXT(200)",
+            "isPk": false,
+            "nullable": true
+          },
+          {
+            "name": "FORMULARIO_CONTATO",
+            "type": "TEXT(200)",
+            "isPk": false,
+            "nullable": true
+          },
+          {
+            "name": "CC",
+            "type": "TEXT(500)",
+            "isPk": false,
+            "nullable": true
+          },
+          {
+            "name": "CHAT_WIDGET",
+            "type": "TEXT(200)",
+            "isPk": false,
+            "nullable": true
+          },
+          {
+            "name": "CHAT_GRUPO",
+            "type": "TEXT(200)",
+            "isPk": false,
+            "nullable": true
+          },
+          {
+            "name": "CHAT_TEMPO_CONVERSA",
+            "type": "TEXT(50)",
+            "isPk": false,
+            "nullable": true
+          },
+          {
+            "name": "CHAT_TEMPO_ESPERA",
+            "type": "TEXT(50)",
+            "isPk": false,
+            "nullable": true
+          },
+          {
+            "name": "SEQUENCIA",
+            "type": "TEXT(50)",
+            "isPk": false,
+            "nullable": true
+          },
+          {
+            "name": "SLA_ACORDO",
+            "type": "TEXT(200)",
+            "isPk": false,
+            "nullable": true
+          },
+          {
+            "name": "SLA_REGRA",
+            "type": "TEXT(200)",
+            "isPk": false,
+            "nullable": true
+          },
+          {
+            "name": "SLA_TEMPO_SOLUCAO",
+            "type": "INT",
+            "isPk": false,
+            "nullable": true
+          },
+          {
+            "name": "SLA_TEMPO_RESPOSTA",
+            "type": "INT",
+            "isPk": false,
+            "nullable": true
+          },
+          {
+            "name": "SLA_DATA_SOLUCAO",
+            "type": "TEXT(19)",
+            "isPk": false,
+            "nullable": true
+          },
+          {
+            "name": "SLA_DATA_RESPOSTA",
+            "type": "TEXT(19)",
+            "isPk": false,
+            "nullable": true
+          },
+          {
+            "name": "SLA_SOLUCAO_PAUSADA",
+            "type": "INT",
+            "isPk": false,
+            "nullable": true
+          },
+          {
+            "name": "SLA_SOLUCAO_ALTERADA_USER",
+            "type": "INT",
+            "isPk": false,
+            "nullable": true
+          },
+          {
+            "name": "SLA_RESPOSTA_REAL",
+            "type": "TEXT(19)",
+            "isPk": false,
+            "nullable": true
+          },
+          {
+            "name": "IS_DELETED",
+            "type": "INT",
+            "isPk": false,
+            "nullable": true
+          },
+          {
+            "name": "OWNER_ID",
+            "type": "TEXT(50)",
+            "isPk": false,
+            "nullable": true
+          },
+          {
+            "name": "OWNER_NOME",
+            "type": "TEXT(200)",
+            "isPk": false,
+            "nullable": true
+          },
+          {
+            "name": "OWNER_EMAIL",
+            "type": "TEXT(200)",
+            "isPk": false,
+            "nullable": true
+          },
+          {
+            "name": "OWNER_TELEFONE",
+            "type": "TEXT(50)",
+            "isPk": false,
+            "nullable": true
+          },
+          {
+            "name": "OWNER_TIPO_PESSOA",
+            "type": "INT",
+            "isPk": false,
+            "nullable": true
+          },
+          {
+            "name": "OWNER_TIPO_PERFIL",
+            "type": "INT",
+            "isPk": false,
+            "nullable": true
+          },
+          {
+            "name": "OWNER_FOTO",
+            "type": "TEXT(200)",
+            "isPk": false,
+            "nullable": true
+          },
+          {
+            "name": "EQUIPE",
+            "type": "TEXT(200)",
+            "isPk": false,
+            "nullable": true
+          },
+          {
+            "name": "CRIADO_POR_ID",
+            "type": "TEXT(50)",
+            "isPk": false,
+            "nullable": true
+          },
+          {
+            "name": "CRIADO_POR_NOME",
+            "type": "TEXT(200)",
+            "isPk": false,
+            "nullable": true
+          },
+          {
+            "name": "CRIADO_POR_EMAIL",
+            "type": "TEXT(200)",
+            "isPk": false,
+            "nullable": true
+          },
+          {
+            "name": "CRIADO_POR_TIPO_PESSOA",
+            "type": "INT",
+            "isPk": false,
+            "nullable": true
+          },
+          {
+            "name": "CRIADO_POR_TIPO_PERFIL",
+            "type": "INT",
+            "isPk": false,
+            "nullable": true
+          },
+          {
+            "name": "TAGS_TEXTO",
+            "type": "TEXT(500)",
+            "isPk": false,
+            "nullable": true
+          },
+          {
+            "name": "SERVICO_COMPLETO",
+            "type": "TEXT(500)",
+            "isPk": false,
+            "nullable": true
+          }
+        ]
+      },
+      {
+        "name": "TICKET_ASSETS",
+        "columns": [
+          {
+            "name": "ID",
+            "type": "INT",
+            "isPk": true,
+            "nullable": false
+          },
+          {
+            "name": "TICKET_ID",
+            "type": "INT",
+            "isPk": false,
+            "nullable": true
+          },
+          {
+            "name": "ASSET_ID",
+            "type": "TEXT(50)",
+            "isPk": false,
+            "nullable": true
+          },
+          {
+            "name": "ASSET_NOME",
+            "type": "TEXT(300)",
+            "isPk": false,
+            "nullable": true
+          },
+          {
+            "name": "ASSET_LABEL",
+            "type": "TEXT(300)",
+            "isPk": false,
+            "nullable": true
+          }
+        ]
+      },
+      {
+        "name": "TICKET_CHILDREN",
+        "columns": [
+          {
+            "name": "ID",
+            "type": "INT",
+            "isPk": true,
+            "nullable": false
+          },
+          {
+            "name": "TICKET_ID",
+            "type": "INT",
+            "isPk": false,
+            "nullable": true
+          },
+          {
+            "name": "CHILD_TICKET_ID",
+            "type": "INT",
+            "isPk": false,
+            "nullable": true
+          }
+        ]
+      },
+      {
+        "name": "TICKET_CLIENTES",
+        "columns": [
+          {
+            "name": "ID",
+            "type": "INT",
+            "isPk": true,
+            "nullable": false
+          },
+          {
+            "name": "TICKET_ID",
+            "type": "INT",
+            "isPk": false,
+            "nullable": true
+          },
+          {
+            "name": "CLIENT_ID",
+            "type": "TEXT(50)",
+            "isPk": false,
+            "nullable": true
+          },
+          {
+            "name": "TIPO_PESSOA",
+            "type": "INT",
+            "isPk": false,
+            "nullable": true
+          },
+          {
+            "name": "TIPO_PERFIL",
+            "type": "INT",
+            "isPk": false,
+            "nullable": true
+          },
+          {
+            "name": "NOME",
+            "type": "TEXT(300)",
+            "isPk": false,
+            "nullable": true
+          },
+          {
+            "name": "EMAIL",
+            "type": "TEXT(200)",
+            "isPk": false,
+            "nullable": true
+          },
+          {
+            "name": "TELEFONE",
+            "type": "TEXT(50)",
+            "isPk": false,
+            "nullable": true
+          },
+          {
+            "name": "IS_DELETED",
+            "type": "INT",
+            "isPk": false,
+            "nullable": true
+          },
+          {
+            "name": "ORG_ID",
+            "type": "TEXT(50)",
+            "isPk": false,
+            "nullable": true
+          },
+          {
+            "name": "ORG_NOME",
+            "type": "TEXT(300)",
+            "isPk": false,
+            "nullable": true
+          },
+          {
+            "name": "FOTO",
+            "type": "TEXT(300)",
+            "isPk": false,
+            "nullable": true
+          },
+          {
+            "name": "ENDERECO",
+            "type": "TEXT(300)",
+            "isPk": false,
+            "nullable": true
+          },
+          {
+            "name": "COMPLEMENTO",
+            "type": "TEXT(200)",
+            "isPk": false,
+            "nullable": true
+          },
+          {
+            "name": "CEP",
+            "type": "TEXT(20)",
+            "isPk": false,
+            "nullable": true
+          },
+          {
+            "name": "CIDADE",
+            "type": "TEXT(100)",
+            "isPk": false,
+            "nullable": true
+          },
+          {
+            "name": "BAIRRO",
+            "type": "TEXT(100)",
+            "isPk": false,
+            "nullable": true
+          },
+          {
+            "name": "NUMERO",
+            "type": "TEXT(20)",
+            "isPk": false,
+            "nullable": true
+          },
+          {
+            "name": "REFERENCIA",
+            "type": "TEXT(200)",
+            "isPk": false,
+            "nullable": true
+          }
+        ]
+      },
+      {
+        "name": "TICKET_PARENT",
+        "columns": [
+          {
+            "name": "ID",
+            "type": "INT",
+            "isPk": true,
+            "nullable": false
+          },
+          {
+            "name": "TICKET_ID",
+            "type": "INT",
+            "isPk": false,
+            "nullable": true
+          },
+          {
+            "name": "PARENT_TICKET_ID",
+            "type": "INT",
+            "isPk": false,
+            "nullable": true
+          }
+        ]
+      },
+      {
+        "name": "TICKET_TAGS",
+        "columns": [
+          {
+            "name": "ID",
+            "type": "INT",
+            "isPk": true,
+            "nullable": false
+          },
+          {
+            "name": "TICKET_ID",
+            "type": "INT",
+            "isPk": false,
+            "nullable": true
+          },
+          {
+            "name": "TAG",
+            "type": "TEXT(200)",
+            "isPk": false,
+            "nullable": true
+          }
+        ]
+      }
+    ],
+    "dbActions": {},
+    "serverFunctions": [
+      {
+        "id": 224,
+        "name": "_temp_count_ACOES_1772893138432",
+        "type": "SQL",
+        "description": "Temporary count query"
+      },
+      {
+        "id": 225,
+        "name": "_temp_count_ACOES_ANEXOS_1772893138872",
+        "type": "SQL",
+        "description": "Temporary count query"
+      },
+      {
+        "id": 226,
+        "name": "_temp_count_ACOES_DESPESAS_1772893139284",
+        "type": "SQL",
+        "description": "Temporary count query"
+      },
+      {
+        "id": 227,
+        "name": "_temp_count_ANALISTAS_1772893139714",
+        "type": "SQL",
+        "description": "Temporary count query"
+      },
+      {
+        "id": 228,
+        "name": "_temp_count_APONTAMENTOS_1772893140129",
+        "type": "SQL",
+        "description": "Temporary count query"
+      },
+      {
+        "id": 229,
+        "name": "_temp_count_AUDIT_LOG_1772893140563",
+        "type": "SQL",
+        "description": "Temporary count query"
+      },
+      {
+        "id": 230,
+        "name": "_temp_count_CLIENTES_1772893140984",
+        "type": "SQL",
+        "description": "Temporary count query"
+      },
+      {
+        "id": 231,
+        "name": "_temp_count_CONFIGURACOES_1772893141397",
+        "type": "SQL",
+        "description": "Temporary count query"
+      },
+      {
+        "id": 232,
+        "name": "_temp_count_CUSTOM_FIELD_ITEMS_1772893141814",
+        "type": "SQL",
+        "description": "Temporary count query"
+      },
+      {
+        "id": 233,
+        "name": "_temp_count_CUSTOM_FIELD_VALUES_1772893142239",
+        "type": "SQL",
+        "description": "Temporary count query"
+      },
+      {
+        "id": 234,
+        "name": "_temp_count_INT_USER_1772893142652",
+        "type": "SQL",
+        "description": "Temporary count query"
+      },
+      {
+        "id": 235,
+        "name": "_temp_count_OWNER_HISTORICO_1772893143075",
+        "type": "SQL",
+        "description": "Temporary count query"
+      },
+      {
+        "id": 236,
+        "name": "_temp_count_PESQUISAS_1772893143497",
+        "type": "SQL",
+        "description": "Temporary count query"
+      },
+      {
+        "id": 237,
+        "name": "_temp_count_STATUS_HISTORICO_1772893143935",
+        "type": "SQL",
+        "description": "Temporary count query"
+      },
+      {
+        "id": 238,
+        "name": "_temp_count_SYNC_AUDIT_1772893144350",
+        "type": "SQL",
+        "description": "Temporary count query"
+      },
+      {
+        "id": 239,
+        "name": "_temp_count_SYNC_LOG_1772893144765",
+        "type": "SQL",
+        "description": "Temporary count query"
+      },
+      {
+        "id": 240,
+        "name": "_temp_count_SYNC_STATUS_1772893145178",
+        "type": "SQL",
+        "description": "Temporary count query"
+      },
+      {
+        "id": 241,
+        "name": "_temp_count_TESTE_1772893145622",
+        "type": "SQL",
+        "description": "Temporary count query"
+      },
+      {
+        "id": 242,
+        "name": "_temp_count_TICKETS_1772893146066",
+        "type": "SQL",
+        "description": "Temporary count query"
+      },
+      {
+        "id": 243,
+        "name": "_temp_count_TICKET_ASSETS_1772893146493",
+        "type": "SQL",
+        "description": "Temporary count query"
+      },
+      {
+        "id": 244,
+        "name": "_temp_count_TICKET_CHILDREN_1772893146908",
+        "type": "SQL",
+        "description": "Temporary count query"
+      },
+      {
+        "id": 245,
+        "name": "_temp_count_TICKET_CLIENTES_1772893147325",
+        "type": "SQL",
+        "description": "Temporary count query"
+      },
+      {
+        "id": 246,
+        "name": "_temp_count_TICKET_PARENT_1772893147755",
+        "type": "SQL",
+        "description": "Temporary count query"
+      },
+      {
+        "id": 247,
+        "name": "_temp_count_TICKET_TAGS_1772893148167",
+        "type": "SQL",
+        "description": "Temporary count query"
+      },
+      {
+        "id": 135,
+        "name": "acoesPorTicket",
+        "type": "SQL",
+        "description": "Acoes ticket"
+      },
+      {
+        "id": 136,
+        "name": "apontamentosPorTicket",
+        "type": "SQL",
+        "description": "Apontamentos ticket"
+      },
+      {
+        "id": 150,
+        "name": "auditByTipo",
+        "type": "SQL",
+        "description": "Lista auditoria por tipo"
+      },
+      {
+        "id": 156,
+        "name": "auditIdGaps",
+        "type": "SQL",
+        "description": "Detecta lacunas de IDs sequenciais nos tickets"
+      },
+      {
+        "id": 149,
+        "name": "auditListAll",
+        "type": "SQL",
+        "description": "Lista todos os registros de auditoria"
+      },
+      {
+        "id": 218,
+        "name": "auditLogByAcao",
+        "type": "SQL",
+        "description": "Lista auditoria por tipo de acao"
+      },
+      {
+        "id": 216,
+        "name": "auditLogInsert",
+        "type": "SQL",
+        "description": "Insere registro de auditoria"
+      },
+      {
+        "id": 217,
+        "name": "auditLogList",
+        "type": "SQL",
+        "description": "Lista registros de auditoria"
+      },
+      {
+        "id": 151,
+        "name": "auditSummary",
+        "type": "SQL",
+        "description": "Resumo completo de todos os dados sincronizados"
+      },
+      {
+        "id": 267,
+        "name": "auditSummaryV2",
+        "type": "SQL",
+        "description": "Resumo completo com contagem de todas as tabelas"
+      },
+      {
+        "id": 153,
+        "name": "auditSyncHistory",
+        "type": "SQL",
+        "description": "Historico de sincronizacoes"
+      },
+      {
+        "id": 268,
+        "name": "auditTableDetail",
+        "type": "SQL",
+        "description": "Detalhe paginado de tabela para auditoria (TICKETS)"
+      },
+      {
+        "id": 152,
+        "name": "auditTicketGaps",
+        "type": "SQL",
+        "description": "Verifica lacunas de tickets por período"
+      },
+      {
+        "id": 155,
+        "name": "auditTicketsByMonth",
+        "type": "SQL",
+        "description": "Distribuicao de tickets por mes de um ano"
+      },
+      {
+        "id": 154,
+        "name": "auditTicketsByYear",
+        "type": "SQL",
+        "description": "Distribuicao de tickets por ano"
+      },
+      {
+        "id": 271,
+        "name": "cleanRequestLogs",
+        "type": "SQL",
+        "description": "Limpa request logs antigos"
+      },
+      {
+        "id": 140,
+        "name": "clientesTicket",
+        "type": "SQL",
+        "description": "Clientes ticket"
+      },
+      {
+        "id": 139,
+        "name": "detalheTicket",
+        "type": "SQL",
+        "description": "Detalhe ticket"
+      },
+      {
+        "id": 222,
+        "name": "getAllConfigs",
+        "type": "SQL",
+        "description": "Lista todas as configuracoes com metadados"
+      },
+      {
+        "id": 266,
+        "name": "getAllConfigsV2",
+        "type": "SQL",
+        "description": "Lista todas configs com metadados de auditoria"
+      },
+      {
+        "id": 125,
+        "name": "horasKpis",
+        "type": "SQL",
+        "description": "KPIs horas"
+      },
+      {
+        "id": 291,
+        "name": "horasMSSPorMes",
+        "type": "SQL",
+        "description": "Horas MSS por mes"
+      },
+      {
+        "id": 126,
+        "name": "horasPorAnalista",
+        "type": "SQL",
+        "description": "Horas por analista"
+      },
+      {
+        "id": 130,
+        "name": "horasPorAtividade",
+        "type": "SQL",
+        "description": "Horas por atividade"
+      },
+      {
+        "id": 292,
+        "name": "horasPorClienteProjeto",
+        "type": "SQL",
+        "description": "Horas por cliente (projeto)"
+      },
+      {
+        "id": 290,
+        "name": "horasPorClienteSuporte",
+        "type": "SQL",
+        "description": "Horas por cliente suporte (excl projeto)"
+      },
+      {
+        "id": 128,
+        "name": "horasPorEquipe",
+        "type": "SQL",
+        "description": "Horas por equipe"
+      },
+      {
+        "id": 127,
+        "name": "horasPorMes",
+        "type": "SQL",
+        "description": "Horas por mes"
+      },
+      {
+        "id": 129,
+        "name": "horasPorTipo",
+        "type": "SQL",
+        "description": "Horas por tipo"
+      },
+      {
+        "id": 293,
+        "name": "horasPorTipoDemanda",
+        "type": "SQL",
+        "description": "Horas por tipo de demanda"
+      },
+      {
+        "id": 270,
+        "name": "insertRequestLog",
+        "type": "SQL",
+        "description": "Insere log de request/response"
+      },
+      {
+        "id": 107,
+        "name": "kpisGerais",
+        "type": "SQL",
+        "description": "KPIs gerais"
+      },
+      {
+        "id": 117,
+        "name": "listaTickets",
+        "type": "SQL",
+        "description": "Lista tickets"
+      },
+      {
+        "id": 286,
+        "name": "listaTicketsAcima30Dias",
+        "type": "SQL",
+        "description": "Lista tickets acima 30 dias"
+      },
+      {
+        "id": 138,
+        "name": "ownerHistoricoPorTicket",
+        "type": "SQL",
+        "description": "Historico owner"
+      },
+      {
+        "id": 133,
+        "name": "pesquisaDistribuicao",
+        "type": "SQL",
+        "description": "Distribuicao notas"
+      },
+      {
+        "id": 131,
+        "name": "pesquisaKpis",
+        "type": "SQL",
+        "description": "KPIs pesquisa"
+      },
+      {
+        "id": 289,
+        "name": "pesquisaPorCliente",
+        "type": "SQL",
+        "description": "Pesquisa satisfacao por cliente"
+      },
+      {
+        "id": 132,
+        "name": "pesquisaPorMes",
+        "type": "SQL",
+        "description": "Pesquisa por mes"
+      },
+      {
+        "id": 263,
+        "name": "requestLogDetail",
+        "type": "SQL",
+        "description": "Detalhe completo de um request log"
+      },
+      {
+        "id": 262,
+        "name": "requestLogList",
+        "type": "SQL",
+        "description": "Lista logs de requests com filtros"
+      },
+      {
+        "id": 272,
+        "name": "requestLogStats",
+        "type": "SQL",
+        "description": "Estatisticas de request logs"
+      },
+      {
+        "id": 220,
+        "name": "resetSyncConfig",
+        "type": "SQL",
+        "description": "Limpa data de ultimo sync para forcar full sync"
+      },
+      {
+        "id": 219,
+        "name": "resetSyncStatus",
+        "type": "SQL",
+        "description": "Reseta status de sync para forcar recarga total"
+      },
+      {
+        "id": 121,
+        "name": "slaPrimRespostaKpis",
+        "type": "SQL",
+        "description": "KPIs SLA resp"
+      },
+      {
+        "id": 122,
+        "name": "slaPrimRespostaPorMes",
+        "type": "SQL",
+        "description": "SLA resp por mes"
+      },
+      {
+        "id": 118,
+        "name": "slaResolucaoKpis",
+        "type": "SQL",
+        "description": "KPIs SLA resolucao"
+      },
+      {
+        "id": 120,
+        "name": "slaResolucaoPorCategoria",
+        "type": "SQL",
+        "description": "SLA resolucao por categoria"
+      },
+      {
+        "id": 119,
+        "name": "slaResolucaoPorMes",
+        "type": "SQL",
+        "description": "SLA resolucao por mes"
+      },
+      {
+        "id": 288,
+        "name": "slaResolucaoSuportePorMes",
+        "type": "SQL",
+        "description": "SLA resolucao suporte por mes (tipo Suporte = CATEGORIA excl Evento/Projeto/Rotina)"
+      },
+      {
+        "id": 137,
+        "name": "statusHistoricoPorTicket",
+        "type": "SQL",
+        "description": "Historico status"
+      },
+      {
+        "id": 148,
+        "name": "syncConfigAll",
+        "type": "SQL",
+        "description": "Todas configs"
+      },
+      {
+        "id": 143,
+        "name": "syncFetchDetail",
+        "type": "INTEGRATION",
+        "description": "Fetch detalhe"
+      },
+      {
+        "id": 144,
+        "name": "syncFetchSurveys",
+        "type": "INTEGRATION",
+        "description": "Fetch pesquisas"
+      },
+      {
+        "id": 141,
+        "name": "syncFetchTickets",
+        "type": "INTEGRATION",
+        "description": "Fetch tickets recentes"
+      },
+      {
+        "id": 142,
+        "name": "syncFetchTicketsPast",
+        "type": "INTEGRATION",
+        "description": "Fetch tickets antigos"
+      },
+      {
+        "id": 134,
+        "name": "syncGetStatus",
+        "type": "SQL",
+        "description": "Status sync"
+      },
+      {
+        "id": 146,
+        "name": "syncLogByTipo",
+        "type": "SQL",
+        "description": "Log de sync por tipo"
+      },
+      {
+        "id": 145,
+        "name": "syncLogList",
+        "type": "SQL",
+        "description": "Lista log de sync"
+      },
+      {
+        "id": 264,
+        "name": "syncSessions",
+        "type": "SQL",
+        "description": "Lista sessoes de sync com resumo"
+      },
+      {
+        "id": 147,
+        "name": "syncStatusAll",
+        "type": "SQL",
+        "description": "Historico de sync status"
+      },
+      {
+        "id": 269,
+        "name": "syncTriggerDirect",
+        "type": "JAVASCRIPT",
+        "description": "Trigger direto de sync com Movidesk — retorna resultado detalhado com logs de request/response"
+      },
+      {
+        "id": 123,
+        "name": "tempoResolucaoFaixas",
+        "type": "SQL",
+        "description": "Tempo resolucao faixas"
+      },
+      {
+        "id": 284,
+        "name": "tempoResolucaoFaixasDias",
+        "type": "SQL",
+        "description": "Tempo resolucao faixas em dias"
+      },
+      {
+        "id": 124,
+        "name": "tempoResolucaoPorCategoria",
+        "type": "SQL",
+        "description": "Tempo resolucao por categoria"
+      },
+      {
+        "id": 287,
+        "name": "tempoResolucaoPorClienteDias",
+        "type": "SQL",
+        "description": "Tempo resolucao por cliente drill faixa dias"
+      },
+      {
+        "id": 273,
+        "name": "testMovideskToken",
+        "type": "JAVASCRIPT",
+        "description": "Testa token do Movidesk fazendo uma requisicao de teste"
+      },
+      {
+        "id": 285,
+        "name": "ticketsAcima30Dias",
+        "type": "SQL",
+        "description": "Tickets acima 30 dias por cliente"
+      },
+      {
+        "id": 282,
+        "name": "ticketsMensaisPorCategoria",
+        "type": "SQL",
+        "description": "Tickets mensais stacked por categoria"
+      },
+      {
+        "id": 280,
+        "name": "ticketsMensaisPorTipo",
+        "type": "SQL",
+        "description": "Tickets mensais stacked por tipo (derivado de categoria)"
+      },
+      {
+        "id": 281,
+        "name": "ticketsMensaisPorUrgencia",
+        "type": "SQL",
+        "description": "Tickets mensais stacked por urgencia"
+      },
+      {
+        "id": 111,
+        "name": "ticketsPorAnalista",
+        "type": "SQL",
+        "description": "Tickets por analista"
+      },
+      {
+        "id": 110,
+        "name": "ticketsPorCategoria",
+        "type": "SQL",
+        "description": "Tickets por categoria"
+      },
+      {
+        "id": 112,
+        "name": "ticketsPorCliente",
+        "type": "SQL",
+        "description": "Tickets por cliente"
+      },
+      {
+        "id": 283,
+        "name": "ticketsPorContrato",
+        "type": "SQL",
+        "description": "Tickets por tipo de contrato (SLA)"
+      },
+      {
+        "id": 115,
+        "name": "ticketsPorEquipe",
+        "type": "SQL",
+        "description": "Tickets por equipe"
+      },
+      {
+        "id": 108,
+        "name": "ticketsPorMes",
+        "type": "SQL",
+        "description": "Tickets por mes"
+      },
+      {
+        "id": 114,
+        "name": "ticketsPorOrigem",
+        "type": "SQL",
+        "description": "Tickets por origem"
+      },
+      {
+        "id": 116,
+        "name": "ticketsPorServico",
+        "type": "SQL",
+        "description": "Tickets por servico"
+      },
+      {
+        "id": 109,
+        "name": "ticketsPorStatus",
+        "type": "SQL",
+        "description": "Tickets por status"
+      },
+      {
+        "id": 279,
+        "name": "ticketsPorTipo",
+        "type": "SQL",
+        "description": "Tickets por tipo de chamado (derivado de categoria)"
+      },
+      {
+        "id": 113,
+        "name": "ticketsPorUrgencia",
+        "type": "SQL",
+        "description": "Tickets por urgencia"
+      },
+      {
+        "id": 221,
+        "name": "truncateTicketData",
+        "type": "SQL",
+        "description": "Limpa tabela de acoes para resync"
+      },
+      {
+        "id": 265,
+        "name": "updateConfigValue",
+        "type": "SQL",
+        "description": "Atualiza valor de configuracao com rastreamento"
+      },
+      {
+        "id": 223,
+        "name": "updateConfigWithAudit",
+        "type": "SQL",
+        "description": "Atualiza config com rastreabilidade"
+      }
+    ],
+    "variables": [
+      {
+        "key": ":VAR_USER",
+        "value": "5"
+      },
+      {
+        "key": ":VAR_SESSION",
+        "value": ""
+      },
+      {
+        "key": ":VAR_TOKEN",
+        "value": "eyJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJNaXRyYSIsImp0aSI6IjU1MDAiLCJzdWIiOiJsZWFuZHJvLm1vcmVpcmFAbmV1b25zb2x1Y29lcy5jb20iLCJpYXQiOjE3NzMwNTM5MjcsInRuaSI6MTk5ODMsImFjY2Vzc1R5cGUiOiJDUkVBVE9SIiwiYmFja1VSTCI6Imh0dHBzOi8vYXBpMC5taXRyYWVjcC5jb206MTAwNCIsImV4cCI6MTc3MzE0MDMyN30.odHT5e-qs2zstWYbzC9TTFBOGkb_07ptX89tRwpHafE&bkApiUrl=https://api0.mitraecp.com:1004"
+      },
+      {
+        "key": ":VAR_URL",
+        "value": "https://mergevalidacao.mitralab.io"
+      },
+      {
+        "key": ":VAR_PUBLIC_URL",
+        "value": "https://2724-19983.build.mitralab.io/w/2724/p/19983"
+      },
+      {
+        "key": ":VAR_WIDGETSCREEN",
+        "value": "FALSE"
+      },
+      {
+        "key": ":VAR_SYNC_LAST_RUN",
+        "value": "2026-03-09T11:25:11"
+      },
+      {
+        "key": ":VAR_SYNC_INTERVAL",
+        "value": "5"
+      },
+      {
+        "key": ":VAR_SYNC_ENABLED",
+        "value": "1"
+      },
+      {
+        "key": ":VAR_ULTIMO_SYNC",
+        "value": "2026-03-09T11:25:11"
+      },
+      {
+        "key": ":VAR_SYNC_TYPE",
+        "value": "FULL"
+      },
+      {
+        "key": ":VAR_SYNC_MODE",
+        "value": "incremental"
+      },
+      {
+        "key": ":VAR_SYNC_START_DATE",
+        "value": "2019-01-01"
+      },
+      {
+        "key": ":VAR_MOVIDESK_TOKEN",
+        "value": "6673d100-6814-4737-b5ba-0ae2a3e3bfc5"
+      },
+      {
+        "key": ":VAR_SYNC_BREAK_DETECTED",
+        "value": "false"
+      }
+    ]
+  }
+}

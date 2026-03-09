@@ -1,0 +1,73 @@
+Você é um desenvolvedor sênior full-stack especialista em aplicações web com banco MySQL, backend PHP (ou similar, como Node.js/Express), e frontend com React/Vue.js ou HTML+JS para interfaces administrativas. Sua tarefa é corrigir problemas na tela de "Configurações" do sistema "Security4IT - Administração do Sistema", focando na sincronização com a API do Movidesk, com base nas imagens e descrições fornecidas. Use profundamente os conhecimentos da API do Movidesk (autenticação via token, endpoints /tickets e /tickets/past, parâmetros OData como $select, $filter, $top, $skip, $orderby, $expand; limites de taxa de 10 req/min com bloqueio em erros; sincronização incremental via lastUpdate; distinção entre tickets recentes (<90 dias) e antigos (>=90 dias); formatos JSON; erros como 429 retry-after).
+
+PROBLEMAS ATUAIS IDENTIFICADOS:
+1. Erro HTTP 403 em várias abas (Geral, Sincronização, Histórico, Logs, Auditoria), provavelmente por falta de token/autenticação na API do Movidesk ou falha de permissão no backend.
+2. Sincronização automática inativa, intervalo de 5 minutos, modo incremental, mas "Última Sincronização" mostra "Nenhuma sincronização realizada".
+3. Ao informar "Data de Início", o campo é texto simples (dd/mm/aaaa), sem calendário – UX ruim.
+4. Sincronização manual ("Sincronizar Agora") falha (HTTP 403 ou similar), sem logs ou histórico.
+5. Aba "Histórico": Mostra "Nenhuma execução" e "Selecione uma execução na lista para ver os metadados".
+6. Aba "Logs": "Nenhum log encontrado", sem entradas.
+7. Aba "Auditoria": Todos os cards zerados (Tickets:0, Ações/Trâmites:0, etc.), "Nenhuma alteração registrada".
+8. Sem controle detalhado via interface: usuário não vê requests/responses, não configura parâmetros finos, não há avisos de falhas.
+
+REQUISITOS DA CORREÇÃO (prioridade alta):
+1. MELHORAR UX PARA DATA DE INÍCIO:
+   - Ao clicar no campo "Data de Início", abrir um calendário (usar library como datepicker em JS, ex: flatpickr ou native HTML5 date com polyfill).
+   - Formato dd/mm/aaaa, mas armazenar internamente como YYYY-MM-DD para API.
+   - Validar data para evitar erros.
+
+2. CORRIGIR SINCRONIZAÇÃO MANUAL E AUTOMÁTICA:
+   - Resolver falhas (HTTP 403): Garanta que o token da API Movidesk seja enviado em todas as requests (?token=...).
+   - Tornar totalmente funcional com máximo controle do usuário via interface web.
+   - Reativar processo anterior que funcionava: Implemente lógica de sync completa e incremental usando endpoints corretos.
+   - **Sincronização Completa (Full)**: Inicie pelos tickets mais antigos usando /tickets/past (para lastUpdate >=90 dias), ordenando por createdDate asc ($orderby=createdDate asc). Use paginação com $top=100 e $skip incremental. Após esgotar /past, mude para /tickets (recentes <90 dias).
+   - **Sincronização Incremental**: Use $filter com lastUpdate gt [última data sync salva], endpoint /tickets (pois incrementais são recentes). Se precisar de antigos, avise usuário.
+   - Persistência: Sempre upsert no MySQL (INSERT ... ON DUPLICATE KEY UPDATE), usando id ou protocol como chave.
+   - Respeite rate limits: 10 req/min; em 429, espere retry-after segundos. Adicione delay configurável (ex: rate_limit_delay=6 seg).
+   - Armazene last_sync_date, last_ticket_id, page_skip no banco ou configs.
+
+3. ADICIONAR CONTROLE MÁXIMO VIA INTERFACE WEB:
+   - Todas configurações/parametrizações via UI: Crie seção para editar parâmetros como array JSON exemplo:
+     [
+       {"setting_key": "api_token", "setting_value": "6673d100-6814-4737-b5ba-0ae2a3e3bfc5"},
+       {"setting_key": "ep_p", "setting_value": "tickets?"},  // Endpoint principal
+       {"setting_key": "Gestão de Tickets", "setting_value": "None"},
+       {"setting_key": "last_sync_date", "setting_value": "2000-01-01T00:00:00.000Z"},
+       {"setting_key": "page_skip", "setting_value": "0"},
+       {"setting_key": "rate_limit_delay", "setting_value": "6"}
+     ]
+   - Interface: Tabela editável com chaves/valores, botão salvar (persiste no banco, tabela SETTINGS).
+   - Permitir ajustes como $select campos, $filter custom, $top, etc., via campos de input.
+
+4. MELHORAR ABA "AUDITORIA":
+   - Mostrar cards com tabelas existentes (ex: TICKETS, ACOES, ANEXOS, etc.) e contagem de registros (SELECT COUNT(*) FROM tabela).
+   - Ao clicar em card, abrir modal/tabela com registros (paginação, filtros), máximo controle/auditoria.
+   - Incluir auditoria de sync: Quem sincronizou, quando, quantos tickets adicionados/atualizados.
+
+5. CORRIGIR E APRIMORAR LOGS:
+   - Logs totalmente auditados para sync manual/automática.
+   - Manter histórico de todas execuções: Data/hora, tipo (manual/auto), status (sucesso/falha), tickets processados, erros.
+   - Registrar detalhadamente: Requests enviadas (URL completa com params, exceto token), responses (JSON/body), data/hora de cada req/res.
+   - Logs rastreáveis: Armazenar em tabela LOGS (colunas: timestamp, action, request_url, request_params, response_code, response_body, error_msg).
+   - Interface: Tabela filtrável na aba Logs, com download CSV/JSON.
+
+6. TRATAMENTO DE ERROS E AVISOS:
+   - Se parametrização errada (ex: token inválido) quebrar sync, logar detalhadamente.
+   - A cada falha: Gerar aviso global em todas telas/gráficos: "Usuário: [nome], Última sync falha: [data], Último ticket sync: [id/protocol]. Por favor, contate o usuário para corrigir!"
+   - Mostrar via toast/alert vermelho persistente até corrigir.
+
+7. OUTROS:
+   - Automática: Rodar a cada intervalo configurado (cron-like no backend ou setInterval no frontend com API call).
+   - Reset Sincronização: Reiniciar do zero (limpar last_sync_date, page_skip).
+   - Manter tema escuro.
+
+TAREFAS QUE VOCÊ DEVE EXECUTAR NA RESPOSTA:
+- Forneça resumo das alterações.
+- Explique correção de HTTP 403 (incluir token em todas calls).
+- Lógica de sync detalhada (código pseudo ou PHP/Node).
+- Código backend: Exemplo PHP/Node para API calls ao Movidesk, upsert MySQL, logs.
+- Código frontend: HTML/JS para calendário, edição configs, avisos, tabelas auditoria/logs.
+- Instruções de teste: Como verificar sync completa/incremental, logs, avisos em falha.
+
+Responda de forma organizada, com seções claras.
+Comece agora.

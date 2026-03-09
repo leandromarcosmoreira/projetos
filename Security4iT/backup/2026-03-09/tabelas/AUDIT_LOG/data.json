@@ -1,0 +1,212 @@
+[
+  {
+    "ID": 1,
+    "USUARIO": "Leandro Moreira",
+    "ACAO": "RESET_SYNC",
+    "CAMPO": "SYNC_STATUS",
+    "VALOR_ANTERIOR": "COMPLETED",
+    "VALOR_NOVO": "RESET",
+    "DETALHES": "Reset completo da sincronizacao - reinicio desde tickets/past",
+    "DATA": "2026-03-07T16:46:12"
+  },
+  {
+    "ID": 2,
+    "USUARIO": "Leandro Moreira",
+    "ACAO": "ALTERACAO",
+    "CAMPO": "SYNC_MODE",
+    "VALOR_ANTERIOR": "incremental",
+    "VALOR_NOVO": "full",
+    "DETALHES": "Modo de sincronizacao alterado para full",
+    "DATA": "2026-03-07T18:36:31"
+  },
+  {
+    "ID": 3,
+    "USUARIO": "Leandro Moreira",
+    "ACAO": "ALTERACAO",
+    "CAMPO": "SYNC_START_DATE",
+    "VALOR_ANTERIOR": "(vazio)",
+    "VALOR_NOVO": "0002-01-01",
+    "DETALHES": "Data de inicio da sincronizacao alterada",
+    "DATA": "2026-03-07T18:36:36"
+  },
+  {
+    "ID": 4,
+    "USUARIO": "Leandro Moreira",
+    "ACAO": "ALTERACAO",
+    "CAMPO": "SYNC_START_DATE",
+    "VALOR_ANTERIOR": "0002-01-01",
+    "VALOR_NOVO": "0020-01-01",
+    "DETALHES": "Data de inicio da sincronizacao alterada",
+    "DATA": "2026-03-07T18:36:41"
+  },
+  {
+    "ID": 5,
+    "USUARIO": "Leandro Moreira",
+    "ACAO": "ALTERACAO",
+    "CAMPO": "SYNC_START_DATE",
+    "VALOR_ANTERIOR": "0020-01-01",
+    "VALOR_NOVO": "0002-01-01",
+    "DETALHES": "Data de inicio da sincronizacao alterada",
+    "DATA": "2026-03-07T18:36:44"
+  },
+  {
+    "ID": 6,
+    "USUARIO": "Leandro Moreira",
+    "ACAO": "ALTERACAO",
+    "CAMPO": "SYNC_START_DATE",
+    "VALOR_ANTERIOR": "0002-01-01",
+    "VALOR_NOVO": "(vazio)",
+    "DETALHES": "Data de inicio da sincronizacao alterada",
+    "DATA": "2026-03-07T18:36:46"
+  },
+  {
+    "ID": 7,
+    "USUARIO": "Leandro Moreira",
+    "ACAO": "ALTERACAO",
+    "CAMPO": "SYNC_START_DATE",
+    "VALOR_ANTERIOR": "(vazio)",
+    "VALOR_NOVO": "0002-01-01",
+    "DETALHES": "Data de inicio da sincronizacao alterada",
+    "DATA": "2026-03-07T18:36:51"
+  },
+  {
+    "ID": 8,
+    "USUARIO": "Leandro Moreira",
+    "ACAO": "ALTERACAO",
+    "CAMPO": "SYNC_START_DATE",
+    "VALOR_ANTERIOR": "0002-01-01",
+    "VALOR_NOVO": "0001-01-01",
+    "DETALHES": "Data de inicio da sincronizacao alterada",
+    "DATA": "2026-03-07T18:36:54"
+  },
+  {
+    "ID": 9,
+    "USUARIO": "Leandro Moreira",
+    "ACAO": "ALTERACAO",
+    "CAMPO": "SYNC_START_DATE",
+    "VALOR_ANTERIOR": "0001-01-01",
+    "VALOR_NOVO": "0019-01-01",
+    "DETALHES": "Data de inicio da sincronizacao alterada",
+    "DATA": "2026-03-07T18:37:01"
+  },
+  {
+    "ID": 10,
+    "USUARIO": "Leandro Moreira",
+    "ACAO": "ALTERACAO",
+    "CAMPO": "SYNC_START_DATE",
+    "VALOR_ANTERIOR": "0019-01-01",
+    "VALOR_NOVO": "0002-01-01",
+    "DETALHES": "Data de inicio da sincronizacao alterada",
+    "DATA": "2026-03-07T18:37:04"
+  },
+  {
+    "ID": 11,
+    "USUARIO": "Leandro Moreira",
+    "ACAO": "ALTERACAO",
+    "CAMPO": "SYNC_START_DATE",
+    "VALOR_ANTERIOR": "0002-01-01",
+    "VALOR_NOVO": "0020-01-01",
+    "DETALHES": "Data de inicio da sincronizacao alterada",
+    "DATA": "2026-03-07T18:37:06"
+  },
+  {
+    "ID": 12,
+    "USUARIO": "Leandro Moreira",
+    "ACAO": "ALTERACAO",
+    "CAMPO": "SYNC_START_DATE",
+    "VALOR_ANTERIOR": "0020-01-01",
+    "VALOR_NOVO": "(vazio)",
+    "DETALHES": "Data de inicio da sincronizacao alterada",
+    "DATA": "2026-03-07T18:37:09"
+  },
+  {
+    "ID": 13,
+    "USUARIO": "Leandro Moreira",
+    "ACAO": "ALTERACAO",
+    "CAMPO": "SYNC_START_DATE",
+    "VALOR_ANTERIOR": "(vazio)",
+    "VALOR_NOVO": "0002-01-01",
+    "DETALHES": "Data de inicio da sincronizacao alterada",
+    "DATA": "2026-03-07T18:37:17"
+  },
+  {
+    "ID": 14,
+    "USUARIO": "Leandro Moreira",
+    "ACAO": "ALTERACAO",
+    "CAMPO": "SYNC_START_DATE",
+    "VALOR_ANTERIOR": "0002-01-01",
+    "VALOR_NOVO": "2026-03-08",
+    "DETALHES": "Data de inicio da sincronizacao alterada",
+    "DATA": "2026-03-09T01:36:43"
+  },
+  {
+    "ID": 15,
+    "USUARIO": "Leandro Moreira",
+    "ACAO": "ALTERACAO",
+    "CAMPO": "SYNC_START_DATE",
+    "VALOR_ANTERIOR": "2026-03-08",
+    "VALOR_NOVO": "2019-01-01",
+    "DETALHES": "Data de inicio da sincronizacao alterada",
+    "DATA": "2026-03-09T01:36:54"
+  },
+  {
+    "ID": 16,
+    "USUARIO": "Leandro Moreira",
+    "ACAO": "ALTERACAO",
+    "CAMPO": "SYNC_MODE",
+    "VALOR_ANTERIOR": "full",
+    "VALOR_NOVO": "incremental",
+    "DETALHES": "Modo de sincronizacao alterado para incremental",
+    "DATA": "2026-03-09T01:38:50"
+  },
+  {
+    "ID": 17,
+    "USUARIO": "Leandro Moreira",
+    "ACAO": "ALTERACAO",
+    "CAMPO": "SYNC_MODE",
+    "VALOR_ANTERIOR": "incremental",
+    "VALOR_NOVO": "full",
+    "DETALHES": "Modo de sincronizacao alterado para full",
+    "DATA": "2026-03-09T03:26:36"
+  },
+  {
+    "ID": 18,
+    "USUARIO": "Leandro Moreira",
+    "ACAO": "ALTERACAO",
+    "CAMPO": "SYNC_INTERVAL",
+    "VALOR_ANTERIOR": "5 min",
+    "VALOR_NOVO": "15 min",
+    "DETALHES": "Intervalo de sincronizacao alterado",
+    "DATA": "2026-03-09T03:28:58"
+  },
+  {
+    "ID": 19,
+    "USUARIO": "Leandro Moreira",
+    "ACAO": "ALTERACAO",
+    "CAMPO": "SYNC_INTERVAL",
+    "VALOR_ANTERIOR": "15 min",
+    "VALOR_NOVO": "60 min",
+    "DETALHES": "Intervalo de sincronizacao alterado",
+    "DATA": "2026-03-09T11:10:49"
+  },
+  {
+    "ID": 20,
+    "USUARIO": "Leandro Moreira",
+    "ACAO": "ALTERACAO",
+    "CAMPO": "SYNC_MODE",
+    "VALOR_ANTERIOR": "full",
+    "VALOR_NOVO": "incremental",
+    "DETALHES": "Modo de sincronizacao alterado para incremental",
+    "DATA": "2026-03-09T11:23:20"
+  },
+  {
+    "ID": 21,
+    "USUARIO": "Leandro Moreira",
+    "ACAO": "ALTERACAO",
+    "CAMPO": "SYNC_INTERVAL",
+    "VALOR_ANTERIOR": "60 min",
+    "VALOR_NOVO": "5 min",
+    "DETALHES": "Intervalo de sincronizacao alterado",
+    "DATA": "2026-03-09T11:23:28"
+  }
+]

@@ -1,0 +1,10 @@
+{
+  "id": 217,
+  "name": "auditLogList",
+  "type": "SQL",
+  "description": "Lista registros de auditoria",
+  "code": "SELECT ID, USUARIO, ACAO, CAMPO, VALOR_ANTERIOR, VALOR_NOVO, DETALHES, DATA FROM AUDIT_LOG ORDER BY ID DESC LIMIT {{limit}}",
+  "createdBy": "leandro.moreira@neuonsolucoes.com",
+  "createdAt": "2026-03-07T14:11:19",
+  "updatedAt": "2026-03-07T14:11:19"
+}

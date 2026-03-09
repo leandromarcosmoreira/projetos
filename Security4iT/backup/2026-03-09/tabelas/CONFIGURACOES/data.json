@@ -1,0 +1,65 @@
+[
+  {
+    "ID": 1,
+    "CHAVE": "MOVIDESK_TOKEN",
+    "VALOR": "6673d100-6814-4737-b5ba-0ae2a3e3bfc5",
+    "DESCRICAO": "Token API Movidesk",
+    "GRUPO": "integracao",
+    "ATUALIZADO_EM": null,
+    "ATUALIZADO_POR": null
+  },
+  {
+    "ID": 2,
+    "CHAVE": "ULTIMO_SYNC",
+    "VALOR": "2026-03-09T11:25:11",
+    "DESCRICAO": "Ultima sincronizacao completa",
+    "GRUPO": "sistema",
+    "ATUALIZADO_EM": null,
+    "ATUALIZADO_POR": null
+  },
+  {
+    "ID": 3,
+    "CHAVE": "TOTAL_TICKETS",
+    "VALOR": "2150",
+    "DESCRICAO": "Total tickets sincronizados (aprox)",
+    "GRUPO": "sistema",
+    "ATUALIZADO_EM": null,
+    "ATUALIZADO_POR": null
+  },
+  {
+    "ID": 4,
+    "CHAVE": "SYNC_INTERVAL",
+    "VALOR": "5",
+    "DESCRICAO": "Intervalo sync em minutos",
+    "GRUPO": "sistema",
+    "ATUALIZADO_EM": null,
+    "ATUALIZADO_POR": null
+  },
+  {
+    "ID": 5,
+    "CHAVE": "SYNC_ENABLED",
+    "VALOR": "1",
+    "DESCRICAO": "Sync automatico ativo (1=sim 0=nao)",
+    "GRUPO": "sistema",
+    "ATUALIZADO_EM": null,
+    "ATUALIZADO_POR": null
+  },
+  {
+    "ID": 6,
+    "CHAVE": "SYNC_MODE",
+    "VALOR": "incremental",
+    "DESCRICAO": "Modo de sincronizacao",
+    "GRUPO": "SYNC",
+    "ATUALIZADO_EM": null,
+    "ATUALIZADO_POR": null
+  },
+  {
+    "ID": 7,
+    "CHAVE": "SYNC_START_DATE",
+    "VALOR": "2019-01-01",
+    "DESCRICAO": "Data de inicio da sincronizacao",
+    "GRUPO": "SYNC",
+    "ATUALIZADO_EM": null,
+    "ATUALIZADO_POR": null
+  }
+]

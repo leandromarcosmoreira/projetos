@@ -1,0 +1,662 @@
+[
+  {
+    "ID": 1,
+    "STATUS": "NO_CHANGES",
+    "TIPO": "INCREMENTAL",
+    "ENDPOINT": "tickets",
+    "TOTAL_PROCESSADOS": 0,
+    "ULTIMO_SYNC": "2026-03-05T22:24:40",
+    "ERRO": null,
+    "CRIADO_EM": "2026-03-05T22:24:40"
+  },
+  {
+    "ID": 2,
+    "STATUS": "COMPLETED",
+    "TIPO": "FULL_SYNC",
+    "ENDPOINT": "tickets+past+surveys",
+    "TOTAL_PROCESSADOS": 2150,
+    "ULTIMO_SYNC": "2026-03-06T10:35:48",
+    "ERRO": "",
+    "CRIADO_EM": "2026-03-06T10:35:48"
+  },
+  {
+    "ID": 3,
+    "STATUS": "COMPLETED",
+    "TIPO": "INCREMENTAL",
+    "ENDPOINT": "tickets",
+    "TOTAL_PROCESSADOS": 1,
+    "ULTIMO_SYNC": "2026-03-06T10:46:16",
+    "ERRO": "",
+    "CRIADO_EM": "2026-03-06T10:46:16"
+  },
+  {
+    "ID": 4,
+    "STATUS": "COMPLETED",
+    "TIPO": "INCREMENTAL",
+    "ENDPOINT": "tickets",
+    "TOTAL_PROCESSADOS": 3,
+    "ULTIMO_SYNC": "2026-03-06T10:52:37",
+    "ERRO": "",
+    "CRIADO_EM": "2026-03-06T10:52:37"
+  },
+  {
+    "ID": 5,
+    "STATUS": "NO_CHANGES",
+    "TIPO": "INCREMENTAL",
+    "ENDPOINT": "tickets",
+    "TOTAL_PROCESSADOS": 0,
+    "ULTIMO_SYNC": "2026-03-06T10:58:45",
+    "ERRO": "",
+    "CRIADO_EM": "2026-03-06T10:58:45"
+  },
+  {
+    "ID": 6,
+    "STATUS": "COMPLETED",
+    "TIPO": "INCREMENTAL",
+    "ENDPOINT": "tickets",
+    "TOTAL_PROCESSADOS": 1,
+    "ULTIMO_SYNC": "2026-03-06T11:05:07",
+    "ERRO": "",
+    "CRIADO_EM": "2026-03-06T11:05:07"
+  },
+  {
+    "ID": 7,
+    "STATUS": "COMPLETED",
+    "TIPO": "INCREMENTAL",
+    "ENDPOINT": "tickets",
+    "TOTAL_PROCESSADOS": 2,
+    "ULTIMO_SYNC": "2026-03-06T11:11:53",
+    "ERRO": "",
+    "CRIADO_EM": "2026-03-06T11:11:53"
+  },
+  {
+    "ID": 8,
+    "STATUS": "COMPLETED",
+    "TIPO": "INCREMENTAL",
+    "ENDPOINT": "tickets",
+    "TOTAL_PROCESSADOS": 4,
+    "ULTIMO_SYNC": "2026-03-06T11:18:39",
+    "ERRO": "",
+    "CRIADO_EM": "2026-03-06T11:18:39"
+  },
+  {
+    "ID": 9,
+    "STATUS": "RESET",
+    "TIPO": "PENDING_FULL",
+    "ENDPOINT": "tickets/past",
+    "TOTAL_PROCESSADOS": 0,
+    "ULTIMO_SYNC": "",
+    "ERRO": "",
+    "CRIADO_EM": "2026-03-06T12:03:44"
+  },
+  {
+    "ID": 10,
+    "STATUS": "RUNNING",
+    "TIPO": "FULL_SYNC",
+    "ENDPOINT": "tickets/past",
+    "TOTAL_PROCESSADOS": 0,
+    "ULTIMO_SYNC": "2026-03-07T22:11:36",
+    "ERRO": "",
+    "CRIADO_EM": "2026-03-07T22:11:36"
+  },
+  {
+    "ID": 11,
+    "STATUS": "RUNNING",
+    "TIPO": "FULL_TICKETS/PAST",
+    "ENDPOINT": "tickets/past",
+    "TOTAL_PROCESSADOS": 0,
+    "ULTIMO_SYNC": "2026-03-07T22:11:36",
+    "ERRO": "",
+    "CRIADO_EM": "2026-03-07T22:11:36"
+  },
+  {
+    "ID": 12,
+    "STATUS": "RUNNING",
+    "TIPO": "FULL_TICKETS/PAST",
+    "ENDPOINT": "tickets/past",
+    "TOTAL_PROCESSADOS": 50,
+    "ULTIMO_SYNC": "2026-03-07T22:12:38",
+    "ERRO": "",
+    "CRIADO_EM": "2026-03-07T22:12:38"
+  },
+  {
+    "ID": 13,
+    "STATUS": "RUNNING",
+    "TIPO": "FULL_TICKETS/PAST",
+    "ENDPOINT": "tickets/past",
+    "TOTAL_PROCESSADOS": 100,
+    "ULTIMO_SYNC": "2026-03-07T22:13:52",
+    "ERRO": "",
+    "CRIADO_EM": "2026-03-07T22:13:52"
+  },
+  {
+    "ID": 14,
+    "STATUS": "RUNNING",
+    "TIPO": "FULL_TICKETS/PAST",
+    "ENDPOINT": "tickets/past",
+    "TOTAL_PROCESSADOS": 150,
+    "ULTIMO_SYNC": "2026-03-07T22:14:52",
+    "ERRO": "",
+    "CRIADO_EM": "2026-03-07T22:14:52"
+  },
+  {
+    "ID": 15,
+    "STATUS": "RUNNING",
+    "TIPO": "FULL_TICKETS/PAST",
+    "ENDPOINT": "tickets/past",
+    "TOTAL_PROCESSADOS": 200,
+    "ULTIMO_SYNC": "2026-03-07T22:16:15",
+    "ERRO": "",
+    "CRIADO_EM": "2026-03-07T22:16:15"
+  },
+  {
+    "ID": 16,
+    "STATUS": "RUNNING",
+    "TIPO": "FULL_TICKETS/PAST",
+    "ENDPOINT": "tickets/past",
+    "TOTAL_PROCESSADOS": 250,
+    "ULTIMO_SYNC": "2026-03-07T22:17:17",
+    "ERRO": "",
+    "CRIADO_EM": "2026-03-07T22:17:17"
+  },
+  {
+    "ID": 17,
+    "STATUS": "RUNNING",
+    "TIPO": "FULL_TICKETS/PAST",
+    "ENDPOINT": "tickets/past",
+    "TOTAL_PROCESSADOS": 300,
+    "ULTIMO_SYNC": "2026-03-07T22:18:35",
+    "ERRO": "",
+    "CRIADO_EM": "2026-03-07T22:18:35"
+  },
+  {
+    "ID": 18,
+    "STATUS": "RUNNING",
+    "TIPO": "FULL_TICKETS/PAST",
+    "ENDPOINT": "tickets/past",
+    "TOTAL_PROCESSADOS": 350,
+    "ULTIMO_SYNC": "2026-03-07T22:19:36",
+    "ERRO": "",
+    "CRIADO_EM": "2026-03-07T22:19:36"
+  },
+  {
+    "ID": 19,
+    "STATUS": "RUNNING",
+    "TIPO": "FULL_TICKETS/PAST",
+    "ENDPOINT": "tickets/past",
+    "TOTAL_PROCESSADOS": 400,
+    "ULTIMO_SYNC": "2026-03-07T22:20:39",
+    "ERRO": "",
+    "CRIADO_EM": "2026-03-07T22:20:39"
+  },
+  {
+    "ID": 20,
+    "STATUS": "RUNNING",
+    "TIPO": "FULL_TICKETS/PAST",
+    "ENDPOINT": "tickets/past",
+    "TOTAL_PROCESSADOS": 450,
+    "ULTIMO_SYNC": "2026-03-07T22:21:54",
+    "ERRO": "",
+    "CRIADO_EM": "2026-03-07T22:21:54"
+  },
+  {
+    "ID": 21,
+    "STATUS": "RUNNING",
+    "TIPO": "FULL_TICKETS/PAST",
+    "ENDPOINT": "tickets/past",
+    "TOTAL_PROCESSADOS": 500,
+    "ULTIMO_SYNC": "2026-03-07T22:22:58",
+    "ERRO": "",
+    "CRIADO_EM": "2026-03-07T22:22:58"
+  },
+  {
+    "ID": 22,
+    "STATUS": "RUNNING",
+    "TIPO": "FULL_TICKETS/PAST",
+    "ENDPOINT": "tickets/past",
+    "TOTAL_PROCESSADOS": 550,
+    "ULTIMO_SYNC": "2026-03-07T22:23:58",
+    "ERRO": "",
+    "CRIADO_EM": "2026-03-07T22:23:58"
+  },
+  {
+    "ID": 23,
+    "STATUS": "RUNNING",
+    "TIPO": "FULL_TICKETS/PAST",
+    "ENDPOINT": "tickets/past",
+    "TOTAL_PROCESSADOS": 600,
+    "ULTIMO_SYNC": "2026-03-07T22:24:14",
+    "ERRO": "",
+    "CRIADO_EM": "2026-03-07T22:24:14"
+  },
+  {
+    "ID": 24,
+    "STATUS": "RUNNING",
+    "TIPO": "FULL_TICKETS/PAST",
+    "ENDPOINT": "tickets/past",
+    "TOTAL_PROCESSADOS": 650,
+    "ULTIMO_SYNC": "2026-03-07T22:25:21",
+    "ERRO": "",
+    "CRIADO_EM": "2026-03-07T22:25:21"
+  },
+  {
+    "ID": 25,
+    "STATUS": "RUNNING",
+    "TIPO": "FULL_TICKETS/PAST",
+    "ENDPOINT": "tickets/past",
+    "TOTAL_PROCESSADOS": 700,
+    "ULTIMO_SYNC": "2026-03-07T22:25:34",
+    "ERRO": "",
+    "CRIADO_EM": "2026-03-07T22:25:34"
+  },
+  {
+    "ID": 26,
+    "STATUS": "RUNNING",
+    "TIPO": "FULL_TICKETS/PAST",
+    "ENDPOINT": "tickets/past",
+    "TOTAL_PROCESSADOS": 750,
+    "ULTIMO_SYNC": "2026-03-07T22:25:46",
+    "ERRO": "",
+    "CRIADO_EM": "2026-03-07T22:25:46"
+  },
+  {
+    "ID": 27,
+    "STATUS": "RUNNING",
+    "TIPO": "FULL_TICKETS/PAST",
+    "ENDPOINT": "tickets/past",
+    "TOTAL_PROCESSADOS": 800,
+    "ULTIMO_SYNC": "2026-03-07T22:26:04",
+    "ERRO": "",
+    "CRIADO_EM": "2026-03-07T22:26:04"
+  },
+  {
+    "ID": 28,
+    "STATUS": "RUNNING",
+    "TIPO": "FULL_TICKETS/PAST",
+    "ENDPOINT": "tickets/past",
+    "TOTAL_PROCESSADOS": 850,
+    "ULTIMO_SYNC": "2026-03-07T22:27:07",
+    "ERRO": "",
+    "CRIADO_EM": "2026-03-07T22:27:07"
+  },
+  {
+    "ID": 29,
+    "STATUS": "RUNNING",
+    "TIPO": "FULL_TICKETS/PAST",
+    "ENDPOINT": "tickets/past",
+    "TOTAL_PROCESSADOS": 900,
+    "ULTIMO_SYNC": "2026-03-07T22:28:08",
+    "ERRO": "",
+    "CRIADO_EM": "2026-03-07T22:28:08"
+  },
+  {
+    "ID": 30,
+    "STATUS": "RUNNING",
+    "TIPO": "FULL_TICKETS/PAST",
+    "ENDPOINT": "tickets/past",
+    "TOTAL_PROCESSADOS": 950,
+    "ULTIMO_SYNC": "2026-03-07T22:29:07",
+    "ERRO": "",
+    "CRIADO_EM": "2026-03-07T22:29:07"
+  },
+  {
+    "ID": 31,
+    "STATUS": "RUNNING",
+    "TIPO": "FULL_TICKETS/PAST",
+    "ENDPOINT": "tickets/past",
+    "TOTAL_PROCESSADOS": 1000,
+    "ULTIMO_SYNC": "2026-03-07T22:30:33",
+    "ERRO": "",
+    "CRIADO_EM": "2026-03-07T22:30:33"
+  },
+  {
+    "ID": 32,
+    "STATUS": "RUNNING",
+    "TIPO": "FULL_TICKETS/PAST",
+    "ENDPOINT": "tickets/past",
+    "TOTAL_PROCESSADOS": 1050,
+    "ULTIMO_SYNC": "2026-03-07T22:31:38",
+    "ERRO": "",
+    "CRIADO_EM": "2026-03-07T22:31:38"
+  },
+  {
+    "ID": 33,
+    "STATUS": "RUNNING",
+    "TIPO": "FULL_TICKETS/PAST",
+    "ENDPOINT": "tickets/past",
+    "TOTAL_PROCESSADOS": 1100,
+    "ULTIMO_SYNC": "2026-03-07T22:33:06",
+    "ERRO": "",
+    "CRIADO_EM": "2026-03-07T22:33:06"
+  },
+  {
+    "ID": 34,
+    "STATUS": "RUNNING",
+    "TIPO": "FULL_TICKETS/PAST",
+    "ENDPOINT": "tickets/past",
+    "TOTAL_PROCESSADOS": 1150,
+    "ULTIMO_SYNC": "2026-03-07T22:34:20",
+    "ERRO": "",
+    "CRIADO_EM": "2026-03-07T22:34:20"
+  },
+  {
+    "ID": 35,
+    "STATUS": "RUNNING",
+    "TIPO": "FULL_TICKETS/PAST",
+    "ENDPOINT": "tickets/past",
+    "TOTAL_PROCESSADOS": 1200,
+    "ULTIMO_SYNC": "2026-03-07T22:35:28",
+    "ERRO": "",
+    "CRIADO_EM": "2026-03-07T22:35:28"
+  },
+  {
+    "ID": 36,
+    "STATUS": "RUNNING",
+    "TIPO": "FULL_TICKETS/PAST",
+    "ENDPOINT": "tickets/past",
+    "TOTAL_PROCESSADOS": 1250,
+    "ULTIMO_SYNC": "2026-03-07T22:36:42",
+    "ERRO": "",
+    "CRIADO_EM": "2026-03-07T22:36:42"
+  },
+  {
+    "ID": 37,
+    "STATUS": "RUNNING",
+    "TIPO": "FULL_TICKETS/PAST",
+    "ENDPOINT": "tickets/past",
+    "TOTAL_PROCESSADOS": 1300,
+    "ULTIMO_SYNC": "2026-03-07T22:37:56",
+    "ERRO": "",
+    "CRIADO_EM": "2026-03-07T22:37:56"
+  },
+  {
+    "ID": 38,
+    "STATUS": "RUNNING",
+    "TIPO": "FULL_TICKETS/PAST",
+    "ENDPOINT": "tickets/past",
+    "TOTAL_PROCESSADOS": 1350,
+    "ULTIMO_SYNC": "2026-03-07T22:39:26",
+    "ERRO": "",
+    "CRIADO_EM": "2026-03-07T22:39:26"
+  },
+  {
+    "ID": 39,
+    "STATUS": "RUNNING",
+    "TIPO": "FULL_TICKETS/PAST",
+    "ENDPOINT": "tickets/past",
+    "TOTAL_PROCESSADOS": 1400,
+    "ULTIMO_SYNC": "2026-03-07T22:40:39",
+    "ERRO": "",
+    "CRIADO_EM": "2026-03-07T22:40:39"
+  },
+  {
+    "ID": 40,
+    "STATUS": "RUNNING",
+    "TIPO": "FULL_TICKETS/PAST",
+    "ENDPOINT": "tickets/past",
+    "TOTAL_PROCESSADOS": 1450,
+    "ULTIMO_SYNC": "2026-03-07T22:41:50",
+    "ERRO": "",
+    "CRIADO_EM": "2026-03-07T22:41:50"
+  },
+  {
+    "ID": 41,
+    "STATUS": "RUNNING",
+    "TIPO": "FULL_TICKETS/PAST",
+    "ENDPOINT": "tickets/past",
+    "TOTAL_PROCESSADOS": 1500,
+    "ULTIMO_SYNC": "2026-03-07T22:43:32",
+    "ERRO": "",
+    "CRIADO_EM": "2026-03-07T22:43:32"
+  },
+  {
+    "ID": 42,
+    "STATUS": "RUNNING",
+    "TIPO": "FULL_TICKETS/PAST",
+    "ENDPOINT": "tickets/past",
+    "TOTAL_PROCESSADOS": 1550,
+    "ULTIMO_SYNC": "2026-03-07T22:44:53",
+    "ERRO": "",
+    "CRIADO_EM": "2026-03-07T22:44:53"
+  },
+  {
+    "ID": 43,
+    "STATUS": "RUNNING",
+    "TIPO": "FULL_TICKETS/PAST",
+    "ENDPOINT": "tickets/past",
+    "TOTAL_PROCESSADOS": 1600,
+    "ULTIMO_SYNC": "2026-03-07T22:45:09",
+    "ERRO": "",
+    "CRIADO_EM": "2026-03-07T22:45:09"
+  },
+  {
+    "ID": 44,
+    "STATUS": "RUNNING",
+    "TIPO": "FULL_TICKETS/PAST",
+    "ENDPOINT": "tickets/past",
+    "TOTAL_PROCESSADOS": 1650,
+    "ULTIMO_SYNC": "2026-03-07T22:47:32",
+    "ERRO": "",
+    "CRIADO_EM": "2026-03-07T22:47:32"
+  },
+  {
+    "ID": 45,
+    "STATUS": "RUNNING",
+    "TIPO": "FULL_TICKETS/PAST",
+    "ENDPOINT": "tickets/past",
+    "TOTAL_PROCESSADOS": 1700,
+    "ULTIMO_SYNC": "2026-03-07T22:48:55",
+    "ERRO": "",
+    "CRIADO_EM": "2026-03-07T22:48:55"
+  },
+  {
+    "ID": 46,
+    "STATUS": "RUNNING",
+    "TIPO": "FULL_TICKETS/PAST",
+    "ENDPOINT": "tickets/past",
+    "TOTAL_PROCESSADOS": 1750,
+    "ULTIMO_SYNC": "2026-03-07T22:50:26",
+    "ERRO": "",
+    "CRIADO_EM": "2026-03-07T22:50:26"
+  },
+  {
+    "ID": 47,
+    "STATUS": "RUNNING",
+    "TIPO": "FULL_TICKETS/PAST",
+    "ENDPOINT": "tickets/past",
+    "TOTAL_PROCESSADOS": 1800,
+    "ULTIMO_SYNC": "2026-03-07T22:51:51",
+    "ERRO": "",
+    "CRIADO_EM": "2026-03-07T22:51:51"
+  },
+  {
+    "ID": 48,
+    "STATUS": "RUNNING",
+    "TIPO": "FULL_TICKETS/PAST",
+    "ENDPOINT": "tickets/past",
+    "TOTAL_PROCESSADOS": 1850,
+    "ULTIMO_SYNC": "2026-03-07T22:52:04",
+    "ERRO": "",
+    "CRIADO_EM": "2026-03-07T22:52:04"
+  },
+  {
+    "ID": 49,
+    "STATUS": "RUNNING",
+    "TIPO": "FULL_TICKETS/PAST",
+    "ENDPOINT": "tickets/past",
+    "TOTAL_PROCESSADOS": 1900,
+    "ULTIMO_SYNC": "2026-03-07T22:52:31",
+    "ERRO": "",
+    "CRIADO_EM": "2026-03-07T22:52:31"
+  },
+  {
+    "ID": 50,
+    "STATUS": "RUNNING",
+    "TIPO": "FULL_TICKETS/PAST",
+    "ENDPOINT": "tickets/past",
+    "TOTAL_PROCESSADOS": 1950,
+    "ULTIMO_SYNC": "2026-03-07T22:53:09",
+    "ERRO": "",
+    "CRIADO_EM": "2026-03-07T22:53:09"
+  },
+  {
+    "ID": 51,
+    "STATUS": "RUNNING",
+    "TIPO": "FULL_TICKETS/PAST",
+    "ENDPOINT": "tickets/past",
+    "TOTAL_PROCESSADOS": 2000,
+    "ULTIMO_SYNC": "2026-03-07T22:53:40",
+    "ERRO": "",
+    "CRIADO_EM": "2026-03-07T22:53:40"
+  },
+  {
+    "ID": 52,
+    "STATUS": "RUNNING",
+    "TIPO": "FULL_TICKETS/PAST",
+    "ENDPOINT": "tickets/past",
+    "TOTAL_PROCESSADOS": 2050,
+    "ULTIMO_SYNC": "2026-03-07T22:54:09",
+    "ERRO": "",
+    "CRIADO_EM": "2026-03-07T22:54:09"
+  },
+  {
+    "ID": 53,
+    "STATUS": "RUNNING",
+    "TIPO": "FULL_TICKETS/PAST",
+    "ENDPOINT": "tickets/past",
+    "TOTAL_PROCESSADOS": 2100,
+    "ULTIMO_SYNC": "2026-03-07T22:56:50",
+    "ERRO": "",
+    "CRIADO_EM": "2026-03-07T22:56:50"
+  },
+  {
+    "ID": 54,
+    "STATUS": "RUNNING",
+    "TIPO": "FULL_TICKETS/PAST",
+    "ENDPOINT": "tickets/past",
+    "TOTAL_PROCESSADOS": 2200,
+    "ULTIMO_SYNC": "2026-03-07T22:59:52",
+    "ERRO": "",
+    "CRIADO_EM": "2026-03-07T22:59:52"
+  },
+  {
+    "ID": 55,
+    "STATUS": "RUNNING",
+    "TIPO": "FULL_TICKETS/PAST",
+    "ENDPOINT": "tickets/past",
+    "TOTAL_PROCESSADOS": 2250,
+    "ULTIMO_SYNC": "2026-03-07T23:00:26",
+    "ERRO": "",
+    "CRIADO_EM": "2026-03-07T23:00:26"
+  },
+  {
+    "ID": 56,
+    "STATUS": "RUNNING",
+    "TIPO": "FULL_TICKETS/PAST",
+    "ENDPOINT": "tickets/past",
+    "TOTAL_PROCESSADOS": 2300,
+    "ULTIMO_SYNC": "2026-03-07T23:05:48",
+    "ERRO": "",
+    "CRIADO_EM": "2026-03-07T23:05:48"
+  },
+  {
+    "ID": 57,
+    "STATUS": "RUNNING",
+    "TIPO": "FULL_TICKETS/PAST",
+    "ENDPOINT": "tickets/past",
+    "TOTAL_PROCESSADOS": 2350,
+    "ULTIMO_SYNC": "2026-03-07T23:06:16",
+    "ERRO": "",
+    "CRIADO_EM": "2026-03-07T23:06:16"
+  },
+  {
+    "ID": 58,
+    "STATUS": "RUNNING",
+    "TIPO": "FULL_TICKETS/PAST",
+    "ENDPOINT": "tickets/past",
+    "TOTAL_PROCESSADOS": 2400,
+    "ULTIMO_SYNC": "2026-03-07T23:08:35",
+    "ERRO": "",
+    "CRIADO_EM": "2026-03-07T23:08:35"
+  },
+  {
+    "ID": 59,
+    "STATUS": "RUNNING",
+    "TIPO": "FULL_TICKETS/PAST",
+    "ENDPOINT": "tickets/past",
+    "TOTAL_PROCESSADOS": 2450,
+    "ULTIMO_SYNC": "2026-03-07T23:12:35",
+    "ERRO": "",
+    "CRIADO_EM": "2026-03-07T23:12:35"
+  },
+  {
+    "ID": 60,
+    "STATUS": "RUNNING",
+    "TIPO": "FULL_TICKETS/PAST",
+    "ENDPOINT": "tickets/past",
+    "TOTAL_PROCESSADOS": 2500,
+    "ULTIMO_SYNC": "2026-03-07T23:13:04",
+    "ERRO": "",
+    "CRIADO_EM": "2026-03-07T23:13:04"
+  },
+  {
+    "ID": 61,
+    "STATUS": "RUNNING",
+    "TIPO": "FULL_TICKETS/PAST",
+    "ENDPOINT": "tickets/past",
+    "TOTAL_PROCESSADOS": 2550,
+    "ULTIMO_SYNC": "2026-03-07T23:13:37",
+    "ERRO": "",
+    "CRIADO_EM": "2026-03-07T23:13:37"
+  },
+  {
+    "ID": 62,
+    "STATUS": "RUNNING",
+    "TIPO": "FULL_TICKETS/PAST",
+    "ENDPOINT": "tickets/past",
+    "TOTAL_PROCESSADOS": 2600,
+    "ULTIMO_SYNC": "2026-03-07T23:14:11",
+    "ERRO": "",
+    "CRIADO_EM": "2026-03-07T23:14:11"
+  },
+  {
+    "ID": 63,
+    "STATUS": "RUNNING",
+    "TIPO": "FULL_TICKETS/PAST",
+    "ENDPOINT": "tickets/past",
+    "TOTAL_PROCESSADOS": 2650,
+    "ULTIMO_SYNC": "2026-03-07T23:14:51",
+    "ERRO": "",
+    "CRIADO_EM": "2026-03-07T23:14:51"
+  },
+  {
+    "ID": 64,
+    "STATUS": "RUNNING",
+    "TIPO": "FULL_TICKETS/PAST",
+    "ENDPOINT": "tickets/past",
+    "TOTAL_PROCESSADOS": 2700,
+    "ULTIMO_SYNC": "2026-03-07T23:18:04",
+    "ERRO": "",
+    "CRIADO_EM": "2026-03-07T23:18:04"
+  },
+  {
+    "ID": 65,
+    "STATUS": "RUNNING",
+    "TIPO": "FULL_TICKETS",
+    "ENDPOINT": "tickets",
+    "TOTAL_PROCESSADOS": 0,
+    "ULTIMO_SYNC": "2026-03-07T23:20:59",
+    "ERRO": "",
+    "CRIADO_EM": "2026-03-07T23:20:59"
+  },
+  {
+    "ID": 66,
+    "STATUS": "RUNNING",
+    "TIPO": "FULL_TICKETS",
+    "ENDPOINT": "tickets",
+    "TOTAL_PROCESSADOS": 50,
+    "ULTIMO_SYNC": "2026-03-07T23:22:40",
+    "ERRO": "",
+    "CRIADO_EM": "2026-03-07T23:22:40"
+  }
+]

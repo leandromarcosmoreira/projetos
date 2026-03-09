@@ -1,0 +1,1242 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="dark">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Horas por Analista - Security4IT</title>
+    <script src="https://cdn.tailwindcss.com/3.4.1"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.2/dist/chart.umd.min.js"></script>
+    <script
+        src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2.2.0/dist/chartjs-plugin-datalabels.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+    <style>
+        :root {
+            --background: #020617;
+            --foreground: #f8fafc;
+            --panel: #1e293b;
+            --card: #0f172a;
+            --border: #334155;
+            --text-primary: #f8fafc;
+            --text-muted: #94a3b8;
+            --accent-blue: #3b82f6;
+            --accent-purple: #8b5cf6;
+            --accent-orange: #f97316;
+            --accent-green: #22c55e;
+            --accent-red: #ef4444;
+        }
+
+        body {
+            background-color: var(--background);
+            color: var(--foreground);
+            min-height: 100vh;
+            font-family: 'Inter', system-ui, -apple-system, sans-serif;
+        }
+
+        .chart-panel {
+            background-color: var(--panel);
+            border: 1px solid var(--border);
+            border-radius: 1rem;
+            overflow: hidden;
+            position: relative;
+            min-height: 440px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        }
+
+        .no-data-overlay {
+            position: absolute !important;
+            inset: 0 !important;
+            background: rgba(32, 32, 32, 0.95) !important;
+            display: flex !important;
+            flex-direction: column !important;
+            align-items: center !important;
+            justify-content: center !important;
+            z-index: 999 !important;
+            color: #cbd5e1 !important;
+            font-size: 1.375rem !important;
+            font-weight: 500 !important;
+            text-align: center !important;
+            padding: 3rem !important;
+        }
+
+        .loading-spinner {
+            border: 6px solid rgba(255, 255, 255, 0.1);
+            border-left-color: #3b82f6;
+            border-radius: 50%;
+            width: 60px;
+            height: 60px;
+            animation: spin 1s linear infinite;
+            margin-bottom: 1.5rem;
+        }
+
+        @keyframes spin {
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        .chart-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+
+        .header-actions {
+            display: flex;
+            gap: 0.5rem;
+        }
+
+        .icon-btn {
+            background: transparent;
+            border: none;
+            color: #60a5fa;
+            cursor: pointer;
+            padding: 0.375rem;
+            border-radius: 0.375rem;
+            transition: all 0.2s;
+        }
+
+        .icon-btn:hover {
+            background: rgba(96, 165, 250, 0.15);
+            color: #93c5fd;
+        }
+
+        .icon-btn svg {
+            width: 20px;
+            height: 20px;
+        }
+
+        /* Estilos do Modal */
+        .modal-overlay {
+            background-color: rgba(0, 0, 0, 0.7);
+            backdrop-filter: blur(4px);
+        }
+
+        .color-input-group {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0.75rem;
+            background-color: var(--panel);
+            border: 1px solid var(--border);
+            border-radius: 0.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        input[type="color"] {
+            appearance: none;
+            -webkit-appearance: none;
+            border: none;
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            overflow: hidden;
+            cursor: pointer;
+            padding: 0;
+            background: none;
+        }
+
+        input[type="color"]::-webkit-color-swatch-wrapper {
+            padding: 0;
+        }
+
+        input[type="color"]::-webkit-color-swatch {
+            border: none;
+            border-radius: 50%;
+            border: 2px solid #475569;
+        }
+
+        .filter-input,
+        .filter-select {
+            background-color: #ffffff;
+            color: #000000;
+            border: 1px solid #cbd5e1;
+            border-radius: 0.375rem;
+            padding: 0.5rem 0.75rem;
+            font-size: 0.875rem;
+            height: 2.5rem;
+            outline: none;
+        }
+
+        .filter-input:focus,
+        .filter-select:focus {
+            border-color: var(--accent-blue);
+            box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.2);
+        }
+
+        select.filter-select {
+            appearance: none;
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            padding-right: 2.5rem;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3E%3Cpath stroke='%23334155' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='M6 8l4 4 4-4'/%3E%3C/svg%3E");
+            background-position: right 0.75rem center;
+            background-repeat: no-repeat;
+            background-size: 1.25rem;
+        }
+
+        input[type="date"] {
+            height: 2.5rem;
+        }
+
+        input[type="date"]::-webkit-calendar-picker-indicator {
+            cursor: pointer;
+        }
+
+        .legend-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.25rem;
+            margin-top: 0.75rem;
+            font-size: 0.875rem;
+            color: var(--text-muted);
+        }
+
+        .legend-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .legend-color {
+            width: 16px;
+            height: 16px;
+            border-radius: 50%;
+        }
+
+        .loading-overlay {
+            position: absolute;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.6);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.125rem;
+            z-index: 10;
+        }
+
+        /* === Data Range Brush === */
+        .brush-container {
+            position: relative;
+            width: 100%;
+            height: 48px;
+            margin-top: 8px;
+            padding: 0 4px;
+            user-select: none;
+        }
+
+        .brush-track {
+            position: absolute;
+            top: 16px;
+            left: 4px;
+            right: 4px;
+            height: 6px;
+            background: #334155;
+            border-radius: 50%;
+            pointer-events: none;
+        }
+
+        .brush-fill {
+            position: absolute;
+            height: 100%;
+            background: #3b82f6;
+            border-radius: 50%;
+            opacity: 0.5;
+        }
+
+        .brush-range {
+            position: absolute;
+            top: 6px;
+            left: 0;
+            width: 100%;
+            height: 28px;
+            -webkit-appearance: none;
+            appearance: none;
+            background: transparent;
+            pointer-events: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .brush-range::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            width: 16px;
+            height: 16px;
+            background: #3b82f6;
+            border: 2px solid #1e293b;
+            border-radius: 50%;
+            cursor: grab;
+            pointer-events: all;
+            box-shadow: 0 0 4px rgba(59, 130, 246, 0.5);
+        }
+
+        .brush-range::-webkit-slider-thumb:hover {
+            transform: scale(1.2);
+            box-shadow: 0 0 8px rgba(59, 130, 246, 0.8);
+        }
+
+        .brush-range::-moz-range-thumb {
+            width: 16px;
+            height: 16px;
+            background: #3b82f6;
+            border: 2px solid #1e293b;
+            border-radius: 50%;
+            cursor: grab;
+            pointer-events: all;
+            box-shadow: 0 0 4px rgba(59, 130, 246, 0.5);
+        }
+
+        .brush-labels {
+            position: absolute;
+            bottom: 0;
+            left: 4px;
+            right: 4px;
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.7rem;
+            color: #64748b;
+            pointer-events: none;
+        }
+
+        /* Overlay maximizado */
+        body.panel-is-maximized { overflow: hidden !important; }
+        #maximizeOverlay { transition: opacity 0.3s ease; }
+        #maximizeOverlay.hidden { opacity: 0; pointer-events: none; display: none !important; }
+        #maxContent .chart-container { min-height: 65vh !important; }
+    </style>
+</head>
+
+<body class="h-full w-full">
+    <div class="flex flex-col min-h-screen w-full p-4 lg:p-8">
+        <!-- Cabeçalho sem botão PDF global -->
+        <header
+            class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6 mb-8 p-6 bg-[#1e293b] rounded-2xl border border-white/5 shadow-2xl flex-shrink-0">
+            <div>
+                <p class="text-sm text-blue-400 font-semibold tracking-wider uppercase">Indicadores de Esforço</p>
+                <h1 class="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-white tracking-tight mt-1">Horas por
+                    Analista</h1>
+            </div>
+            <div class="flex flex-wrap items-center gap-4 lg:gap-6 w-full sm:w-auto">
+                <div class="flex flex-wrap items-center gap-4">
+                    <div class="min-w-[150px]">
+                        <label for="filter-analista"
+                            class="block text-xs font-medium text-gray-300 mb-1">Analista</label>
+                        <select id="filter-analista" class="filter-select w-full h-10">
+                            <option value="">Todos</option>
+                        </select>
+                    </div>
+                    <div class="min-w-[150px]">
+                        <label for="filter-cliente" class="block text-xs font-medium text-gray-300 mb-1">Cliente</label>
+                        <select id="filter-cliente" class="filter-select w-full h-10">
+                            <option value="">Todos</option>
+                        </select>
+                    </div>
+                    <div class="min-w-[320px]">
+                        <label class="block text-xs font-medium text-gray-300 mb-1">Data de lançamento</label>
+                        <div class="flex items-center gap-3 h-10">
+                            <input id="filter-data-inicio" type="date" class="filter-input w-full h-full">
+                            <span class="text-gray-400 text-sm font-medium whitespace-nowrap">até</span>
+                            <input id="filter-data-fim" type="date" class="filter-input w-full h-full">
+                        </div>
+                    </div>
+                </div>
+                <div class="h-12 border-l border-gray-600 pl-6 flex items-center hidden lg:flex">
+                    <img src="https://mitra-multitenant-prod.s3.amazonaws.com/tenant_41947/ai-files/public/securyti4iT.png"
+                        alt="Security4IT" class="h-12 object-contain">
+                </div>
+            </div>
+        </header>
+
+        <!-- Conteúdo Principal -->
+        <main class="flex-grow grid grid-cols-1 gap-8">
+            <!-- Gráfico 1: Horas por tipo de demanda -->
+            <div class="chart-panel p-6 flex flex-col border-t-4 border-purple-600 relative" id="panelDemanda">
+                <div class="chart-header">
+                    <h2 class="text-lg font-semibold text-white">HORAS APONTADAS POR TIPO DE DEMANDA</h2>
+                    <div class="header-actions">
+                                                <button class="icon-btn maximize-btn" title="Maximizar" data-panel="panelDemanda">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                stroke="currentColor" stroke-width="2">
+                                <path stroke-linecap="round" stroke-linejoin="round"
+                                    d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7" />
+                            </svg>
+                        </button>
+<button class="icon-btn" title="Configurar Cores" onclick="openConfig('demanda')">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                stroke="currentColor" stroke-width="2">
+                                <path stroke-linecap="round" stroke-linejoin="round"
+                                    d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" />
+                                <path stroke-linecap="round" stroke-linejoin="round"
+                                    d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                            </svg>
+                        </button>
+                        <button class="icon-btn" title="Exportar PDF" onclick="exportPanel('panelDemanda')">
+                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
+                                <path stroke-linecap="round" stroke-linejoin="round"
+                                    d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+                <div class="legend-container" id="legendDemanda"></div>
+                <div class="relative flex-grow min-h-[380px]">
+                    <canvas id="chartDemanda"></canvas>
+                </div>
+            </div>
+
+            <!-- Gráfico 2: Horas por analista -->
+            <div class="chart-panel p-6 flex flex-col border-t-4 border-blue-600 relative" id="panelAnalista">
+                <div class="chart-header">
+                    <h2 class="text-lg font-semibold text-white">HORAS APONTADAS POR ANALISTA</h2>
+                    <div class="header-actions">
+                                                <button class="icon-btn maximize-btn" title="Maximizar" data-panel="panelAnalista">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                stroke="currentColor" stroke-width="2">
+                                <path stroke-linecap="round" stroke-linejoin="round"
+                                    d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7" />
+                            </svg>
+                        </button>
+<button class="icon-btn" title="Configurar Cores" onclick="openConfig('analista')">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                stroke="currentColor" stroke-width="2">
+                                <path stroke-linecap="round" stroke-linejoin="round"
+                                    d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" />
+                                <path stroke-linecap="round" stroke-linejoin="round"
+                                    d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                            </svg>
+                        </button>
+                        <button class="icon-btn" title="Exportar PDF" onclick="exportPanel('panelAnalista')">
+                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
+                                <path stroke-linecap="round" stroke-linejoin="round"
+                                    d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+                <div class="legend-container" id="legendAnalista"></div>
+                <div class="relative flex-grow min-h-[500px]">
+                    <canvas id="chartAnalista"></canvas>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Modal de Configuração de Cores -->
+    <div id="configModal" class="fixed inset-0 modal-overlay hidden flex items-center justify-center z-50">
+        <div
+            class="bg-[#1e293b] p-6 rounded-xl w-full max-w-md border border-slate-700 shadow-2xl transform transition-all">
+            <div class="flex justify-between items-center mb-6">
+                <h3 class="text-xl font-bold text-white">Configurar Cores</h3>
+                <button onclick="closeConfig()" class="text-gray-400 hover:text-white transition-colors">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="18" y1="6" x2="6" y2="18"></line>
+                        <line x1="6" y1="6" x2="18" y2="18"></line>
+                    </svg>
+                </button>
+            </div>
+            <div id="configList" class="max-h-[60vh] overflow-y-auto mb-6 pr-2 space-y-3 custom-scrollbar"></div>
+            <div class="flex justify-end gap-3 pt-4 border-t border-slate-700">
+                <button onclick="closeConfig()"
+                    class="px-4 py-2 text-sm font-medium text-gray-300 hover:text-white hover:bg-slate-700 rounded-lg transition-colors">Cancelar</button>
+                <button onclick="saveConfig()"
+                    class="px-4 py-2 text-sm font-medium bg-blue-600 hover:bg-blue-700 text-white rounded-lg shadow-lg shadow-blue-600/20 transition-all flex items-center gap-2">
+                    <span id="saveBtnText">Salvar Alterações</span>
+                    <div id="saveSpinner"
+                        class="hidden w-4 h-4 border-2 border-white/30 border-l-white rounded-full animate-spin"></div>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const MITRA_UPDATE_EVENT_NAME = 'mitra-update';
+        let chartDemanda = null;
+        let chartAnalista = null;
+
+        let COLORS = {
+            demanda: { 'Evento': '#1E3A8A', 'Projeto': '#3B82F6', 'Rotina': '#F97316', 'Suporte': '#8B5CF6' },
+            analista: {
+                'julho': '#1E3A8A',
+                'agosto': '#3B82F6',
+                'setembro': '#F97316'
+            }
+        };
+
+        const DEFAULT_PALETTE = [
+            '#3b82f6', '#f97316', '#22c55e', '#a855f7', '#ef4444',
+            '#eab308', '#10b981', '#ec4899', '#06b6d4', '#f43f5e',
+            '#8b5cf6', '#14b8a6', '#f59e0b', '#6366f1', '#84cc16',
+            '#e879f9', '#0ea5e9', '#fb923c', '#34d399', '#c084fc'
+        ];
+
+        let COLOR_IDS = {};
+        let DB_ACTION_ID = null;
+
+        async function fetchColors() {
+            try {
+                const result = await queryMitra({ query: componentData.queryColors });
+                if (result && result.data && result.data.length > 0) {
+                    COLOR_IDS = {};
+                    result.data.forEach(row => {
+                        const id = row[0], cat = row[1], grp = row[2], hex = row[3];
+                        if (!COLORS[cat]) COLORS[cat] = {};
+                        COLORS[cat][grp] = hex;
+                        if (!COLOR_IDS[cat]) COLOR_IDS[cat] = {};
+                        COLOR_IDS[cat][grp] = id;
+                    });
+                }
+            } catch (err) { console.error("[ERROR] Falha ao buscar cores:", err); }
+        }
+
+        function openConfig(category) {
+            const modal = document.getElementById('configModal');
+            const list = document.getElementById('configList');
+            list.innerHTML = '';
+            const categoryColors = COLORS[category] || {};
+            const categoryIds = COLOR_IDS[category] || {};
+            const allGroups = Object.keys(categoryColors);
+            if (allGroups.length === 0) {
+                list.innerHTML = '<div class="text-gray-400 text-center py-4">Nenhuma cor configurável encontrada para esta categoria.</div>';
+            } else {
+                allGroups.sort().forEach(group => {
+                    const color = categoryColors[group];
+                    const id = categoryIds[group];
+                    const item = document.createElement('div');
+                    item.className = 'color-input-group';
+                    if (id) {
+                        item.innerHTML = `<span class="text-sm font-medium text-gray-200">${group}</span><div class="flex items-center gap-3"><span class="text-xs text-gray-500 font-mono uppercase">${color}</span><input type="color" value="${color}" data-id="${id}" data-group="${group}" class="color-picker"></div>`;
+                        const input = item.querySelector('input');
+                        const hexText = item.querySelector('span.font-mono');
+                        input.addEventListener('input', (e) => { hexText.textContent = e.target.value; });
+                    } else {
+                        item.innerHTML = `<span class="text-sm font-medium text-gray-400">${group}</span><div class="flex items-center gap-3"><span class="w-6 h-6 rounded-full" style="background:${color};border:2px solid #475569"></span></div>`;
+                    }
+                    list.appendChild(item);
+                });
+            }
+            modal.classList.remove('hidden');
+        }
+
+        function closeConfig() { document.getElementById('configModal').classList.add('hidden'); }
+
+        async function saveConfig() {
+            if (!DB_ACTION_ID) { alert("Erro: Configuração de salvamento não carregada."); return; }
+            const inputs = document.querySelectorAll('#configList input[type="color"]');
+            const btnText = document.getElementById('saveBtnText');
+            const spinner = document.getElementById('saveSpinner');
+            btnText.textContent = "Salvando...";
+            spinner.classList.remove('hidden');
+            try {
+                for (const input of inputs) {
+                    await setVariableMitra({ name: ':VAR_ID_COR', content: input.getAttribute('data-id') });
+                    await setVariableMitra({ name: ':VAR_VALUE_ALTER', content: input.value });
+                    await dbactionMitra(DB_ACTION_ID);
+                }
+                closeConfig();
+                await loadAllCharts();
+            } catch (err) { console.error("Erro ao salvar cores:", err); alert("Ocorreu um erro ao salvar as cores."); }
+            finally { btnText.textContent = "Salvar Alterações"; spinner.classList.add('hidden'); }
+        }
+
+        // ============================================================
+        // ChartBrush – Data range slicer para Chart.js
+        // ============================================================
+        const ChartBrush = {
+            THRESHOLD: 6,
+            _registry: {},
+            create({ brushId, parentEl, fullLabels, fullDatasets, onRangeChange, extras }) {
+                const total = fullLabels.length;
+                this._registry[brushId] = { fullLabels, fullDatasets, onRangeChange, extras: extras || {} };
+                const old = document.getElementById(`brush-${brushId}`);
+                if (old) old.remove();
+                if (total <= this.THRESHOLD) return;
+                const el = document.createElement('div');
+                el.className = 'brush-container';
+                el.id = `brush-${brushId}`;
+                el.innerHTML = `
+                    <div class="brush-track"><div class="brush-fill"></div></div>
+                    <input type="range" class="brush-range brush-min" min="0" max="${total - 1}" value="0" step="1">
+                    <input type="range" class="brush-range brush-max" min="0" max="${total - 1}" value="${total - 1}" step="1">
+                    <div class="brush-labels">
+                        <span class="brush-label-start">${fullLabels[0]}</span>
+                        <span class="brush-label-end">${fullLabels[total - 1]}</span>
+                    </div>`;
+                parentEl.insertAdjacentElement('afterend', el);
+                const minR = el.querySelector('.brush-min'), maxR = el.querySelector('.brush-max');
+                const fill = el.querySelector('.brush-fill');
+                const lblS = el.querySelector('.brush-label-start'), lblE = el.querySelector('.brush-label-end');
+                const update = () => {
+                    const lo = Math.min(parseInt(minR.value), parseInt(maxR.value));
+                    const hi = Math.max(parseInt(minR.value), parseInt(maxR.value));
+                    const pLo = (lo / (total - 1)) * 100, pHi = (hi / (total - 1)) * 100;
+                    fill.style.left = pLo + '%';
+                    fill.style.width = (pHi - pLo) + '%';
+                    lblS.textContent = fullLabels[lo] || '';
+                    lblE.textContent = fullLabels[hi] || '';
+                };
+                const fire = () => {
+                    const lo = Math.min(parseInt(minR.value), parseInt(maxR.value));
+                    const hi = Math.max(parseInt(minR.value), parseInt(maxR.value));
+                    onRangeChange(lo, hi);
+                };
+                minR.addEventListener('input', () => { update(); fire(); });
+                maxR.addEventListener('input', () => { update(); fire(); });
+                update();
+            },
+            remove(brushId) {
+                const el = document.getElementById(`brush-${brushId}`);
+                if (el) el.remove();
+                delete this._registry[brushId];
+            },
+            slice(brushId, start, end) {
+                const r = this._registry[brushId];
+                if (!r) return null;
+                return {
+                    labels: r.fullLabels.slice(start, end + 1),
+                    datasets: r.fullDatasets.map(d => d.slice(start, end + 1)),
+                    extras: Object.fromEntries(Object.entries(r.extras).map(([k, v]) =>
+                        [k, Array.isArray(v) && v.length === r.fullLabels.length ? v.slice(start, end + 1) : v]
+                    ))
+                };
+            }
+        };
+
+        function showLoading(panelId) {
+            const panel = document.getElementById(panelId);
+            if (!panel) return;
+
+            removeLoading(panelId);
+
+            const overlay = document.createElement('div');
+            overlay.className = 'no-data-overlay';
+            overlay.id = `loading-${panelId}`;
+            overlay.innerHTML = `
+                <div class="loading-spinner"></div>
+                <div class="mt-6 text-xl">Carregando dados...</div>
+            `;
+            panel.appendChild(overlay);
+            console.log(`[DEBUG] Loading INICIADO em ${panelId}`);
+        }
+
+        function removeLoading(panelId) {
+            const panel = document.getElementById(panelId);
+            if (!panel) return;
+            const overlays = panel.querySelectorAll('.no-data-overlay');
+            overlays.forEach(o => o.remove());
+            console.log(`[DEBUG] Overlays REMOVIDOS de ${panelId}`);
+        }
+
+        function showNoData(panelId) {
+            const panel = document.getElementById(panelId);
+            if (!panel) return;
+
+            // Se já existe mensagem de erro, mantém (não remove nem sobrescreve)
+            const current = panel.querySelector('.no-data-overlay');
+            if (current && current.innerHTML.includes('Nenhum dado encontrado')) {
+                console.log(`[DEBUG] Mensagem de sem dados já existe → MANTENDO em ${panelId}`);
+                return;
+            }
+
+            removeLoading(panelId);
+
+            const overlay = document.createElement('div');
+            overlay.className = 'no-data-overlay';
+            overlay.id = `nodata-${panelId}`;
+            overlay.innerHTML = `
+                <div class="text-2xl font-semibold">Nenhum dado encontrado para os filtros selecionados.</div>
+                <div class="mt-4 text-base text-gray-400">Tente alterar os filtros ou verificar se há chamados no período selecionado.</div>
+            `;
+            panel.appendChild(overlay);
+            console.log(`[DEBUG] Mensagem SEM DADOS exibida e MANTIDA em ${panelId}`);
+        }
+
+
+        // ==================== MAXIMIZAR ====================
+        let currentMaximizedPanel = null;
+
+        function toggleMaximize(panelId) {
+            const overlay = document.getElementById('maximizeOverlay');
+            const maxContent = document.getElementById('maxContent');
+            const maxTitle = document.getElementById('maxTitle');
+            if (!overlay || !maxContent) return;
+
+            if (overlay.classList.contains('hidden')) {
+                const originalPanel = document.getElementById(panelId);
+                if (!originalPanel) return;
+
+                const originalCanvas = originalPanel.querySelector('canvas');
+                if (!originalCanvas) return;
+
+                currentMaximizedPanel = originalPanel;
+                maxTitle.textContent = originalPanel.querySelector('h2')?.textContent?.trim() || '';
+                overlay.classList.remove('hidden');
+                document.body.classList.add('panel-is-maximized');
+
+                maxContent.innerHTML = '';
+
+                // Barra de ações
+                const actionsBar = document.createElement('div');
+                actionsBar.className = 'flex justify-end gap-2 mb-2 flex-shrink-0';
+                const pdfBtnHtml = `<button class="icon-btn" title="Exportar PDF" onclick="exportPanel('${panelId}')">
+                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
+                    </svg>
+                </button>`;
+                const cfgOnclick = originalPanel.querySelector('[onclick*="openConfig"]')?.getAttribute('onclick') || '';
+                const cfgCategory = cfgOnclick.match(/openConfig\('([^']+)'\)/)?.[1] || '';
+                const cfgBtnHtml = cfgCategory ? `<button class="icon-btn" title="Configurar" onclick="openConfig('${cfgCategory}')">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065zM15 12a3 3 0 11-6 0 3 3 0 016 0z"/>
+                    </svg>
+                </button>` : '';
+                actionsBar.innerHTML = pdfBtnHtml + cfgBtnHtml;
+                maxContent.appendChild(actionsBar);
+
+                // Legenda
+                const originalLegend = originalPanel.querySelector('.legend-container');
+                if (originalLegend) {
+                    const legClone = originalLegend.cloneNode(true);
+                    legClone.className = 'legend-container p-1 flex-shrink-0';
+                    maxContent.appendChild(legClone);
+                }
+
+                // Container gráfico com altura calculada
+                const overlayHeaderH = 72, paddingH = 48, actionsH = 44, legendH = 36, brushH = 40;
+                const chartH = Math.max(
+                    window.innerHeight * 0.96 - overlayHeaderH - paddingH - actionsH - legendH - brushH,
+                    380
+                );
+
+                const chartContainer = document.createElement('div');
+                chartContainer.style.cssText = `position:relative; width:100%; height:${chartH}px; flex-shrink:0;`;
+                maxContent.appendChild(chartContainer);
+
+                const newCanvas = document.createElement('canvas');
+                newCanvas.style.cssText = 'display:block; width:100%; height:100%;';
+                chartContainer.appendChild(newCanvas);
+
+                setTimeout(() => {
+                    try {
+                        // Determinar tipo do gráfico original
+                        const chartKey = Object.keys(window).find(k =>
+                            window[k] instanceof Chart && window[k].canvas === originalCanvas
+                        );
+                        const originalChart = chartKey ? window[chartKey] : null;
+
+                        const chartType = originalChart?.config?.type || 'bar';
+                        const isHorizontal = chartType === 'bar' &&
+                            originalChart?.options?.indexAxis === 'y';
+
+                        const allDatasets = originalChart?.data?.datasets || [];
+                        const allValues = allDatasets.flatMap(ds => ds.data || []);
+                        const maxVal = Math.max(...allValues.filter(v => !isNaN(v)), 1);
+                        const axisMax = Math.ceil(maxVal + maxVal * 0.18);
+
+                        const newChart = new Chart(newCanvas, {
+                            type: chartType,
+                            data: {
+                                labels: [...(originalChart?.data?.labels || [])],
+                                datasets: allDatasets.map(ds => ({
+                                    label: ds.label,
+                                    data: [...(ds.data || [])],
+                                    backgroundColor: ds.backgroundColor,
+                                    borderColor: ds.borderColor,
+                                    borderWidth: ds.borderWidth,
+                                    fill: ds.fill,
+                                    tension: ds.tension,
+                                    pointRadius: ds.pointRadius,
+                                    indexAxis: ds.indexAxis
+                                }))
+                            },
+                            options: {
+                                responsive: true,
+                                maintainAspectRatio: false,
+                                animation: { duration: 0 },
+                                indexAxis: isHorizontal ? 'y' : 'x',
+                                plugins: {
+                                    legend: { display: false },
+                                    datalabels: {
+                                        color: '#ffffff',
+                                        font: { weight: 'bold', size: 12 },
+                                        formatter: v => (v > 0 ? v : ''),
+                                        anchor: 'end',
+                                        align: 'top',
+                                        clamp: true,
+                                        clip: false
+                                    }
+                                },
+                                scales: {
+                                    x: {
+                                        beginAtZero: true,
+                                        suggestedMax: isHorizontal ? axisMax : undefined,
+                                        grid: { color: 'rgba(255,255,255,0.08)' },
+                                        ticks: { color: '#cbd5e1' }
+                                    },
+                                    y: {
+                                        beginAtZero: true,
+                                        suggestedMax: !isHorizontal ? axisMax : undefined,
+                                        grid: { color: isHorizontal ? 'rgba(0,0,0,0)' : 'rgba(255,255,255,0.08)' },
+                                        ticks: { color: '#cbd5e1' }
+                                    }
+                                }
+                            },
+                            plugins: [ChartDataLabels]
+                        });
+
+                        // Brush no overlay se existir no painel original
+                        const originalBrush = originalPanel.querySelector('.brush-container');
+                        if (originalBrush && originalChart && typeof ChartBrush !== 'undefined') {
+                            const fullLabels = [...(originalChart.data.labels || [])];
+                            ChartBrush.create({
+                                brushId: 'max_brush',
+                                parentEl: chartContainer,
+                                fullLabels,
+                                fullDatasets: allDatasets.map(ds => [...(ds.data || [])]),
+                                onRangeChange: (start, end) => {
+                                    newChart.data.labels = fullLabels.slice(start, end + 1);
+                                    newChart.data.datasets = allDatasets.map(ds => ({
+                                        ...ds,
+                                        data: (ds.data || []).slice(start, end + 1)
+                                    }));
+                                    newChart.update('none');
+                                }
+                            });
+                        }
+                    } catch (err) {
+                        console.error('Erro ao maximizar gráfico:', err);
+                    }
+                }, 100);
+
+            } else {
+                maxContent.innerHTML = '';
+                overlay.classList.add('hidden');
+                document.body.classList.remove('panel-is-maximized');
+                currentMaximizedPanel = null;
+                const brushEl = document.getElementById('brush-max_brush');
+                if (brushEl) brushEl.remove();
+            }
+        }
+
+                async function exportPanel(panelId) {
+            const panel = document.getElementById(panelId);
+            if (!panel) return;
+
+            const title = panel.querySelector('h2')?.textContent?.trim() || 'Gráfico';
+            const canvas = panel.querySelector('canvas');
+            const legend = panel.querySelector('.legend-container');
+            const brush = panel.querySelector('.brush-container');
+
+            const element = document.createElement('div');
+            element.style.padding = '50px';
+            element.style.background = '#020617';
+            element.style.color = '#f8fafc';
+            element.style.width = '1123px';
+            element.style.height = '794px';
+            element.style.margin = '0';
+            element.style.boxSizing = 'border-box';
+            element.style.fontFamily = 'Inter, sans-serif';
+            element.style.display = 'flex';
+            element.style.flexDirection = 'column';
+            element.style.justifyContent = 'center';
+            element.style.overflow = 'hidden';
+            element.style.gap = '16px';
+
+            const h2 = document.createElement('h2');
+            h2.textContent = title;
+            h2.style.fontSize = '28px';
+            h2.style.fontWeight = '700';
+            h2.style.margin = '0';
+            element.appendChild(h2);
+
+            if (legend) {
+                const legendClone = legend.cloneNode(true);
+                legendClone.style.display = 'flex';
+                legendClone.style.flexWrap = 'wrap';
+                legendClone.style.gap = '15px';
+                legendClone.querySelectorAll('div').forEach(d => {
+                    d.style.display = 'flex';
+                    d.style.alignItems = 'center';
+                    d.style.gap = '8px';
+                });
+                element.appendChild(legendClone);
+            }
+
+            if (canvas) {
+                const img = document.createElement('img');
+                img.src = canvas.toDataURL('image/png', 1.0);
+                img.style.width = '100%';
+                img.style.height = 'auto';
+                img.style.borderRadius = '8px';
+                element.appendChild(img);
+            }
+
+            if (brush) {
+                const start = brush.querySelector('.brush-label-start')?.textContent || '';
+                const end = brush.querySelector('.brush-label-end')?.textContent || '';
+                if (start || end) {
+                    const periodInfo = document.createElement('div');
+                    periodInfo.style.textAlign = 'right';
+                    periodInfo.style.fontSize = '13px';
+                    periodInfo.style.color = '#94a3b8';
+                    periodInfo.textContent = `Período: ${start} até ${end}`;
+                    element.appendChild(periodInfo);
+                }
+            }
+
+            const opt = {
+                margin: 0,
+                filename: `${title.replace(/[^a-zA-Z0-9]/g, '_')}.pdf`,
+                image: { type: 'jpeg', quality: 1.0 },
+                html2canvas: {
+                    scale: 2,
+                    useCORS: true,
+                    backgroundColor: '#020617',
+                    logging: false,
+                    width: 1123,
+                    height: 794
+                },
+                jsPDF: { unit: 'px', format: [1123, 794], orientation: 'landscape' }
+            };
+
+            html2pdf().from(element).set(opt).save();
+        }
+
+        async function renderChart(panelId, canvasId, legendId, queryName, colorMap, datasetsConfig) {
+            showLoading(panelId);
+
+            const timeoutId = setTimeout(() => {
+                console.warn(`[DEBUG] TIMEOUT de 1s atingido em ${panelId} → forçando mensagem sem dados PERMANENTE`);
+                showNoData(panelId);
+            }, 1000);
+
+            try {
+                console.log(`[DEBUG] Iniciando queryMitra para ${panelId}`);
+                const result = await queryMitra({
+                    query: componentData[queryName],
+                    jdbcId: parseInt(componentData.jdbcId, 10)
+                });
+
+                console.log(`[DEBUG] Query concluída para ${panelId}. Dados:`, result?.data?.length || 0);
+
+                clearTimeout(timeoutId);
+
+                if (!result?.data?.length) {
+                    console.log(`[DEBUG] Sem dados em ${panelId} → exibindo mensagem PERMANENTE`);
+                    showNoData(panelId);
+                    return;
+                }
+
+                removeLoading(panelId);
+
+                const headers = result.headers.map(h => h.name.toUpperCase());
+                const idxLabel = ['MES_DISPLAY', 'ANALISTA', 'MES'].reduce((found, col) => found >= 0 ? found : headers.indexOf(col), -1);
+                const labelIdx = idxLabel >= 0 ? idxLabel : 0;
+                const dataPoints = datasetsConfig.map(ds => ({
+                    label: ds.label,
+                    data: result.data.map(row => parseFloat(row[headers.indexOf(ds.col.toUpperCase())]) || 0),
+                    backgroundColor: colorMap[ds.label] || '#8E44AD'
+                }));
+
+                const labels = result.data.map(row => row[labelIdx] || 'N/A');
+
+                // Dados completos para o brush
+                const fullLabels = [...labels];
+                const fullDatasetsData = dataPoints.map(ds => [...ds.data]);
+                const chartKey = `chart${panelId.replace('panel', '')}`;
+
+                function createStackedChart(lbls, dsets) {
+                    const ctx = document.getElementById(canvasId).getContext('2d');
+                    if (window[chartKey]) window[chartKey].destroy();
+                    window[chartKey] = new Chart(ctx, {
+                        type: 'bar',
+                        data: { labels: lbls, datasets: dsets },
+                        options: {
+                            responsive: true,
+                            maintainAspectRatio: false,
+                            plugins: {
+                                legend: { display: false },
+                                datalabels: {
+                                    color: '#ffffff',
+                                    font: { weight: 'bold', size: 12 },
+                                    anchor: 'center',
+                                    align: 'center',
+                                    formatter: v => v > 0 ? Math.round(v) : '',
+                                    textShadowColor: 'rgba(0,0,0,0.7)',
+                                    textShadowBlur: 3
+                                }
+                            },
+                            scales: {
+                                x: { stacked: false, grid: { display: false }, ticks: { color: '#94a3b8' } },
+                                y: { stacked: false, beginAtZero: true, grid: { color: 'rgba(255,255,255,0.08)' }, ticks: { color: '#94a3b8' } }
+                            }
+                        },
+                        plugins: [ChartDataLabels]
+                    });
+                }
+
+                createStackedChart(labels, dataPoints);
+
+                // Brush / Range Slicer
+                ChartBrush.remove(canvasId);
+                ChartBrush.create({
+                    brushId: canvasId,
+                    parentEl: document.getElementById(canvasId).parentElement,
+                    fullLabels,
+                    fullDatasets: fullDatasetsData,
+                    onRangeChange: (start, end) => {
+                        const sliced = ChartBrush.slice(canvasId, start, end);
+                        const slicedDatasets = dataPoints.map((ds, i) => ({ ...ds, data: sliced.datasets[i] }));
+                        createStackedChart(sliced.labels, slicedDatasets);
+                    }
+                });
+
+                updateCustomLegend(legendId, dataPoints.map(ds => ({ label: ds.label, color: ds.backgroundColor })));
+
+                console.log(`[DEBUG] Gráfico renderizado com sucesso em ${panelId}`);
+            } catch (err) {
+                clearTimeout(timeoutId);
+                console.error(`[ERROR] Falha em ${panelId}:`, err);
+                showNoData(panelId);
+            } finally {
+                // Só remove loading se NÃO for mensagem de erro
+                const current = document.getElementById(panelId)?.querySelector('.no-data-overlay');
+                if (current && !current.innerHTML.includes('Nenhum dado encontrado')) {
+                    removeLoading(panelId);
+                }
+            }
+        }
+
+        async function renderChartDemanda() {
+            await renderChart(
+                'panelDemanda',
+                'chartDemanda',
+                'legendDemanda',
+                'queryGraficoDemanda',
+                COLORS.demanda,
+                [
+                    { label: 'Evento', col: 'EVENTO' },
+                    { label: 'Projeto', col: 'PROJETO' },
+                    { label: 'Rotina', col: 'ROTINA' },
+                    { label: 'Suporte', col: 'SUPORTE' }
+                ]
+            );
+        }
+
+        async function renderChartAnalista() {
+            const panelId = 'panelAnalista';
+            const canvasId = 'chartAnalista';
+            const legendId = 'legendAnalista';
+
+            showLoading(panelId);
+
+            const timeoutId = setTimeout(() => {
+                showNoData(panelId);
+            }, 1000);
+
+            try {
+                const result = await queryMitra({
+                    query: componentData.queryGraficoAnalista,
+                    jdbcId: parseInt(componentData.jdbcId, 10)
+                });
+
+                clearTimeout(timeoutId);
+
+                if (!result?.data?.length) {
+                    showNoData(panelId);
+                    return;
+                }
+
+                removeLoading(panelId);
+
+                const headers = result.headers.map(h => h.name.toUpperCase());
+
+                // Pivot: rows have ANALISTA, MES_KEY, MES_LABEL, HORAS
+                const idxAnalista = headers.indexOf('ANALISTA');
+                const idxMesKey = headers.indexOf('MES_KEY');
+                const idxMesLabel = headers.indexOf('MES_LABEL');
+                const idxHoras = headers.indexOf('HORAS');
+
+                // If pivot columns exist, do monthly grouping
+                if (idxAnalista >= 0 && idxMesKey >= 0 && idxHoras >= 0) {
+                    const analistas = [...new Set(result.data.map(r => r[idxAnalista]))];
+                    const monthMap = new Map();
+                    result.data.forEach(r => {
+                        if (!monthMap.has(r[idxMesKey])) monthMap.set(r[idxMesKey], r[idxMesLabel] || r[idxMesKey]);
+                    });
+                    const sortedMonths = [...monthMap.keys()].sort();
+                    const MONTH_COLORS = ['#E91E8C', '#3B82F6', '#F97316', '#22C55E', '#A855F7', '#EAB308'];
+
+                    const datasets = sortedMonths.map((mk, i) => {
+                        const label = monthMap.get(mk);
+                        const colorKey = label.toLowerCase();
+                        return {
+                            label: label,
+                            data: analistas.map(a => {
+                                const row = result.data.find(r => r[idxAnalista] === a && r[idxMesKey] === mk);
+                                return row ? parseFloat(row[idxHoras]) || 0 : 0;
+                            }),
+                            backgroundColor: COLORS.analista[colorKey] || DEFAULT_PALETTE[i % DEFAULT_PALETTE.length],
+                            borderWidth: 0,
+                            borderRadius: 4
+                        };
+                    });
+
+                    const ctx = document.getElementById(canvasId).getContext('2d');
+                    if (window.chartAnalista) window.chartAnalista.destroy();
+                    window.chartAnalista = new Chart(ctx, {
+                        type: 'bar',
+                        data: { labels: analistas, datasets },
+                        options: {
+                            indexAxis: 'y',
+                            responsive: true,
+                            maintainAspectRatio: false,
+                            plugins: {
+                                legend: { display: false },
+                                datalabels: {
+                                    color: '#ffffff',
+                                    font: { weight: 'bold', size: 11 },
+                                    anchor: 'center',
+                                    align: 'center',
+                                    formatter: v => v > 0 ? Math.round(v) : ''
+                                }
+                            },
+                            scales: {
+                                x: { stacked: true, beginAtZero: true, grid: { color: 'rgba(255,255,255,0.08)' }, ticks: { color: '#94a3b8' } },
+                                y: { stacked: true, grid: { display: false }, ticks: { color: '#e2e8f0', font: { size: 12 } } }
+                            }
+                        },
+                        plugins: [ChartDataLabels]
+                    });
+
+                    updateCustomLegend(legendId, datasets.map(ds => ({ label: ds.label, color: ds.backgroundColor })));
+                } else {
+                    // Fallback: stacked by type (same as demanda)
+                    await renderChart(panelId, canvasId, legendId, 'queryGraficoAnalista', COLORS.analista, [
+                        { label: 'Projeto', col: 'PROJETO' },
+                        { label: 'Rotina', col: 'ROTINA' },
+                        { label: 'Evento', col: 'EVENTO' },
+                        { label: 'Suporte', col: 'SUPORTE' },
+                        { label: 'Total', col: 'TOTAL_HORAS' }
+                    ]);
+                }
+            } catch (err) {
+                clearTimeout(timeoutId);
+                console.error(`[ERROR] Falha em ${panelId}:`, err);
+                showNoData(panelId);
+            }
+        }
+
+        function updateCustomLegend(legendId, items) {
+            const container = document.getElementById(legendId);
+            if (!container) return;
+            container.innerHTML = '';
+            items.forEach(item => {
+                const div = document.createElement('div');
+                div.className = 'legend-item';
+                div.innerHTML = `
+                    <div class="legend-color" style="background-color: ${item.color}"></div>
+                    <span>${item.label}</span>
+                `;
+                container.appendChild(div);
+            });
+        }
+
+        async function loadAllCharts() {
+            await fetchColors();
+            await Promise.all([
+                renderChartDemanda(),
+                renderChartAnalista()
+            ]);
+        }
+
+        async function handleFilterChange(e) {
+            const el = e.target;
+            let varName = '';
+            if (el.id === 'filter-analista') varName = componentData.varAnalista;
+            if (el.id === 'filter-cliente') varName = componentData.varCliente;
+            if (el.id === 'filter-data-inicio') varName = componentData.varDataInicio;
+            if (el.id === 'filter-data-fim') varName = componentData.varDataFim;
+
+            if (varName) {
+                try {
+                    await setVariableMitra({ name: varName, content: el.value });
+                    if (typeof updateComponentsMitra === 'function') await updateComponentsMitra({ all: true });
+                    await loadAllCharts();
+                } catch (err) {
+                    console.error(err);
+                }
+            }
+        }
+
+        async function initializeComponent() {
+            await Promise.all([
+                populateSelect('filter-analista', componentData.queryFiltroAnalista),
+                populateSelect('filter-cliente', componentData.queryFiltroCliente)
+            ]);
+
+            ['filter-analista', 'filter-cliente', 'filter-data-inicio', 'filter-data-fim'].forEach(id => {
+                document.getElementById(id)?.addEventListener('change', handleFilterChange);
+            });
+
+            document.body.addEventListener(MITRA_UPDATE_EVENT_NAME, loadAllCharts);
+
+            await loadAllCharts();
+        }
+
+        async function populateSelect(selectId, query) {
+            const select = document.getElementById(selectId);
+            select.innerHTML = `<option value="">Todos</option>`;
+            try {
+                const result = await queryMitra({ query });
+                result.data?.forEach(row => {
+                    const opt = document.createElement('option');
+                    opt.value = row[0];
+                    opt.textContent = row[1] || row[0];
+                    select.appendChild(opt);
+                });
+            } catch (err) {
+                console.error(`Erro ao popular ${selectId}:`, err);
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const wait = setInterval(async () => {
+                if (window.componentData && componentData.jdbcId) {
+                    clearInterval(wait);
+
+                    try {
+                        const dbRes = await queryMitra({ query: componentData.dbActionIdQuery
+            document.querySelectorAll('.maximize-btn').forEach(btn => {
+                btn.addEventListener('click', () => {
+                    const panelId = btn.dataset.panel;
+                    toggleMaximize(panelId);
+                });
+            });
+            document.getElementById('closeMaxBtn')?.addEventListener('click', () => {
+                if (currentMaximizedPanel) toggleMaximize(currentMaximizedPanel.id);
+            });
+        });
+                        if (dbRes && dbRes.data && dbRes.data.length > 0) {
+                            DB_ACTION_ID = dbRes.data[0][0];
+                        }
+                    } catch (err) {
+                        console.error("[ERROR] Falha ao buscar DBAction ID:", err);
+                    }
+
+                    initializeComponent();
+                }
+            }, 100);
+
+            setTimeout(() => {
+                if (!window.componentData) {
+                    document.body.innerHTML = '<div class="h-screen flex items-center justify-center text-red-400 text-2xl">Erro: Configurações não carregadas.</div>';
+                }
+            }, 6000);
+        });
+    </script>
+</body>
+
+</html>

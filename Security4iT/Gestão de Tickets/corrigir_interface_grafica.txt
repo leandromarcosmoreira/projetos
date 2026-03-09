@@ -1,0 +1,109 @@
+Você é um desenvolvedor sênior full-stack especialista em aplicações web com banco MySQL, backend PHP (ou similar) e frontend com React/Vue.js ou HTML+JS+Chart.js para dashboards. Sua tarefa é corrigir problemas no sistema "Security4IT - Gestão de Tickets" com base nas imagens e descrições fornecidas.
+
+PROBLEMAS ATUAIS IDENTIFICADOS:
+1. O "Query Inspector" aparece com todos os parâmetros vazios e ao clicar em "Executar Query" retorna erro HTTP 403 (provavelmente falha de autenticação/autorização no endpoint).
+2. A tela "Apresentação Mensal - Chamados Mensais" mostra todos os cards zerados (Total de Chamados: 0, Urgência Alta/Crítica: 0, Categorias: 0, Analistas: 0) e os gráficos exibem a mensagem "Nenhum dado encontrado para os filtros selecionados".
+3. Existe uma tabela TICKETS no MySQL com ~2.991 registros (exemplos de 2019), com colunas como:
+   - ID
+   - A_PROTOCOLO (ex: SECAIT20190102.1 → ano 2019, mês 01, dia 02)
+   - Z_TIPO (1=Interno, 2=Publico)
+   - A_TIPO_NOME
+   - A_ASSUNTO
+   - A_CATEGORIA (ex: Requisicao, Incidente, Problema, Sem Categoria)
+   - A_URGENCIA (Baixa, Media, Alta, N/A)
+   - A_STATUS (Fechado)
+   - A_STATUS_B... (Closed)
+   - Z_ORIGEM (2, 3...)
+   Todos os tickets do exemplo estão "Fechado" e são de 2019.
+
+REQUISITOS DA CORREÇÃO (prioridade alta):
+
+1. REMOVER COMPLETAMENTE O QUERY INSPECTOR DA INTERFACE DO USUÁRIO
+   - Não deve mais existir botão "Executar Query", modal ou tela chamada "Query Inspector".
+   - Essa funcionalidade NÃO deve ficar visível para o usuário comum.
+
+2. ADICIONAR ABA/CONFIGURAÇÃO DE QUERY POR GRÁFICO (dentro das configurações de cada widget)
+   - Cada gráfico/card da dashboard (Total, Urgência Alta/Crítica, Chamados por Mês, por Urgência, por Categoria, etc.) deve ter um ícone de engrenagem (⚙️) ou botão "Configurações".
+   - Ao clicar, abre um modal ou aba com:
+     - A query SQL base (mostrada como texto read-only ou em textarea editável com cuidado)
+     - Campos editáveis para variáveis/filtros principais:
+       - Período (data início e fim)
+       - Status
+       - Categoria
+       - Urgência
+       - Analista (se existir coluna)
+       - Origem
+       - Mês (se aplicável)
+       - Coluna principal usada no SELECT/GROUP BY (dropdown com colunas disponíveis: A_CATEGORIA, A_URGENCIA, A_STATUS, etc.)
+     - Botão "Salvar alterações" → persiste a configuração (pode ser por usuário via localStorage ou tabela de customização no banco)
+     - Botão "Restaurar padrão"
+   - Após salvar, o gráfico deve recarregar automaticamente com a query ajustada.
+
+3. CORRIGIR O CARREGAMENTO DE DADOS (fazer os gráficos mostrarem dados reais da tabela TICKETS)
+   - Extrair data do campo A_PROTOCOLO:
+     STR_TO_DATE(SUBSTRING(A_PROTOCOLO, 7, 8), '%Y%m%d') → transforma "20190102" em data válida
+   - Criar queries parametrizadas (usar prepared statements para segurança)
+
+QUERIES SUGERIDAS (ajuste conforme colunas reais):
+
+-- Total de Chamados
+SELECT COUNT(*) AS total
+FROM TICKETS
+WHERE (:data_inicio IS NULL OR STR_TO_DATE(SUBSTRING(A_PROTOCOLO, 7, 8), '%Y%m%d') >= :data_inicio)
+  AND (:data_fim    IS NULL OR STR_TO_DATE(SUBSTRING(A_PROTOCOLO, 7, 8), '%Y%m%d') <= :data_fim)
+  AND (:categoria   IS NULL OR A_CATEGORIA = :categoria)
+  AND (:urgencia    IS NULL OR A_URGENCIA = :urgencia)
+  AND (:status      IS NULL OR A_STATUS = :status);
+
+-- Urgência Alta/Crítica
+SELECT COUNT(*) AS alta_critica
+FROM TICKETS
+WHERE A_URGENCIA IN ('Alta', 'Crítica')
+  AND [mesmos filtros de período, categoria, status...]
+
+-- Chamados por Mês (para gráfico de barras/linhas)
+SELECT 
+  DATE_FORMAT(STR_TO_DATE(SUBSTRING(A_PROTOCOLO, 7, 8), '%Y%m%d'), '%Y-%m') AS mes,
+  COUNT(*) AS quantidade
+FROM TICKETS
+WHERE [filtros]
+GROUP BY mes
+ORDER BY mes;
+
+-- Chamados por Nível de Urgência (pizza/barras)
+SELECT 
+  A_URGENCIA AS urgencia,
+  COUNT(*) AS quantidade
+FROM TICKETS
+WHERE [filtros]
+GROUP BY A_URGENCIA
+ORDER BY quantidade DESC;
+
+-- Chamados por Categoria
+SELECT 
+  A_CATEGORIA AS categoria,
+  COUNT(*) AS quantidade
+FROM TICKETS
+WHERE [filtros]
+GROUP BY A_CATEGORIA
+ORDER BY quantidade DESC;
+
+TAREFAS QUE VOCÊ DEVE EXECUTAR NA RESPOSTA:
+- Forneça as alterações necessárias no backend (exemplo em PHP com PDO)
+- Forneça trecho de frontend (HTML + JS + Chart.js) para:
+  - Remover Query Inspector
+  - Adicionar ícone de configuração por gráfico
+  - Modal de edição de parâmetros/query
+- Explique como resolver o erro 403 (provavelmente falta de token/auth no fetch/AJAX)
+- Garanta que os gráficos carreguem automaticamente ao entrar na página
+- Mantenha o tema escuro (dark mode) do sistema
+
+Responda de forma organizada, com seções claras:
+1. Resumo das alterações
+2. Correção do erro 403
+3. Queries corrigidas
+4. Código backend (exemplo PHP)
+5. Código frontend (HTML/JS)
+6. Instruções finais de teste
+
+Comece agora.

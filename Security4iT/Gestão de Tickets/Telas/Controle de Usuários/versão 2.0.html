@@ -1,0 +1,1016 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="dark">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Painel de Gerenciamento de Acessos</title>
+    <script src="https://cdn.tailwindcss.com/3.4.1"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        :root {
+            --background: #020617;
+            --foreground: #f8fafc;
+            --panel: #1e293b;
+            --card: #0f172a;
+            --border: #334155;
+            --text-primary: #f8fafc;
+            --text-secondary: #94a3b8;
+            --text-muted: #64748b;
+            --s4-orange: #3b82f6;
+            --s4-orange-dark: #2563eb;
+            --s4-orange-darker: #1d4ed8;
+            --s4-orange-light: #60a5fa;
+            --s4-orange-glow: rgba(59, 130, 246, 0.25);
+            --bg-darkest: #020617;
+            --bg-dark: #0f172a;
+            --bg-darker: #1e293b;
+            --bg-panel: #1e293b;
+            --bg-panel-elevated: #334155;
+            --radius: 1rem;
+            --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            background: var(--background);
+            color: var(--foreground);
+            margin: 0;
+            height: 100vh;
+            font-family: 'Inter', system-ui, sans-serif;
+            overflow: hidden;
+        }
+
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 6px;
+            height: 6px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #333333;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #475569;
+            border-radius: 50%;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--s4-orange);
+        }
+
+        .card {
+            background: var(--bg-panel);
+            border: 1px solid var(--border-dark);
+            border-radius: var(--radius);
+            box-shadow: var(--shadow-md);
+            backdrop-filter: blur(4px);
+            transition: all 0.22s ease;
+        }
+
+        .card:hover {
+            border-color: var(--s4-orange);
+            box-shadow: var(--shadow-lg), 0 0 20px var(--s4-orange-glow);
+            transform: translateY(-1px);
+        }
+
+        .tab-link {
+            position: relative;
+            transition: all 0.2s ease;
+        }
+
+        .tab-link::after {
+            content: '';
+            position: absolute;
+            inset-inline: 0;
+            bottom: -1px;
+            height: 3px;
+            background: var(--s4-orange);
+            transform: scaleX(0);
+            transform-origin: center;
+            transition: transform 0.28s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .tab-link.active::after,
+        .tab-link:hover::after {
+            transform: scaleX(1);
+        }
+
+        .profile-item {
+            transition: all 0.2s ease;
+        }
+
+        .profile-item:hover {
+            transform: translateX(4px);
+            background: var(--hover-bg);
+            border-color: var(--s4-orange);
+        }
+
+        .profile-item.active {
+            background: var(--active-bg);
+            border-color: var(--s4-orange);
+            box-shadow: 0 0 16px var(--s4-orange-glow);
+        }
+
+        button {
+            transition: all 0.2s ease;
+        }
+
+        button:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 6px 12px -4px rgba(249, 115, 22, 0.3);
+        }
+
+        button:active {
+            transform: translateY(0);
+        }
+
+        .btn-gradient {
+            background: linear-gradient(135deg, var(--s4-orange) 0%, var(--s4-orange-dark) 100%);
+        }
+
+        .btn-gradient:hover {
+            background: linear-gradient(135deg, var(--s4-orange-light) 0%, var(--s4-orange) 100%);
+        }
+
+        input,
+        select,
+        textarea {
+            transition: all 0.2s ease;
+        }
+
+        input:focus,
+        select:focus,
+        textarea:focus {
+            border-color: var(--s4-orange);
+            box-shadow: 0 0 0 3px var(--focus-ring);
+            background: #1e293b;
+        }
+
+        .table-row {
+            transition: background 0.15s ease;
+        }
+
+        .table-row:hover {
+            background: rgba(249, 115, 22, 0.08);
+        }
+
+        /* Modal entrance */
+        #user-modal[open],
+        #profile-modal[open],
+        #confirm-modal[open] .bg-black\/70 {
+            animation: fadeIn 0.3s ease;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+
+        .modal-content {
+            transform: scale(0.94);
+            opacity: 0;
+            animation: modalPop 0.32s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+        }
+
+        @keyframes modalPop {
+            to {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+
+        .tab-content {
+            display: none;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+    </style>
+</head>
+
+<body class="antialiased">
+    <div class="flex flex-col h-screen w-full p-5 md:p-6 lg:p-8 gap-6">
+        <!-- Cabeçalho ajustado para o padrão dos outros dashboards -->
+        <header
+            class="flex flex-wrap items-center justify-between gap-6 mb-10 p-6 bg-[#1e293b] rounded-2xl border border-white/5 shadow-2xl">
+            <div>
+                <p class="text-sm text-blue-400 font-semibold tracking-wider uppercase">Administração do Sistema</p>
+                <h1 class="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-white tracking-tight mt-1">Controle de
+                    Usuários</h1>
+            </div>
+            <div class="flex flex-wrap items-end gap-5">
+                <div class="h-12 border-l border-gray-600 pl-6 flex items-center hidden lg:flex">
+                    <img id="company-logo" src="" alt="Logo da Empresa" class="h-12 object-contain"
+                        onerror="this.onerror=null; this.src='data:image/svg+xml;charset=utf-8,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22400%22 height=%22300%22 viewBox=%220 0 400 300%22%3E%3Crect width=%22100%25%22 height=%22100%25%22 fill=%22%23374151%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 font-family=%22sans-serif%22 font-size=%2220%22 fill=%22%239CA3AF%22 text-anchor=%22middle%22 dy=%22.3em%22%3ELogo%3C/text%3E%3C/svg%3E';">
+                </div>
+            </div>
+        </header>
+
+        <!-- Container principal (mantido exatamente como estava) -->
+        <div class="flex flex-col flex-1 card overflow-hidden">
+            <!-- Abas principais -->
+            <nav class="border-b border-[var(--border-dark)] px-6 flex-shrink-0">
+                <div class="flex space-x-10 -mb-px">
+                    <a href="#" id="main-tab-users"
+                        class="tab-link active py-4 px-1 text-sm font-semibold text-[var(--text-muted)] hover:text-[var(--s4-orange)] transition-colors">
+                        Usuários
+                    </a>
+                    <a href="#" id="main-tab-profiles"
+                        class="tab-link py-4 px-1 text-sm font-semibold text-[var(--text-muted)] hover:text-[var(--s4-orange)] transition-colors">
+                        Perfis e Permissões
+                    </a>
+                </div>
+            </nav>
+            <main class="flex-1 overflow-y-auto p-6">
+                <!-- Aba Usuários -->
+                <div id="tab-content-users" class="tab-content active space-y-6">
+                    <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+                        <h2 class="text-2xl font-bold tracking-tight">Gerenciamento de Usuários</h2>
+                        <button id="btn-new-user"
+                            class="btn-gradient text-white px-5 py-2.5 rounded-lg font-medium shadow-lg inline-flex items-center gap-2 text-sm">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"
+                                stroke-linejoin="round">
+                                <path d="M5 12h14" />
+                                <path d="M12 5v14" />
+                            </svg>
+                            Novo Usuário
+                        </button>
+                    </div>
+                    <div class="card overflow-hidden">
+                        <table class="w-full text-sm">
+                            <thead class="bg-[var(--bg-darker)]">
+                                <tr class="border-b border-[var(--border-dark)]">
+                                    <th class="h-12 px-5 text-left font-semibold">Nome</th>
+                                    <th class="h-12 px-5 text-left font-semibold">E-mail</th>
+                                    <th class="h-12 px-5 text-left font-semibold">Status</th>
+                                    <th class="h-12 px-5 text-right font-semibold pr-6">Ações</th>
+                                </tr>
+                            </thead>
+                            <tbody id="users-table-body" class="divide-y divide-[var(--border-subtle)]">
+                                <!-- preenchido via JS -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <!-- Aba Perfis (mantida como estava) -->
+                <div id="tab-content-profiles" class="tab-content">
+                    <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 h-full">
+                        <!-- Lista de Perfis (esquerda) -->
+                        <div class="card flex flex-col overflow-hidden lg:col-span-1">
+                            <div class="p-5 border-b border-[var(--border-dark)] flex items-center justify-between">
+                                <h3 class="font-bold text-lg">Perfis de Acesso</h3>
+                                <button id="btn-new-profile"
+                                    class="btn-gradient text-white px-4 py-1.5 rounded-lg text-sm font-medium inline-flex items-center gap-1.5 shadow-md">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
+                                        fill="none" stroke="currentColor" stroke-width="2.5">
+                                        <path d="M5 12h14" />
+                                        <path d="M12 5v14" />
+                                    </svg>
+                                    Novo
+                                </button>
+                            </div>
+                            <div id="profiles-list" class="p-4 space-y-3 overflow-y-auto flex-1">
+                                <!-- preenchido via JS -->
+                            </div>
+                        </div>
+                        <!-- Detalhes do Perfil (direita) -->
+                        <div id="profile-details-panel" class="card flex flex-col lg:col-span-2 overflow-hidden">
+                            <div id="profile-details-placeholder"
+                                class="flex-1 flex items-center justify-center text-[var(--text-muted)] p-8 text-center">
+                                <div>
+                                    <svg class="mx-auto h-16 w-16 opacity-60" xmlns="http://www.w3.org/2000/svg"
+                                        viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                        <circle cx="12" cy="12" r="10" />
+                                        <path d="m11 17 2 2a1 1 0 1 0 1.4-1.4L13 16" />
+                                    </svg>
+                                    <h3 class="mt-4 text-lg font-medium">Selecione um Perfil</h3>
+                                    <p class="mt-2">Escolha um perfil à esquerda para visualizar membros e permissões.
+                                    </p>
+                                </div>
+                            </div>
+                            <div id="profile-details-content" class="hidden flex flex-col h-full">
+                                <div class="p-5 border-b border-[var(--border-dark)]">
+                                    <h2 id="profile-details-title" class="text-xl font-bold"></h2>
+                                </div>
+                                <nav class="border-b border-[var(--border-dark)] px-5">
+                                    <div class="flex space-x-8 -mb-px">
+                                        <a href="#" id="profile-tab-members"
+                                            class="tab-link active py-3 px-1 text-sm font-semibold">Membros</a>
+                                        <a href="#" id="profile-tab-permissions"
+                                            class="tab-link py-3 px-1 text-sm font-semibold">Permissões de Tela</a>
+                                    </div>
+                                </nav>
+                                <div class="flex-1 overflow-y-auto p-5">
+                                    <!-- Membros -->
+                                    <div id="profile-tab-content-members" class="tab-content active space-y-5">
+                                        <div class="flex flex-col sm:flex-row gap-3">
+                                            <select id="add-member-select"
+                                                class="flex-1 h-11 rounded-lg border border-[var(--border-dark)] bg-[var(--bg-darker)] px-4 text-sm focus:ring-[var(--s4-orange)] focus:border-[var(--s4-orange)]"></select>
+                                            <button id="btn-add-member"
+                                                class="btn-gradient text-white px-6 py-2.5 rounded-lg font-medium shadow-md whitespace-nowrap">Adicionar</button>
+                                        </div>
+                                        <div id="profile-members-list" class="space-y-2.5"></div>
+                                    </div>
+                                    <!-- Permissões -->
+                                    <div id="profile-tab-content-permissions" class="tab-content hidden">
+                                        <div class="card overflow-hidden">
+                                            <table class="w-full text-sm">
+                                                <thead class="bg-[var(--bg-darker)]">
+                                                    <tr class="border-b border-[var(--border-dark)]">
+                                                        <th class="h-12 px-5 text-left font-semibold">Nome da Tela</th>
+                                                        <th class="h-12 px-5 text-left font-semibold w-5/12">Nível de
+                                                            Acesso</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody id="permissions-table-body"
+                                                    class="divide-y divide-[var(--border-subtle)]">
+                                                    <!-- preenchido via JS -->
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+
+    <!-- ───────────────────────────────────── Modais ───────────────────────────────────── -->
+
+    <div id="user-modal" class="fixed inset-0 bg-black/70 backdrop-blur-sm z-50 hidden items-center justify-center p-4">
+        <div class="card modal-content w-full max-w-lg p-0 overflow-hidden">
+            <div class="p-5 border-b border-[var(--border-dark)] flex items-center justify-between">
+                <h3 id="user-modal-title" class="text-xl font-bold"></h3>
+                <button id="user-modal-close-btn"
+                    class="text-2xl text-[var(--text-muted)] hover:text-white transition-colors">×</button>
+            </div>
+            <div class="p-6 space-y-5">
+                <input type="hidden" id="user-id-input">
+                <div>
+                    <label class="block text-sm font-medium mb-1.5">Nome</label>
+                    <input id="user-name-input" type="text"
+                        class="w-full h-11 rounded-lg border border-[var(--border-dark)] bg-[var(--bg-darker)] px-4 text-sm placeholder:text-[var(--text-muted)]">
+                </div>
+                <div>
+                    <label class="block text-sm font-medium mb-1.5">E-mail</label>
+                    <input id="user-email-input" type="email"
+                        class="w-full h-11 rounded-lg border border-[var(--border-dark)] bg-[var(--bg-darker)] px-4 text-sm placeholder:text-[var(--text-muted)]">
+                </div>
+                <div id="user-profile-select-container">
+                    <label class="block text-sm font-medium mb-1.5">Perfil</label>
+                    <select id="user-profile-select"
+                        class="w-full h-11 rounded-lg border border-[var(--border-dark)] bg-[var(--bg-darker)] px-4 text-sm"></select>
+                </div>
+            </div>
+            <div class="px-6 pb-6 flex justify-end gap-4">
+                <button id="user-modal-cancel-btn"
+                    class="px-5 py-2.5 rounded-lg bg-[var(--bg-darker)] text-[var(--text-secondary)] font-medium hover:bg-slate-700 transition-colors">Cancelar</button>
+                <button id="user-modal-save-btn"
+                    class="btn-gradient px-6 py-2.5 rounded-lg text-white font-medium shadow-md">Salvar</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal de Perfil (mantido similar, mas com mesmo estilo) -->
+    <div id="profile-modal"
+        class="fixed inset-0 bg-black/70 backdrop-blur-sm z-50 hidden items-center justify-center p-4">
+        <div class="card modal-content w-full max-w-lg p-0 overflow-hidden">
+            <div class="p-5 border-b border-[var(--border-dark)] flex items-center justify-between">
+                <h3 id="profile-modal-title" class="text-xl font-bold"></h3>
+                <button id="profile-modal-close-btn"
+                    class="text-2xl text-[var(--text-muted)] hover:text-white transition-colors">×</button>
+            </div>
+            <div class="p-6 space-y-5">
+                <input type="hidden" id="profile-original-name-input">
+                <div>
+                    <label class="block text-sm font-medium mb-1.5">Nome do Perfil</label>
+                    <input id="profile-name-input" type="text"
+                        class="w-full h-11 rounded-lg border border-[var(--border-dark)] bg-[var(--bg-darker)] px-4 text-sm placeholder:text-[var(--text-muted)]">
+                </div>
+                <div>
+                    <label class="block text-sm font-medium mb-1.5">Descrição</label>
+                    <textarea id="profile-desc-input" rows="3"
+                        class="w-full rounded-lg border border-[var(--border-dark)] bg-[var(--bg-darker)] px-4 py-2.5 text-sm placeholder:text-[var(--text-muted)] resize-none"></textarea>
+                </div>
+            </div>
+            <div class="px-6 pb-6 flex justify-end gap-4">
+                <button id="profile-modal-cancel-btn"
+                    class="px-5 py-2.5 rounded-lg bg-[var(--bg-darker)] text-[var(--text-secondary)] font-medium hover:bg-slate-700 transition-colors">Cancelar</button>
+                <button id="profile-modal-save-btn"
+                    class="btn-gradient px-6 py-2.5 rounded-lg text-white font-medium shadow-md">Salvar</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal de Confirmação -->
+    <div id="confirm-modal"
+        class="fixed inset-0 bg-black/70 backdrop-blur-sm z-50 hidden items-center justify-center p-4">
+        <div class="card modal-content w-full max-w-md p-0 overflow-hidden">
+            <div class="p-6">
+                <h3 id="confirm-modal-title" class="text-xl font-bold"></h3>
+                <p id="confirm-modal-body" class="mt-3 text-[var(--text-secondary)] text-sm"></p>
+            </div>
+            <div class="px-6 pb-6 flex justify-end gap-4">
+                <button id="confirm-modal-cancel-btn"
+                    class="px-5 py-2.5 rounded-lg bg-[var(--bg-darker)] text-[var(--text-secondary)] font-medium hover:bg-slate-700 transition-colors">Cancelar</button>
+                <button id="confirm-modal-confirm-btn"
+                    class="bg-red-600 hover:bg-red-700 px-6 py-2.5 rounded-lg text-white font-medium shadow-md transition-colors">Confirmar</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const MITRA_UPDATE_EVENT_NAME = 'mitra-update-access-management';
+        function updateMitra() {
+            document.body.dispatchEvent(new CustomEvent(MITRA_UPDATE_EVENT_NAME));
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            // State
+            let allUsers = [];
+            let allProfiles = [];
+            let currentProfileMembers = [];
+            let currentProfilePermissions = [];
+            let selectedProfileName = null;
+
+            // DOM Elements
+            const userModal = document.getElementById('user-modal');
+            const profileModal = document.getElementById('profile-modal');
+            const confirmModal = document.getElementById('confirm-modal');
+
+            // --- GENERAL UTILS ---
+            const showLoading = (container) => {
+                container.innerHTML = '<tr><td colspan="10" class="text-center p-8 text-[var(--text-muted)]">Carregando...</td></tr>';
+            };
+            const showEmpty = (container, message) => {
+                container.innerHTML = `<tr><td colspan="10" class="text-center p-8 text-[var(--text-muted)]">${message}</td></tr>`;
+            };
+            const showConfirmation = (title, body, onConfirm) => {
+                document.getElementById('confirm-modal-title').textContent = title;
+                document.getElementById('confirm-modal-body').textContent = body;
+                confirmModal.classList.remove('hidden');
+                confirmModal.classList.add('flex');
+                const confirmBtn = document.getElementById('confirm-modal-confirm-btn');
+                const cancelBtn = document.getElementById('confirm-modal-cancel-btn');
+                const confirmHandler = () => {
+                    onConfirm();
+                    closeConfirmation();
+                };
+                const closeConfirmation = () => {
+                    confirmModal.classList.add('hidden');
+                    confirmModal.classList.remove('flex');
+                    confirmBtn.replaceWith(confirmBtn.cloneNode(true));
+                    cancelBtn.replaceWith(cancelBtn.cloneNode(true));
+                };
+                confirmBtn.addEventListener('click', confirmHandler, { once: true });
+                cancelBtn.addEventListener('click', closeConfirmation, { once: true });
+            };
+
+            // --- DATA FETCHING ---
+            async function fetchAllData() {
+                try {
+                    await Promise.all([fetchUsers(), fetchProfiles()]);
+                    if (selectedProfileName) {
+                        await fetchProfileDetails(selectedProfileName);
+                    }
+                } catch (e) {
+                    console.error("Error fetching all data", e);
+                }
+            }
+
+            async function fetchUsers() {
+                const container = document.getElementById('users-table-body');
+                try {
+                    showLoading(container);
+                    const result = await queryMitra({ query: componentData.allUsersQuery });
+                    allUsers = result.data.map(row => ({ id: row[0], name: row[1], email: row[2], status: row[3] }));
+                    renderUsersTable();
+                    populateAddMemberDropdown();
+                } catch (error) {
+                    console.error('Failed to fetch users:', error);
+                    showEmpty(container, 'Erro ao carregar usuários.');
+                }
+            }
+
+            async function fetchProfiles() {
+                const container = document.getElementById('profiles-list');
+                try {
+                    container.innerHTML = '<div class="p-4 text-center text-[var(--text-muted)]">Carregando...</div>';
+                    const result = await queryMitra({ query: componentData.allProfilesQuery });
+                    allProfiles = result.data.map(row => ({ name: row[0], displayName: row[1], description: row[2] }));
+                    renderProfilesList();
+                } catch (error) {
+                    console.error('Failed to fetch profiles:', error);
+                    container.innerHTML = '<div class="p-4 text-center text-red-400">Erro ao carregar perfis.</div>';
+                }
+            }
+
+            async function fetchProfileDetails(profileName) {
+                await Promise.all([
+                    fetchProfileMembers(profileName),
+                    fetchProfilePermissions(profileName)
+                ]);
+            }
+
+            async function fetchProfileMembers(profileName) {
+                const container = document.getElementById('profile-members-list');
+                try {
+                    container.innerHTML = '<div class="p-4 text-center text-[var(--text-muted)]">Carregando membros...</div>';
+                    await setVariableMitra({ name: componentData.varProfileName, content: profileName });
+                    const result = await queryMitra({ query: componentData.usersInProfileQuery });
+                    currentProfileMembers = result.data.map(row => ({ id: row[0], name: row[1] }));
+                    renderProfileMembers();
+                } catch (error) {
+                    console.error('Failed to fetch profile members:', error);
+                    container.innerHTML = '<div class="p-4 text-center text-red-400">Erro ao carregar membros.</div>';
+                }
+            }
+
+            async function fetchProfilePermissions(profileName) {
+                const container = document.getElementById('permissions-table-body');
+                try {
+                    showLoading(container);
+                    await setVariableMitra({ name: componentData.varProfileName, content: profileName });
+                    const result = await queryMitra({ query: componentData.permissionsQuery });
+                    currentProfilePermissions = result.data.map(row => ({ screenName: row[0], accessLevel: row[1] }));
+                    renderProfilePermissions();
+                } catch (error) {
+                    console.error('Failed to fetch profile permissions:', error);
+                    showEmpty(container, 'Erro ao carregar permissões.');
+                }
+            }
+
+            // --- RENDERING ---
+            function renderUsersTable() {
+                const container = document.getElementById('users-table-body');
+                if (allUsers.length === 0) {
+                    showEmpty(container, 'Nenhum usuário encontrado.');
+                    return;
+                }
+                const statusMap = {
+                    'Ativo': 'bg-green-900/50 text-green-300',
+                    'Pendente': 'bg-yellow-900/50 text-yellow-300',
+                    'Inativo': 'bg-red-900/50 text-red-300',
+                };
+                container.innerHTML = allUsers.map(user => `
+                    <tr data-user-id="${user.id}">
+                        <td class="p-4 font-medium text-[var(--text-primary)]">${user.name}</td>
+                        <td class="p-4 text-[var(--text-muted)]">${user.email}</td>
+                        <td class="p-4">
+                            <span class="px-2 py-0.5 rounded-full font-medium text-xs ${statusMap[user.status] || 'bg-gray-800 text-gray-300'}">${user.status}</span>
+                        </td>
+                        <td class="p-4 text-right space-x-1">
+                            <button title="Editar" data-action="edit-user" class="p-2 text-[var(--text-muted)] hover:text-[var(--s4-orange)] rounded-md"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 3a2.85 2.83 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5Z"/></svg></button>
+                            <button title="${user.status === 'Ativo' ? 'Inativar' : 'Ativar'}" data-action="toggle-status" class="p-2 text-[var(--text-muted)] hover:text-[var(--s4-orange)] rounded-md"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"/><path d="m9 12 2 2 4-4"/></svg></button>
+                            <button title="Resetar Senha" data-action="reset-password" class="p-2 text-[var(--text-muted)] hover:text-[var(--s4-orange)] rounded-md"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21.73 12a9 9 0 1 1-2.95-6.57L17 8"/><path d="M17 3v5h5"/></svg></button>
+                            <button title="Excluir" data-action="delete-user" class="p-2 text-[var(--text-muted)] hover:text-red-400 rounded-md"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6h18"/><path d="M19 6v14c0 1-1 2-2 2H7c-1 0-2-1-2-2V6"/><path d="M8 6V4c0-1 1-2 2-2h4c1 0 2 1 2 2v2"/></svg></button>
+                        </td>
+                    </tr>
+                `).join('');
+            }
+
+            function renderProfilesList() {
+                const container = document.getElementById('profiles-list');
+                if (allProfiles.length === 0) {
+                    container.innerHTML = '<div class="p-4 text-center text-[var(--text-muted)]">Nenhum perfil encontrado.</div>';
+                    return;
+                }
+                container.innerHTML = allProfiles.map(profile => `
+                    <div data-profile-name="${profile.name}" class="profile-item p-3 border border-[var(--border-dark)] rounded-lg cursor-pointer hover:bg-[var(--hover-bg)] transition-colors ${selectedProfileName === profile.name ? 'active' : ''}">
+                        <div class="flex justify-between items-start">
+                            <div>
+                                <h4 class="font-semibold text-sm text-[var(--text-primary)]">${profile.displayName}</h4>
+                                <p class="text-xs text-[var(--text-muted)] mt-1">${profile.description || ''}</p>
+                            </div>
+                            <div class="flex-shrink-0 space-x-1">
+                                <button title="Editar" data-action="edit-profile" class="p-1.5 text-[var(--text-muted)] hover:text-[var(--s4-orange)] rounded-md text-xs"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 3a2.85 2.83 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5Z"/></svg></button>
+                                <button title="Excluir" data-action="delete-profile" class="p-1.5 text-[var(--text-muted)] hover:text-red-400 rounded-md text-xs"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6h18"/><path d="M19 6v14c0 1-1 2-2 2H7c-1 0-2-1-2-2V6"/><path d="M8 6V4c0-1 1-2 2-2h4c1 0 2 1 2 2v2"/></svg></button>
+                            </div>
+                        </div>
+                    </div>
+                `).join('');
+            }
+
+            function renderProfileDetails(profile) {
+                document.getElementById('profile-details-placeholder').classList.add('hidden');
+                document.getElementById('profile-details-content').classList.remove('hidden');
+                document.getElementById('profile-details-content').classList.add('flex');
+                document.getElementById('profile-details-title').textContent = profile.displayName;
+            }
+
+            function renderProfileMembers() {
+                const container = document.getElementById('profile-members-list');
+                if (currentProfileMembers.length === 0) {
+                    container.innerHTML = '<div class="p-4 text-center text-[var(--text-muted)]">Nenhum membro neste perfil.</div>';
+                    return;
+                }
+                container.innerHTML = currentProfileMembers.map(member => `
+                    <div class="flex items-center justify-between p-2 bg-[var(--bg-darker)] rounded-md">
+                        <span class="text-sm text-[var(--text-secondary)]">${member.name}</span>
+                        <button data-user-id="${member.id}" data-action="remove-member" class="text-red-400 text-xs font-semibold hover:underline">Remover</button>
+                    </div>
+                `).join('');
+            }
+
+            function populateAddMemberDropdown() {
+                const select = document.getElementById('add-member-select');
+                const membersInProfileIds = new Set(
+                    currentProfileMembers
+                        .filter(m => m.id != null)
+                        .map(m => m.id.toString())
+                );
+                const usersNotInProfile = allUsers.filter(
+                    u => u.id != null && !membersInProfileIds.has(u.id.toString())
+                );
+                if (usersNotInProfile.length === 0) {
+                    select.innerHTML = '<option value="">Nenhum usuário cadastrado no perfil</option>';
+                    select.disabled = true;
+                    document.getElementById('btn-add-member').disabled = true;
+                } else {
+                    select.innerHTML = '<option value="">Selecione um usuário...</option>' + usersNotInProfile.map(u => `<option value="${u.id}">${u.name}</option>`).join('');
+                    select.disabled = false;
+                    document.getElementById('btn-add-member').disabled = false;
+                }
+            }
+
+            function renderProfilePermissions() {
+                const container = document.getElementById('permissions-table-body');
+                if (currentProfilePermissions.length === 0) {
+                    showEmpty(container, 'Nenhuma permissão de tela encontrada.');
+                    return;
+                }
+                const accessLevels = ['Sem permissão', 'Leitura', 'Alteração', 'Total'];
+                container.innerHTML = currentProfilePermissions.map(perm => `
+                    <tr data-screen-name="${perm.screenName}">
+                        <td class="p-4 font-medium text-[var(--text-primary)]">${perm.screenName}</td>
+                        <td class="p-4">
+                            <select data-action="update-permission" class="flex h-10 w-full rounded-md border border-[var(--border-dark)] bg-[var(--bg-darker)] px-3 py-2 text-sm text-[var(--text-primary)] focus:ring-2 focus:ring-[var(--s4-orange)]">
+                                ${accessLevels.map(level => `<option value="${level}" ${perm.accessLevel === level ? 'selected' : ''}>${level}</option>`).join('')}
+                            </select>
+                        </td>
+                    </tr>
+                `).join('');
+            }
+
+            // --- EVENT HANDLERS & ACTIONS ---
+            function setupEventListeners() {
+                document.getElementById('main-tab-users').addEventListener('click', (e) => switchMainTab(e, 'users'));
+                document.getElementById('main-tab-profiles').addEventListener('click', (e) => switchMainTab(e, 'profiles'));
+                document.getElementById('btn-new-user').addEventListener('click', () => openUserModal());
+                document.getElementById('users-table-body').addEventListener('click', handleUserTableActions);
+                userModal.querySelector('#user-modal-save-btn').addEventListener('click', saveUser);
+                userModal.querySelector('#user-modal-close-btn').addEventListener('click', closeUserModal);
+                userModal.querySelector('#user-modal-cancel-btn').addEventListener('click', closeUserModal);
+                document.getElementById('btn-new-profile').addEventListener('click', () => openProfileModal());
+                document.getElementById('profiles-list').addEventListener('click', handleProfileListActions);
+                profileModal.querySelector('#profile-modal-save-btn').addEventListener('click', saveProfile);
+                profileModal.querySelector('#profile-modal-close-btn').addEventListener('click', closeProfileModal);
+                profileModal.querySelector('#profile-modal-cancel-btn').addEventListener('click', closeProfileModal);
+                document.getElementById('profile-tab-members').addEventListener('click', e => switchProfileDetailTab(e, 'members'));
+                document.getElementById('profile-tab-permissions').addEventListener('click', e => switchProfileDetailTab(e, 'permissions'));
+                document.getElementById('btn-add-member').addEventListener('click', addMemberToProfile);
+                document.getElementById('profile-members-list').addEventListener('click', handleRemoveMember);
+                document.getElementById('permissions-table-body').addEventListener('change', handlePermissionChange);
+            }
+
+            function switchMainTab(event, tabName) {
+                event.preventDefault();
+                document.querySelectorAll('main > .tab-content').forEach(c => c.classList.remove('active'));
+                document.querySelectorAll('nav .tab-link').forEach(l => l.classList.remove('active'));
+                document.getElementById(`tab-content-${tabName}`).classList.add('active');
+                event.currentTarget.classList.add('active');
+            }
+
+            function switchProfileDetailTab(event, tabName) {
+                event.preventDefault();
+                document.querySelectorAll('#profile-details-content .tab-content').forEach(c => c.classList.remove('active'));
+                document.querySelectorAll('#profile-details-content .tab-link').forEach(l => l.classList.remove('active'));
+                document.getElementById(`profile-tab-content-${tabName}`).classList.add('active');
+                event.currentTarget.classList.add('active');
+            }
+
+            function openUserModal(user = null) {
+                const titleEl = userModal.querySelector('#user-modal-title');
+                const idInput = userModal.querySelector('#user-id-input');
+                const nameInput = userModal.querySelector('#user-name-input');
+                const emailInput = userModal.querySelector('#user-email-input');
+                const profileSelectContainer = document.getElementById('user-profile-select-container');
+                const profileSelect = document.getElementById('user-profile-select');
+                if (user) {
+                    titleEl.textContent = 'Editar Usuário';
+                    idInput.value = user.id;
+                    nameInput.value = user.name;
+                    emailInput.value = user.email;
+                    profileSelectContainer.classList.add('hidden');
+                } else {
+                    titleEl.textContent = 'Novo Usuário';
+                    idInput.value = '';
+                    nameInput.value = '';
+                    emailInput.value = '';
+                    profileSelectContainer.classList.remove('hidden');
+                    profileSelect.innerHTML = '';
+                    if (allProfiles && allProfiles.length > 0) {
+                        allProfiles.forEach(profile => {
+                            const option = document.createElement('option');
+                            option.value = profile.name;
+                            option.textContent = profile.displayName;
+                            profileSelect.appendChild(option);
+                        });
+                        profileSelect.value = 'PADRAO';
+                    }
+                }
+                userModal.classList.remove('hidden');
+                userModal.classList.add('flex');
+            }
+
+            function closeUserModal() {
+                userModal.classList.add('hidden');
+                userModal.classList.remove('flex');
+            }
+
+            async function saveUser() {
+                const id = userModal.querySelector('#user-id-input').value;
+                const name = userModal.querySelector('#user-name-input').value;
+                const email = userModal.querySelector('#user-email-input').value;
+                try {
+                    if (id) {
+                        if (!name || !email) return;
+                        await setVariableMitra({ name: componentData.varUserName, content: name });
+                        await setVariableMitra({ name: componentData.varUserEmail, content: email });
+                        await setVariableMitra({ name: componentData.varUserId, content: id });
+                        await dbactionMitra(parseInt(componentData.dbActionUpdateUser, 10));
+                    } else {
+                        const profileName = document.getElementById('user-profile-select').value;
+                        if (!name || !email || !profileName) return;
+                        await setVariableMitra({ name: componentData.varUserName, content: name });
+                        await setVariableMitra({ name: componentData.varUserEmail, content: email });
+                        await setVariableMitra({ name: componentData.varProfileName, content: profileName });
+                        await actionMitra({ id: parseInt(componentData.actionIdCreateUserAndAssignProfile, 10) });
+                    }
+                    closeUserModal();
+                    await fetchUsers();
+                    await updateComponentsMitra({ all: true });
+                } catch (error) {
+                    console.error('Failed to save user:', error);
+                }
+            }
+
+            async function handleUserTableActions(event) {
+                const button = event.target.closest('button');
+                if (!button) return;
+                const action = button.dataset.action;
+                const userRow = button.closest('tr');
+                const userId = userRow.dataset.userId;
+                const user = allUsers.find(u => u.id != null && u.id.toString() === userId);
+                if (!user) return;
+                await setVariableMitra({ name: componentData.varUserId, content: userId });
+                switch (action) {
+                    case 'edit-user':
+                        openUserModal(user);
+                        break;
+                    case 'toggle-status':
+                        showConfirmation(
+                            `${user.status === 'Ativo' ? 'Inativar' : 'Ativar'} Usuário`,
+                            `Tem certeza que deseja ${user.status === 'Ativo' ? 'inativar' : 'ativar'} o usuário ${user.name}?`,
+                            async () => {
+                                try {
+                                    await dbactionMitra(parseInt(componentData.dbActionToggleUserStatus, 10));
+                                    await fetchUsers();
+                                    await updateComponentsMitra({ all: true });
+                                } catch (e) { console.error('Error toggling status', e); }
+                            }
+                        );
+                        break;
+                    case 'reset-password':
+                        showConfirmation(
+                            'Resetar Senha',
+                            `Tem certeza que deseja enviar um link de redefinição de senha para ${user.name}?`,
+                            async () => {
+                                try {
+                                    await actionMitra({ id: parseInt(componentData.actionIdResetPassword, 10) });
+                                } catch (e) { console.error('Error resetting password', e); }
+                            }
+                        );
+                        break;
+                    case 'delete-user':
+                        showConfirmation(
+                            'Excluir Usuário',
+                            `Tem certeza que deseja excluir permanentemente o usuário ${user.name}? Esta ação não pode ser desfeita.`,
+                            async () => {
+                                try {
+                                    await dbactionMitra(parseInt(componentData.dbActionDeleteUser, 10));
+                                    await fetchUsers();
+                                    await updateComponentsMitra({ all: true });
+                                } catch (e) { console.error('Error deleting user', e); }
+                            }
+                        );
+                        break;
+                }
+            }
+
+            function openProfileModal(profile = null) {
+                const titleEl = profileModal.querySelector('#profile-modal-title');
+                const nameInput = profileModal.querySelector('#profile-name-input');
+                const descInput = profileModal.querySelector('#profile-desc-input');
+                const originalNameInput = profileModal.querySelector('#profile-original-name-input');
+                if (profile) {
+                    titleEl.textContent = 'Editar Perfil';
+                    nameInput.value = profile.name;
+                    nameInput.disabled = true;
+                    descInput.value = profile.description;
+                    originalNameInput.value = profile.name;
+                } else {
+                    titleEl.textContent = 'Novo Perfil';
+                    nameInput.value = '';
+                    nameInput.disabled = false;
+                    descInput.value = '';
+                    originalNameInput.value = '';
+                }
+                profileModal.classList.remove('hidden');
+                profileModal.classList.add('flex');
+            }
+
+            function closeProfileModal() {
+                profileModal.classList.add('hidden');
+                profileModal.classList.remove('flex');
+            }
+
+            async function saveProfile() {
+                const originalName = profileModal.querySelector('#profile-original-name-input').value;
+                const name = profileModal.querySelector('#profile-name-input').value;
+                const description = profileModal.querySelector('#profile-desc-input').value;
+                if (!name) return;
+                try {
+                    await setVariableMitra({ name: componentData.varProfileName, content: name });
+                    await setVariableMitra({ name: componentData.varProfileDescr, content: description });
+                    if (originalName) {
+                        await dbactionMitra(parseInt(componentData.dbActionUpdateProfile, 10));
+                    } else {
+                        await dbactionMitra(parseInt(componentData.dbActionCreateProfile, 10));
+                    }
+                    closeProfileModal();
+                    await fetchProfiles();
+                    await updateComponentsMitra({ all: true });
+                } catch (e) {
+                    console.error('Failed to save profile', e);
+                }
+            }
+
+            async function handleProfileListActions(event) {
+                const profileItem = event.target.closest('.profile-item');
+                const button = event.target.closest('button');
+                if (button) {
+                    event.stopPropagation();
+                    const profileName = profileItem.dataset.profileName;
+                    const action = button.dataset.action;
+                    const profile = allProfiles.find(p => p.name === profileName);
+                    if (!profile) return;
+                    await setVariableMitra({ name: componentData.varProfileName, content: profileName });
+                    if (action === 'edit-profile') {
+                        openProfileModal(profile);
+                    } else if (action === 'delete-profile') {
+                        showConfirmation(
+                            'Excluir Perfil',
+                            `Tem certeza que deseja excluir o perfil '${profile.displayName}'?`,
+                            async () => {
+                                try {
+                                    await dbactionMitra(parseInt(componentData.dbActionDeleteProfile, 10));
+                                    if (selectedProfileName === profileName) {
+                                        selectedProfileName = null;
+                                        document.getElementById('profile-details-placeholder').classList.remove('hidden');
+                                        document.getElementById('profile-details-content').classList.add('hidden');
+                                    }
+                                    await fetchProfiles();
+                                    await updateComponentsMitra({ all: true });
+                                } catch (e) { console.error('Error deleting profile', e); }
+                            }
+                        );
+                    }
+                } else if (profileItem) {
+                    const profileName = profileItem.dataset.profileName;
+                    const profile = allProfiles.find(p => p.name === profileName);
+                    if (!profile) return;
+                    selectedProfileName = profile.name;
+                    renderProfilesList();
+                    renderProfileDetails(profile);
+                    await fetchProfileDetails(profile.name);
+                    populateAddMemberDropdown();
+                }
+            }
+
+            async function addMemberToProfile() {
+                const select = document.getElementById('add-member-select');
+                const userId = select.value;
+                if (!userId || !selectedProfileName) return;
+                try {
+                    await setVariableMitra({ name: componentData.varProfileName, content: selectedProfileName });
+                    await setVariableMitra({ name: componentData.varUserId, content: userId });
+                    await dbactionMitra(parseInt(componentData.dbActionAssignUserToProfile, 10));
+                    await fetchProfileMembers(selectedProfileName);
+                    populateAddMemberDropdown();
+                    await updateComponentsMitra({ all: true });
+                } catch (e) { console.error('Failed to add member', e); }
+            }
+
+            async function handleRemoveMember(event) {
+                const button = event.target.closest('button[data-action="remove-member"]');
+                if (!button) return;
+                const userId = button.dataset.userId;
+                const member = currentProfileMembers.find(m => m.id != null && m.id.toString() === userId);
+                const profile = allProfiles.find(p => p.name === selectedProfileName);
+                if (!member || !profile) return;
+                showConfirmation(
+                    'Remover Membro',
+                    `Tem certeza que deseja remover '${member.name}' do perfil '${profile.displayName}'?`,
+                    async () => {
+                        try {
+                            await setVariableMitra({ name: componentData.varProfileName, content: selectedProfileName });
+                            await setVariableMitra({ name: componentData.varUserId, content: userId });
+                            await dbactionMitra(parseInt(componentData.dbActionRemoveUserFromProfile, 10));
+                            await fetchProfileMembers(selectedProfileName);
+                            populateAddMemberDropdown();
+                            await updateComponentsMitra({ all: true });
+                        } catch (e) { console.error('Failed to remove member', e); }
+                    }
+                );
+            }
+
+            async function handlePermissionChange(event) {
+                const select = event.target.closest('select[data-action="update-permission"]');
+                if (!select) return;
+                const screenName = select.closest('tr').dataset.screenName;
+                const accessLevel = select.value;
+                try {
+                    await setVariableMitra({ name: componentData.varProfileName, content: selectedProfileName });
+                    await setVariableMitra({ name: componentData.varScreenName, content: screenName });
+                    await setVariableMitra({ name: componentData.varValueAlter, content: accessLevel });
+                    if (componentData.actionIdUpdatePermission) {
+                        await actionMitra({ id: parseInt(componentData.actionIdUpdatePermission, 10) });
+                    } else {
+                        await dbactionMitra(parseInt(componentData.dbActionUpdatePermission, 10));
+                    }
+                } catch (e) {
+                    console.error('Failed to update permission', e);
+                    await fetchProfilePermissions(selectedProfileName);
+                }
+            }
+
+            // --- INITIALIZATION ---
+            async function initializeComponent() {
+                const logoEl = document.getElementById('company-logo');
+                if (logoEl) {
+                    const primaryUrl = window.componentData?.logoUrl;
+                    const fallbackUrl = 'https://mitra-multitenant-prod.s3.amazonaws.com/tenant_41947/ai-files/public/securyti4iT.png';
+                    logoEl.src = primaryUrl || fallbackUrl;
+
+                    logoEl.onerror = () => {
+                        if (logoEl.src !== fallbackUrl) {
+                            logoEl.src = fallbackUrl;
+                        } else {
+                            logoEl.style.display = 'none';
+                        }
+                    };
+                }
+                setupEventListeners();
+                await fetchAllData();
+            }
+
+            document.body.addEventListener(MITRA_UPDATE_EVENT_NAME, fetchAllData);
+
+            const waitForMitraAndInit = () => {
+                const maxWaitTime = 5000;
+                const intervalTime = 100;
+                const startTime = Date.now();
+                const checkInterval = setInterval(() => {
+                    if (window.componentData && window.componentData.allUsersQuery) {
+                        clearInterval(checkInterval);
+                        initializeComponent();
+                    } else if (Date.now() - startTime > maxWaitTime) {
+                        clearInterval(checkInterval);
+                        console.error("Error: Component data not loaded in time.");
+                        document.body.innerHTML = `<div class="p-8 text-center text-red-400 bg-[var(--bg-panel)] h-full flex items-center justify-center">Erro Crítico: As configurações do componente não foram carregadas da plataforma.</div>`;
+                    }
+                }, intervalTime);
+            };
+
+            waitForMitraAndInit();
+        });
+    </script>
+</body>
+
+</html>

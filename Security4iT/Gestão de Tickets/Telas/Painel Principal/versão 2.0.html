@@ -1,0 +1,510 @@
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+<script src="https://cdn.tailwindcss.com"></script>
+<script src="https://unpkg.com/lucide@latest"></script>
+
+<style>
+    :root {
+        --background: #020617;
+        --foreground: #f8fafc;
+        --panel: #1e293b;
+        --card: #0f172a;
+        --border: #334155;
+        --text-primary: #f8fafc;
+        --text-secondary: #94a3b8;
+        --text-muted: #64748b;
+        --s4-orange: #3b82f6;
+        --s4-orange-dark: #2563eb;
+        --s4-orange-light: #60a5fa;
+        --active-bg: rgba(59, 130, 246, 0.15);
+        --hover-bg: rgba(59, 130, 246, 0.1);
+        --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.5);
+        --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.6);
+    }
+
+    html,
+    body {
+        margin: 0;
+        padding: 0;
+        height: 100%;
+        background: var(--background) !important;
+        color: var(--foreground) !important;
+        overflow: hidden;
+    }
+
+    .mitra-component-root {
+        width: 100%;
+        height: 100%;
+        font-family: 'Inter', system-ui, sans-serif;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        background-color: var(--background) !important;
+        color: var(--foreground) !important;
+        display: flex;
+        flex-direction: column;
+        overflow: hidden;
+    }
+
+    /* Força dark em TODOS os containers principais */
+    header#topbar,
+    aside#sidebar,
+    main#main-area-wrapper,
+    #mitra-main-content,
+    #search-dialog-backdrop>div,
+    #search-results,
+    .custom-scrollbar {
+        background-color: var(--background) !important;
+    }
+
+    /* Evita qualquer branco residual do Tailwind ou navegador */
+    * {
+        box-sizing: border-box;
+    }
+
+    .custom-scrollbar::-webkit-scrollbar {
+        width: 6px;
+        height: 6px;
+    }
+
+    .custom-scrollbar::-webkit-scrollbar-track {
+        background: var(--bg-darker);
+    }
+
+    .custom-scrollbar::-webkit-scrollbar-thumb {
+        background: var(--text-muted);
+        border-radius: 6px;
+    }
+
+    .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+        background: var(--s4-orange-light);
+    }
+
+    .collapsible-content {
+        display: grid;
+        grid-template-rows: 0fr;
+        transition: grid-template-rows 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        overflow: hidden;
+    }
+
+    .collapsible-content.open {
+        grid-template-rows: 1fr;
+    }
+
+    .collapsible-inner {
+        min-height: 0;
+    }
+
+    header#topbar {
+        background: var(--panel) !important;
+        border-bottom: 1px solid var(--border);
+        box-shadow: var(--shadow-sm);
+        z-index: 50;
+        padding-left: 1.25rem;
+        gap: 1.25rem;
+    }
+
+    aside#sidebar {
+        background: var(--panel) !important;
+        border-right: 1px solid var(--border);
+        box-shadow: var(--shadow-sm);
+        transition: width 0.35s ease;
+    }
+
+    .menu-item,
+    button[onclick] {
+        color: var(--text-secondary);
+        transition: all 0.28s ease;
+        border-radius: 8px;
+        padding: 0.65rem 1.1rem;
+        font-weight: 500;
+        display: flex;
+        align-items: center;
+        gap: 0.9rem;
+        margin: 0.3rem 0;
+    }
+
+    .menu-item:hover,
+    button[onclick]:hover {
+        background: var(--hover-bg);
+        color: var(--s4-orange);
+        transform: translateX(4px);
+        box-shadow: 0 2px 8px rgba(249, 115, 22, 0.12);
+    }
+
+    .active {
+        background: var(--active-bg);
+        color: var(--s4-orange);
+        border-left: 4px solid var(--s4-orange);
+        font-weight: 600;
+        box-shadow: 0 3px 10px rgba(249, 115, 22, 0.18);
+    }
+
+    [data-lucide] {
+        stroke-width: 1.8px;
+        transition: transform 0.28s ease;
+        color: var(--text-secondary);
+    }
+
+    .group:hover [data-lucide]:not(.chevron) {
+        transform: scale(1.12);
+        color: var(--s4-orange);
+    }
+
+    #brand-logo-wrapper {
+        transition: all 0.6s ease;
+    }
+
+    /* Placeholder inicial – fundo escuro */
+    #mitra-initial-placeholder {
+        background: var(--bg-dark) !important;
+    }
+
+    /* Search modal – tudo escuro */
+    #search-dialog-backdrop>div {
+        background: var(--bg-darker) !important;
+        border-color: var(--border-dark) !important;
+    }
+
+    #search-dialog-backdrop input {
+        background: var(--bg-panel) !important;
+        color: var(--text-primary) !important;
+        caret-color: var(--s4-orange);
+    }
+
+    #search-dialog-backdrop input::placeholder {
+        color: var(--text-muted) !important;
+        opacity: 0.7;
+    }
+
+    #search-results>div {
+        color: var(--text-primary) !important;
+        background: transparent;
+    }
+
+    #search-results>div:hover {
+        background: var(--active-bg) !important;
+        color: var(--s4-orange) !important;
+    }
+
+    #search-empty {
+        color: var(--text-muted) !important;
+        background: var(--bg-dark) !important;
+    }
+</style>
+
+<div class="mitra-component-root">
+
+    <header id="topbar"
+        class="sticky top-0 z-50 flex h-[52px] w-full shrink-0 items-center gap-3 border-b border-[var(--border-dark)] bg-[var(--bg-darker)] px-5 shadow-sm">
+        <!-- <button id="toggle-sidebar" class="inline-flex items-center justify-center rounded-lg text-sm font-medium transition-colors hover:bg-[var(--hover-bg)] h-9 w-9 -ml-1 text-[var(--text-primary)]">
+            <i data-lucide="panel-left" class="h-5 w-5"></i>
+        </button>
+
+        <div class="h-5 w-[1px] bg-[var(--border-dark)] mx-1"></div> -->
+
+        <nav class="flex items-center text-sm font-medium text-[var(--text-muted)]">
+            <ol id="breadcrumbs-list" class="flex items-center gap-2"></ol>
+        </nav>
+        <div class="ml-auto">
+            <button id="search-trigger"
+                class="inline-flex items-center whitespace-nowrap rounded-lg text-sm font-normal border border-[var(--border-dark)] bg-[var(--bg-panel)] hover:bg-[var(--hover-bg)] hover:border-[var(--s4-orange-light)] h-9 px-4 py-1 relative w-full justify-start text-[var(--text-muted)] sm:w-48 lg:w-72 transition-all shadow-sm">
+                <span class="inline-flex items-center gap-2.5"><i data-lucide="search" class="h-4.5 w-4.5"></i><span
+                        class="hidden lg:inline-flex font-normal">Buscar...</span></span>
+            </button>
+        </div>
+    </header>
+
+    <div class="flex flex-1 overflow-hidden relative w-full">
+
+        <aside id="sidebar"
+            class="group/sidebar flex h-full w-72 flex-col border-r border-[var(--border-dark)] bg-[var(--bg-darker)] transition-all duration-300 shadow-sm">
+
+            <div id="sidebar-header"
+                class="flex items-center justify-center px-6 py-6 shrink-0 border-b border-[var(--border)] bg-[#1e293b]">
+                <button id="brand-link"
+                    class="flex items-center justify-center hover:bg-[var(--hover-bg)] p-4 rounded-2xl transition-colors">
+                    <div id="brand-logo-wrapper"
+                        class="flex items-center justify-center rounded-2xl overflow-hidden shadow-2xl">
+                        <img src="https://www.security4it.com.br/wp-content/uploads/2025/03/logo_branco.png"
+                            alt="Security4It" class="max-w-full max-h-32 object-contain">
+                    </div>
+                </button>
+            </div>
+
+            <div id="sidebar-content"
+                class="flex-1 overflow-y-auto custom-scrollbar px-4 pt-5 pb-3 flex flex-col space-y-1"></div>
+
+            <div id="sidebar-footer" class="p-4 mt-auto relative shrink-0 border-t border-[var(--border-dark)]">
+                <div id="user-profile-trigger" class="flex items-center gap-3.5 p-3 rounded-xl">
+                    <div class="relative">
+                        <div
+                            class="h-11 w-11 rounded-full overflow-hidden shrink-0 border-2 border-[var(--s4-orange-light)] bg-gradient-to-br from-[#fb923c] to-[#f97316] flex items-center justify-center text-white font-semibold text-base shadow-sm">
+                            <img id="user-avatar" src="" alt="" class="h-full w-full object-cover hidden">
+                            <div id="user-avatar-fallback" class="flex items-center justify-center w-full h-full">U
+                            </div>
+                        </div>
+                        <span
+                            class="absolute bottom-0 right-0 h-3.5 w-3.5 rounded-full bg-green-500 border-2 border-[var(--bg-darker)] shadow-sm"></span>
+                    </div>
+                    <div class="grid flex-1 text-left text-sm leading-tight overflow-hidden">
+                        <span id="user-name" class="truncate font-semibold text-[var(--text-primary)]">...</span>
+                        <span id="user-email" class="truncate text-xs text-[var(--text-muted)]"></span>
+                    </div>
+                    <i data-lucide="chevron-up"
+                        class="ml-auto h-5 w-5 text-[var(--text-muted)] transition-transform group-hover:rotate-180"></i>
+                </div>
+                <!-- <div id="user-dropdown" class="absolute bottom-full left-4 w-[calc(100%-2rem)] mb-3 rounded-xl border border-[var(--border-dark)] bg-[var(--bg-panel)] text-[var(--text-primary)] shadow-xl hidden z-50 overflow-hidden">
+                    <div id="user-dropdown-content" class="p-2"></div>
+                </div> -->
+            </div>
+        </aside>
+
+        <main id="main-area-wrapper" class="flex-1 overflow-hidden relative w-full h-full bg-[var(--bg-dark)]">
+            <div id="mitra-main-content" class="w-full h-full">
+                <div id="mitra-initial-placeholder"
+                    class="flex flex-col items-center justify-center h-full text-[var(--text-muted)]">
+                    <i data-lucide="layout-template" class="w-14 h-14 mb-5 opacity-20"></i>
+                    <p class="text-lg font-medium">Selecione um item no menu</p>
+                </div>
+            </div>
+        </main>
+    </div>
+</div>
+
+<div id="search-dialog-backdrop" class="fixed inset-0 z-[60] bg-black/70 hidden backdrop-blur-sm">
+    <div
+        class="fixed left-[50%] top-[50%] z-50 grid w-full max-w-xl translate-x-[-50%] translate-y-[-50%] gap-0 border border-[var(--border-dark)] bg-[var(--bg-darker)] shadow-2xl duration-200 sm:rounded-2xl overflow-hidden">
+        <!-- Header com mais padding lateral para não ficar colado -->
+        <div class="flex items-center border-b border-[var(--border-dark)] px-6 py-5 bg-[var(--bg-panel)]">
+            <i data-lucide="search" class="mr-4 h-5 w-5 shrink-0 text-[var(--s4-orange)]"></i>
+            <input id="search-input"
+                class="flex h-11 w-full rounded-lg bg-transparent py-2 pl-3 pr-4 text-base outline-none placeholder:text-[var(--text-secondary)] text-[var(--text-primary)] focus:ring-2 focus:ring-[var(--s4-orange-light)]/50 transition-all border border-transparent focus:border-[var(--s4-orange-light)]"
+                placeholder="Digite para buscar..." autocomplete="off">
+        </div>
+        <!-- Resultados -->
+        <div class="max-h-[360px] overflow-y-auto overflow-x-hidden custom-scrollbar p-4 bg-[var(--bg-darker)]"
+            id="search-results"></div>
+        <div id="search-empty" class="py-12 text-center text-base text-[var(--text-secondary)] hidden">Nenhum resultado
+            encontrado.</div>
+    </div>
+</div>
+
+<!-- Área de resultados com scroll e contraste melhorado -->
+<div class="max-h-[360px] overflow-y-auto overflow-x-hidden custom-scrollbar p-3 bg-[var(--bg-darker)]"
+    id="search-results"></div>
+<div id="search-empty" class="py-10 text-center text-base text-[var(--text-secondary)] hidden">Nenhum resultado
+    encontrado.</div>
+</div>
+</div>
+
+<script>
+    // SETUP
+    function updateMitra() {
+        // <-- quando o componenteMitra atualizar, ao invéz de atualizar o componente todo, ele vai chamar esse metodo apenas.
+    }
+    const DEFAULT_LOGO = `data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjQiIGhlaWdodD0iMjQiIHZpZXdCb3g9IjAgMCA2NCA2NCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KICA8cmVjdCB3aWR0aD0iNjQiIGhlaWdodD0iNjQiIHJ4PSIxNiIgZmlsbD0iIzFBMUExQSIvPgogIDxyZWN0IHg9IjI0IiB5PSIxOCIgd2lkdGg9IjE2IiBoZWlnaHQ9IjQiIHJ4PSIxIiBmaWxsPSJ3aGl0ZSIvPgogIDxyZWN0IHg9IjIwIiB5PSIyNCIgd2lkdGg9IjI0IiBoZWlnaHQ9IjQiIHJ4PSIxIiBmaWxsPSIjQzRDNEM0Ii8+CiAgPHJlY3QgeD0iMjAiIHk9IjMwIiB3aWR0aD0iMjQiIGhlaWdodD0iMTgiIHJ4PSIyIiBzdHJva2U9IndoaXRlIiBzdHJva2Utd2lkdGg9IjIiIGZpbGw9Im5vbmUiLz4KPC9zdmc+`;
+    const state = { items: [], groups: {}, idMap: {}, activeUrl: '', sidebarOpen: true };
+
+    const toKebabCase = (str) => str ? String(str).replace(/([a-z0-9])([A-Z])/g, '$1-$2').toLowerCase() : 'circle';
+
+    const resolveScreenId = (input) => {
+        if (!input) return null;
+        const str = String(input).trim();
+        if (/^\d+$/.test(str)) return parseInt(str);
+        const match = str.match(/[?&]inlineScreenId=(\d+)/);
+        if (match && match[1]) return parseInt(match[1]);
+        return null;
+    };
+    const applyTheme = () => {
+        const t = componentData.theme || 'white';
+        const s = document.createElement('style');
+        s.textContent = themes[t] || themes.white;
+        document.head.appendChild(s);
+    };
+    // NAVEGAÇÃO
+    window.handleNavigation = async (itemId) => {
+        const item = state.idMap[itemId];
+        if (!item || !item.url) return;
+        state.activeUrl = item.url;
+        renderSidebar();
+        updateBreadcrumbs(item);
+        const screenId = resolveScreenId(item.url);
+        const mainWrapper = document.getElementById('main-area-wrapper');
+        if (screenId) {
+            // Hard Reset do Container (Sem loading customizado)
+            const oldContainer = document.getElementById('mitra-main-content');
+            if (oldContainer) oldContainer.remove();
+            const newContainer = document.createElement('div');
+            newContainer.id = 'mitra-main-content';
+            newContainer.className = 'w-full h-full';
+            mainWrapper.appendChild(newContainer);
+            try {
+                await modalMitra({ id: screenId, parent: 'mitra-main-content', width: 100, height: 100 });
+            } catch (e) {
+                console.error("Erro Mitra:", e);
+                newContainer.innerHTML = `<div class="flex h-full items-center justify-center text-red-500">Erro ao carregar</div>`;
+            }
+        }
+    };
+    const updateBreadcrumbs = (item) => {
+        const list = [];
+        if (item.grupo && item.grupo !== 'undefined') list.push(item.grupo);
+        let curr = item;
+        const tempParents = [];
+        while (curr.parentID && state.idMap[curr.parentID]) {
+            curr = state.idMap[curr.parentID];
+            tempParents.unshift(curr.nome);
+        }
+        list.push(...tempParents);
+        list.push(item.nome);
+        document.getElementById('breadcrumbs-list').innerHTML = list.map((label, i) => {
+            const isLast = i === list.length - 1;
+            const color = isLast ? 'text-[#0F172A]' : 'text-[#64748B]';
+            const weight = isLast ? 'font-medium' : 'font-normal';
+            return `<li class="flex items-center"><span class="${weight} ${color}">${label}</span>${!isLast ? '<i data-lucide="chevron-right" class="mx-1 h-4 w-4 text-[#64748B]"></i>' : ''}</li>`;
+        }).join('');
+        if (window.lucide) lucide.createIcons({ attrs: { 'stroke-width': '1.5' } });
+    };
+    // RENDER SIDEBAR
+    const renderSidebar = () => {
+        const content = document.getElementById('sidebar-content');
+        const groups = Object.entries(state.groups);
+        content.innerHTML = groups.map(([group, items], index) => {
+            const mtClass = index > 0 ? 'mt-5' : '';
+            return `<div class="${mtClass}"><h4 class="mb-3 px-3 text-xs font-semibold uppercase tracking-wider text-[#64748B]">${group}</h4><div class="flex flex-col gap-1">${items.map(item => renderMenuItem(item)).join('')}</div></div>`;
+        }).join('');
+        if (window.lucide) lucide.createIcons({ attrs: { 'stroke-width': '1.5' } });
+    };
+    const renderMenuItem = (item) => {
+        const hasChild = item.children && item.children.length > 0;
+        const icon = toKebabCase(item.icone);
+        const isActive = item.url === state.activeUrl;
+
+        const activeClass = isActive ? 'active' : 'menu-item text-[#0F172A] hover:bg-[var(--hover-bg)] hover:text-[var(--s4-orange)]';
+        const btnClass = `w-full flex items-center gap-3.5 rounded-xl px-5 py-3 text-base font-medium transition-all ${activeClass}`;
+        if (!hasChild) return `<button onclick="handleNavigation('${item.id}')" class="${btnClass}">${icon ? `<i data-lucide="${icon}" class="h-5 w-5 shrink-0"></i>` : ''}<span class="truncate">${item.nome}</span></button>`;
+
+        return `<div class="collapsible-wrapper"><button onclick="toggleCollapsible(this)" class="${btnClass} justify-between group"><div class="flex items-center gap-3.5 truncate">${icon ? `<i data-lucide="${icon}" class="h-5 w-5 shrink-0"></i>` : ''}<span class="truncate">${item.nome}</span></div><i data-lucide="chevron-down" class="h-5 w-5 shrink-0 transition-transform text-[#64748B] group-hover:text-[var(--s4-orange)]"></i></button><div class="collapsible-content pl-8 ml-2 my-1 border-l border-[#E2E8F0]"><div class="collapsible-inner flex flex-col gap-1 pt-1">${item.children.map(renderMenuItem).join('')}</div></div></div>`;
+    };
+    window.toggleCollapsible = (btn) => {
+        const c = btn.nextElementSibling;
+        const i = btn.querySelector('[data-lucide="chevron-down"]');
+        c.classList.toggle('open');
+        i.style.transform = c.classList.contains('open') ? 'rotate(180deg)' : 'rotate(0deg)';
+    };
+    const fetchMenu = async () => {
+        const { menuQuery, menuIdColumn, menuNameColumn, menuIconColumn, menuGroupColumn, menuParentIdColumn, menuUrlColumn } = componentData;
+        if (!menuQuery) return;
+        try {
+            const res = await queryMitra(menuQuery);
+            if (!res || !res.data) throw new Error("Sem dados");
+            const mapIdx = res.headers.reduce((acc, h, i) => ({ ...acc, [h.name]: i }), {});
+            const rawItems = res.data.map(r => ({ id: r[mapIdx[menuIdColumn]], nome: r[mapIdx[menuNameColumn]], icone: r[mapIdx[menuIconColumn]], grupo: r[mapIdx[menuGroupColumn]] || 'Geral', parentID: r[mapIdx[menuParentIdColumn]], url: r[mapIdx[menuUrlColumn]], children: [] }));
+
+            const idMap = {}; rawItems.forEach(it => idMap[it.id] = it); state.idMap = idMap; state.items = rawItems;
+            const roots = []; rawItems.forEach(it => { if (it.parentID && idMap[it.parentID]) idMap[it.parentID].children.push(it); else roots.push(it); });
+            state.groups = roots.reduce((acc, it) => { if (!acc[it.grupo]) acc[it.grupo] = []; acc[it.grupo].push(it); return acc; }, {});
+            renderSidebar();
+            if (roots.length > 0) {
+                const firstGroup = Object.keys(state.groups)[0];
+                if (firstGroup) { const findFirst = (nodes) => { for (let n of nodes) { if (n.url && resolveScreenId(n.url)) return n; if (n.children.length) { const f = findFirst(n.children); if (f) return f; } } return null; }; const first = findFirst(state.groups[firstGroup]); if (first) handleNavigation(first.id); }
+            }
+        } catch (e) { console.error("Erro menu:", e); }
+    };
+    const fetchUser = async () => {
+        const { userQuery, userName, userEmail, userAvatar } = componentData;
+
+        let uName = 'Desenvolvedor';
+        let uEmail = '';
+        let uAvatar = '';
+
+        if (userQuery && userQuery.trim() !== '' && userQuery !== 'userQuery') {
+            try {
+                const res = await queryMitra(userQuery);
+                if (res.data.length) {
+                    const map = res.headers.reduce((acc, h, i) => ({ ...acc, [h.name]: i }), {});
+                    const r = res.data[0];
+                    uName = r[map[userName]] || uName;
+                    uEmail = r[map[userEmail]] || '';
+                    uAvatar = r[map[userAvatar]] || '';
+                }
+            } catch (e) {
+                console.error(e);
+            }
+        }
+
+        document.getElementById('user-name').textContent = uName;
+        document.getElementById('user-email').textContent = uEmail;
+
+        const img = document.getElementById('user-avatar');
+        const fall = document.getElementById('user-avatar-fallback');
+        if (uAvatar) {
+            img.src = uAvatar;
+            img.classList.remove('hidden');
+            fall.classList.add('hidden');
+        } else {
+            fall.textContent = uName[0].toUpperCase();
+            img.classList.add('hidden');
+            fall.classList.remove('hidden');
+        }
+
+        // Remove completamente a interação do dropdown
+        const trigger = document.getElementById('user-profile-trigger');
+        trigger.style.cursor = 'default';
+        trigger.onclick = null;
+
+        // Opcional: esconde o ícone de seta
+        const chevron = trigger.querySelector('[data-lucide="chevron-up"]');
+        if (chevron) chevron.style.display = 'none';
+
+        // Opcional: remove o elemento dropdown do DOM
+        const dropdown = document.getElementById('user-dropdown');
+        if (dropdown) dropdown.remove();
+    };    // INIT
+    window.onload = async () => {
+        try {
+            const { headerTitle, headerSubtitle, headerLogo } = componentData;
+            if (headerTitle || headerLogo) {
+                document.getElementById('sidebar-header').classList.remove('hidden');
+                // document.getElementById('brand-title').textContent = headerTitle || '';
+                // document.getElementById('brand-subtitle').textContent = headerSubtitle || '';
+                document.getElementById('brand-logo-wrapper').innerHTML = (headerLogo && headerLogo !== 'DEFAULTLOGO') ? `<img src="${headerLogo}" class="w-full h-full object-contain">` : `<img src="${DEFAULT_LOGO}" class="w-6 h-6">`;
+            }
+            // document.getElementById('toggle-sidebar').onclick = () => { const s = document.getElementById('sidebar'); const isOpen = s.classList.contains('w-64') || !s.classList.contains('w-0'); if (isOpen) { s.classList.remove('w-64'); s.classList.add('w-0'); s.classList.add('opacity-0'); } else { s.classList.add('w-64'); s.classList.remove('w-0'); s.classList.remove('opacity-0'); } };
+            document.getElementById('user-profile-trigger').onclick = (e) => { e.stopPropagation(); document.getElementById('user-dropdown').classList.toggle('hidden'); };
+            document.addEventListener('click', () => document.getElementById('user-dropdown')?.classList.add('hidden'));
+            const searchOverlay = document.getElementById('search-dialog-backdrop'); document.getElementById('search-trigger').onclick = () => { searchOverlay.classList.remove('hidden'); document.getElementById('search-input').focus(); renderSearchResults(''); }; searchOverlay.onclick = (e) => { if (e.target === searchOverlay) searchOverlay.classList.add('hidden'); }; document.getElementById('search-input').oninput = (e) => renderSearchResults(e.target.value);
+
+            const renderSearchResults = (term) => {
+                const res = document.getElementById('search-results');
+                const filter = state.items.filter(i => i.nome.toLowerCase().includes(term.toLowerCase()));
+
+                if (!filter.length) {
+                    res.innerHTML = '';
+                    document.getElementById('search-empty').classList.remove('hidden');
+                    return;
+                }
+
+                document.getElementById('search-empty').classList.add('hidden');
+
+                res.innerHTML = filter.map(i => `
+        <div
+            onclick="handleNavigation('${i.id}'); document.getElementById('search-dialog-backdrop').classList.add('hidden');"
+            class="flex cursor-pointer items-center rounded-md px-3 py-3 text-sm font-medium text-[var(--text-primary)] hover:bg-[var(--active-bg)] transition-colors"
+        >
+            <i data-lucide="${toKebabCase(i.icone)}" class="mr-2.5 h-5 w-5 opacity-80 text-[var(--text-secondary)]"></i>
+            <span class="flex-1 truncate">${i.nome}</span>
+            <span class="ml-auto text-xs opacity-70 font-normal text-[var(--text-muted)]">${i.grupo}</span>
+        </div>
+    `).join('');
+
+                if (window.lucide) lucide.createIcons({ attrs: { 'stroke-width': '1.5' } });
+            };
+            document.addEventListener('keydown', (e) => { if (e.key === 'k' && (e.ctrlKey || e.metaKey)) { e.preventDefault(); document.getElementById('search-trigger').click(); } if (e.key === 'Escape') searchOverlay.classList.add('hidden'); });
+            await Promise.all([fetchMenu(), fetchUser()]);
+            if (window.lucide) lucide.createIcons({ attrs: { 'stroke-width': '1.5' } });
+
+        } catch (err) { console.error("Erro init:", err); }
+    };
+
+    const themes = { white: "", gray: "", dark: "" };
+</script>

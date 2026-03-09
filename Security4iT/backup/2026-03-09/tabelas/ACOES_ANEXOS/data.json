@@ -1,0 +1,1406 @@
+[
+  {
+    "ID": 12,
+    "TICKET_ID": 77471,
+    "ACTION_ID": 9,
+    "NOME_ARQUIVO": "text.plain",
+    "TAMANHO_BYTES": 0,
+    "CRIADO_EM": "2025-06-11T21:26:22",
+    "PATH": "5AE172ECA352E4CBFFF2EE97FF37190F"
+  },
+  {
+    "ID": 13,
+    "TICKET_ID": 77471,
+    "ACTION_ID": 11,
+    "NOME_ARQUIVO": "text.plain",
+    "TAMANHO_BYTES": 0,
+    "CRIADO_EM": "2025-06-13T22:00:23",
+    "PATH": "5FDAA659F263DD7DF5A333AD746734FC"
+  },
+  {
+    "ID": 14,
+    "TICKET_ID": 77471,
+    "ACTION_ID": 13,
+    "NOME_ARQUIVO": "How to Fill Empty Changed by Field Entries in the Panorama Monitoring Tab.cleaned.pdf",
+    "TAMANHO_BYTES": 0,
+    "CRIADO_EM": "2025-06-16T12:53:40",
+    "PATH": "48B5CEADDDC906DA7DA3C059ADE13323"
+  },
+  {
+    "ID": 15,
+    "TICKET_ID": 77471,
+    "ACTION_ID": 14,
+    "NOME_ARQUIVO": "text.plain",
+    "TAMANHO_BYTES": 0,
+    "CRIADO_EM": "2025-06-16T13:44:24",
+    "PATH": "FEAEDEF98BC33C3D706B4094A0A13217"
+  },
+  {
+    "ID": 16,
+    "TICKET_ID": 77471,
+    "ACTION_ID": 15,
+    "NOME_ARQUIVO": "text.plain",
+    "TAMANHO_BYTES": 0,
+    "CRIADO_EM": "2025-06-16T13:49:24",
+    "PATH": "C1D4B81581D7778CD01B6AF4EA735F1F"
+  },
+  {
+    "ID": 17,
+    "TICKET_ID": 77471,
+    "ACTION_ID": 17,
+    "NOME_ARQUIVO": "text.plain",
+    "TAMANHO_BYTES": 0,
+    "CRIADO_EM": "2025-06-16T14:12:24",
+    "PATH": "0CBF9F7795050B1A11BAA0148CE6DF59"
+  },
+  {
+    "ID": 18,
+    "TICKET_ID": 77471,
+    "ACTION_ID": 21,
+    "NOME_ARQUIVO": "text.plain",
+    "TAMANHO_BYTES": 0,
+    "CRIADO_EM": "2025-06-23T14:53:24",
+    "PATH": "7FD91FCBDC1958AED43D396706C08712"
+  },
+  {
+    "ID": 19,
+    "TICKET_ID": 77471,
+    "ACTION_ID": 25,
+    "NOME_ARQUIVO": "text.plain",
+    "TAMANHO_BYTES": 0,
+    "CRIADO_EM": "2025-06-27T21:18:23",
+    "PATH": "E3A9A644AF7A348B5346A4E824C4C718"
+  },
+  {
+    "ID": 20,
+    "TICKET_ID": 77471,
+    "ACTION_ID": 35,
+    "NOME_ARQUIVO": "text.plain",
+    "TAMANHO_BYTES": 0,
+    "CRIADO_EM": "2025-07-15T13:28:30",
+    "PATH": "8D0AE6D1128767703EBDD8685D794632"
+  },
+  {
+    "ID": 21,
+    "TICKET_ID": 77471,
+    "ACTION_ID": 36,
+    "NOME_ARQUIVO": "text.html",
+    "TAMANHO_BYTES": 0,
+    "CRIADO_EM": "2025-07-15T13:38:23",
+    "PATH": "7D88330FDC39588E9B91998991066060"
+  },
+  {
+    "ID": 22,
+    "TICKET_ID": 77471,
+    "ACTION_ID": 38,
+    "NOME_ARQUIVO": "text.plain",
+    "TAMANHO_BYTES": 0,
+    "CRIADO_EM": "2025-07-15T19:16:28",
+    "PATH": "D1AC36A08F42CB0F454B0DA897ABBCEE"
+  },
+  {
+    "ID": 23,
+    "TICKET_ID": 77471,
+    "ACTION_ID": 41,
+    "NOME_ARQUIVO": "text.plain",
+    "TAMANHO_BYTES": 0,
+    "CRIADO_EM": "2025-07-16T13:26:23",
+    "PATH": "A020459CEA385515DF63ABCC97BDAD0C"
+  },
+  {
+    "ID": 24,
+    "TICKET_ID": 77471,
+    "ACTION_ID": 44,
+    "NOME_ARQUIVO": "text.html",
+    "TAMANHO_BYTES": 0,
+    "CRIADO_EM": "2025-07-21T17:13:27",
+    "PATH": "9D1827E6081083D2830C4C48B1045433"
+  },
+  {
+    "ID": 25,
+    "TICKET_ID": 77471,
+    "ACTION_ID": 46,
+    "NOME_ARQUIVO": "text.plain",
+    "TAMANHO_BYTES": 0,
+    "CRIADO_EM": "2025-07-22T21:51:26",
+    "PATH": "1B9646E0F1064F6D62C587010A0DEE12"
+  },
+  {
+    "ID": 26,
+    "TICKET_ID": 77471,
+    "ACTION_ID": 47,
+    "NOME_ARQUIVO": "Changed by Column Not Visible in Device Change Tab for Palo Alto.cleaned (1).pdf",
+    "TAMANHO_BYTES": 0,
+    "CRIADO_EM": "2025-07-23T12:10:54",
+    "PATH": "66420693F0893A7DC8F9E8CDA95CE392"
+  },
+  {
+    "ID": 27,
+    "TICKET_ID": 77471,
+    "ACTION_ID": 50,
+    "NOME_ARQUIVO": "text.plain",
+    "TAMANHO_BYTES": 0,
+    "CRIADO_EM": "2025-07-28T15:21:24",
+    "PATH": "53D38D5511558DBD41D7016D5DD0AB38"
+  },
+  {
+    "ID": 28,
+    "TICKET_ID": 77471,
+    "ACTION_ID": 53,
+    "NOME_ARQUIVO": "text.plain",
+    "TAMANHO_BYTES": 0,
+    "CRIADO_EM": "2025-07-28T18:09:30",
+    "PATH": "BF7B45F917AC04D2C51094AADEDC2893"
+  },
+  {
+    "ID": 29,
+    "TICKET_ID": 77471,
+    "ACTION_ID": 54,
+    "NOME_ARQUIVO": "text.plain",
+    "TAMANHO_BYTES": 0,
+    "CRIADO_EM": "2025-07-28T18:15:24",
+    "PATH": "7F016EC0AC04C24C60A5D40B722A052A"
+  },
+  {
+    "ID": 30,
+    "TICKET_ID": 77471,
+    "ACTION_ID": 55,
+    "NOME_ARQUIVO": "text.plain",
+    "TAMANHO_BYTES": 0,
+    "CRIADO_EM": "2025-07-28T18:20:32",
+    "PATH": "EE510AF677714160A7217E7BCB8484BB"
+  },
+  {
+    "ID": 31,
+    "TICKET_ID": 77471,
+    "ACTION_ID": 62,
+    "NOME_ARQUIVO": "text.plain",
+    "TAMANHO_BYTES": 0,
+    "CRIADO_EM": "2025-08-06T16:43:25",
+    "PATH": "698BBBB98672D92C066093B0E8CA335E"
+  },
+  {
+    "ID": 32,
+    "TICKET_ID": 77471,
+    "ACTION_ID": 64,
+    "NOME_ARQUIVO": "text.plain",
+    "TAMANHO_BYTES": 0,
+    "CRIADO_EM": "2025-08-06T18:17:29",
+    "PATH": "EEB1A84265526CC84031EF3AD114D590"
+  },
+  {
+    "ID": 33,
+    "TICKET_ID": 77471,
+    "ACTION_ID": 72,
+    "NOME_ARQUIVO": "text.plain",
+    "TAMANHO_BYTES": 0,
+    "CRIADO_EM": "2025-08-21T10:39:24",
+    "PATH": "8F640DA09B297F3C4F5B83035BD782EB"
+  },
+  {
+    "ID": 34,
+    "TICKET_ID": 77471,
+    "ACTION_ID": 77,
+    "NOME_ARQUIVO": "text.plain",
+    "TAMANHO_BYTES": 0,
+    "CRIADO_EM": "2025-08-28T18:12:27",
+    "PATH": "4A9543061924DDCE4EF8EC941769B318"
+  },
+  {
+    "ID": 35,
+    "TICKET_ID": 77471,
+    "ACTION_ID": 83,
+    "NOME_ARQUIVO": "text.plain",
+    "TAMANHO_BYTES": 0,
+    "CRIADO_EM": "2025-09-10T16:58:27",
+    "PATH": "66FC83626C117393364B1F47681382BE"
+  },
+  {
+    "ID": 36,
+    "TICKET_ID": 77471,
+    "ACTION_ID": 105,
+    "NOME_ARQUIVO": "text.plain",
+    "TAMANHO_BYTES": 0,
+    "CRIADO_EM": "2025-10-22T19:00:29",
+    "PATH": "41430E9C0D7846C314D2D96D76073C5A"
+  },
+  {
+    "ID": 37,
+    "TICKET_ID": 77471,
+    "ACTION_ID": 117,
+    "NOME_ARQUIVO": "text.plain",
+    "TAMANHO_BYTES": 0,
+    "CRIADO_EM": "2025-11-17T14:19:27",
+    "PATH": "29F555927F282990BAB55CD0909AF4D8"
+  },
+  {
+    "ID": 38,
+    "TICKET_ID": 77471,
+    "ACTION_ID": 118,
+    "NOME_ARQUIVO": "text.plain",
+    "TAMANHO_BYTES": 0,
+    "CRIADO_EM": "2025-11-17T14:40:27",
+    "PATH": "2AC752122BEAE1B0BCD238BFFD9E29D5"
+  },
+  {
+    "ID": 39,
+    "TICKET_ID": 77471,
+    "ACTION_ID": 120,
+    "NOME_ARQUIVO": "text.plain",
+    "TAMANHO_BYTES": 0,
+    "CRIADO_EM": "2025-11-17T16:19:27",
+    "PATH": "083F797ECBA0DBF9E0D490AD728C777F"
+  },
+  {
+    "ID": 40,
+    "TICKET_ID": 77471,
+    "ACTION_ID": 129,
+    "NOME_ARQUIVO": "text.plain",
+    "TAMANHO_BYTES": 0,
+    "CRIADO_EM": "2025-12-03T17:27:28",
+    "PATH": "CCEDE9831A9E6645EE0C51DC7664C018"
+  },
+  {
+    "ID": 41,
+    "TICKET_ID": 86552,
+    "ACTION_ID": 2,
+    "NOME_ARQUIVO": "ExportedFiles_Dec_3__2025_1_10_32_PM.zip",
+    "TAMANHO_BYTES": 0,
+    "CRIADO_EM": "2025-12-03T16:14:58",
+    "PATH": "5030E1EA6F48F1548357EDAB41E5D608"
+  },
+  {
+    "ID": 42,
+    "TICKET_ID": 86569,
+    "ACTION_ID": 1,
+    "NOME_ARQUIVO": "Nota Reembolso Novembro_2025.jpg",
+    "TAMANHO_BYTES": 0,
+    "CRIADO_EM": "2025-12-03T18:24:22",
+    "PATH": "EDC5E9437CA3EB3B51001CE42CB012EA"
+  },
+  {
+    "ID": 43,
+    "TICKET_ID": 86569,
+    "ACTION_ID": 1,
+    "NOME_ARQUIVO": "Reembolso HH Nov_2025.xlsx",
+    "TAMANHO_BYTES": 0,
+    "CRIADO_EM": "2025-12-03T18:24:22",
+    "PATH": "5DFBBA4062BE5DAF1D93D3D8E62FB60D"
+  },
+  {
+    "ID": 44,
+    "TICKET_ID": 86569,
+    "ACTION_ID": 2,
+    "NOME_ARQUIVO": "Reembolso HH Nov_2025.pdf",
+    "TAMANHO_BYTES": 0,
+    "CRIADO_EM": "2025-12-03T19:19:00",
+    "PATH": "D8B305E1819C7D759A8ABD4A02FC2FD6"
+  },
+  {
+    "ID": 45,
+    "TICKET_ID": 86676,
+    "ACTION_ID": 1,
+    "NOME_ARQUIVO": "SECURITY4IT_SOLUCOES_DE_SEG_INFORMACAO_LTDA_738788.pdf",
+    "TAMANHO_BYTES": 0,
+    "CRIADO_EM": "2025-12-05T19:49:22",
+    "PATH": "A5DE094A1DE9FEA7FD86C208FE150183"
+  },
+  {
+    "ID": 46,
+    "TICKET_ID": 86676,
+    "ACTION_ID": 1,
+    "NOME_ARQUIVO": "SECURITY4IT_SOLUCOES_DE_SEG_INFORMACAO_LTDA_738788.xml",
+    "TAMANHO_BYTES": 0,
+    "CRIADO_EM": "2025-12-05T19:49:22",
+    "PATH": "BCAE00CAFAC9A52D0A048BA5D69EBE58"
+  },
+  {
+    "ID": 47,
+    "TICKET_ID": 86676,
+    "ACTION_ID": 1,
+    "NOME_ARQUIVO": "SECURITY4IT_SOLUCOES_DE_SEG_INFORMACAO_LTDA_738788_1.pdf",
+    "TAMANHO_BYTES": 0,
+    "CRIADO_EM": "2025-12-05T19:49:22",
+    "PATH": "388740DA52A2392959EBA2F4CC92098A"
+  },
+  {
+    "ID": 48,
+    "TICKET_ID": 86316,
+    "ACTION_ID": 2,
+    "NOME_ARQUIVO": "Divisao de Faturamento AENA.xlsx",
+    "TAMANHO_BYTES": 0,
+    "CRIADO_EM": "2025-11-27T14:35:47",
+    "PATH": "32ED21391FB5410FC3D06A2970C6F1A5"
+  },
+  {
+    "ID": 49,
+    "TICKET_ID": 86500,
+    "ACTION_ID": 1,
+    "NOME_ARQUIVO": "Formulario_GMUDs ).xlsx",
+    "TAMANHO_BYTES": 0,
+    "CRIADO_EM": "2025-12-02T13:25:31",
+    "PATH": "6BF3366F842F2F4382A41372CAAD8D09"
+  },
+  {
+    "ID": 50,
+    "TICKET_ID": 86500,
+    "ACTION_ID": 3,
+    "NOME_ARQUIVO": "Formulario_GMUD.xlsx",
+    "TAMANHO_BYTES": 0,
+    "CRIADO_EM": "2025-12-02T19:30:57",
+    "PATH": "C71C1BC6DC0235F69419CF40EABD92DA"
+  },
+  {
+    "ID": 51,
+    "TICKET_ID": 86500,
+    "ACTION_ID": 4,
+    "NOME_ARQUIVO": "Formulario_GMUD.xlsx",
+    "TAMANHO_BYTES": 0,
+    "CRIADO_EM": "2025-12-02T19:37:50",
+    "PATH": "C71C1BC6DC0235F69419CF40EABD92DA"
+  },
+  {
+    "ID": 52,
+    "TICKET_ID": 86556,
+    "ACTION_ID": 1,
+    "NOME_ARQUIVO": "BancoYamaha_Security4IT_AFAFF_AC_2IF_3CL_16VCL_Offline_2025-PerFW21-cbcc33e0.lic",
+    "TAMANHO_BYTES": 0,
+    "CRIADO_EM": "2025-12-03T13:04:25",
+    "PATH": "8D683D51CF4427CADDEC0EFA50A9CF70"
+  },
+  {
+    "ID": 53,
+    "TICKET_ID": 86556,
+    "ACTION_ID": 3,
+    "NOME_ARQUIVO": "text.plain",
+    "TAMANHO_BYTES": 0,
+    "CRIADO_EM": "2025-12-03T18:57:22",
+    "PATH": "FFEA04C3536A0D041F59B13BDBF6E0A9"
+  },
+  {
+    "ID": 54,
+    "TICKET_ID": 86678,
+    "ACTION_ID": 1,
+    "NOME_ARQUIVO": "Boleto_Security (Apoio Analytics).pdf",
+    "TAMANHO_BYTES": 0,
+    "CRIADO_EM": "2025-12-05T20:11:21",
+    "PATH": "F6FA81B96B06D5D5F9B7DDDEA80DCF11"
+  },
+  {
+    "ID": 55,
+    "TICKET_ID": 86678,
+    "ACTION_ID": 1,
+    "NOME_ARQUIVO": "NFSe_Security (Apoio Analytics).pdf",
+    "TAMANHO_BYTES": 0,
+    "CRIADO_EM": "2025-12-05T20:11:21",
+    "PATH": "31EBCE4779FCE7B01DE12D0F48F9B96C"
+  },
+  {
+    "ID": 56,
+    "TICKET_ID": 86200,
+    "ACTION_ID": 6,
+    "NOME_ARQUIVO": "Recibo_Alim_Cristian_Rosa_Dez_2025.docx - Clicksign.cleaned.pdf",
+    "TAMANHO_BYTES": 0,
+    "CRIADO_EM": "2025-12-04T14:31:28",
+    "PATH": "50337E5FDD6F1EEFA0612F1A2D0787D4"
+  },
+  {
+    "ID": 57,
+    "TICKET_ID": 86200,
+    "ACTION_ID": 6,
+    "NOME_ARQUIVO": "Recibo_Alim_Hugo_Lima_Dez_2025.docx - Clicksign.cleaned.pdf",
+    "TAMANHO_BYTES": 0,
+    "CRIADO_EM": "2025-12-04T14:31:28",
+    "PATH": "35F02580FC83300A107842233482CBCE"
+  },
+  {
+    "ID": 58,
+    "TICKET_ID": 86200,
+    "ACTION_ID": 6,
+    "NOME_ARQUIVO": "Recibo_Alim_Juliana_Santos_Dez_2025.docx - Clicksign.cleaned.pdf",
+    "TAMANHO_BYTES": 0,
+    "CRIADO_EM": "2025-12-04T14:31:28",
+    "PATH": "565054E355279DEE371F149B735032C8"
+  },
+  {
+    "ID": 59,
+    "TICKET_ID": 86200,
+    "ACTION_ID": 6,
+    "NOME_ARQUIVO": "Recibo_Alim_Karyna_Picciarelli_Dez_2025.docx - Clicksign.cleaned.pdf",
+    "TAMANHO_BYTES": 0,
+    "CRIADO_EM": "2025-12-04T14:31:28",
+    "PATH": "43BF3C49456EA7D69659EC35F8C91426"
+  },
+  {
+    "ID": 60,
+    "TICKET_ID": 86200,
+    "ACTION_ID": 6,
+    "NOME_ARQUIVO": "Recibo_Alim_Pedro_Aguiar_Dez_2025.docx - Clicksign.cleaned.pdf",
+    "TAMANHO_BYTES": 0,
+    "CRIADO_EM": "2025-12-04T14:31:28",
+    "PATH": "1CD5DB0E0038474FD19B09AEE673134B"
+  },
+  {
+    "ID": 61,
+    "TICKET_ID": 86479,
+    "ACTION_ID": 2,
+    "NOME_ARQUIVO": "Movidesk_Nota_Cancelada.pdf",
+    "TAMANHO_BYTES": 0,
+    "CRIADO_EM": "2025-12-08T18:54:20",
+    "PATH": "2D7A50D007F9B7715A8B53BF0F5DC1B5"
+  },
+  {
+    "ID": 62,
+    "TICKET_ID": 86616,
+    "ACTION_ID": 1,
+    "NOME_ARQUIVO": "Boleto-Security4it-22_12_2025-9011613030000060000.pdf",
+    "TAMANHO_BYTES": 0,
+    "CRIADO_EM": "2025-12-04T17:58:22",
+    "PATH": "B95D5649CA40D61906EF3A50F342BDFA"
+  },
+  {
+    "ID": 63,
+    "TICKET_ID": 86616,
+    "ACTION_ID": 1,
+    "NOME_ARQUIVO": "NF 1113.pdf",
+    "TAMANHO_BYTES": 0,
+    "CRIADO_EM": "2025-12-04T17:58:22",
+    "PATH": "3B31F443A7A7A4F3EAFAD7165CCCF8B9"
+  },
+  {
+    "ID": 64,
+    "TICKET_ID": 86665,
+    "ACTION_ID": 1,
+    "NOME_ARQUIVO": "IBIRAPUERA. 2120 - CJ 54.55.pdf",
+    "TAMANHO_BYTES": 0,
+    "CRIADO_EM": "2025-12-05T15:28:21",
+    "PATH": "64970AF1658ED70870256EE40998E5E1"
+  },
+  {
+    "ID": 65,
+    "TICKET_ID": 86762,
+    "ACTION_ID": 1,
+    "NOME_ARQUIVO": "01_00044_00993_000756005_001944984_01540378_00000000000_2025-12_0000000000_ATL.pdf",
+    "TAMANHO_BYTES": 0,
+    "CRIADO_EM": "2025-12-09T11:56:21",
+    "PATH": "972C9B70D52E30AA3B3C7560E678818E"
+  },
+  {
+    "ID": 66,
+    "TICKET_ID": 86762,
+    "ACTION_ID": 1,
+    "NOME_ARQUIVO": "01_00044_00993_000756005_001944984_01540378_00000000000_2025-12_0000000000_ATL.xls",
+    "TAMANHO_BYTES": 0,
+    "CRIADO_EM": "2025-12-09T11:56:21",
+    "PATH": "B09139D48DC721BF5A274B31475DC4CC"
+  },
+  {
+    "ID": 67,
+    "TICKET_ID": 86762,
+    "ACTION_ID": 1,
+    "NOME_ARQUIVO": "01_00044_00993_000756005_001944984_01540378_00000000000_2025-12_0000000000_FTR.pdf",
+    "TAMANHO_BYTES": 0,
+    "CRIADO_EM": "2025-12-09T11:56:21",
+    "PATH": "BF1C0BE171F75347806DD21FBCDAB157"
+  },
+  {
+    "ID": 68,
+    "TICKET_ID": 86762,
+    "ACTION_ID": 1,
+    "NOME_ARQUIVO": "01_00044_00993_000756005_001944984_01540378_00000000000_2025-12_6841636140_COB.pdf",
+    "TAMANHO_BYTES": 0,
+    "CRIADO_EM": "2025-12-09T11:56:21",
+    "PATH": "892A3C63138B571FCD2A2145882FCA23"
+  },
+  {
+    "ID": 69,
+    "TICKET_ID": 86596,
+    "ACTION_ID": 2,
+    "NOME_ARQUIVO": "ExportedFiles_Dec_4__2025_1_42_46_PM.zip",
+    "TAMANHO_BYTES": 0,
+    "CRIADO_EM": "2025-12-04T16:50:57",
+    "PATH": "E8FA79359425A70FAF969E80999A2FC4"
+  },
+  {
+    "ID": 70,
+    "TICKET_ID": 86302,
+    "ACTION_ID": 1,
+    "NOME_ARQUIVO": "block.png",
+    "TAMANHO_BYTES": 0,
+    "CRIADO_EM": "2025-11-26T19:47:28",
+    "PATH": "EB405D5239969E29EAEF154A8E13B017"
+  },
+  {
+    "ID": 71,
+    "TICKET_ID": 86302,
+    "ACTION_ID": 1,
+    "NOME_ARQUIVO": "Formulario_GMUD.xlsx",
+    "TAMANHO_BYTES": 0,
+    "CRIADO_EM": "2025-11-26T19:47:28",
+    "PATH": "25BA5309A85E371549985E1B44662DA3"
+  },
+  {
+    "ID": 72,
+    "TICKET_ID": 86302,
+    "ACTION_ID": 4,
+    "NOME_ARQUIVO": "Formulario_GMUD (2).xlsx",
+    "TAMANHO_BYTES": 0,
+    "CRIADO_EM": "2025-12-01T14:02:21",
+    "PATH": "598C87435334B19874189DB4E7FE2B85"
+  },
+  {
+    "ID": 73,
+    "TICKET_ID": 86302,
+    "ACTION_ID": 9,
+    "NOME_ARQUIVO": "Formulario_GMUDs_padrao.xlsx",
+    "TAMANHO_BYTES": 0,
+    "CRIADO_EM": "2025-12-03T12:20:44",
+    "PATH": "FB4BB7C7BAADCBCC4D68E617CDA1853B"
+  },
+  {
+    "ID": 74,
+    "TICKET_ID": 86558,
+    "ACTION_ID": 2,
+    "NOME_ARQUIVO": "Eventos_de_Malware_Dec_3__2025_13_00_00_625_PM.pdf",
+    "TAMANHO_BYTES": 0,
+    "CRIADO_EM": "2025-12-04T14:56:35",
+    "PATH": "1F2225034CC5A4747C1204919602A792"
+  },
+  {
+    "ID": 75,
+    "TICKET_ID": 86564,
+    "ACTION_ID": 1,
+    "NOME_ARQUIVO": "email-left-logo.png",
+    "TAMANHO_BYTES": 0,
+    "CRIADO_EM": "2025-12-03T17:01:23",
+    "PATH": "4B6D3D01584402C0CF8A5BC930A0924A"
+  },
+  {
+    "ID": 76,
+    "TICKET_ID": 86564,
+    "ACTION_ID": 1,
+    "NOME_ARQUIVO": "email-report-logo.png",
+    "TAMANHO_BYTES": 0,
+    "CRIADO_EM": "2025-12-03T17:01:23",
+    "PATH": "FF3CD1C87FDDDC095B1028F4F41D438E"
+  },
+  {
+    "ID": 77,
+    "TICKET_ID": 86564,
+    "ACTION_ID": 1,
+    "NOME_ARQUIVO": "email-right-logo.png",
+    "TAMANHO_BYTES": 0,
+    "CRIADO_EM": "2025-12-03T17:01:23",
+    "PATH": "A4B02757C55B5B3069C548675132F1A0"
+  },
+  {
+    "ID": 78,
+    "TICKET_ID": 86564,
+    "ACTION_ID": 1,
+    "NOME_ARQUIVO": "Eventos_de_Malware_-_ANB_Dec_3__2025_14_00_00_471_PM.pdf",
+    "TAMANHO_BYTES": 0,
+    "CRIADO_EM": "2025-12-03T17:01:23",
+    "PATH": "97191A3EF3739FC5EE3B82CBCFDE6DDA"
+  },
+  {
+    "ID": 79,
+    "TICKET_ID": 86247,
+    "ACTION_ID": 2,
+    "NOME_ARQUIVO": "PROGRAMA ELITE - ELT7671.msg",
+    "TAMANHO_BYTES": 0,
+    "CRIADO_EM": "2025-12-09T16:48:54",
+    "PATH": "D430D369671D42CCD5AF28E21F98683E"
+  },
+  {
+    "ID": 80,
+    "TICKET_ID": 86603,
+    "ACTION_ID": 1,
+    "NOME_ARQUIVO": "comprovante ida 02.12.jpeg",
+    "TAMANHO_BYTES": 0,
+    "CRIADO_EM": "2025-12-04T13:59:22",
+    "PATH": "E5CE2EDB5080A0129A88FD6A6E944615"
+  },
+  {
+    "ID": 81,
+    "TICKET_ID": 86603,
+    "ACTION_ID": 1,
+    "NOME_ARQUIVO": "comprovante ida 10.12.jpeg",
+    "TAMANHO_BYTES": 0,
+    "CRIADO_EM": "2025-12-04T13:59:22",
+    "PATH": "DEB66A878B8B803CB25160A4DAEF9171"
+  },
+  {
+    "ID": 82,
+    "TICKET_ID": 86603,
+    "ACTION_ID": 1,
+    "NOME_ARQUIVO": "comprovante retorno 02.12.jpeg",
+    "TAMANHO_BYTES": 0,
+    "CRIADO_EM": "2025-12-04T13:59:22",
+    "PATH": "97E219C54CE72A0C4E22328252085F22"
+  },
+  {
+    "ID": 83,
+    "TICKET_ID": 86603,
+    "ACTION_ID": 1,
+    "NOME_ARQUIVO": "comprovante retorno 18.11.jpeg",
+    "TAMANHO_BYTES": 0,
+    "CRIADO_EM": "2025-12-04T13:59:22",
+    "PATH": "C63597AC4415042C62B8633B07389C2F"
+  },
+  {
+    "ID": 84,
+    "TICKET_ID": 86603,
+    "ACTION_ID": 1,
+    "NOME_ARQUIVO": "passagem ida 02.12.pdf",
+    "TAMANHO_BYTES": 0,
+    "CRIADO_EM": "2025-12-04T13:59:22",
+    "PATH": "E0B71C2A68592691F8835CA590388874"
+  },
+  {
+    "ID": 85,
+    "TICKET_ID": 86603,
+    "ACTION_ID": 1,
+    "NOME_ARQUIVO": "passagem ida 10.12.pdf",
+    "TAMANHO_BYTES": 0,
+    "CRIADO_EM": "2025-12-04T13:59:22",
+    "PATH": "C2035F4937110231EAECA26D360A0E4B"
+  },
+  {
+    "ID": 86,
+    "TICKET_ID": 86603,
+    "ACTION_ID": 1,
+    "NOME_ARQUIVO": "passagem retorno 02.12.pdf",
+    "TAMANHO_BYTES": 0,
+    "CRIADO_EM": "2025-12-04T13:59:22",
+    "PATH": "2AB1455FD5690407759404514F1A821B"
+  },
+  {
+    "ID": 87,
+    "TICKET_ID": 86603,
+    "ACTION_ID": 1,
+    "NOME_ARQUIVO": "passagem retorno 18.11.pdf",
+    "TAMANHO_BYTES": 0,
+    "CRIADO_EM": "2025-12-04T13:59:22",
+    "PATH": "9E3974EA374B89C0B13B7C2F6DD39655"
+  },
+  {
+    "ID": 88,
+    "TICKET_ID": 86603,
+    "ACTION_ID": 1,
+    "NOME_ARQUIVO": "SolicitaReembolso-Juliana.xlsx",
+    "TAMANHO_BYTES": 0,
+    "CRIADO_EM": "2025-12-04T13:59:22",
+    "PATH": "9638388509B82091E9A2E4563D80BA63"
+  },
+  {
+    "ID": 89,
+    "TICKET_ID": 86603,
+    "ACTION_ID": 2,
+    "NOME_ARQUIVO": "SolicitaReembolso-Juliana.pdf",
+    "TAMANHO_BYTES": 0,
+    "CRIADO_EM": "2025-12-04T14:34:21",
+    "PATH": "ADFDDF1F7AE4CE4CCE966D9B7018BF75"
+  },
+  {
+    "ID": 90,
+    "TICKET_ID": 86526,
+    "ACTION_ID": 1,
+    "NOME_ARQUIVO": "143 - SECURITY4IT - RELACAO DE LIQUIDOS - 11.2025.pdf",
+    "TAMANHO_BYTES": 0,
+    "CRIADO_EM": "2025-12-02T19:04:22",
+    "PATH": "DED34A8CC54A28A8144CE6587B4BC964"
+  },
+  {
+    "ID": 91,
+    "TICKET_ID": 86526,
+    "ACTION_ID": 1,
+    "NOME_ARQUIVO": "143- SECURITY4IT - FOLHA DE PAGAMENTO - 11.2025.pdf",
+    "TAMANHO_BYTES": 0,
+    "CRIADO_EM": "2025-12-02T19:04:22",
+    "PATH": "1662DBEBDEC85AA49C8C6B9DD2A63282"
+  },
+  {
+    "ID": 92,
+    "TICKET_ID": 86526,
+    "ACTION_ID": 1,
+    "NOME_ARQUIVO": "CNABEstag.txt",
+    "TAMANHO_BYTES": 0,
+    "CRIADO_EM": "2025-12-02T19:04:22",
+    "PATH": "EABF3FC01DF97928D38A655C984BB365"
+  },
+  {
+    "ID": 93,
+    "TICKET_ID": 86526,
+    "ACTION_ID": 7,
+    "NOME_ARQUIVO": "2025-12-04_Salarios_Comprovante.pdf",
+    "TAMANHO_BYTES": 0,
+    "CRIADO_EM": "2025-12-04T13:55:06",
+    "PATH": "BF42A26D725C58DAE5D11B6C936CCA9A"
+  },
+  {
+    "ID": 94,
+    "TICKET_ID": 86526,
+    "ACTION_ID": 8,
+    "NOME_ARQUIVO": "143 - SECURITY4IT - DARF UNIFICADO S FOLHA - 11.2025.pdf",
+    "TAMANHO_BYTES": 0,
+    "CRIADO_EM": "2025-12-04T18:04:00",
+    "PATH": "82D7DB490E11DF201CDB72AFE454AF70"
+  },
+  {
+    "ID": 95,
+    "TICKET_ID": 86526,
+    "ACTION_ID": 8,
+    "NOME_ARQUIVO": "143 - SECURITY4IT - GUIA DE FGTS E CONSIGNADO - 11.2025.pdf",
+    "TAMANHO_BYTES": 0,
+    "CRIADO_EM": "2025-12-04T18:04:00",
+    "PATH": "953581186A53BA041C4ACB8A04D0151A"
+  },
+  {
+    "ID": 96,
+    "TICKET_ID": 86526,
+    "ACTION_ID": 8,
+    "NOME_ARQUIVO": "Guia-9785-230439-144918.pdf",
+    "TAMANHO_BYTES": 0,
+    "CRIADO_EM": "2025-12-04T18:04:00",
+    "PATH": "A512FD789D9BB78E37ADB2AC3F112045"
+  },
+  {
+    "ID": 97,
+    "TICKET_ID": 86526,
+    "ACTION_ID": 8,
+    "NOME_ARQUIVO": "Guia-9786-230442-145931.pdf",
+    "TAMANHO_BYTES": 0,
+    "CRIADO_EM": "2025-12-04T18:04:00",
+    "PATH": "3533F8587D38F9C7624AAD5F62F9CC75"
+  },
+  {
+    "ID": 98,
+    "TICKET_ID": 71058,
+    "ACTION_ID": 2,
+    "NOME_ARQUIVO": "Resolvido_?SEC4IT2025010800000313 -?_Security4IT_?Venda_Latam_Bank.msg",
+    "TAMANHO_BYTES": 0,
+    "CRIADO_EM": "2025-01-10T18:54:14",
+    "PATH": "0DF9466A536D83E10EAB7AD6C9FA9B72"
+  },
+  {
+    "ID": 99,
+    "TICKET_ID": 71058,
+    "ACTION_ID": 3,
+    "NOME_ARQUIVO": "Re_ Security4IT - Equipamentos Fortinet.msg",
+    "TAMANHO_BYTES": 0,
+    "CRIADO_EM": "2025-01-10T19:50:10",
+    "PATH": "07C9E1C8CA5AC953D870FD984716AD41"
+  },
+  {
+    "ID": 100,
+    "TICKET_ID": 71058,
+    "ACTION_ID": 3,
+    "NOME_ARQUIVO": "RES_ Security4IT - Equipamentos Fortinet.msg",
+    "TAMANHO_BYTES": 0,
+    "CRIADO_EM": "2025-01-10T19:50:10",
+    "PATH": "3BE81B5E28BFB6E4C23FD9F1ED8AF981"
+  },
+  {
+    "ID": 101,
+    "TICKET_ID": 71058,
+    "ACTION_ID": 7,
+    "NOME_ARQUIVO": "S4IT_C24_198_LatamBank_Fortinet_Netskope_20241230_V2.pdf",
+    "TAMANHO_BYTES": 0,
+    "CRIADO_EM": "2025-01-14T15:04:48",
+    "PATH": "50DCD9E57449191C354589900BBBABF3"
+  },
+  {
+    "ID": 102,
+    "TICKET_ID": 71058,
+    "ACTION_ID": 7,
+    "NOME_ARQUIVO": "S4IT_T24_198_Latam Bank_Netskope_20241227.pdf",
+    "TAMANHO_BYTES": 0,
+    "CRIADO_EM": "2025-01-14T15:04:48",
+    "PATH": "45D02139B976CD27A4C699AD9491E0B5"
+  },
+  {
+    "ID": 103,
+    "TICKET_ID": 71058,
+    "ACTION_ID": 9,
+    "NOME_ARQUIVO": "S4IT_T24_198__LatamBank_Fortinet_20241230.pdf",
+    "TAMANHO_BYTES": 0,
+    "CRIADO_EM": "2025-01-14T17:35:27",
+    "PATH": "0DFFA1FEDB9C2759B91ED8E1B40DFBAD"
+  },
+  {
+    "ID": 104,
+    "TICKET_ID": 71058,
+    "ACTION_ID": 9,
+    "NOME_ARQUIVO": "S4IT_T24_198_latam Bank_Netskope_20241230.pdf",
+    "TAMANHO_BYTES": 0,
+    "CRIADO_EM": "2025-01-14T17:35:27",
+    "PATH": "5FB5B1ED08FD41C3CB4ACA2C9F894A63"
+  },
+  {
+    "ID": 105,
+    "TICKET_ID": 71058,
+    "ACTION_ID": 13,
+    "NOME_ARQUIVO": "RE_ Security4IT - Recebimento Parcial de Equipamentos Latam Bank (Teste de Equipamento).msg",
+    "TAMANHO_BYTES": 0,
+    "CRIADO_EM": "2025-01-16T12:00:57",
+    "PATH": "D028FAAB8B5DD4225BAD0BEFFE9170C3"
+  },
+  {
+    "ID": 106,
+    "TICKET_ID": 71058,
+    "ACTION_ID": 14,
+    "NOME_ARQUIVO": "COMPROVANTE DE ENTREGA .jpeg",
+    "TAMANHO_BYTES": 0,
+    "CRIADO_EM": "2025-01-17T12:59:13",
+    "PATH": "B9298BFEE7020E0198F393AA0D5A2883"
+  },
+  {
+    "ID": 107,
+    "TICKET_ID": 71058,
+    "ACTION_ID": 15,
+    "NOME_ARQUIVO": "Re_ Security4IT - Fortinet e Netskope.msg",
+    "TAMANHO_BYTES": 0,
+    "CRIADO_EM": "2025-01-17T13:27:29",
+    "PATH": "026276D2531491B22A5F3DC63BE4B18E"
+  },
+  {
+    "ID": 108,
+    "TICKET_ID": 86459,
+    "ACTION_ID": 1,
+    "NOME_ARQUIVO": "Formulario_GMUD.xlsx",
+    "TAMANHO_BYTES": 0,
+    "CRIADO_EM": "2025-12-01T15:40:15",
+    "PATH": "791CB3857EF4C27F2D4007544510DA97"
+  },
+  {
+    "ID": 109,
+    "TICKET_ID": 86459,
+    "ACTION_ID": 3,
+    "NOME_ARQUIVO": "Formulario_GMUD.xlsx",
+    "TAMANHO_BYTES": 0,
+    "CRIADO_EM": "2025-12-01T17:04:33",
+    "PATH": "C59F0D94E7B57C9D672736D1B02A2EE7"
+  },
+  {
+    "ID": 110,
+    "TICKET_ID": 86613,
+    "ACTION_ID": 1,
+    "NOME_ARQUIVO": "email-left-logo.png",
+    "TAMANHO_BYTES": 0,
+    "CRIADO_EM": "2025-12-04T17:01:22",
+    "PATH": "4B6D3D01584402C0CF8A5BC930A0924A"
+  },
+  {
+    "ID": 111,
+    "TICKET_ID": 86613,
+    "ACTION_ID": 1,
+    "NOME_ARQUIVO": "email-report-logo.png",
+    "TAMANHO_BYTES": 0,
+    "CRIADO_EM": "2025-12-04T17:01:22",
+    "PATH": "FF3CD1C87FDDDC095B1028F4F41D438E"
+  },
+  {
+    "ID": 112,
+    "TICKET_ID": 86613,
+    "ACTION_ID": 1,
+    "NOME_ARQUIVO": "Eventos_de_Malware_-_ANB_Dec_4__2025_14_00_00_767_PM.pdf",
+    "TAMANHO_BYTES": 0,
+    "CRIADO_EM": "2025-12-04T17:01:22",
+    "PATH": "F74AA266AC8B5E9B727EE674C87A8D71"
+  },
+  {
+    "ID": 113,
+    "TICKET_ID": 86613,
+    "ACTION_ID": 1,
+    "NOME_ARQUIVO": "email-right-logo.png",
+    "TAMANHO_BYTES": 0,
+    "CRIADO_EM": "2025-12-04T17:01:22",
+    "PATH": "A4B02757C55B5B3069C548675132F1A0"
+  },
+  {
+    "ID": 114,
+    "TICKET_ID": 86617,
+    "ACTION_ID": 1,
+    "NOME_ARQUIVO": "FUP MP.xlsx",
+    "TAMANHO_BYTES": 0,
+    "CRIADO_EM": "2024-06-28T19:11:14",
+    "PATH": "A202557B5DDFB5998FC661B24D6A4E4E"
+  },
+  {
+    "ID": 115,
+    "TICKET_ID": 86088,
+    "ACTION_ID": 12,
+    "NOME_ARQUIVO": "image.png",
+    "TAMANHO_BYTES": 0,
+    "CRIADO_EM": "2025-12-02T11:41:26",
+    "PATH": "7853CF179E61BC87A0E6360601FCA36D"
+  },
+  {
+    "ID": 116,
+    "TICKET_ID": 86088,
+    "ACTION_ID": 12,
+    "NOME_ARQUIVO": "text.calendar",
+    "TAMANHO_BYTES": 0,
+    "CRIADO_EM": "2025-12-02T11:41:26",
+    "PATH": "B97C8E73EE39EAF2E96715169FA4E5A3"
+  },
+  {
+    "ID": 117,
+    "TICKET_ID": 86791,
+    "ACTION_ID": 2,
+    "NOME_ARQUIVO": "Relatorio_3_Fabio_Mendonca.pdf",
+    "TAMANHO_BYTES": 0,
+    "CRIADO_EM": "2025-12-10T12:41:18",
+    "PATH": "A6D32AFD5C1F827A18A662D1A271087F"
+  },
+  {
+    "ID": 118,
+    "TICKET_ID": 86594,
+    "ACTION_ID": 1,
+    "NOME_ARQUIVO": "Formulario_GMUD.xlsx",
+    "TAMANHO_BYTES": 0,
+    "CRIADO_EM": "2025-12-04T11:54:23",
+    "PATH": "3E887B04F15DB916F04AC50A04957033"
+  },
+  {
+    "ID": 119,
+    "TICKET_ID": 86594,
+    "ACTION_ID": 4,
+    "NOME_ARQUIVO": "Formulario_GMUD.xlsx",
+    "TAMANHO_BYTES": 0,
+    "CRIADO_EM": "2025-12-04T12:59:07",
+    "PATH": "D4CAFC3B51A8051DB3694110EE580A61"
+  },
+  {
+    "ID": 120,
+    "TICKET_ID": 86594,
+    "ACTION_ID": 4,
+    "NOME_ARQUIVO": "Formulario_GMUD.xlsx",
+    "TAMANHO_BYTES": 0,
+    "CRIADO_EM": "2025-12-04T13:01:55",
+    "PATH": "A1CD8294189BAE4CC48C1E1583226672"
+  },
+  {
+    "ID": 121,
+    "TICKET_ID": 86594,
+    "ACTION_ID": 4,
+    "NOME_ARQUIVO": "Formulario_GMUD.xlsx",
+    "TAMANHO_BYTES": 0,
+    "CRIADO_EM": "2025-12-04T13:18:44",
+    "PATH": "6EF2D2EB181084AB9F8078CD2DCC8CAD"
+  },
+  {
+    "ID": 122,
+    "TICKET_ID": 86647,
+    "ACTION_ID": 2,
+    "NOME_ARQUIVO": "Eventos_de_Malware_-_MAESTRO_Dec_5__2025_13_00_10_724_PM.pdf",
+    "TAMANHO_BYTES": 0,
+    "CRIADO_EM": "2025-12-05T16:07:01",
+    "PATH": "28CDDAB8D33BCE636F8BB3CA30CBFE64"
+  },
+  {
+    "ID": 123,
+    "TICKET_ID": 86658,
+    "ACTION_ID": 2,
+    "NOME_ARQUIVO": "Eventos_de_Malware_Dec_5__2025_13_00_00_551_PM.pdf",
+    "TAMANHO_BYTES": 0,
+    "CRIADO_EM": "2025-12-05T18:10:13",
+    "PATH": "B0B10CD8DACD12884F4D50E4985EB6F0"
+  },
+  {
+    "ID": 124,
+    "TICKET_ID": 86557,
+    "ACTION_ID": 1,
+    "NOME_ARQUIVO": "09 de Dezembro.pdf",
+    "TAMANHO_BYTES": 0,
+    "CRIADO_EM": "2025-12-03T13:28:23",
+    "PATH": "B954CDA72DA724E75016ADA4F8FD4CC0"
+  },
+  {
+    "ID": 125,
+    "TICKET_ID": 86557,
+    "ACTION_ID": 1,
+    "NOME_ARQUIVO": "ISENCAO NOTA FISCAL ECAD (1).pdf",
+    "TAMANHO_BYTES": 0,
+    "CRIADO_EM": "2025-12-03T13:28:23",
+    "PATH": "BA4BE8DFFBA9F2C3404327249A9B4606"
+  },
+  {
+    "ID": 126,
+    "TICKET_ID": 86557,
+    "ACTION_ID": 5,
+    "NOME_ARQUIVO": "2025-12-04_Ecad_Comprovante.pdf",
+    "TAMANHO_BYTES": 0,
+    "CRIADO_EM": "2025-12-05T18:33:07",
+    "PATH": "73538259D9CC56377129EB917660CB95"
+  },
+  {
+    "ID": 127,
+    "TICKET_ID": 86666,
+    "ACTION_ID": 1,
+    "NOME_ARQUIVO": "email-left-logo.png",
+    "TAMANHO_BYTES": 0,
+    "CRIADO_EM": "2025-12-05T17:01:23",
+    "PATH": "4B6D3D01584402C0CF8A5BC930A0924A"
+  },
+  {
+    "ID": 128,
+    "TICKET_ID": 86666,
+    "ACTION_ID": 1,
+    "NOME_ARQUIVO": "email-report-logo.png",
+    "TAMANHO_BYTES": 0,
+    "CRIADO_EM": "2025-12-05T17:01:23",
+    "PATH": "FF3CD1C87FDDDC095B1028F4F41D438E"
+  },
+  {
+    "ID": 129,
+    "TICKET_ID": 86666,
+    "ACTION_ID": 1,
+    "NOME_ARQUIVO": "email-right-logo.png",
+    "TAMANHO_BYTES": 0,
+    "CRIADO_EM": "2025-12-05T17:01:23",
+    "PATH": "A4B02757C55B5B3069C548675132F1A0"
+  },
+  {
+    "ID": 130,
+    "TICKET_ID": 86666,
+    "ACTION_ID": 1,
+    "NOME_ARQUIVO": "Eventos_de_Malware_-_ANB_Dec_5__2025_14_00_00_514_PM.pdf",
+    "TAMANHO_BYTES": 0,
+    "CRIADO_EM": "2025-12-05T17:01:23",
+    "PATH": "EE8ACD5A0D32234C866B429F1E5C46FB"
+  },
+  {
+    "ID": 131,
+    "TICKET_ID": 86661,
+    "ACTION_ID": 1,
+    "NOME_ARQUIVO": "AENA - Formulario de usuarios de Acesso ANB 02_12_25.pdf",
+    "TAMANHO_BYTES": 0,
+    "CRIADO_EM": "2025-12-05T14:07:22",
+    "PATH": "41A47C7E41E603C2D01B6FB34E0BD9F0"
+  },
+  {
+    "ID": 132,
+    "TICKET_ID": 86661,
+    "ACTION_ID": 1,
+    "NOME_ARQUIVO": "AENA - Formulario de usuarios de Acesso BOAB 02_12_25.pdf",
+    "TAMANHO_BYTES": 0,
+    "CRIADO_EM": "2025-12-05T14:07:22",
+    "PATH": "74F8770D40D804F7C37615A36235EBA9"
+  },
+  {
+    "ID": 133,
+    "TICKET_ID": 86661,
+    "ACTION_ID": 1,
+    "NOME_ARQUIVO": "AENA - Informativo - nov25.pdf",
+    "TAMANHO_BYTES": 0,
+    "CRIADO_EM": "2025-12-05T14:07:22",
+    "PATH": "7529169000DD499886D4F3B146E4AAB4"
+  },
+  {
+    "ID": 134,
+    "TICKET_ID": 86661,
+    "ACTION_ID": 3,
+    "NOME_ARQUIVO": "AENA - Formulario de usuarios de Acesso ANB 02_12_25.cleaned - Clicksign.cleaned.pdf",
+    "TAMANHO_BYTES": 0,
+    "CRIADO_EM": "2025-12-05T19:17:50",
+    "PATH": "10397905485B97012EEA5F19D0BB024A"
+  },
+  {
+    "ID": 135,
+    "TICKET_ID": 86661,
+    "ACTION_ID": 3,
+    "NOME_ARQUIVO": "AENA - Formulario de usuarios de Acesso BOAB 02_12_25.cleaned - Clicksign.cleaned.pdf",
+    "TAMANHO_BYTES": 0,
+    "CRIADO_EM": "2025-12-05T19:17:50",
+    "PATH": "A384746A9B5C0DEE3B4036DB946D288E"
+  },
+  {
+    "ID": 136,
+    "TICKET_ID": 86661,
+    "ACTION_ID": 3,
+    "NOME_ARQUIVO": "AENA - Informativo - nov25.cleaned - Clicksign.cleaned.pdf",
+    "TAMANHO_BYTES": 0,
+    "CRIADO_EM": "2025-12-05T19:17:50",
+    "PATH": "040BFB14894CB4D4F85C2D2D81289C57"
+  },
+  {
+    "ID": 137,
+    "TICKET_ID": 86789,
+    "ACTION_ID": 1,
+    "NOME_ARQUIVO": "Summary.pdf",
+    "TAMANHO_BYTES": 0,
+    "CRIADO_EM": "2025-12-09T17:47:21",
+    "PATH": "6E2BFE0AF80E2B5849EA615CFF43398C"
+  },
+  {
+    "ID": 138,
+    "TICKET_ID": 86789,
+    "ACTION_ID": 1,
+    "NOME_ARQUIVO": "UTF-8'pt-br'SECURITY4IT - SOLUCOES DE SEGURANCA DA INFORMACAO LTDA - Inclusao de contratada - 55653 .pdf",
+    "TAMANHO_BYTES": 0,
+    "CRIADO_EM": "2025-12-09T17:47:21",
+    "PATH": "4E722CFE60A8806400FA0210B86B2154"
+  },
+  {
+    "ID": 139,
+    "TICKET_ID": 86812,
+    "ACTION_ID": 4,
+    "NOME_ARQUIVO": "Relatorio_4_Fernando.pdf",
+    "TAMANHO_BYTES": 0,
+    "CRIADO_EM": "2025-12-10T13:39:48",
+    "PATH": "E9A9C231B655C0221B9B820D1F8B8DEE"
+  },
+  {
+    "ID": 140,
+    "TICKET_ID": 86814,
+    "ACTION_ID": 2,
+    "NOME_ARQUIVO": "Relatorio_5_Michelle.pdf",
+    "TAMANHO_BYTES": 0,
+    "CRIADO_EM": "2025-12-10T13:53:18",
+    "PATH": "1BAAD75E4D5917AF79170E959B2C024F"
+  },
+  {
+    "ID": 141,
+    "TICKET_ID": 86645,
+    "ACTION_ID": 2,
+    "NOME_ARQUIVO": "Captura de tela 2025-12-05 172542.png",
+    "TAMANHO_BYTES": 0,
+    "CRIADO_EM": "2025-12-05T20:29:02",
+    "PATH": "B70A6B1C228C8B95CF91362F18E7701C"
+  },
+  {
+    "ID": 142,
+    "TICKET_ID": 86645,
+    "ACTION_ID": 2,
+    "NOME_ARQUIVO": "Captura de tela 2025-12-05 172550.png",
+    "TAMANHO_BYTES": 0,
+    "CRIADO_EM": "2025-12-05T20:29:02",
+    "PATH": "2EE950460D76015E8F85CB8D526E980C"
+  },
+  {
+    "ID": 143,
+    "TICKET_ID": 86645,
+    "ACTION_ID": 2,
+    "NOME_ARQUIVO": "Captura de tela 2025-12-05 172610.png",
+    "TAMANHO_BYTES": 0,
+    "CRIADO_EM": "2025-12-05T20:29:02",
+    "PATH": "8A7E6F7E5148356D87ADB7B98D054AFD"
+  },
+  {
+    "ID": 144,
+    "TICKET_ID": 86645,
+    "ACTION_ID": 2,
+    "NOME_ARQUIVO": "Captura de tela 2025-12-05 172626.png",
+    "TAMANHO_BYTES": 0,
+    "CRIADO_EM": "2025-12-05T20:29:02",
+    "PATH": "C7DB081CD55D7564410138B04C8BE490"
+  },
+  {
+    "ID": 145,
+    "TICKET_ID": 86838,
+    "ACTION_ID": 1,
+    "NOME_ARQUIVO": "Boleto_1.pdf",
+    "TAMANHO_BYTES": 0,
+    "CRIADO_EM": "2025-12-10T20:53:21",
+    "PATH": "2D7E83762EED489006124107787774D3"
+  },
+  {
+    "ID": 146,
+    "TICKET_ID": 86838,
+    "ACTION_ID": 1,
+    "NOME_ARQUIVO": "Nota_fiscal_406031.pdf",
+    "TAMANHO_BYTES": 0,
+    "CRIADO_EM": "2025-12-10T20:53:21",
+    "PATH": "73DBD75C3E76C3EC845D5E60DD68F78F"
+  },
+  {
+    "ID": 147,
+    "TICKET_ID": 86726,
+    "ACTION_ID": 2,
+    "NOME_ARQUIVO": "Eventos_de_Malware_Dec_8__2025_13_00_00_506_PM.pdf",
+    "TAMANHO_BYTES": 0,
+    "CRIADO_EM": "2025-12-08T17:39:18",
+    "PATH": "C5ED4930F2F0DBAB4CDE8C550395A1E0"
+  },
+  {
+    "ID": 148,
+    "TICKET_ID": 86446,
+    "ACTION_ID": 3,
+    "NOME_ARQUIVO": "VPN_Remote_Acces-novembro-25.xlsx",
+    "TAMANHO_BYTES": 0,
+    "CRIADO_EM": "2025-12-08T19:21:35",
+    "PATH": "FC50C36074AC9F61E894DA7361FDC178"
+  },
+  {
+    "ID": 149,
+    "TICKET_ID": 86532,
+    "ACTION_ID": 1,
+    "NOME_ARQUIVO": "biblioteca-acervo.butantan.gov.br.xlsx",
+    "TAMANHO_BYTES": 0,
+    "CRIADO_EM": "2025-12-02T19:45:23",
+    "PATH": "C0873805C1AF7F2A60BF3872DCFDDDC0"
+  },
+  {
+    "ID": 150,
+    "TICKET_ID": 86532,
+    "ACTION_ID": 1,
+    "NOME_ARQUIVO": "bibliotecadigital.butantan.org.br.xlsx",
+    "TAMANHO_BYTES": 0,
+    "CRIADO_EM": "2025-12-02T19:45:23",
+    "PATH": "058BB18265CED99CCF8CCC1EF5DCF4DF"
+  },
+  {
+    "ID": 151,
+    "TICKET_ID": 86532,
+    "ACTION_ID": 1,
+    "NOME_ARQUIVO": "Formulario_GMUDs.xlsx",
+    "TAMANHO_BYTES": 0,
+    "CRIADO_EM": "2025-12-02T19:45:23",
+    "PATH": "BA288ED21CEAC6DFCE144C44AB375601"
+  },
+  {
+    "ID": 152,
+    "TICKET_ID": 86716,
+    "ACTION_ID": 2,
+    "NOME_ARQUIVO": "Eventos_de_Malware_-_MAESTRO_Dec_8__2025_16_04_58_742_PM.pdf",
+    "TAMANHO_BYTES": 0,
+    "CRIADO_EM": "2025-12-08T19:11:20",
+    "PATH": "81F1CDF5049BF67EFCA3D7D420EA13A7"
+  },
+  {
+    "ID": 153,
+    "TICKET_ID": 86718,
+    "ACTION_ID": 3,
+    "NOME_ARQUIVO": "IPS_-_Novas_assinaturas_-08-12-2025.xlsx",
+    "TAMANHO_BYTES": 0,
+    "CRIADO_EM": "2025-12-08T19:34:20",
+    "PATH": "2B702263F0D19F1AF14B8B95E7EA9000"
+  },
+  {
+    "ID": 154,
+    "TICKET_ID": 86719,
+    "ACTION_ID": 2,
+    "NOME_ARQUIVO": "IPS_-_Novas_assinaturas_-08-12-2025.xlsx",
+    "TAMANHO_BYTES": 0,
+    "CRIADO_EM": "2025-12-08T19:20:28",
+    "PATH": "2B702263F0D19F1AF14B8B95E7EA9000"
+  },
+  {
+    "ID": 155,
+    "TICKET_ID": 86720,
+    "ACTION_ID": 2,
+    "NOME_ARQUIVO": "IPS_-_Novas_assinaturas_-08-12-2025 - MPSP.xlsx",
+    "TAMANHO_BYTES": 0,
+    "CRIADO_EM": "2025-12-08T19:22:23",
+    "PATH": "3C82E27E13530E30EB975C2C221BCDE3"
+  },
+  {
+    "ID": 156,
+    "TICKET_ID": 86736,
+    "ACTION_ID": 1,
+    "NOME_ARQUIVO": "email-left-logo.png",
+    "TAMANHO_BYTES": 0,
+    "CRIADO_EM": "2025-12-08T17:01:23",
+    "PATH": "4B6D3D01584402C0CF8A5BC930A0924A"
+  },
+  {
+    "ID": 157,
+    "TICKET_ID": 86736,
+    "ACTION_ID": 1,
+    "NOME_ARQUIVO": "email-report-logo.png",
+    "TAMANHO_BYTES": 0,
+    "CRIADO_EM": "2025-12-08T17:01:23",
+    "PATH": "FF3CD1C87FDDDC095B1028F4F41D438E"
+  },
+  {
+    "ID": 158,
+    "TICKET_ID": 86736,
+    "ACTION_ID": 1,
+    "NOME_ARQUIVO": "email-right-logo.png",
+    "TAMANHO_BYTES": 0,
+    "CRIADO_EM": "2025-12-08T17:01:23",
+    "PATH": "A4B02757C55B5B3069C548675132F1A0"
+  },
+  {
+    "ID": 159,
+    "TICKET_ID": 86736,
+    "ACTION_ID": 1,
+    "NOME_ARQUIVO": "Eventos_de_Malware_-_ANB_Dec_8__2025_14_00_00_435_PM.pdf",
+    "TAMANHO_BYTES": 0,
+    "CRIADO_EM": "2025-12-08T17:01:23",
+    "PATH": "B3A0B0BFA2683B3A1E8D41BB6F15104A"
+  },
+  {
+    "ID": 160,
+    "TICKET_ID": 86870,
+    "ACTION_ID": 1,
+    "NOME_ARQUIVO": "NFS_Security4IT-4038_2025.pdf",
+    "TAMANHO_BYTES": 0,
+    "CRIADO_EM": "2025-12-11T19:01:22",
+    "PATH": "EE22A6AC9519D7E7A6D1FA8B90014688"
+  },
+  {
+    "ID": 161,
+    "TICKET_ID": 86870,
+    "ACTION_ID": 1,
+    "NOME_ARQUIVO": "NFS_Security4IT-4039_2025.pdf",
+    "TAMANHO_BYTES": 0,
+    "CRIADO_EM": "2025-12-11T19:01:22",
+    "PATH": "8460A7FB1478B9316A007DE7AFAB45B7"
+  },
+  {
+    "ID": 162,
+    "TICKET_ID": 86721,
+    "ACTION_ID": 1,
+    "NOME_ARQUIVO": "boleto-dezembro-25.jpeg",
+    "TAMANHO_BYTES": 0,
+    "CRIADO_EM": "2025-12-08T12:19:21",
+    "PATH": "D93A0DD5508EB3D43D8536A0FB7F27E3"
+  },
+  {
+    "ID": 163,
+    "TICKET_ID": 86721,
+    "ACTION_ID": 1,
+    "NOME_ARQUIVO": "comprovante-dezembro-25.pdf",
+    "TAMANHO_BYTES": 0,
+    "CRIADO_EM": "2025-12-08T12:19:21",
+    "PATH": "BC398AB9DB0727BE84FDE226BD7C62F5"
+  },
+  {
+    "ID": 164,
+    "TICKET_ID": 86734,
+    "ACTION_ID": 1,
+    "NOME_ARQUIVO": "boleto.cleaned (2).pdf",
+    "TAMANHO_BYTES": 0,
+    "CRIADO_EM": "2025-12-08T15:33:22",
+    "PATH": "9FF00C238ED791F841E4CDD0484BE955"
+  },
+  {
+    "ID": 165,
+    "TICKET_ID": 86734,
+    "ACTION_ID": 1,
+    "NOME_ARQUIVO": "NFSe_56573243_652955.pdf",
+    "TAMANHO_BYTES": 0,
+    "CRIADO_EM": "2025-12-08T15:33:22",
+    "PATH": "312B8ECF05FF7D9E2F16BAB619731D60"
+  },
+  {
+    "ID": 166,
+    "TICKET_ID": 86737,
+    "ACTION_ID": 2,
+    "NOME_ARQUIVO": "RES_ Security - Movimentos 12-2025.msg",
+    "TAMANHO_BYTES": 0,
+    "CRIADO_EM": "2025-12-09T14:47:13",
+    "PATH": "B51F136C44DDB734012D9E372E68429F"
+  },
+  {
+    "ID": 167,
+    "TICKET_ID": 86524,
+    "ACTION_ID": 1,
+    "NOME_ARQUIVO": "Formulario_GMUD.xlsx",
+    "TAMANHO_BYTES": 0,
+    "CRIADO_EM": "2025-12-02T18:52:12",
+    "PATH": "2555A4A1EC8F4655F5CA001485B70958"
+  }
+]

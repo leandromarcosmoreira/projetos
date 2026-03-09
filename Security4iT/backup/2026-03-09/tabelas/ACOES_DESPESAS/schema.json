@@ -1,0 +1,47 @@
+{
+  "name": "ACOES_DESPESAS",
+  "columns": [
+    {
+      "name": "ID",
+      "type": "INT",
+      "isPk": true,
+      "nullable": false
+    },
+    {
+      "name": "TICKET_ID",
+      "type": "INT",
+      "isPk": false,
+      "nullable": true
+    },
+    {
+      "name": "ACTION_ID",
+      "type": "INT",
+      "isPk": false,
+      "nullable": true
+    },
+    {
+      "name": "TIPO",
+      "type": "TEXT(200)",
+      "isPk": false,
+      "nullable": true
+    },
+    {
+      "name": "VALOR",
+      "type": "DECIMAL(15,2)",
+      "isPk": false,
+      "nullable": true
+    },
+    {
+      "name": "DATA",
+      "type": "TEXT(19)",
+      "isPk": false,
+      "nullable": true
+    },
+    {
+      "name": "DESCRICAO",
+      "type": "TEXT(500)",
+      "isPk": false,
+      "nullable": true
+    }
+  ]
+}

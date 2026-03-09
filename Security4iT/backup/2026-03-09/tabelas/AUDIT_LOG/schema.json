@@ -1,0 +1,53 @@
+{
+  "name": "AUDIT_LOG",
+  "columns": [
+    {
+      "name": "ID",
+      "type": "INT",
+      "isPk": true,
+      "nullable": false
+    },
+    {
+      "name": "USUARIO",
+      "type": "TEXT(200)",
+      "isPk": false,
+      "nullable": true
+    },
+    {
+      "name": "ACAO",
+      "type": "TEXT(100)",
+      "isPk": false,
+      "nullable": true
+    },
+    {
+      "name": "CAMPO",
+      "type": "TEXT(100)",
+      "isPk": false,
+      "nullable": true
+    },
+    {
+      "name": "VALOR_ANTERIOR",
+      "type": "TEXT(500)",
+      "isPk": false,
+      "nullable": true
+    },
+    {
+      "name": "VALOR_NOVO",
+      "type": "TEXT(500)",
+      "isPk": false,
+      "nullable": true
+    },
+    {
+      "name": "DETALHES",
+      "type": "TEXT(1000)",
+      "isPk": false,
+      "nullable": true
+    },
+    {
+      "name": "DATA",
+      "type": "TEXT(19)",
+      "isPk": false,
+      "nullable": true
+    }
+  ]
+}

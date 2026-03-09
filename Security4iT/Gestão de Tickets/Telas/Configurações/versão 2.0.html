@@ -1,0 +1,1092 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Painel de Configurações Unificado - Security4It</title>
+    <script src="https://cdn.tailwindcss.com/3.4.1"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+    <style>
+        :root {
+            --background: #020617;
+            --foreground: #f8fafc;
+            --panel: #1e293b;
+            --card: #0f172a;
+            --border: #334155;
+            --text-primary: #f8fafc;
+            --text-secondary: #94a3b8;
+            --text-muted: #64748b;
+            --accent-blue: #3b82f6;
+            --s4-orange: #f97316;
+            --s4-orange-dark: #ea580c;
+            --s4-orange-light: #fb923c;
+            --danger-red: #ef4444;
+            --danger-red-dark: #b91c1c;
+            --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            --radius: 1rem;
+        }
+
+        html,
+        body {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            width: 100%;
+            background: var(--background);
+            color: var(--foreground);
+            font-family: 'Inter', system-ui, -apple-system, sans-serif;
+            overflow: hidden;
+        }
+
+        #app-container {
+            height: 100%;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            background: var(--background);
+            padding: 1.5rem;
+        }
+
+        @media (min-width: 1024px) {
+            #app-container {
+                padding: 2rem;
+            }
+        }
+
+        .content-card {
+            background: var(--panel);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            box-shadow: var(--shadow-md);
+        }
+
+        /* Tabs - Estilo profissional aprimorado */
+        .tab-nav {
+            border-bottom: 1px solid var(--border);
+            background: var(--panel);
+            padding: 0 1.5rem;
+            flex-shrink: 0;
+        }
+
+        .tab-list {
+            display: flex;
+            gap: 2.25rem;
+            position: relative;
+        }
+
+        .tab-link {
+            position: relative;
+            padding: 1.125rem 0.25rem;
+            font-size: 0.95rem;
+            font-weight: 500;
+            color: var(--text-muted);
+            text-decoration: none;
+            transition: color 0.2s ease;
+            cursor: pointer;
+            white-space: nowrap;
+        }
+
+        .tab-link:hover {
+            color: var(--s4-orange-light);
+        }
+
+        .tab-link.active {
+            color: var(--s4-orange);
+            font-weight: 600;
+        }
+
+        .tab-link.active::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            right: 0;
+            bottom: -1px;
+            height: 3px;
+            background: linear-gradient(90deg, var(--s4-orange), var(--s4-orange-dark));
+            border-radius: 50% 3px 0 0;
+            box-shadow: 0 2px 10px rgba(249, 115, 22, 0.4);
+        }
+
+        /* Estilo especial para a aba Manutenção (perigo) */
+        .tab-link-danger {
+            color: #f87171;
+        }
+
+        .tab-link-danger:hover {
+            color: #fca5a5;
+        }
+
+        .tab-link-danger.active {
+            color: #f87171;
+            font-weight: 600;
+        }
+
+        .tab-link-danger.active::after {
+            background: linear-gradient(90deg, #f87171, #ef4444);
+            box-shadow: 0 2px 10px rgba(239, 68, 68, 0.35);
+        }
+
+        .tab-content {
+            display: none;
+            height: 100%;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        .toast {
+            animation: toast-fade-in-out 4s ease-in-out forwards;
+            box-shadow: var(--shadow-md);
+            background: var(--bg-panel);
+            color: var(--text-primary);
+            border-radius: var(--radius);
+        }
+
+        @keyframes toast-fade-in-out {
+            0% {
+                opacity: 0;
+                transform: translateY(-24px);
+            }
+
+            10% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+
+            90% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+
+            100% {
+                opacity: 0;
+                transform: translateY(-24px);
+            }
+        }
+
+        .backup-card {
+            transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+            border: 1px solid var(--border-dark);
+            border-radius: var(--radius);
+            background: var(--bg-darker);
+            box-shadow: var(--shadow-sm);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .backup-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--s4-orange);
+            box-shadow: 0 10px 30px -10px rgba(249, 115, 22, 0.3);
+        }
+
+        .backup-card.processing {
+            pointer-events: none;
+            opacity: 0.65;
+            animation: pulse 1.8s infinite;
+        }
+
+        .danger-card {
+            border: 1px solid var(--danger-red);
+            background: linear-gradient(to bottom right, var(--bg-darker), rgba(239, 68, 68, 0.05));
+        }
+
+        .danger-card:hover {
+            box-shadow: 0 10px 30px -10px rgba(239, 68, 68, 0.2);
+            border-color: #f87171;
+        }
+
+        @keyframes pulse {
+
+            0%,
+            100% {
+                opacity: 0.65;
+            }
+
+            50% {
+                opacity: 1;
+            }
+        }
+
+        [data-lucide] {
+            stroke-width: 1.9px;
+            transition: all 0.35s ease;
+        }
+
+        .log-table-header {
+            background-color: #334155;
+            color: #e2e8f0;
+            font-weight: 700;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .log-table-row {
+            border-bottom: 1px solid var(--border-dark);
+            transition: background-color 0.2s;
+        }
+
+        .log-table-row:last-child {
+            border-bottom: none;
+        }
+
+        .log-table-row:hover {
+            background-color: rgba(255, 255, 255, 0.03);
+        }
+
+        .kpi-card {
+            transition: all 0.2s ease-in-out;
+        }
+
+        .kpi-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app-container">
+        <header
+            class="content-card flex flex-wrap items-center justify-between gap-6 mb-6 p-6 flex-shrink-0 bg-[#1e293b] rounded-2xl border-white/5 shadow-2xl">
+            <div>
+                <p class="text-sm text-blue-400 font-semibold tracking-wider uppercase">Administração do Sistema</p>
+                <h1 class="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-white tracking-tight mt-1">Configurações
+                </h1>
+            </div>
+            <div class="flex flex-wrap items-center gap-6">
+                <div class="flex items-center gap-4">
+                    <div id="sync-status-container"
+                        class="flex items-center gap-4 text-xs text-[var(--text-muted)] mr-2">
+                        <!-- Status será inserido via JS -->
+                    </div>
+                    <button id="refresh-view-btn" title="Atualizar visualização"
+                        class="inline-flex items-center justify-center whitespace-nowrap rounded-lg text-sm font-medium transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--s4-orange)] h-10 px-4 py-2 bg-[var(--bg-panel)] text-[var(--text-primary)] border border-[var(--border-dark)] hover:bg-[var(--hover-bg)] hover:border-[var(--s4-orange)] shadow-sm">
+                        <i data-lucide="rotate-cw" class="w-4 h-4 mr-2"></i>Atualizar
+                    </button>
+                    <button id="sync-now-btn"
+                        class="inline-flex items-center justify-center whitespace-nowrap rounded-lg text-sm font-medium transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--s4-orange)] disabled:pointer-events-none disabled:opacity-50 h-10 px-5 py-2 bg-[var(--s4-orange)] text-white hover:bg-[var(--s4-orange-dark)] shadow-sm">
+                        <i data-lucide="refresh-cw" class="w-4 h-4 mr-2"></i>Sincronizar agora
+                    </button>
+                </div>
+                <div class="h-12 border-l border-gray-600 pl-6 flex items-center hidden lg:flex">
+                    <img id="company-logo" alt="Security4It" class="h-12 object-contain">
+                </div>
+            </div>
+        </header>
+
+        <div class="content-card flex flex-col flex-grow overflow-hidden">
+            <nav class="tab-nav">
+                <div class="tab-list" aria-label="Tabs">
+                    <a href="#" class="tab-link active" data-tab="dashboard">Dashboard</a>
+                    <a href="#" class="tab-link" data-tab="params">Parâmetros</a>
+                    <a href="#" class="tab-link" data-tab="logs">Logs</a>
+                    <a href="#" class="tab-link" data-tab="backup">Backup & Exportação</a>
+                    <a href="#" class="tab-link tab-link-danger" data-tab="maintenance">Manutenção</a>
+                </div>
+            </nav>
+
+            <main class="flex-grow p-6 overflow-y-auto">
+                <!-- Dashboard -->
+                <div id="tab-dashboard" class="tab-content active">
+                    <div id="kpi-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                        <p class="text-[var(--text-muted)] col-span-full text-center py-12 text-lg">Carregando
+                            métricas...</p>
+                    </div>
+                </div>
+
+                <!-- Parâmetros -->
+                <div id="tab-params" class="tab-content">
+                    <div
+                        class="border rounded-xl overflow-hidden border-[var(--border-dark)] bg-[var(--bg-darker)] shadow-sm">
+                        <table class="w-full text-sm">
+                            <thead class="bg-[var(--bg-panel)]">
+                                <tr class="border-b border-[var(--border-dark)]">
+                                    <th class="h-12 px-6 text-left font-semibold text-[var(--text-primary)]">Parâmetro
+                                    </th>
+                                    <th class="h-12 px-6 text-left font-semibold text-[var(--text-primary)]">Descrição
+                                    </th>
+                                    <th class="h-12 px-6 text-left font-semibold text-[var(--text-primary)]">Valor</th>
+                                    <th class="h-12 px-6 text-left font-semibold text-[var(--text-primary)]">Última
+                                        Alteração</th>
+                                    <th class="h-12 px-6 w-16 text-center font-semibold text-[var(--text-primary)]">
+                                        Status</th>
+                                </tr>
+                            </thead>
+                            <tbody id="settings-table-body" class="divide-y divide-[var(--border-dark)]">
+                                <tr>
+                                    <td colspan="5" class="p-8 text-center text-[var(--text-muted)]">Carregando
+                                        parâmetros...</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- Logs -->
+                <div id="tab-logs" class="tab-content">
+                    <div class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-6 h-full">
+                        <div
+                            class="md:col-span-1 lg:col-span-1 border border-[var(--border-dark)] rounded-xl bg-[var(--bg-darker)] flex flex-col h-full overflow-hidden shadow-sm">
+                            <h3
+                                class="text-lg font-semibold p-5 border-b border-[var(--border-dark)] text-[var(--text-primary)] bg-[var(--bg-panel)]">
+                                Execuções</h3>
+                            <div id="logs-list-container" class="overflow-y-auto flex-grow p-4 space-y-3">
+                                <p class="text-[var(--text-muted)] text-center p-6">Carregando logs...</p>
+                            </div>
+                        </div>
+                        <div
+                            class="md:col-span-2 lg:col-span-3 border border-[var(--border-dark)] rounded-xl bg-[var(--bg-darker)] flex flex-col h-full overflow-hidden shadow-sm">
+                            <div
+                                class="flex items-center justify-between p-5 border-b border-[var(--border-dark)] bg-[var(--bg-panel)]">
+                                <h3 class="text-lg font-semibold text-[var(--text-primary)]">Detalhes da Execução</h3>
+                                <button id="close-details-btn"
+                                    class="hidden md:hidden text-[var(--text-muted)] hover:text-white">
+                                    <i data-lucide="x" class="w-5 h-5"></i>
+                                </button>
+                            </div>
+                            <div id="log-details-container" class="overflow-y-auto flex-grow p-6">
+                                <div class="h-full flex items-center justify-center text-[var(--text-muted)]">
+                                    <div class="text-center">
+                                        <i data-lucide="arrow-left" class="w-8 h-8 mx-auto mb-2 opacity-50"></i>
+                                        <p>Selecione uma execução à esquerda para ver os detalhes.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Backup & Exportação -->
+                <div id="tab-backup" class="tab-content">
+                    <div class="flex justify-between items-center mb-6">
+                        <div>
+                            <h2 class="text-xl font-bold text-[var(--text-primary)]">Exportação de Dados</h2>
+                            <p class="text-sm text-[var(--text-muted)]">Baixe a estrutura e os dados do sistema em
+                                múltiplos formatos.</p>
+                        </div>
+                        <button id="download-zip-btn"
+                            class="inline-flex items-center justify-center whitespace-nowrap rounded-lg text-sm font-medium transition-all h-10 px-5 py-2 bg-[var(--s4-orange)] text-white hover:bg-[var(--s4-orange-dark)] shadow-sm">
+                            <i data-lucide="archive" class="w-4 h-4 mr-2"></i>Baixar Tudo (.zip)
+                        </button>
+                    </div>
+                    <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-6">
+                        <div data-file="ddl" data-icon="database-zap"
+                            class="backup-card p-6 flex flex-col items-center justify-center text-center cursor-pointer">
+                            <i data-lucide="database-zap" class="w-12 h-12 mb-4 text-sky-400"></i>
+                            <h3 class="text-lg font-semibold mb-2 text-[var(--text-primary)]">Estrutura (DDL)</h3>
+                            <p class="text-xs text-[var(--text-muted)]">Script SQL de criação das tabelas.</p>
+                        </div>
+                        <!-- ... os outros cards de backup seguem iguais ... -->
+                        <div data-file="dml" data-icon="database"
+                            class="backup-card p-6 flex flex-col items-center justify-center text-center cursor-pointer">
+                            <i data-lucide="database" class="w-12 h-12 mb-4 text-yellow-400"></i>
+                            <h3 class="text-lg font-semibold mb-2 text-[var(--text-primary)]">Dados (DML)</h3>
+                            <p class="text-xs text-[var(--text-muted)]">Script SQL de inserção de dados.</p>
+                        </div>
+                        <div data-file="json" data-icon="file-json"
+                            class="backup-card p-6 flex flex-col items-center justify-center text-center cursor-pointer">
+                            <i data-lucide="file-json" class="w-12 h-12 mb-4 text-cyan-400"></i>
+                            <h3 class="text-lg font-semibold mb-2 text-[var(--text-primary)]">JSON</h3>
+                            <p class="text-xs text-[var(--text-muted)]">Dados estruturados em formato JSON.</p>
+                        </div>
+                        <div data-file="xml" data-icon="file-code"
+                            class="backup-card p-6 flex flex-col items-center justify-center text-center cursor-pointer">
+                            <i data-lucide="file-code" class="w-12 h-12 mb-4 text-violet-400"></i>
+                            <h3 class="text-lg font-semibold mb-2 text-[var(--text-primary)]">XML</h3>
+                            <p class="text-xs text-[var(--text-muted)]">Exportação em formato XML.</p>
+                        </div>
+                        <div data-file="csv" data-icon="file-spreadsheet"
+                            class="backup-card p-6 flex flex-col items-center justify-center text-center cursor-pointer">
+                            <i data-lucide="file-spreadsheet" class="w-12 h-12 mb-4 text-lime-400"></i>
+                            <h3 class="text-lg font-semibold mb-2 text-[var(--text-primary)]">CSV</h3>
+                            <p class="text-xs text-[var(--text-muted)]">Planilha de Tickets (CSV).</p>
+                        </div>
+                        <div data-file="yaml" data-icon="file-text"
+                            class="backup-card p-6 flex flex-col items-center justify-center text-center cursor-pointer">
+                            <i data-lucide="file-text" class="w-12 h-12 mb-4 text-rose-400"></i>
+                            <h3 class="text-lg font-semibold mb-2 text-[var(--text-primary)]">YAML</h3>
+                            <p class="text-xs text-[var(--text-muted)]">Configurações em formato YAML.</p>
+                        </div>
+                        <div data-file="txt" data-icon="file-type"
+                            class="backup-card p-6 flex flex-col items-center justify-center text-center cursor-pointer">
+                            <i data-lucide="file-type" class="w-12 h-12 mb-4 text-slate-300"></i>
+                            <h3 class="text-lg font-semibold mb-2 text-[var(--text-primary)]">TXT</h3>
+                            <p class="text-xs text-[var(--text-muted)]">Relatório resumo em texto.</p>
+                        </div>
+                        <div data-file="actions" data-icon="workflow"
+                            class="backup-card p-6 flex flex-col items-center justify-center text-center cursor-pointer">
+                            <i data-lucide="workflow" class="w-12 h-12 mb-4 text-pink-400"></i>
+                            <h3 class="text-lg font-semibold mb-2 text-[var(--text-primary)]">Actions (Full)</h3>
+                            <p class="text-xs text-[var(--text-muted)]">Estrutura completa das automações.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Manutenção -->
+                <div id="tab-maintenance" class="tab-content">
+                    <div class="flex flex-col gap-8">
+                        <div>
+                            <h2 class="text-xl font-bold text-red-400 flex items-center gap-2">
+                                <i data-lucide="alert-triangle" class="w-6 h-6"></i>
+                                Zona de Perigo
+                            </h2>
+                            <p class="text-sm text-[var(--text-muted)] mt-1">Ações destrutivas e de reprocessamento em
+                                massa. Use com cautela.</p>
+                        </div>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div class="backup-card danger-card p-6 flex flex-col justify-between">
+                                <div>
+                                    <div class="flex items-center gap-3 mb-4">
+                                        <div class="p-3 rounded-full bg-red-900/30 text-red-500">
+                                            <i data-lucide="trash-2" class="w-6 h-6"></i>
+                                        </div>
+                                        <h3 class="text-lg font-bold text-red-400">Apagar Todos os Dados</h3>
+                                    </div>
+                                    <p class="text-sm text-[var(--text-secondary)] mb-6">
+                                        Esta ação irá <strong>TRUNCAR</strong> todas as tabelas de tickets, clientes,
+                                        ações e históricos.
+                                        Os dados serão perdidos permanentemente, a menos que você tenha um backup.
+                                        <br><br>
+                                        <span class="text-xs text-[var(--text-muted)]">Tabelas de configuração e logs de
+                                            sistema serão preservados.</span>
+                                    </p>
+                                </div>
+                                <button id="btn-wipe-data"
+                                    class="w-full py-3 rounded-lg bg-red-600 hover:bg-red-700 text-white font-bold transition-colors shadow-lg flex items-center justify-center gap-2">
+                                    <i data-lucide="alert-octagon" class="w-5 h-5"></i>
+                                    APAGAR TUDO
+                                </button>
+                            </div>
+
+                            <div class="backup-card p-6 flex flex-col justify-between border-orange-500/30">
+                                <div>
+                                    <div class="flex items-center gap-3 mb-4">
+                                        <div class="p-3 rounded-full bg-orange-900/30 text-orange-500">
+                                            <i data-lucide="database-backup" class="w-6 h-6"></i>
+                                        </div>
+                                        <h3 class="text-lg font-bold text-orange-400">Reprocessar Dados (Offline)</h3>
+                                    </div>
+                                    <p class="text-sm text-[var(--text-secondary)] mb-6">
+                                        Re-executa a importação de dados utilizando os logs de API salvos (JSONs
+                                        brutos).
+                                        Útil para corrigir falhas de processamento sem consumir cota de API externa.
+                                        <br><br>
+                                        <span class="text-xs text-[var(--text-muted)]">O sistema irá ler a tabela
+                                            <code>sys_offline_buffer</code> e reinserir os registros.</span>
+                                    </p>
+                                </div>
+                                <button id="btn-reprocess-data"
+                                    class="w-full py-3 rounded-lg bg-orange-600 hover:bg-orange-700 text-white font-bold transition-colors shadow-lg flex items-center justify-center gap-2">
+                                    <i data-lucide="refresh-ccw" class="w-5 h-5"></i>
+                                    REPROCESSAR DADOS
+                                </button>
+                            </div>
+                        </div>
+
+                        <div
+                            class="border rounded-xl overflow-hidden border-[var(--border-dark)] bg-[var(--bg-darker)] shadow-sm mt-4">
+                            <div class="p-4 bg-[var(--bg-panel)] border-b border-[var(--border-dark)]">
+                                <h3 class="font-semibold text-[var(--text-primary)]">Histórico de Manutenção</h3>
+                            </div>
+                            <div id="maintenance-history-container"
+                                class="p-6 text-center text-[var(--text-muted)] text-sm">
+                                Carregando histórico...
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+
+    <div id="toast-container" class="fixed top-6 right-6 z-50 flex flex-col items-end space-y-3"></div>
+
+    <script>
+        const MITRA_UPDATE_EVENT_NAME = 'mitra-update-settings-panel';
+        function updateMitra() { document.body.dispatchEvent(new CustomEvent(MITRA_UPDATE_EVENT_NAME)); }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            lucide.createIcons();
+            let currentTab = 'dashboard', syncStatusInterval;
+            const showToast = (message, type = 'success') => {
+                const container = document.getElementById('toast-container');
+                const toast = document.createElement('div');
+                toast.className = `toast text-sm py-2 px-4 rounded-md shadow-lg ${type === 'success' ? 'bg-green-600' : 'bg-red-600'} text-white`;
+                toast.textContent = message;
+                container.appendChild(toast);
+                setTimeout(() => { if (container.contains(toast)) container.removeChild(toast); }, 3900);
+            };
+            const switchTab = (tabName) => {
+                currentTab = tabName;
+                document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
+                document.querySelectorAll('.tab-link').forEach(l => l.classList.remove('active'));
+                document.getElementById(`tab-${tabName}`).classList.add('active');
+                document.querySelector(`.tab-link[data-tab="${tabName}"]`).classList.add('active');
+                if (tabName === 'dashboard') loadKpis();
+                else if (tabName === 'params') loadSettings();
+                else if (tabName === 'logs') loadLogs();
+                else if (tabName === 'maintenance') loadMaintenanceHistory();
+            };
+            const renderStatusBadge = (status, date, lastSyncDate, lastTicketDate) => {
+                const container = document.getElementById('sync-status-container'), syncBtn = document.getElementById('sync-now-btn');
+                let colorClass = 'bg-gray-400', text = 'Status desconhecido';
+                switch ((status || '').toUpperCase()) {
+                    case 'RUNNING': colorClass = 'bg-yellow-500 animate-pulse'; text = 'Em execução...'; break;
+                    case 'SUCCESS': colorClass = 'bg-green-500'; text = 'Sincronização concluída'; break;
+                    case 'ERROR': colorClass = 'bg-red-500'; text = 'Erro na sincronização'; break;
+                }
+                if (container) {
+                    container.innerHTML = `
+                        <div class="flex items-center gap-2">
+                            <div class="w-2.5 h-2.5 rounded-full ${colorClass}"></div>
+                            <span class="font-medium">${text}</span>
+                        </div>
+                        <div class="flex flex-col text-[10px] text-[var(--text-muted)] leading-tight border-l border-[var(--border-dark)] pl-3 ml-1">
+                            <span>Última sincronização: <span class="text-[var(--text-secondary)]">${lastSyncDate || '--'}</span></span>
+                            <span>Último ticket: <span class="text-[var(--text-secondary)]">${lastTicketDate || '--'}</span></span>
+                        </div>
+                    `;
+                }
+            };
+            const fetchSyncStatus = async () => {
+                try {
+                    const result = await queryMitra({ query: componentData.syncStatusQuery });
+                    if (result?.data?.length > 0) {
+                        const headers = result.headers.map(h => h.name.toUpperCase());
+                        const state = result.data[0][headers.indexOf('STATE')];
+                        const endDate = result.data[0][headers.indexOf('ENDEXECUTIONDATE')];
+                        const lastSync = result.data[0][headers.indexOf('LAST_SYNC_FMT')];
+                        const lastTicket = result.data[0][headers.indexOf('LAST_TICKET_FMT')];
+                        renderStatusBadge(state, endDate, lastSync, lastTicket);
+                    } else {
+                        renderStatusBadge('UNKNOWN', null, null, null);
+                    }
+                } catch (error) { console.error("Erro status:", error); }
+            };
+            const loadKpis = async () => {
+                const grid = document.getElementById('kpi-grid');
+                if (!window.componentData?.kpiQuery || !grid) return;
+                try {
+                    const result = await queryMitra({ query: componentData.kpiQuery, jdbcId: 1 });
+                    if (!result?.data?.length) {
+                        grid.innerHTML = `<p class="text-[var(--text-muted)] col-span-full text-center py-10">Nenhuma métrica encontrada.</p>`;
+                        return;
+                    }
+                    const headers = result.headers.map(h => h.name.toUpperCase());
+                    const idx = {
+                        title: headers.indexOf('CARDTITLE'),
+                        count: headers.indexOf('RECORD_COUNT'),
+                        icon: headers.indexOf('ICON'),
+                        iconColor: headers.indexOf('ICONCOLOR'),
+                        tableName: headers.indexOf('TABLE_NAME') // Nova coluna
+                    };
+                    grid.innerHTML = result.data.map(row => {
+                        const tableName = row[idx.tableName] || '';
+                        const cardTitle = row[idx.title] || 'Tabela';
+                        return `<div class="kpi-card rounded-xl border border-[var(--border-dark)] bg-[var(--bg-darker)] p-6 shadow-sm transition-all"">
+                                    <div class="flex items-start justify-between">
+                                        <div>
+                                            <p class="text-sm font-medium text-[var(--text-muted)]">${cardTitle}</p>
+                                            <h3 class="text-3xl font-bold text-[var(--text-primary)] mt-2">${row[idx.count] || 0}</h3>
+                                        </div>
+                                        <div class="w-12 h-12 flex items-center justify-center">
+                                            <i data-lucide="${row[idx.icon] || 'database'}" class="w-8 h-8" style="color: ${row[idx.iconColor] || '#94a3b8'};"></i>
+                                        </div>
+                                    </div>
+                                </div>`;
+                    }).join('');
+                    lucide.createIcons();
+                } catch (error) { console.error("Erro KPIs:", error); grid.innerHTML = `<p class="text-red-400 col-span-full text-center py-10">Erro ao carregar métricas.</p>`; }
+            };
+            const loadSettings = async () => {
+                const tbody = document.getElementById('settings-table-body');
+                if (!window.componentData?.settingsQuery || !tbody) return;
+                try {
+                    const result = await queryMitra({ query: componentData.settingsQuery });
+                    if (!result?.data?.length) {
+                        tbody.innerHTML = `<tr><td colspan="5" class="p-4 text-center text-[var(--text-muted)]">Nenhum parâmetro.</td></tr>`;
+                        return;
+                    }
+                    const headers = result.headers.map(h => h.name.toUpperCase());
+                    const idx = { key: headers.indexOf('PARAM_KEY'), desc: headers.indexOf('DESCRICAO'), val: headers.indexOf('VALOR'), date: headers.indexOf('DATA_ALT') };
+                    tbody.innerHTML = result.data.map(row => {
+                        const key = row[idx.key], value = row[idx.val] || '';
+                        const inputType = key.includes('TOKEN') ? 'password' : (key === 'API_CUTOFF_DATE' ? 'date' : 'text');
+                        const displayVal = key === 'API_CUTOFF_DATE' && value ? value.split('T')[0] : value;
+                        return `<tr data-key="${key}"><td class="p-4 font-medium">${key}</td><td class="p-4 text-[var(--text-muted)]">${row[idx.desc]}</td><td class="p-4"><input class="flex h-10 w-full rounded-md border border-[var(--border-dark)] bg-[var(--bg-panel)] px-3 py-2 text-sm focus:ring-2 focus:ring-[var(--s4-orange)]" type="${inputType}" value="${displayVal}" /></td><td class="p-4 text-[var(--text-muted)]">${row[idx.date] || '--'}</td><td class="p-4 text-center status-cell"></td></tr>`;
+                    }).join('');
+                } catch (error) { console.error("Erro Settings:", error); }
+            };
+            const loadLogs = async () => {
+                const container = document.getElementById('logs-list-container');
+                if (!window.componentData?.logsQuery || !container) return;
+                try {
+                    const result = await queryMitra({ query: componentData.logsQuery });
+                    if (!result?.data?.length) {
+                        container.innerHTML = `<p class="text-[var(--text-muted)] text-center p-4">Nenhum log.</p>`;
+                        return;
+                    }
+                    const headers = result.headers.map(h => h.name.toUpperCase());
+                    const idx = { id: headers.indexOf('ID'), title: headers.indexOf('TITLE'), subtitle: headers.indexOf('SUBTITLE'), status: headers.indexOf('STATUS') };
+                    container.innerHTML = result.data.map(row => {
+                        const status = (row[idx.status] || '').toUpperCase();
+                        const badgeColor = status === 'SUCCESS' ? 'bg-green-900/50 text-green-300' : (status === 'ERROR' ? 'bg-red-900/50 text-red-300' : 'bg-gray-800 text-gray-300');
+                        return `<div data-log-id="${row[idx.id]}" class="log-item p-3 rounded-md cursor-pointer border border-transparent hover:bg-[var(--hover-bg)]"><div class="flex justify-between items-start"><h4 class="font-semibold">${row[idx.title]}</h4><span class="text-xs font-medium px-2 py-0.5 rounded-full ${badgeColor}">${status}</span></div><p class="text-xs text-[var(--text-muted)] mt-1">${row[idx.subtitle]}</p></div>`;
+                    }).join('');
+                    const firstItem = container.querySelector('.log-item');
+                    if (firstItem) {
+                        firstItem.classList.add('bg-[var(--hover-bg)]');
+                        loadLogDetails(firstItem.dataset.logId);
+                    }
+                } catch (error) { console.error("Erro Logs:", error); }
+            };
+            const loadLogDetails = async (logId) => {
+                const container = document.getElementById('log-details-container');
+                if (!window.componentData?.logDetailsQuery || !container) return;
+                try {
+                    container.innerHTML = `<div class="h-full flex items-center justify-center text-[var(--text-muted)]"><i data-lucide="loader-2" class="w-8 h-8 animate-spin"></i></div>`;
+                    lucide.createIcons();
+                    await setVariableMitra({ name: componentData.varLogId, content: logId.toString() });
+                    const result = await queryMitra({ query: componentData.logDetailsQuery });
+                    if (!result?.data?.length) {
+                        container.innerHTML = `<div class="h-full flex items-center justify-center text-[var(--text-muted)]"><p>Nenhum detalhe encontrado para esta execução.</p></div>`;
+                        return;
+                    }
+                    const headers = result.headers.map(h => h.name.toUpperCase());
+                    const idx = {
+                        step: headers.indexOf('STEPID'),
+                        state: headers.indexOf('STATE'),
+                        details: headers.indexOf('DETAILS'),
+                        dtIni: headers.indexOf('DT_INI'),
+                        dtFim: headers.indexOf('DT_FIM'),
+                        durSec: headers.indexOf('DURACAO_SEC')
+                    };
+                    const formatDuration = (seconds) => {
+                        if (!seconds && seconds !== 0) return '--';
+                        const secNum = parseFloat(seconds);
+                        if (isNaN(secNum)) return '--';
+                        const h = Math.floor(secNum / 3600);
+                        const m = Math.floor((secNum % 3600) / 60);
+                        const s = Math.floor(secNum % 60);
+                        const ms = Math.round((secNum % 1) * 100);
+                        return `${h.toString().padStart(2, '0')}:${m.toString().padStart(2, '0')}:${s.toString().padStart(2, '0')}.${ms.toString().padStart(2, '0')}`;
+                    };
+                    const rows = result.data.map(row => {
+                        const state = (row[idx.state] || '').toUpperCase();
+                        const stateClass = state === 'SUCCESS' ? 'text-green-400' : (state === 'ERROR' ? 'text-red-400' : 'text-[var(--text-muted)]');
+                        const stepId = row[idx.step];
+                        const details = row[idx.details] || '';
+                        const duration = formatDuration(row[idx.durSec]);
+                        const detailHtml = state === 'ERROR' && details
+                            ? `<div class="text-red-400 text-xs mt-1 font-mono bg-red-900/20 p-1 rounded">${details}</div>`
+                            : '';
+                        return `
+                        <tr class="log-table-row">
+                            <td class="p-3 text-xs whitespace-nowrap text-[var(--text-muted)]">${row[idx.dtIni] || '--'}</td>
+                            <td class="p-3 text-xs whitespace-nowrap text-[var(--text-muted)]">${row[idx.dtFim] || '--'}</td>
+                            <td class="p-3 text-xs whitespace-nowrap text-[var(--text-primary)] font-mono">${duration}</td>
+                            <td class="p-3 text-xs font-semibold ${stateClass}">${state}</td>
+                            <td class="p-3 text-xs text-[var(--text-primary)]">
+                                <div>Passo ${stepId}</div>
+                                ${detailHtml}
+                            </td>
+                            <td class="p-3 text-xs text-center text-[var(--text-muted)]">${stepId}</td>
+                        </tr>`;
+                    }).join('');
+                    container.innerHTML = `
+                    <div class="w-full h-full flex flex-col">
+                        <div class="flex items-center justify-between mb-4 px-1">
+                            <h4 class="text-sm font-semibold text-[var(--text-primary)]">Log de Execução #${logId}</h4>
+                            <span class="text-xs text-[var(--text-muted)]">${result.data.length} passos registrados</span>
+                        </div>
+                        <div class="border rounded-lg w-full overflow-hidden border-[var(--border-dark)] bg-[var(--bg-panel)] flex-grow overflow-y-auto">
+                            <table class="w-full text-sm relative">
+                                <thead class="sticky top-0 z-10">
+                                    <tr class="log-table-header border-b border-[var(--border-dark)]">
+                                        <th class="h-10 px-3 text-left w-32">Data de início</th>
+                                        <th class="h-10 px-3 text-left w-32">Data de fim</th>
+                                        <th class="h-10 px-3 text-left w-24">Duração</th>
+                                        <th class="h-10 px-3 text-left w-24">Estado</th>
+                                        <th class="h-10 px-3 text-left">Passo</th>
+                                        <th class="h-10 px-3 text-center w-16">Ordem</th>
+                                    </tr>
+                                </thead>
+                                <tbody class="bg-[var(--bg-darker)]">
+                                    ${rows}
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>`;
+                } catch (error) {
+                    console.error("Erro Detalhes:", error);
+                    container.innerHTML = `<div class="p-6 text-center text-red-400">Erro ao carregar detalhes: ${error.message}</div>`;
+                }
+            };
+            const handleSettingChange = async (inputElement) => {
+                const row = inputElement.closest('tr'), key = row.dataset.key, statusCell = row.querySelector('.status-cell');
+                let newValue = inputElement.value;
+                if (key === 'API_CUTOFF_DATE' && newValue) newValue = `${newValue}T00:00:00.000Z`;
+                try {
+                    statusCell.innerHTML = `<i data-lucide="loader-2" class="w-4 h-4 text-[var(--text-muted)] animate-spin"></i>`; lucide.createIcons();
+                    await setVariableMitra({ name: componentData.varSettingKey, content: key });
+                    await setVariableMitra({ name: componentData.varValueAlter, content: newValue });
+                    await dbactionMitra(parseInt(componentData.dbActionIdUpdateSetting, 10));
+                    statusCell.innerHTML = `<i data-lucide="check" class="w-4 h-4 text-green-400"></i>`; lucide.createIcons();
+                    setTimeout(() => statusCell.innerHTML = '', 2000);
+                } catch (e) {
+                    statusCell.innerHTML = `<i data-lucide="x-circle" class="w-4 h-4 text-red-400"></i>`; lucide.createIcons();
+                }
+            };
+            const getFileContent = async (fileKey) => {
+                const varMap = { 'ddl': componentData.varBackupDdl, 'dml': componentData.varBackupDml, 'json': componentData.varBackupJson, 'xml': componentData.varBackupXml, 'csv': componentData.varBackupCsv, 'yaml': componentData.varBackupYaml, 'txt': componentData.varBackupTxt, 'actions': componentData.varBackupActions };
+                const varName = varMap[fileKey];
+                if (!varName) throw new Error(`Variável não mapeada para ${fileKey}`);
+                const query = `SELECT CONTENT FROM INT_CUSTOMVARIABLECONTENT WHERE CUSTOMVARIABLEID = (SELECT ID FROM INT_CUSTOMVARIABLE WHERE NAME = '${varName}') AND USERID = :VAR_USER`;
+                const result = await queryMitra({ query });
+                return result?.data?.[0]?.[0] || '';
+            };
+            const downloadFile = async (fileKey, cardElement) => {
+                const originalIconName = cardElement.dataset.icon || 'file';
+                const iconElement = cardElement.querySelector('[data-lucide]');
+
+                if (!window.componentData) {
+                    showToast('Erro de configuração do componente. Recarregue a página.', 'error');
+                    return;
+                }
+
+                cardElement.classList.add('processing');
+
+                // Coloca spinner
+                let spinner = null;
+                if (iconElement) {
+                    spinner = document.createElement('i');
+                    spinner.setAttribute('data-lucide', 'loader-2');
+                    spinner.className = (iconElement.className || 'w-12 h-12 mb-4') + ' animate-spin';
+                    iconElement.replaceWith(spinner);
+                    lucide.createIcons();
+                }
+
+                try {
+                    // Caso especial: Actions (Full) → baixa direto, sem parse
+                    if (fileKey === 'actions') {
+                        if (!componentData.snapshotActions) {
+                            throw new Error("Variável 'snapshotActions' não configurada no componente.");
+                        }
+
+                        const contentToDownload = componentData.snapshotActions;
+                        const filename = 'backup_actions_full.json';
+                        const mimeType = 'application/json';
+
+                        const blob = new Blob([contentToDownload], { type: mimeType });
+                        const url = URL.createObjectURL(blob);
+
+                        const link = document.createElement('a');
+                        link.href = url;
+                        link.download = filename;
+                        document.body.appendChild(link);
+                        link.click();
+
+                        setTimeout(() => {
+                            document.body.removeChild(link);
+                            URL.revokeObjectURL(url);
+                        }, 100);
+
+                        showToast('Actions (Full) baixado', 'success');
+                        return; // sai sem executar o fluxo genérico
+                    }
+
+                    // Fluxo padrão para os outros tipos de arquivo
+                    if (componentData.dbActionIdSetConcatLen) {
+                        await dbactionMitra(parseInt(componentData.dbActionIdSetConcatLen, 10));
+                    }
+
+                    const dbActionMap = {
+                        ddl: componentData.dbActionIdGerarDDL,
+                        dml: componentData.dbActionIdGerarDML,
+                        json: componentData.dbActionIdGerarJSON,
+                        xml: componentData.dbActionIdGerarXML,
+                        csv: componentData.dbActionIdGerarCSV,
+                        yaml: componentData.dbActionIdGerarYAML,
+                        txt: componentData.dbActionIdGerarTXT
+                    };
+
+                    const actionId = dbActionMap[fileKey];
+                    if (actionId) {
+                        await dbactionMitra(parseInt(actionId, 10));
+                    } else {
+                        console.warn(`Nenhuma DBAction configurada para gerar o arquivo: ${fileKey}`);
+                    }
+
+                    const content = await getFileContent(fileKey);
+                    if (!content || content.trim() === '') {
+                        throw new Error(`Conteúdo vazio retornado para ${fileKey.toUpperCase()}`);
+                    }
+
+                    let extension = fileKey;
+                    let mimeType = 'text/plain';
+                    switch (fileKey) {
+                        case 'ddl':
+                        case 'dml': extension = 'sql'; mimeType = 'application/sql'; break;
+                        case 'json': mimeType = 'application/json'; break;
+                        case 'xml': mimeType = 'application/xml'; break;
+                        case 'csv': mimeType = 'text/csv'; break;
+                        case 'yaml': mimeType = 'text/yaml'; break;
+                        case 'txt': mimeType = 'text/plain'; break;
+                    }
+
+                    const blob = new Blob([content], { type: mimeType });
+                    const url = URL.createObjectURL(blob);
+
+                    const link = document.createElement('a');
+                    link.href = url;
+                    link.download = `backup_sistema_${fileKey}.${extension}`;
+                    document.body.appendChild(link);
+                    link.click();
+
+                    setTimeout(() => {
+                        document.body.removeChild(link);
+                        URL.revokeObjectURL(url);
+                    }, 100);
+
+                    showToast(`${fileKey.toUpperCase()} baixado com sucesso`, 'success');
+
+                } catch (error) {
+                    console.error(`Erro ao baixar ${fileKey}:`, error);
+                    // Mostra apenas erro genérico no toast, sem detalhes técnicos
+                    showToast(`Falha ao baixar ${fileKey.toUpperCase()}`, 'error');
+                } finally {
+                    cardElement.classList.remove('processing');
+
+                    // Restauração segura do ícone
+                    const currentSpinner = cardElement.querySelector('[data-lucide="loader-2"]');
+                    if (currentSpinner && currentSpinner.parentNode) {
+                        const restoredIcon = document.createElement('i');
+                        restoredIcon.setAttribute('data-lucide', originalIconName);
+
+                        let newClassName = 'w-12 h-12 mb-4';
+                        if (typeof currentSpinner.className === 'string') {
+                            newClassName = currentSpinner.className
+                                .replace('animate-spin', '')
+                                .replace(/\s+/g, ' ')
+                                .trim();
+                        }
+
+                        restoredIcon.className = newClassName;
+                        currentSpinner.parentNode.replaceChild(restoredIcon, currentSpinner);
+                        lucide.createIcons();
+                    }
+                }
+            };
+            const downloadZip = async () => {
+                const btn = document.getElementById('download-zip-btn');
+                const originalHtml = btn.innerHTML;
+                try {
+                    btn.disabled = true;
+                    btn.innerHTML = `<i data-lucide="loader-2" class="w-4 h-4 mr-2 animate-spin"></i>Gerando...`;
+                    lucide.createIcons();
+                    if (componentData.dbActionIdSetConcatLen) await dbactionMitra(parseInt(componentData.dbActionIdSetConcatLen, 10));
+
+                    const actions = [componentData.dbActionIdGerarDDL, componentData.dbActionIdGerarDML, componentData.dbActionIdGerarJSON, componentData.dbActionIdGerarXML, componentData.dbActionIdGerarCSV, componentData.dbActionIdGerarYAML, componentData.dbActionIdGerarTXT];
+                    for (const id of actions) { if (id) await dbactionMitra(parseInt(id, 10)); }
+
+                    const zip = new JSZip();
+                    const folder = zip.folder("backup_sistema");
+
+                    const files = ['ddl', 'dml', 'json', 'xml', 'csv', 'yaml', 'txt'];
+                    const extMap = { 'ddl': 'sql', 'dml': 'sql', 'json': 'json', 'xml': 'xml', 'csv': 'csv', 'yaml': 'yaml', 'txt': 'txt' };
+                    const promises = files.map(async (key) => {
+                        const content = await getFileContent(key);
+                        if (content) folder.file(`${key}.${extMap[key]}`, content);
+                    });
+
+                    promises.push(async () => {
+                        try {
+                            if (componentData.snapshotActions) {
+                                const snapshotData = JSON.parse(componentData.snapshotActions);
+                                const fullBackup = {
+                                    generated_at: new Date().toISOString(),
+                                    actions: snapshotData.ALT_ACTIONS || [],
+                                    db_actions: snapshotData.ALT_DBACTIONS || []
+                                };
+                                folder.file('actions.json', JSON.stringify(fullBackup, null, 2));
+                            }
+                        } catch (e) {
+                            console.error("Erro ao adicionar actions ao ZIP:", e);
+                        }
+                    });
+
+                    await Promise.all(promises);
+                    const content = await zip.generateAsync({ type: "blob" });
+                    const url = URL.createObjectURL(content);
+                    const a = document.createElement('a'); a.href = url; a.download = "backup_completo_sistema.zip";
+                    document.body.appendChild(a); a.click(); document.body.removeChild(a); URL.revokeObjectURL(url);
+                    showToast("Backup ZIP baixado!");
+                } catch (error) {
+                    console.error("Erro ZIP:", error);
+                    showToast(`Erro ao gerar ZIP: ${error.message}`, "error");
+                } finally {
+                    btn.disabled = false; btn.innerHTML = originalHtml; lucide.createIcons();
+                }
+            };
+            const loadMaintenanceHistory = async () => {
+                const container = document.getElementById('maintenance-history-container');
+                if (!container) return;
+                try {
+                    const result = await queryMitra({ query: componentData.dbGetLastMaintenanceInfo });
+                    if (result?.data?.length > 0) {
+                        const row = result.data[0];
+                        const type = row[0] === 'WIPE' ? 'Apagar Tudo' : 'Reprocessamento';
+                        const date = row[1];
+                        const user = row[2] || 'Sistema';
+                        container.innerHTML = `
+                            <div class="flex flex-col gap-1">
+                                <span class="font-bold text-[var(--text-primary)]">Última Execução:</span>
+                                <span>${type} em ${date}</span>
+                                <span class="text-xs">por ${user}</span>
+                            </div>
+                        `;
+                    } else {
+                        container.innerHTML = 'Nenhuma manutenção registrada recentemente.';
+                    }
+                } catch (e) {
+                    console.error("Erro ao carregar histórico:", e);
+                    container.innerHTML = 'Erro ao carregar histórico.';
+                }
+            };
+            const handleWipeData = async () => {
+                if (!confirm("ATENÇÃO: Esta ação apagará TODOS os dados de tickets, clientes e históricos do banco de dados.\n\nTem certeza absoluta que deseja continuar?")) return;
+                const btn = document.getElementById('btn-wipe-data');
+                const originalHtml = btn.innerHTML;
+                try {
+                    btn.disabled = true;
+                    btn.innerHTML = `<i data-lucide="loader-2" class="w-5 h-5 animate-spin"></i> APAGANDO...`;
+                    lucide.createIcons();
+                    await setVariableMitra({ name: componentData.varActionType, content: 'WIPE' });
+                    await setVariableMitra({ name: componentData.varActionDetails, content: 'Execução manual de limpeza total.' });
+                    await actionMitra({ id: parseInt(componentData.actionIdWipeData, 10) });
+                    showToast("Dados apagados com sucesso!", "success");
+                    loadMaintenanceHistory();
+                } catch (e) {
+                    console.error("Erro Wipe:", e);
+                    let msg = "Erro desconhecido";
+                    if (e?.message) msg = e.message;
+                    else if (typeof e === 'string') msg = e;
+                    else if (typeof e === 'object') msg = JSON.stringify(e);
+                    showToast(`Erro ao apagar dados: ${msg}`, "error");
+                } finally {
+                    btn.disabled = false;
+                    btn.innerHTML = originalHtml;
+                    lucide.createIcons();
+                }
+            };
+            const handleReprocessData = async () => {
+                if (!confirm("Deseja reprocessar os dados a partir dos logs salvos?\nIsso pode levar alguns minutos.")) return;
+                const btn = document.getElementById('btn-reprocess-data');
+                const originalHtml = btn.innerHTML;
+                try {
+                    btn.disabled = true;
+                    btn.innerHTML = `<i data-lucide="loader-2" class="w-5 h-5 animate-spin"></i> PROCESSANDO...`;
+                    lucide.createIcons();
+                    await setVariableMitra({ name: componentData.varActionType, content: 'REPROCESS' });
+                    await setVariableMitra({ name: componentData.varActionDetails, content: 'Reprocessamento manual via logs.' });
+                    await actionMitra({ id: parseInt(componentData.actionIdReprocessData, 10) });
+                    showToast("Reprocessamento iniciado!", "success");
+                    loadMaintenanceHistory();
+                } catch (e) {
+                    console.error("Erro Reprocess:", e);
+                    let msg = "Erro desconhecido";
+                    if (e?.message) msg = e.message;
+                    else if (typeof e === 'string') msg = e;
+                    else if (typeof e === 'object') msg = JSON.stringify(e);
+                    showToast(`Erro ao reprocessar: ${msg}`, "error");
+                } finally {
+                    btn.disabled = false;
+                    btn.innerHTML = originalHtml;
+                    lucide.createIcons();
+                }
+            };
+            const setupEventListeners = () => {
+                document.querySelector('nav')?.addEventListener('click', e => {
+                    const link = e.target.closest('.tab-link');
+                    if (link) { e.preventDefault(); switchTab(link.dataset.tab); }
+                });
+                document.getElementById('refresh-view-btn')?.addEventListener('click', () => {
+                    const btn = document.getElementById('refresh-view-btn'), icon = btn.querySelector('i');
+                    if (icon) icon.classList.add('animate-spin');
+                    refreshCurrentData();
+                    setTimeout(() => { if (icon) icon.classList.remove('animate-spin'); }, 1000);
+                });
+                document.getElementById('sync-now-btn')?.addEventListener('click', async () => {
+                    if (!window.componentData?.actionIdSync) return;
+                    const btn = document.getElementById('sync-now-btn'), originalHtml = btn.innerHTML;
+                    try {
+                        btn.disabled = true; btn.innerHTML = `<i data-lucide="loader-2" class="w-4 h-4 mr-2 animate-spin"></i>Solicitando...`; lucide.createIcons();
+                        actionMitra({ id: parseInt(componentData.actionIdSync, 10) });
+                        showToast("Sincronização solicitada!");
+                        setTimeout(fetchSyncStatus, 2000);
+                    } catch (e) { showToast("Erro ao sincronizar.", "error"); }
+                    finally { setTimeout(() => { btn.disabled = false; btn.innerHTML = originalHtml; lucide.createIcons(); }, 1500); }
+                });
+                document.getElementById('settings-table-body')?.addEventListener('blur', e => { if (e.target.tagName === 'INPUT') handleSettingChange(e.target); }, true);
+                document.getElementById('logs-list-container')?.addEventListener('click', e => {
+                    const item = e.target.closest('.log-item');
+                    if (item) {
+                        document.querySelectorAll('.log-item').forEach(el => el.classList.remove('bg-[var(--hover-bg)]'));
+                        item.classList.add('bg-[var(--hover-bg)]');
+                        loadLogDetails(item.dataset.logId);
+                    }
+                });
+                document.getElementById('tab-backup')?.addEventListener('click', e => {
+                    const card = e.target.closest('.backup-card');
+                    if (card && card.dataset.file && !card.classList.contains('processing')) downloadFile(card.dataset.file, card);
+                });
+                document.getElementById('download-zip-btn')?.addEventListener('click', downloadZip);
+                document.getElementById('btn-wipe-data')?.addEventListener('click', handleWipeData);
+                document.getElementById('btn-reprocess-data')?.addEventListener('click', handleReprocessData);
+            };
+            const refreshCurrentData = () => {
+                fetchSyncStatus();
+                if (currentTab === 'dashboard') loadKpis();
+                else if (currentTab === 'params') loadSettings();
+                else if (currentTab === 'logs') loadLogs();
+                else if (currentTab === 'maintenance') loadMaintenanceHistory();
+            };
+            async function initializeComponent() {
+                const logoEl = document.getElementById('company-logo');
+                if (logoEl) {
+                    const primaryUrl = window.componentData?.logoUrl;
+                    const fallbackUrl = 'https://mitra-multitenant-prod.s3.amazonaws.com/tenant_41947/ai-files/public/securyti4iT.png';
+                    logoEl.src = primaryUrl || fallbackUrl;
+                    logoEl.onerror = () => {
+                        if (logoEl.src !== fallbackUrl) {
+                            logoEl.src = fallbackUrl;
+                        } else {
+                            logoEl.style.display = 'none';
+                        }
+                    };
+                }
+                setupEventListeners();
+                await fetchSyncStatus();
+                syncStatusInterval = setInterval(fetchSyncStatus, 15000);
+                await loadKpis();
+                document.body.addEventListener(MITRA_UPDATE_EVENT_NAME, refreshCurrentData);
+            }
+            const waitForMitraAndInit = () => {
+                const checkInterval = setInterval(() => {
+                    if (window.componentData && window.componentData.kpiQuery) {
+                        clearInterval(checkInterval);
+                        initializeComponent();
+                    }
+                }, 100);
+            };
+            waitForMitraAndInit();
+        });
+    </script>
+</body>
+
+</html>

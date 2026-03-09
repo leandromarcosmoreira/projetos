@@ -1,0 +1,93 @@
+[
+  {
+    "ID": 1,
+    "TIPO": "SYNC_INICIO",
+    "MENSAGEM": "Sync INCREMENTAL iniciado",
+    "DETALHES": "Endpoint: tickets, Filter: &$filter=lastUpdate ge 2026-03-06T11:14:56z",
+    "ENDPOINT": "",
+    "TICKETS_PROCESSADOS": 0,
+    "TICKETS_INSERIDOS": 0,
+    "TICKETS_ATUALIZADOS": 0,
+    "TICKETS_ERRO": 0,
+    "DURACAO_SEG": 0,
+    "DATA": "2026-03-06T12:00:09"
+  },
+  {
+    "ID": 2,
+    "TIPO": "SYNC_PROGRESSO",
+    "MENSAGEM": "INCREMENTAL pag 0: 7 tickets",
+    "DETALHES": "Elapsed: 215s, Skip: 0",
+    "ENDPOINT": "",
+    "TICKETS_PROCESSADOS": 0,
+    "TICKETS_INSERIDOS": 0,
+    "TICKETS_ATUALIZADOS": 0,
+    "TICKETS_ERRO": 0,
+    "DURACAO_SEG": 0,
+    "DATA": "2026-03-06T12:03:44"
+  },
+  {
+    "ID": 3,
+    "TIPO": "SYNC_FIM",
+    "MENSAGEM": "INCREMENTAL concluido: 7 tickets em 215s",
+    "DETALHES": "Status: COMPLETED, Erros: 0",
+    "ENDPOINT": "",
+    "TICKETS_PROCESSADOS": 0,
+    "TICKETS_INSERIDOS": 0,
+    "TICKETS_ATUALIZADOS": 0,
+    "TICKETS_ERRO": 0,
+    "DURACAO_SEG": 0,
+    "DATA": "2026-03-06T12:03:44"
+  },
+  {
+    "ID": 4,
+    "TIPO": "COMPLETO",
+    "MENSAGEM": "Migracao e sync completo finalizado",
+    "DETALHES": "Total SFs: 50",
+    "ENDPOINT": "",
+    "TICKETS_PROCESSADOS": 0,
+    "TICKETS_INSERIDOS": 0,
+    "TICKETS_ATUALIZADOS": 0,
+    "TICKETS_ERRO": 0,
+    "DURACAO_SEG": 0,
+    "DATA": "2026-03-06T12:03:45"
+  },
+  {
+    "ID": 5,
+    "TIPO": "FIX",
+    "MENSAGEM": "Re-sync recentes com expand de attachments/expenses",
+    "DETALHES": "",
+    "ENDPOINT": null,
+    "TICKETS_PROCESSADOS": 0,
+    "TICKETS_INSERIDOS": 0,
+    "TICKETS_ATUALIZADOS": 0,
+    "TICKETS_ERRO": 0,
+    "DURACAO_SEG": 0,
+    "DATA": "2026-03-06T14:29:25"
+  },
+  {
+    "ID": 6,
+    "TIPO": "FIX",
+    "MENSAGEM": "Fix & Resync v2 iniciado",
+    "DETALHES": "Schema fix + re-sync com attachments",
+    "ENDPOINT": null,
+    "TICKETS_PROCESSADOS": 0,
+    "TICKETS_INSERIDOS": 0,
+    "TICKETS_ATUALIZADOS": 0,
+    "TICKETS_ERRO": 0,
+    "DURACAO_SEG": 0,
+    "DATA": "2026-03-06T14:34:34"
+  },
+  {
+    "ID": 7,
+    "TIPO": "FIX",
+    "MENSAGEM": "Fix & Resync v2 iniciado",
+    "DETALHES": "Schema fix + re-sync com attachments",
+    "ENDPOINT": null,
+    "TICKETS_PROCESSADOS": 0,
+    "TICKETS_INSERIDOS": 0,
+    "TICKETS_ATUALIZADOS": 0,
+    "TICKETS_ERRO": 0,
+    "DURACAO_SEG": 0,
+    "DATA": "2026-03-06T14:48:35"
+  }
+]
