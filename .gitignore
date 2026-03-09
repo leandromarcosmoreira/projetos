@@ -1,3 +1,5 @@
 node_modules/
 .env
 .mitra-cookies.json
+.mitra-coder-cookies.json
+.mitra-browser-data/

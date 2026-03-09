@@ -1,0 +1,21 @@
+{
+  "projectId": "19983",
+  "workspaceId": "2724",
+  "coderUrl": "https://coder.mitralab.io/w/2724/p/19983",
+  "buildUrl": "https://2724-19983.build.mitralab.io",
+  "backupDate": "2026-03-09T12:51:02.993Z",
+  "screensCapturadas": 11,
+  "screens": [
+    "00_coder_main",
+    "build_after_login",
+    "build_login",
+    "coder_01_tela_preview",
+    "coder_02_telas_editor",
+    "coder_03_tabelas",
+    "coder_04_conexoes",
+    "coder_05_usuarios",
+    "coder_06_funcoes_servidor",
+    "coder_07_arquivos",
+    "coder_08_configuracoes"
+  ]
+}
