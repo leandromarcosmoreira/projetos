@@ -1,0 +1,10 @@
+{
+  "id": 376,
+  "name": "getAllConfigsV2",
+  "type": "SQL",
+  "description": "Lista todas configs com metadados de auditoria",
+  "code": "SELECT ID, CHAVE, VALOR, DESCRICAO, GRUPO, ATUALIZADO_EM, ATUALIZADO_POR FROM CONFIGURACOES ORDER BY GRUPO, CHAVE",
+  "createdBy": "leandro.moreira@neuonsolucoes.com",
+  "createdAt": "2026-03-14T00:52:35",
+  "updatedAt": "2026-03-14T00:52:35"
+}

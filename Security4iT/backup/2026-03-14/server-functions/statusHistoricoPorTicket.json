@@ -1,0 +1,10 @@
+{
+  "id": 344,
+  "name": "statusHistoricoPorTicket",
+  "type": "SQL",
+  "description": "Historico status",
+  "code": "SELECT SH.STATUS, SH.JUSTIFICATIVA, SH.DATA_MUDANCA, SH.TEMPO_PERMANENCIA, SH.TEMPO_PERMANENCIA_UTIL FROM STATUS_HISTORICO SH WHERE SH.TICKET_ID = {{ticketId}} ORDER BY SH.DATA_MUDANCA",
+  "createdBy": "leandro.moreira@neuonsolucoes.com",
+  "createdAt": "2026-03-14T00:46:21",
+  "updatedAt": "2026-03-14T00:46:21"
+}

@@ -1,0 +1,10 @@
+{
+  "id": 378,
+  "name": "auditTableDetail",
+  "type": "SQL",
+  "description": "Detalhe paginado de tabela para auditoria (TICKETS)",
+  "code": "SELECT * FROM TICKETS ORDER BY ID DESC LIMIT {{limit}} OFFSET {{offset}}",
+  "createdBy": "leandro.moreira@neuonsolucoes.com",
+  "createdAt": "2026-03-14T00:52:36",
+  "updatedAt": "2026-03-14T00:52:36"
+}

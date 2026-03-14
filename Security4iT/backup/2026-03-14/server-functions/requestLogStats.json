@@ -1,0 +1,10 @@
+{
+  "id": 382,
+  "name": "requestLogStats",
+  "type": "SQL",
+  "description": "Estatisticas de request logs",
+  "code": "SELECT\n      COUNT(*) AS TOTAL_REQUESTS,\n      SUM(CASE WHEN RESPONSE_CODE BETWEEN 200 AND 299 THEN 1 ELSE 0 END) AS SUCCESS_COUNT,\n      SUM(CASE WHEN RESPONSE_CODE >= 400 THEN 1 ELSE 0 END) AS ERROR_COUNT,\n      SUM(CASE WHEN RESPONSE_CODE = 403 THEN 1 ELSE 0 END) AS FORBIDDEN_COUNT,\n      SUM(CASE WHEN RESPONSE_CODE = 429 THEN 1 ELSE 0 END) AS RATE_LIMIT_COUNT,\n      SUM(TICKETS_COUNT) AS TOTAL_TICKETS_FETCHED,\n      ROUND(AVG(DURACAO_MS)) AS AVG_DURATION_MS,\n      MAX(DATA) AS LAST_REQUEST\n    FROM REQUEST_LOG",
+  "createdBy": "leandro.moreira@neuonsolucoes.com",
+  "createdAt": "2026-03-14T00:52:36",
+  "updatedAt": "2026-03-14T00:52:36"
+}

@@ -1,0 +1,71 @@
+{
+  "name": "REQUEST_LOG",
+  "columns": [
+    {
+      "name": "ID",
+      "type": "INT",
+      "isPk": true,
+      "nullable": false
+    },
+    {
+      "name": "SYNC_SESSION",
+      "type": "TEXT(50)",
+      "isPk": false,
+      "nullable": true
+    },
+    {
+      "name": "TIPO",
+      "type": "TEXT(30)",
+      "isPk": false,
+      "nullable": true
+    },
+    {
+      "name": "REQUEST_URL",
+      "type": "TEXT(2000)",
+      "isPk": false,
+      "nullable": true
+    },
+    {
+      "name": "REQUEST_METHOD",
+      "type": "TEXT(10)",
+      "isPk": false,
+      "nullable": true
+    },
+    {
+      "name": "RESPONSE_CODE",
+      "type": "INT",
+      "isPk": false,
+      "nullable": true
+    },
+    {
+      "name": "RESPONSE_BODY",
+      "type": "TEXT(4000)",
+      "isPk": false,
+      "nullable": true
+    },
+    {
+      "name": "TICKETS_COUNT",
+      "type": "INT",
+      "isPk": false,
+      "nullable": true
+    },
+    {
+      "name": "ERRO",
+      "type": "TEXT(1000)",
+      "isPk": false,
+      "nullable": true
+    },
+    {
+      "name": "DURACAO_MS",
+      "type": "INT",
+      "isPk": false,
+      "nullable": true
+    },
+    {
+      "name": "DATA",
+      "type": "TEXT(19)",
+      "isPk": false,
+      "nullable": true
+    }
+  ]
+}

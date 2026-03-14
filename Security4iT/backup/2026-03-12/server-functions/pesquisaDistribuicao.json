@@ -1,0 +1,10 @@
+{
+  "id": 133,
+  "name": "pesquisaDistribuicao",
+  "type": "SQL",
+  "description": "Distribuicao notas",
+  "code": "SELECT CAST(P.VALOR AS CHAR) AS name, COUNT(*) AS value FROM PESQUISAS P WHERE ('{{mes}}' = '' OR SUBSTRING(P.DATA_RESPOSTA, 1, 7) = '{{mes}}')\nAND ('{{dataInicio}}' = '' OR SUBSTRING(P.DATA_RESPOSTA, 1, 10) >= '{{dataInicio}}')\nAND ('{{dataFim}}' = '' OR SUBSTRING(P.DATA_RESPOSTA, 1, 10) <= '{{dataFim}}')\nGROUP BY P.VALOR ORDER BY P.VALOR",
+  "createdBy": "leandro.moreira@neuonsolucoes.com",
+  "createdAt": "2026-03-05T22:27:27",
+  "updatedAt": "2026-03-07T18:09:08"
+}

@@ -1,0 +1,10 @@
+{
+  "id": 326,
+  "name": "slaResolucaoPorMes",
+  "type": "SQL",
+  "description": "SLA resolucao por mes",
+  "code": "SELECT SUBSTRING(T.CRIADO_EM, 1, 7) AS name, SUM(CASE WHEN T.RESOLVIDO_EM <= T.SLA_DATA_SOLUCAO THEN 1 ELSE 0 END) AS dentro, SUM(CASE WHEN T.RESOLVIDO_EM > T.SLA_DATA_SOLUCAO THEN 1 ELSE 0 END) AS fora, ROUND(SUM(CASE WHEN T.RESOLVIDO_EM <= T.SLA_DATA_SOLUCAO THEN 1 ELSE 0 END) * 100.0 / NULLIF(COUNT(*), 0), 1) AS percentual FROM TICKETS T WHERE ('{{mes}}' = '' OR SUBSTRING(T.CRIADO_EM, 1, 7) = '{{mes}}') AND ('{{status}}' = '' OR T.STATUS = '{{status}}') AND ('{{categoria}}' = '' OR T.CATEGORIA = '{{categoria}}') AND ('{{analista}}' = '' OR T.OWNER_NOME = '{{analista}}') AND ('{{urgencia}}' = '' OR T.URGENCIA = '{{urgencia}}') AND ('{{equipe}}' = '' OR T.EQUIPE = '{{equipe}}') AND ('{{origem}}' = '' OR T.ORIGEM_NOME = '{{origem}}') AND T.SLA_DATA_SOLUCAO != '' AND T.RESOLVIDO_EM != '' GROUP BY name ORDER BY name",
+  "createdBy": "leandro.moreira@neuonsolucoes.com",
+  "createdAt": "2026-03-14T00:46:18",
+  "updatedAt": "2026-03-14T00:46:18"
+}

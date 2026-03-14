@@ -1,0 +1,10 @@
+{
+  "id": 411,
+  "name": "horasDetalhePorCliente",
+  "type": "SQL",
+  "description": "Detalhe apontamentos por cliente",
+  "code": "SELECT AP.TICKET_ID, AP.ATIVIDADE, AP.DATA, AP.HORA_INICIO, AP.HORA_FIM, ROUND(CAST(AP.TEMPO_CONTABIL AS DECIMAL), 1) AS HORAS, AP.TIPO_TRABALHO, AP.CRIADO_POR_NOME AS ANALISTA, AP.EQUIPE_NOME FROM APONTAMENTOS AP JOIN TICKETS T ON T.ID = AP.TICKET_ID JOIN TICKET_CLIENTES TC ON TC.TICKET_ID = T.ID WHERE ('{{cliente}}' = '' OR TC.NOME = '{{cliente}}') AND ('{{analista}}' = '' OR AP.CRIADO_POR_NOME = '{{analista}}') AND ('{{equipe}}' = '' OR AP.EQUIPE_NOME = '{{equipe}}') AND ('{{dataInicio}}' = '' OR AP.DATA >= '{{dataInicio}}') AND ('{{dataFim}}' = '' OR AP.DATA <= '{{dataFim}}') ORDER BY AP.DATA DESC LIMIT 500",
+  "createdBy": "leandro.moreira@neuonsolucoes.com",
+  "createdAt": "2026-03-14T00:52:42",
+  "updatedAt": "2026-03-14T00:52:42"
+}

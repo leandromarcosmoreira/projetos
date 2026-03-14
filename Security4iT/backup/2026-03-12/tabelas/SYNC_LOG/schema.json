@@ -1,0 +1,35 @@
+{
+  "name": "SYNC_LOG",
+  "columns": [
+    {
+      "name": "ID",
+      "type": "INT",
+      "isPk": true,
+      "nullable": false
+    },
+    {
+      "name": "TIPO",
+      "type": "TEXT(30)",
+      "isPk": false,
+      "nullable": true
+    },
+    {
+      "name": "MENSAGEM",
+      "type": "TEXT(500)",
+      "isPk": false,
+      "nullable": true
+    },
+    {
+      "name": "DETALHES",
+      "type": "TEXT(2000)",
+      "isPk": false,
+      "nullable": true
+    },
+    {
+      "name": "DATA",
+      "type": "TEXT(19)",
+      "isPk": false,
+      "nullable": true
+    }
+  ]
+}

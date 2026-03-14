@@ -1,0 +1,35 @@
+{
+  "name": "TICKET_ASSETS",
+  "columns": [
+    {
+      "name": "ID",
+      "type": "INT",
+      "isPk": true,
+      "nullable": false
+    },
+    {
+      "name": "TICKET_ID",
+      "type": "INT",
+      "isPk": false,
+      "nullable": true
+    },
+    {
+      "name": "ASSET_ID",
+      "type": "TEXT(50)",
+      "isPk": false,
+      "nullable": true
+    },
+    {
+      "name": "ASSET_NOME",
+      "type": "TEXT(300)",
+      "isPk": false,
+      "nullable": true
+    },
+    {
+      "name": "ASSET_LABEL",
+      "type": "TEXT(300)",
+      "isPk": false,
+      "nullable": true
+    }
+  ]
+}

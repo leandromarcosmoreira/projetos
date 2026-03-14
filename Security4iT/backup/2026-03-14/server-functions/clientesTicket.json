@@ -1,0 +1,10 @@
+{
+  "id": 347,
+  "name": "clientesTicket",
+  "type": "SQL",
+  "description": "Clientes ticket",
+  "code": "SELECT TC.* FROM TICKET_CLIENTES TC WHERE TC.TICKET_ID = {{ticketId}}",
+  "createdBy": "leandro.moreira@neuonsolucoes.com",
+  "createdAt": "2026-03-14T00:46:22",
+  "updatedAt": "2026-03-14T00:46:22"
+}

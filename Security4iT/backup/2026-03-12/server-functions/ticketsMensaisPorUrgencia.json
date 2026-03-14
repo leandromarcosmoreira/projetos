@@ -1,0 +1,10 @@
+{
+  "id": 281,
+  "name": "ticketsMensaisPorUrgencia",
+  "type": "SQL",
+  "description": "Tickets mensais stacked por urgencia",
+  "code": "SELECT SUBSTRING(T.CRIADO_EM, 1, 7) AS name, SUM(CASE WHEN T.URGENCIA = 'Baixa' THEN 1 ELSE 0 END) AS Baixa, SUM(CASE WHEN T.URGENCIA IN ('Media','Média') THEN 1 ELSE 0 END) AS Media, SUM(CASE WHEN T.URGENCIA = 'Alta' THEN 1 ELSE 0 END) AS Alta, SUM(CASE WHEN T.URGENCIA IN ('Critica','Crítica') THEN 1 ELSE 0 END) AS Critica FROM TICKETS T WHERE ('{{mes}}' = '' OR SUBSTRING(T.CRIADO_EM, 1, 7) = '{{mes}}') AND ('{{status}}' = '' OR T.STATUS = '{{status}}') AND ('{{categoria}}' = '' OR T.CATEGORIA = '{{categoria}}') AND ('{{analista}}' = '' OR T.OWNER_NOME = '{{analista}}') AND ('{{urgencia}}' = '' OR T.URGENCIA = '{{urgencia}}') AND ('{{equipe}}' = '' OR T.EQUIPE = '{{equipe}}') AND ('{{origem}}' = '' OR T.ORIGEM_NOME = '{{origem}}') AND ('{{dataInicio}}' = '' OR T.CRIADO_EM >= '{{dataInicio}}') AND ('{{dataFim}}' = '' OR T.CRIADO_EM <= '{{dataFim}}') AND T.URGENCIA IN ('Baixa','Media','Média','Alta','Critica','Crítica') GROUP BY SUBSTRING(T.CRIADO_EM, 1, 7) ORDER BY name",
+  "createdBy": "leandro.moreira@neuonsolucoes.com",
+  "createdAt": "2026-03-09T02:59:17",
+  "updatedAt": "2026-03-09T03:27:44"
+}

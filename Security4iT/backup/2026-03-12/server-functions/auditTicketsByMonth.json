@@ -1,0 +1,10 @@
+{
+  "id": 155,
+  "name": "auditTicketsByMonth",
+  "type": "SQL",
+  "description": "Distribuicao de tickets por mes de um ano",
+  "code": "SELECT SUBSTRING(CRIADO_EM, 1, 7) AS MES, COUNT(*) AS TOTAL FROM TICKETS WHERE SUBSTRING(CRIADO_EM, 1, 4) = '{{ano}}' GROUP BY SUBSTRING(CRIADO_EM, 1, 7) ORDER BY MES",
+  "createdBy": "leandro.moreira@neuonsolucoes.com",
+  "createdAt": "2026-03-06T12:00:08",
+  "updatedAt": "2026-03-06T12:00:08"
+}

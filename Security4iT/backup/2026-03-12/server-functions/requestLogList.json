@@ -1,0 +1,10 @@
+{
+  "id": 262,
+  "name": "requestLogList",
+  "type": "SQL",
+  "description": "Lista logs de requests com filtros",
+  "code": "SELECT ID, SYNC_SESSION, TIPO,\n      CONCAT(SUBSTRING(REQUEST_URL, 1, 80), CASE WHEN LENGTH(REQUEST_URL) > 80 THEN '...' ELSE '' END) AS REQUEST_URL_SHORT,\n      REQUEST_URL, REQUEST_METHOD, RESPONSE_CODE,\n      SUBSTRING(RESPONSE_BODY, 1, 500) AS RESPONSE_BODY_PREVIEW,\n      TICKETS_COUNT, ERRO, DURACAO_MS, DATA\n    FROM REQUEST_LOG\n    WHERE ('{{session}}' = '' OR SYNC_SESSION = '{{session}}')\n      AND ('{{tipo}}' = '' OR TIPO = '{{tipo}}')\n    ORDER BY ID DESC\n    LIMIT {{limit}}",
+  "createdBy": "leandro.moreira@neuonsolucoes.com",
+  "createdAt": "2026-03-08T21:07:09",
+  "updatedAt": "2026-03-08T21:07:09"
+}

@@ -1,0 +1,10 @@
+{
+  "id": 366,
+  "name": "auditLogByAcao",
+  "type": "SQL",
+  "description": "Lista auditoria por tipo de acao",
+  "code": "SELECT ID, USUARIO, ACAO, CAMPO, VALOR_ANTERIOR, VALOR_NOVO, DETALHES, DATA FROM AUDIT_LOG WHERE ACAO = '{{acao}}' ORDER BY ID DESC LIMIT {{limit}}",
+  "createdBy": "leandro.moreira@neuonsolucoes.com",
+  "createdAt": "2026-03-14T00:52:33",
+  "updatedAt": "2026-03-14T00:52:33"
+}

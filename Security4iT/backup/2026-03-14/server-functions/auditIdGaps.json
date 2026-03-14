@@ -1,0 +1,10 @@
+{
+  "id": 363,
+  "name": "auditIdGaps",
+  "type": "SQL",
+  "description": "Detecta lacunas de IDs sequenciais nos tickets",
+  "code": "SELECT T1.ID + 1 AS GAP_START, (SELECT MIN(T2.ID) - 1 FROM TICKETS T2 WHERE T2.ID > T1.ID) AS GAP_END FROM TICKETS T1 WHERE NOT EXISTS (SELECT 1 FROM TICKETS T2 WHERE T2.ID = T1.ID + 1) AND T1.ID < (SELECT MAX(ID) FROM TICKETS) ORDER BY T1.ID LIMIT {{limit}}",
+  "createdBy": "leandro.moreira@neuonsolucoes.com",
+  "createdAt": "2026-03-14T00:52:33",
+  "updatedAt": "2026-03-14T00:52:33"
+}

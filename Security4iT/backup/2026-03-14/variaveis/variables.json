@@ -1,0 +1,74 @@
+[
+  {
+    "key": ":VAR_USER",
+    "value": "5"
+  },
+  {
+    "key": ":VAR_SESSION",
+    "value": ""
+  },
+  {
+    "key": ":VAR_TOKEN",
+    "value": "***MASKED***"
+  },
+  {
+    "key": ":VAR_URL",
+    "value": "https://mergerelease.mitralab.io"
+  },
+  {
+    "key": ":VAR_PUBLIC_URL",
+    "value": "https://agent.mitralab.io/w/18273/p/42829"
+  },
+  {
+    "key": ":VAR_WIDGETSCREEN",
+    "value": "FALSE"
+  },
+  {
+    "key": ":VAR_SYNC_LAST_RUN",
+    "value": "2026-03-14T03:30:28"
+  },
+  {
+    "key": ":VAR_SYNC_INTERVAL",
+    "value": "5"
+  },
+  {
+    "key": ":VAR_SYNC_ENABLED",
+    "value": "1"
+  },
+  {
+    "key": ":VAR_ULTIMO_SYNC",
+    "value": "2026-03-14T03:30:28"
+  },
+  {
+    "key": ":VAR_SYNC_TYPE",
+    "value": "FULL"
+  },
+  {
+    "key": ":VAR_SYNC_MODE",
+    "value": "incremental"
+  },
+  {
+    "key": ":VAR_SYNC_START_DATE",
+    "value": "2019-02-11"
+  },
+  {
+    "key": ":VAR_MOVIDESK_TOKEN",
+    "value": "***MASKED***"
+  },
+  {
+    "key": ":VAR_SYNC_BREAK_DETECTED",
+    "value": "false"
+  },
+  {
+    "key": ":VAR_SYNC_FULL_PHASE",
+    "value": "past"
+  },
+  {
+    "key": ":VAR_SYNC_FULL_LAST_SKIP",
+    "value": "50"
+  },
+  {
+    "key": ":VAR_SYNC_LIVE_PROGRESS",
+    "value": "{\"stage\":\"FETCHING\",\"tickets\":100,\"pages\":2,\"endpoint\":\"tickets/past\",\"lastTicketDate\":\"2020-11-30\",\"persisted\":100,\"message\":\"100 tickets (2/10 pag) — INCR_PAST\",\"ts\":\"03:46:59\",\"session\":\"SMMPSAF7Z\"}"
+  }
+]

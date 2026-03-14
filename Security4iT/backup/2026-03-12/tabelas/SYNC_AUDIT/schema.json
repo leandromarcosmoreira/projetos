@@ -1,0 +1,71 @@
+{
+  "name": "SYNC_AUDIT",
+  "columns": [
+    {
+      "name": "ID",
+      "type": "INT",
+      "isPk": true,
+      "nullable": false
+    },
+    {
+      "name": "TIPO",
+      "type": "TEXT(30)",
+      "isPk": false,
+      "nullable": true
+    },
+    {
+      "name": "MENSAGEM",
+      "type": "TEXT(500)",
+      "isPk": false,
+      "nullable": true
+    },
+    {
+      "name": "DETALHES",
+      "type": "TEXT(2000)",
+      "isPk": false,
+      "nullable": true
+    },
+    {
+      "name": "ENDPOINT",
+      "type": "TEXT(100)",
+      "isPk": false,
+      "nullable": true
+    },
+    {
+      "name": "TICKETS_PROCESSADOS",
+      "type": "INT",
+      "isPk": false,
+      "nullable": true
+    },
+    {
+      "name": "TICKETS_INSERIDOS",
+      "type": "INT",
+      "isPk": false,
+      "nullable": true
+    },
+    {
+      "name": "TICKETS_ATUALIZADOS",
+      "type": "INT",
+      "isPk": false,
+      "nullable": true
+    },
+    {
+      "name": "TICKETS_ERRO",
+      "type": "INT",
+      "isPk": false,
+      "nullable": true
+    },
+    {
+      "name": "DURACAO_SEG",
+      "type": "INT",
+      "isPk": false,
+      "nullable": true
+    },
+    {
+      "name": "DATA",
+      "type": "TEXT(19)",
+      "isPk": false,
+      "nullable": true
+    }
+  ]
+}

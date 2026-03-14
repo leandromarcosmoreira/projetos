@@ -1,0 +1,119 @@
+{
+  "name": "ACOES",
+  "columns": [
+    {
+      "name": "ID",
+      "type": "INT",
+      "isPk": true,
+      "nullable": false
+    },
+    {
+      "name": "TICKET_ID",
+      "type": "INT",
+      "isPk": false,
+      "nullable": true
+    },
+    {
+      "name": "ACTION_ID",
+      "type": "INT",
+      "isPk": false,
+      "nullable": true
+    },
+    {
+      "name": "TIPO",
+      "type": "INT",
+      "isPk": false,
+      "nullable": true
+    },
+    {
+      "name": "TIPO_NOME",
+      "type": "TEXT(50)",
+      "isPk": false,
+      "nullable": true
+    },
+    {
+      "name": "ORIGEM",
+      "type": "INT",
+      "isPk": false,
+      "nullable": true
+    },
+    {
+      "name": "ORIGEM_NOME",
+      "type": "TEXT(50)",
+      "isPk": false,
+      "nullable": true
+    },
+    {
+      "name": "DESCRICAO",
+      "type": "TEXT(5000)",
+      "isPk": false,
+      "nullable": true
+    },
+    {
+      "name": "STATUS",
+      "type": "TEXT(100)",
+      "isPk": false,
+      "nullable": true
+    },
+    {
+      "name": "JUSTIFICATIVA",
+      "type": "TEXT(500)",
+      "isPk": false,
+      "nullable": true
+    },
+    {
+      "name": "CRIADO_EM",
+      "type": "TEXT(19)",
+      "isPk": false,
+      "nullable": true
+    },
+    {
+      "name": "IS_DELETED",
+      "type": "INT",
+      "isPk": false,
+      "nullable": true
+    },
+    {
+      "name": "CRIADO_POR_ID",
+      "type": "TEXT(50)",
+      "isPk": false,
+      "nullable": true
+    },
+    {
+      "name": "CRIADO_POR_NOME",
+      "type": "TEXT(200)",
+      "isPk": false,
+      "nullable": true
+    },
+    {
+      "name": "CRIADO_POR_EMAIL",
+      "type": "TEXT(200)",
+      "isPk": false,
+      "nullable": true
+    },
+    {
+      "name": "CRIADO_POR_TIPO_PESSOA",
+      "type": "INT",
+      "isPk": false,
+      "nullable": true
+    },
+    {
+      "name": "CRIADO_POR_TIPO_PERFIL",
+      "type": "INT",
+      "isPk": false,
+      "nullable": true
+    },
+    {
+      "name": "TAGS_TEXTO",
+      "type": "TEXT(500)",
+      "isPk": false,
+      "nullable": true
+    },
+    {
+      "name": "HTML_DESCRICAO",
+      "type": "TEXT(5000)",
+      "isPk": false,
+      "nullable": true
+    }
+  ]
+}

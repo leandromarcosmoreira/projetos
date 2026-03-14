@@ -1,0 +1,47 @@
+{
+  "name": "ACOES_ANEXOS",
+  "columns": [
+    {
+      "name": "ID",
+      "type": "INT",
+      "isPk": true,
+      "nullable": false
+    },
+    {
+      "name": "TICKET_ID",
+      "type": "INT",
+      "isPk": false,
+      "nullable": true
+    },
+    {
+      "name": "ACTION_ID",
+      "type": "INT",
+      "isPk": false,
+      "nullable": true
+    },
+    {
+      "name": "NOME_ARQUIVO",
+      "type": "TEXT(500)",
+      "isPk": false,
+      "nullable": true
+    },
+    {
+      "name": "TAMANHO_BYTES",
+      "type": "INT",
+      "isPk": false,
+      "nullable": true
+    },
+    {
+      "name": "CRIADO_EM",
+      "type": "TEXT(19)",
+      "isPk": false,
+      "nullable": true
+    },
+    {
+      "name": "PATH",
+      "type": "TEXT(500)",
+      "isPk": false,
+      "nullable": true
+    }
+  ]
+}

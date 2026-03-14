@@ -1,0 +1,47 @@
+{
+  "name": "CONFIGURACOES",
+  "columns": [
+    {
+      "name": "ID",
+      "type": "INT",
+      "isPk": true,
+      "nullable": false
+    },
+    {
+      "name": "CHAVE",
+      "type": "TEXT(100)",
+      "isPk": false,
+      "nullable": true
+    },
+    {
+      "name": "VALOR",
+      "type": "TEXT(500)",
+      "isPk": false,
+      "nullable": true
+    },
+    {
+      "name": "DESCRICAO",
+      "type": "TEXT(200)",
+      "isPk": false,
+      "nullable": true
+    },
+    {
+      "name": "GRUPO",
+      "type": "TEXT(50)",
+      "isPk": false,
+      "nullable": true
+    },
+    {
+      "name": "ATUALIZADO_EM",
+      "type": "TEXT(19)",
+      "isPk": false,
+      "nullable": true
+    },
+    {
+      "name": "ATUALIZADO_POR",
+      "type": "TEXT(200)",
+      "isPk": false,
+      "nullable": true
+    }
+  ]
+}

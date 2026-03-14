@@ -1,0 +1,101 @@
+{
+  "name": "APONTAMENTOS",
+  "columns": [
+    {
+      "name": "ID",
+      "type": "INT",
+      "isPk": true,
+      "nullable": false
+    },
+    {
+      "name": "MOVIDESK_TA_ID",
+      "type": "INT",
+      "isPk": false,
+      "nullable": true
+    },
+    {
+      "name": "TICKET_ID",
+      "type": "INT",
+      "isPk": false,
+      "nullable": true
+    },
+    {
+      "name": "ACTION_ID",
+      "type": "INT",
+      "isPk": false,
+      "nullable": true
+    },
+    {
+      "name": "ATIVIDADE",
+      "type": "TEXT(200)",
+      "isPk": false,
+      "nullable": true
+    },
+    {
+      "name": "DATA",
+      "type": "TEXT(19)",
+      "isPk": false,
+      "nullable": true
+    },
+    {
+      "name": "HORA_INICIO",
+      "type": "TEXT(10)",
+      "isPk": false,
+      "nullable": true
+    },
+    {
+      "name": "HORA_FIM",
+      "type": "TEXT(10)",
+      "isPk": false,
+      "nullable": true
+    },
+    {
+      "name": "TEMPO_TRABALHO",
+      "type": "TEXT(10)",
+      "isPk": false,
+      "nullable": true
+    },
+    {
+      "name": "TEMPO_CONTABIL",
+      "type": "TEXT(30)",
+      "isPk": false,
+      "nullable": true
+    },
+    {
+      "name": "TIPO_TRABALHO",
+      "type": "TEXT(200)",
+      "isPk": false,
+      "nullable": true
+    },
+    {
+      "name": "CRIADO_POR_ID",
+      "type": "TEXT(50)",
+      "isPk": false,
+      "nullable": true
+    },
+    {
+      "name": "CRIADO_POR_NOME",
+      "type": "TEXT(200)",
+      "isPk": false,
+      "nullable": true
+    },
+    {
+      "name": "CRIADO_POR_EMAIL",
+      "type": "TEXT(200)",
+      "isPk": false,
+      "nullable": true
+    },
+    {
+      "name": "EQUIPE_ID",
+      "type": "INT",
+      "isPk": false,
+      "nullable": true
+    },
+    {
+      "name": "EQUIPE_NOME",
+      "type": "TEXT(200)",
+      "isPk": false,
+      "nullable": true
+    }
+  ]
+}

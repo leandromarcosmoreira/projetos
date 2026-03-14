@@ -1,0 +1,10 @@
+{
+  "id": 394,
+  "name": "pesquisaPorCliente",
+  "type": "SQL",
+  "description": "Pesquisa satisfacao por cliente",
+  "code": "SELECT TC.NOME AS name, ROUND(AVG(P.VALOR), 1) AS value, COUNT(*) AS total FROM PESQUISAS P JOIN TICKET_CLIENTES TC ON TC.TICKET_ID = P.TICKET_ID WHERE ('{{mes}}' = '' OR SUBSTRING(P.DATA_RESPOSTA, 1, 7) = '{{mes}}') AND ('{{dataInicio}}' = '' OR P.DATA_RESPOSTA >= '{{dataInicio}}') AND ('{{dataFim}}' = '' OR P.DATA_RESPOSTA <= '{{dataFim}}') AND TC.NOME IS NOT NULL AND TC.NOME != '' GROUP BY TC.NOME ORDER BY total DESC LIMIT 20",
+  "createdBy": "leandro.moreira@neuonsolucoes.com",
+  "createdAt": "2026-03-14T00:52:39",
+  "updatedAt": "2026-03-14T00:52:39"
+}

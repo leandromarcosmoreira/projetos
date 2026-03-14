@@ -1,0 +1,10 @@
+{
+  "id": 404,
+  "name": "horasApontadasMSSMensal",
+  "type": "SQL",
+  "description": "Horas apontadas MSS mensal agrupado por categoria",
+  "code": "SELECT SUBSTRING(AP.DATA, 1, 7) AS mes, T.CATEGORIA AS tipo,\n       ROUND(SUM(CAST(AP.TEMPO_CONTABIL AS DECIMAL)), 1) AS value\nFROM APONTAMENTOS AP\nJOIN TICKETS T ON T.ID = AP.TICKET_ID\nWHERE ('{{mes}}' = '' OR SUBSTRING(AP.DATA, 1, 7) = '{{mes}}') AND ('{{analista}}' = '' OR AP.CRIADO_POR_NOME = '{{analista}}') AND ('{{equipe}}' = '' OR AP.EQUIPE_NOME = '{{equipe}}') AND ('{{tipo}}' = '' OR AP.TIPO_TRABALHO = '{{tipo}}') AND ('{{atividade}}' = '' OR AP.ATIVIDADE = '{{atividade}}') AND ('{{dataInicio}}' = '' OR AP.DATA >= '{{dataInicio}}') AND ('{{dataFim}}' = '' OR AP.DATA <= '{{dataFim}}') AND AP.DATA != ''\n  AND (T.SLA_ACORDO LIKE '%MSS%' OR T.EQUIPE LIKE '%MSS%' OR T.TAGS_TEXTO LIKE '%MSS%')\nGROUP BY SUBSTRING(AP.DATA, 1, 7), T.CATEGORIA\nORDER BY mes, tipo",
+  "createdBy": "leandro.moreira@neuonsolucoes.com",
+  "createdAt": "2026-03-14T00:52:41",
+  "updatedAt": "2026-03-14T00:52:41"
+}

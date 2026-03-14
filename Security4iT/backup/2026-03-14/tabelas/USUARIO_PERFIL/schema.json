@@ -1,0 +1,29 @@
+{
+  "name": "USUARIO_PERFIL",
+  "columns": [
+    {
+      "name": "ID",
+      "type": "INT",
+      "isPk": true,
+      "nullable": false
+    },
+    {
+      "name": "USER_ID",
+      "type": "INT",
+      "isPk": false,
+      "nullable": true
+    },
+    {
+      "name": "USER_EMAIL",
+      "type": "TEXT(200)",
+      "isPk": false,
+      "nullable": true
+    },
+    {
+      "name": "PERFIL_ID",
+      "type": "INT",
+      "isPk": false,
+      "nullable": true
+    }
+  ]
+}

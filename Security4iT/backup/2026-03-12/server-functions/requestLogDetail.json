@@ -1,0 +1,10 @@
+{
+  "id": 263,
+  "name": "requestLogDetail",
+  "type": "SQL",
+  "description": "Detalhe completo de um request log",
+  "code": "SELECT * FROM REQUEST_LOG WHERE ID = {{logId}}",
+  "createdBy": "leandro.moreira@neuonsolucoes.com",
+  "createdAt": "2026-03-08T21:07:09",
+  "updatedAt": "2026-03-08T21:07:09"
+}

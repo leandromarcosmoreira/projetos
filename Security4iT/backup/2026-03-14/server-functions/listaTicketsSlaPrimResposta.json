@@ -1,0 +1,10 @@
+{
+  "id": 408,
+  "name": "listaTicketsSlaPrimResposta",
+  "type": "SQL",
+  "description": "Lista tickets filtrados por status SLA de primeira resposta (dentro/fora)",
+  "code": "SELECT T.ID, T.PROTOCOLO, T.TIPO_NOME, T.ASSUNTO, T.CATEGORIA, T.URGENCIA, T.STATUS, T.OWNER_NOME, T.EQUIPE, T.CRIADO_EM, T.SLA_DATA_RESPOSTA, T.SLA_RESPOSTA_REAL, T.TEMPO_VIDA_MINUTOS, T.ORIGEM_NOME, T.CRIADO_POR_NOME FROM TICKETS T WHERE ('{{mes}}' = '' OR SUBSTRING(T.CRIADO_EM, 1, 7) = '{{mes}}') AND ('{{status}}' = '' OR T.STATUS = '{{status}}') AND ('{{categoria}}' = '' OR T.CATEGORIA = '{{categoria}}') AND ('{{analista}}' = '' OR T.OWNER_NOME = '{{analista}}') AND ('{{urgencia}}' = '' OR T.URGENCIA = '{{urgencia}}') AND ('{{equipe}}' = '' OR T.EQUIPE = '{{equipe}}') AND ('{{origem}}' = '' OR T.ORIGEM_NOME = '{{origem}}') AND T.SLA_DATA_RESPOSTA != '' AND T.SLA_RESPOSTA_REAL != '' AND ('{{slaStatus}}' = '' OR ('{{slaStatus}}' = 'dentro' AND T.SLA_RESPOSTA_REAL <= T.SLA_DATA_RESPOSTA) OR ('{{slaStatus}}' = 'fora' AND T.SLA_RESPOSTA_REAL > T.SLA_DATA_RESPOSTA)) ORDER BY T.CRIADO_EM DESC LIMIT 500",
+  "createdBy": "leandro.moreira@neuonsolucoes.com",
+  "createdAt": "2026-03-14T00:52:41",
+  "updatedAt": "2026-03-14T00:52:41"
+}

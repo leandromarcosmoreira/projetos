@@ -1,0 +1,65 @@
+[
+  {
+    "ID": 11,
+    "TICKET_ID": 2064,
+    "ASSET_ID": "7XZVBS2",
+    "ASSET_NOME": "Técnica",
+    "ASSET_LABEL": "SEC4IT-NBT-014"
+  },
+  {
+    "ID": 13,
+    "TICKET_ID": 2432,
+    "ASSET_ID": "7PBMPZ2",
+    "ASSET_NOME": "Aline - CMR",
+    "ASSET_LABEL": "SEC4IT-NBT-018"
+  },
+  {
+    "ID": 14,
+    "TICKET_ID": 2552,
+    "ASSET_ID": "1636776744",
+    "ASSET_NOME": "CPAP-SG13500-NGFW - 28/02/2023",
+    "ASSET_LABEL": "LR201409009429"
+  },
+  {
+    "ID": 16,
+    "TICKET_ID": 3013,
+    "ASSET_ID": "JMP44W2",
+    "ASSET_NOME": "Técnica",
+    "ASSET_LABEL": "SEC4IT-NBT-029"
+  },
+  {
+    "ID": 17,
+    "TICKET_ID": 4992,
+    "ASSET_ID": "28GJD33",
+    "ASSET_NOME": "Técnica",
+    "ASSET_LABEL": "SEC4IT-NBT-022"
+  },
+  {
+    "ID": 18,
+    "TICKET_ID": 6916,
+    "ASSET_ID": "GRCFF82",
+    "ASSET_NOME": "Técnica",
+    "ASSET_LABEL": "SEC4IT-NBT-012"
+  },
+  {
+    "ID": 19,
+    "TICKET_ID": 6937,
+    "ASSET_ID": "GRCFF82",
+    "ASSET_NOME": "Técnica",
+    "ASSET_LABEL": "SEC4IT-NBT-012"
+  },
+  {
+    "ID": 20,
+    "TICKET_ID": 7102,
+    "ASSET_ID": "7PBMPZ2",
+    "ASSET_NOME": "Aline - CMR",
+    "ASSET_LABEL": "SEC4IT-NBT-018"
+  },
+  {
+    "ID": 21,
+    "TICKET_ID": 8574,
+    "ASSET_ID": "GRCFF82",
+    "ASSET_NOME": "Técnica",
+    "ASSET_LABEL": "SEC4IT-NBT-012"
+  }
+]

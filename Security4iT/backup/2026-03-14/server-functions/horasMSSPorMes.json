@@ -1,0 +1,10 @@
+{
+  "id": 396,
+  "name": "horasMSSPorMes",
+  "type": "SQL",
+  "description": "Horas MSS por mes",
+  "code": "SELECT SUBSTRING(AP.DATA, 1, 7) AS name, ROUND(SUM(CAST(AP.TEMPO_CONTABIL AS DECIMAL)), 1) AS value FROM APONTAMENTOS AP JOIN TICKETS T ON T.ID = AP.TICKET_ID WHERE ('{{mes}}' = '' OR SUBSTRING(AP.DATA, 1, 7) = '{{mes}}') AND ('{{analista}}' = '' OR AP.CRIADO_POR_NOME = '{{analista}}') AND ('{{equipe}}' = '' OR AP.EQUIPE_NOME = '{{equipe}}') AND ('{{tipo}}' = '' OR AP.TIPO_TRABALHO = '{{tipo}}') AND ('{{atividade}}' = '' OR AP.ATIVIDADE = '{{atividade}}') AND (T.SLA_ACORDO LIKE '%MSS%' OR T.EQUIPE LIKE '%MSS%' OR T.TAGS_TEXTO LIKE '%MSS%') AND AP.DATA != '' GROUP BY SUBSTRING(AP.DATA, 1, 7) ORDER BY name",
+  "createdBy": "leandro.moreira@neuonsolucoes.com",
+  "createdAt": "2026-03-14T00:52:39",
+  "updatedAt": "2026-03-14T00:52:39"
+}

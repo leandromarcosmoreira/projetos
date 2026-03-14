@@ -1,0 +1,41 @@
+{
+  "name": "OWNER_HISTORICO",
+  "columns": [
+    {
+      "name": "ID",
+      "type": "INT",
+      "isPk": true,
+      "nullable": false
+    },
+    {
+      "name": "TICKET_ID",
+      "type": "INT",
+      "isPk": false,
+      "nullable": true
+    },
+    {
+      "name": "EQUIPE",
+      "type": "TEXT(200)",
+      "isPk": false,
+      "nullable": true
+    },
+    {
+      "name": "DATA_MUDANCA",
+      "type": "TEXT(19)",
+      "isPk": false,
+      "nullable": true
+    },
+    {
+      "name": "TEMPO_PERMANENCIA",
+      "type": "TEXT(30)",
+      "isPk": false,
+      "nullable": true
+    },
+    {
+      "name": "TEMPO_PERMANENCIA_UTIL",
+      "type": "TEXT(30)",
+      "isPk": false,
+      "nullable": true
+    }
+  ]
+}

@@ -1,0 +1,10 @@
+{
+  "id": 375,
+  "name": "updateConfigValue",
+  "type": "SQL",
+  "description": "Atualiza valor de configuracao com rastreamento",
+  "code": "UPDATE CONFIGURACOES SET VALOR = '{{valor}}', ATUALIZADO_EM = '{{data}}', ATUALIZADO_POR = '{{usuario}}' WHERE ID = {{configId}}",
+  "createdBy": "leandro.moreira@neuonsolucoes.com",
+  "createdAt": "2026-03-14T00:52:35",
+  "updatedAt": "2026-03-14T00:52:35"
+}

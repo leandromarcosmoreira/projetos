@@ -1,0 +1,10 @@
+{
+  "id": 397,
+  "name": "horasPorClienteProjeto",
+  "type": "SQL",
+  "description": "Horas por cliente (projeto)",
+  "code": "SELECT TC.NOME AS name, ROUND(SUM(CAST(AP.TEMPO_CONTABIL AS DECIMAL)), 1) AS value FROM APONTAMENTOS AP JOIN TICKETS T ON T.ID = AP.TICKET_ID JOIN TICKET_CLIENTES TC ON TC.TICKET_ID = T.ID WHERE ('{{mes}}' = '' OR SUBSTRING(AP.DATA, 1, 7) = '{{mes}}') AND ('{{analista}}' = '' OR AP.CRIADO_POR_NOME = '{{analista}}') AND ('{{equipe}}' = '' OR AP.EQUIPE_NOME = '{{equipe}}') AND ('{{tipo}}' = '' OR AP.TIPO_TRABALHO = '{{tipo}}') AND ('{{atividade}}' = '' OR AP.ATIVIDADE = '{{atividade}}') AND T.CATEGORIA = 'Projeto' AND TC.NOME IS NOT NULL AND TC.NOME != '' GROUP BY TC.NOME ORDER BY value DESC LIMIT 20",
+  "createdBy": "leandro.moreira@neuonsolucoes.com",
+  "createdAt": "2026-03-14T00:52:39",
+  "updatedAt": "2026-03-14T00:52:39"
+}

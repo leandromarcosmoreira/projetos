@@ -1,0 +1,10 @@
+{
+  "id": 282,
+  "name": "ticketsMensaisPorCategoria",
+  "type": "SQL",
+  "description": "Tickets mensais stacked por categoria",
+  "code": "SELECT SUBSTRING(T.CRIADO_EM, 1, 7) AS name, SUM(CASE WHEN T.CATEGORIA = 'Evento' THEN 1 ELSE 0 END) AS Evento, SUM(CASE WHEN T.CATEGORIA = 'Incidente' THEN 1 ELSE 0 END) AS Incidente, SUM(CASE WHEN T.CATEGORIA IN ('Mudanca','Mudança') THEN 1 ELSE 0 END) AS Mudanca, SUM(CASE WHEN T.CATEGORIA = 'Projeto' THEN 1 ELSE 0 END) AS Projeto, SUM(CASE WHEN T.CATEGORIA IN ('Requisicao','Requisição') THEN 1 ELSE 0 END) AS Requisicao, SUM(CASE WHEN T.CATEGORIA = 'Rotina' THEN 1 ELSE 0 END) AS Rotina FROM TICKETS T WHERE ('{{mes}}' = '' OR SUBSTRING(T.CRIADO_EM, 1, 7) = '{{mes}}') AND ('{{status}}' = '' OR T.STATUS = '{{status}}') AND ('{{categoria}}' = '' OR T.CATEGORIA = '{{categoria}}') AND ('{{analista}}' = '' OR T.OWNER_NOME = '{{analista}}') AND ('{{urgencia}}' = '' OR T.URGENCIA = '{{urgencia}}') AND ('{{equipe}}' = '' OR T.EQUIPE = '{{equipe}}') AND ('{{origem}}' = '' OR T.ORIGEM_NOME = '{{origem}}') AND ('{{dataInicio}}' = '' OR T.CRIADO_EM >= '{{dataInicio}}') AND ('{{dataFim}}' = '' OR T.CRIADO_EM <= '{{dataFim}}') GROUP BY SUBSTRING(T.CRIADO_EM, 1, 7) ORDER BY name",
+  "createdBy": "leandro.moreira@neuonsolucoes.com",
+  "createdAt": "2026-03-09T02:59:17",
+  "updatedAt": "2026-03-09T03:27:44"
+}

@@ -1,0 +1,10 @@
+{
+  "id": 422,
+  "name": "atualizarPermissoesPerfil",
+  "type": "SQL",
+  "description": "Atualiza permissoes de um perfil",
+  "code": "UPDATE PERFIS SET PERMISSOES = '{{permissoes}}' WHERE ID = {{perfilId}}",
+  "createdBy": "leandro.moreira@neuonsolucoes.com",
+  "createdAt": "2026-03-14T02:57:26",
+  "updatedAt": "2026-03-14T02:57:26"
+}

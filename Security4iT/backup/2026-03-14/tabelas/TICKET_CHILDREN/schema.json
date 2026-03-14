@@ -1,0 +1,23 @@
+{
+  "name": "TICKET_CHILDREN",
+  "columns": [
+    {
+      "name": "ID",
+      "type": "INT",
+      "isPk": true,
+      "nullable": false
+    },
+    {
+      "name": "TICKET_ID",
+      "type": "INT",
+      "isPk": false,
+      "nullable": true
+    },
+    {
+      "name": "CHILD_TICKET_ID",
+      "type": "INT",
+      "isPk": false,
+      "nullable": true
+    }
+  ]
+}

@@ -1,0 +1,80 @@
+[
+  {
+    "ID": 0,
+    "DESCR": "Administrator",
+    "ISDEV": true,
+    "CUSTOM_DOMAIN": null
+  },
+  {
+    "ID": 5,
+    "DESCR": "leandro.moreira@neuonsolucoes.com",
+    "ISDEV": true,
+    "CUSTOM_DOMAIN": null
+  },
+  {
+    "ID": 6,
+    "DESCR": "rodrigo.paiva@mitralab.io",
+    "ISDEV": true,
+    "CUSTOM_DOMAIN": null
+  },
+  {
+    "ID": 7,
+    "DESCR": "raphael.carvalho@neuonsolucoes.com",
+    "ISDEV": true,
+    "CUSTOM_DOMAIN": null
+  },
+  {
+    "ID": 8,
+    "DESCR": "jose.vilela@neuonsolucoes.com",
+    "ISDEV": true,
+    "CUSTOM_DOMAIN": null
+  },
+  {
+    "ID": 9,
+    "DESCR": "jonatan.barros@neuonsolucoes.com",
+    "ISDEV": true,
+    "CUSTOM_DOMAIN": null
+  },
+  {
+    "ID": 10,
+    "DESCR": "camila.cruvinel@neuonsolucoes.com",
+    "ISDEV": true,
+    "CUSTOM_DOMAIN": null
+  },
+  {
+    "ID": 11,
+    "DESCR": "raphael.carvalho@neuon.com.br",
+    "ISDEV": true,
+    "CUSTOM_DOMAIN": null
+  },
+  {
+    "ID": 12,
+    "DESCR": "jbarros213@gmail.com",
+    "ISDEV": false,
+    "CUSTOM_DOMAIN": null
+  },
+  {
+    "ID": 13,
+    "DESCR": "wayner@mitralab.io",
+    "ISDEV": true,
+    "CUSTOM_DOMAIN": null
+  },
+  {
+    "ID": 14,
+    "DESCR": "joao@mitralab.io",
+    "ISDEV": true,
+    "CUSTOM_DOMAIN": null
+  },
+  {
+    "ID": 15,
+    "DESCR": "bruno.bortolini@mitralab.io",
+    "ISDEV": true,
+    "CUSTOM_DOMAIN": null
+  },
+  {
+    "ID": 16,
+    "DESCR": "joao.silvestre@mitralab.io",
+    "ISDEV": true,
+    "CUSTOM_DOMAIN": null
+  }
+]

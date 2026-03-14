@@ -1,0 +1,10 @@
+{
+  "id": 360,
+  "name": "auditSyncHistory",
+  "type": "SQL",
+  "description": "Historico de sincronizacoes",
+  "code": "SELECT * FROM SYNC_STATUS ORDER BY ID DESC LIMIT {{limit}}",
+  "createdBy": "leandro.moreira@neuonsolucoes.com",
+  "createdAt": "2026-03-14T00:52:32",
+  "updatedAt": "2026-03-14T00:52:32"
+}

@@ -1,0 +1,10 @@
+{
+  "id": 220,
+  "name": "resetSyncConfig",
+  "type": "SQL",
+  "description": "Limpa data de ultimo sync para forcar full sync",
+  "code": "UPDATE CONFIGURACOES SET VALOR = '' WHERE CHAVE = 'ULTIMO_SYNC'",
+  "createdBy": "leandro.moreira@neuonsolucoes.com",
+  "createdAt": "2026-03-07T14:11:20",
+  "updatedAt": "2026-03-07T14:11:20"
+}

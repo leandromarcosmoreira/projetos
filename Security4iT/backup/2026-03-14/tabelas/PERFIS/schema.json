@@ -1,0 +1,41 @@
+{
+  "name": "PERFIS",
+  "columns": [
+    {
+      "name": "ID",
+      "type": "INT",
+      "isPk": true,
+      "nullable": false
+    },
+    {
+      "name": "NOME",
+      "type": "TEXT(100)",
+      "isPk": false,
+      "nullable": true
+    },
+    {
+      "name": "DESCRICAO",
+      "type": "TEXT(300)",
+      "isPk": false,
+      "nullable": true
+    },
+    {
+      "name": "COR",
+      "type": "TEXT(20)",
+      "isPk": false,
+      "nullable": true
+    },
+    {
+      "name": "PERMISSOES",
+      "type": "TEXT(65535)",
+      "isPk": false,
+      "nullable": true
+    },
+    {
+      "name": "CRIADO_EM",
+      "type": "TEXT(19)",
+      "isPk": false,
+      "nullable": true
+    }
+  ]
+}

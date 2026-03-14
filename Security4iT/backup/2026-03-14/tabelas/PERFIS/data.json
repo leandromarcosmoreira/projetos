@@ -1,0 +1,26 @@
+[
+  {
+    "ID": 1,
+    "NOME": "Desenvolvedor",
+    "DESCRICAO": "Acesso total ao sistema",
+    "COR": "#ef4444",
+    "PERMISSOES": "{\"Chamados Mensais\":{\"visualizar\":true,\"configurar\":true,\"exportar\":true,\"filtros\":true},\"Chamados Detalhes\":{\"visualizar\":true,\"configurar\":true,\"exportar\":true,\"filtros\":true},\"SLA Resolução\":{\"visualizar\":true,\"configurar\":true,\"exportar\":true,\"filtros\":true},\"SLA Primeira Resposta\":{\"visualizar\":true,\"configurar\":true,\"exportar\":true,\"filtros\":true},\"Tempo Resolução\":{\"visualizar\":true,\"configurar\":true,\"exportar\":true,\"filtros\":true},\"Horas Analista\":{\"visualizar\":true,\"configurar\":true,\"exportar\":true,\"filtros\":true},\"Horas Suporte\":{\"visualizar\":true,\"configurar\":true,\"exportar\":true,\"filtros\":true},\"Pesquisa Satisfação\":{\"visualizar\":true,\"configurar\":true,\"exportar\":true,\"filtros\":true},\"Configurações\":{\"visualizar\":true,\"configurar\":true,\"exportar\":true,\"filtros\":true},\"Controle de Usuários\":{\"visualizar\":true,\"configurar\":true,\"exportar\":true,\"filtros\":true},\"Documentação\":{\"visualizar\":true,\"configurar\":true,\"exportar\":true,\"filtros\":true}}",
+    "CRIADO_EM": "2026-03-14T02:57:24"
+  },
+  {
+    "ID": 2,
+    "NOME": "Analista",
+    "DESCRICAO": "Visualização e exportação de dados operacionais",
+    "COR": "#3b82f6",
+    "PERMISSOES": "{\"Chamados Mensais\":{\"visualizar\":true,\"configurar\":false,\"exportar\":true,\"filtros\":true},\"Chamados Detalhes\":{\"visualizar\":true,\"configurar\":false,\"exportar\":true,\"filtros\":true},\"SLA Resolução\":{\"visualizar\":true,\"configurar\":false,\"exportar\":true,\"filtros\":true},\"SLA Primeira Resposta\":{\"visualizar\":true,\"configurar\":false,\"exportar\":true,\"filtros\":true},\"Tempo Resolução\":{\"visualizar\":true,\"configurar\":false,\"exportar\":true,\"filtros\":true},\"Horas Analista\":{\"visualizar\":true,\"configurar\":false,\"exportar\":true,\"filtros\":true},\"Horas Suporte\":{\"visualizar\":true,\"configurar\":false,\"exportar\":true,\"filtros\":true},\"Pesquisa Satisfação\":{\"visualizar\":true,\"configurar\":false,\"exportar\":true,\"filtros\":true},\"Configurações\":{\"visualizar\":true,\"configurar\":false,\"exportar\":false,\"filtros\":false},\"Controle de Usuários\":{\"visualizar\":true,\"configurar\":false,\"exportar\":false,\"filtros\":false},\"Documentação\":{\"visualizar\":true,\"configurar\":false,\"exportar\":false,\"filtros\":false}}",
+    "CRIADO_EM": "2026-03-14T02:57:24"
+  },
+  {
+    "ID": 3,
+    "NOME": "Gestor",
+    "DESCRICAO": "Gerenciamento completo com relatórios",
+    "COR": "#f59e0b",
+    "PERMISSOES": "{\"Chamados Mensais\":{\"visualizar\":true,\"configurar\":true,\"exportar\":true,\"filtros\":true},\"Chamados Detalhes\":{\"visualizar\":true,\"configurar\":true,\"exportar\":true,\"filtros\":true},\"SLA Resolução\":{\"visualizar\":true,\"configurar\":true,\"exportar\":true,\"filtros\":true},\"SLA Primeira Resposta\":{\"visualizar\":true,\"configurar\":true,\"exportar\":true,\"filtros\":true},\"Tempo Resolução\":{\"visualizar\":true,\"configurar\":true,\"exportar\":true,\"filtros\":true},\"Horas Analista\":{\"visualizar\":true,\"configurar\":true,\"exportar\":true,\"filtros\":true},\"Horas Suporte\":{\"visualizar\":true,\"configurar\":true,\"exportar\":true,\"filtros\":true},\"Pesquisa Satisfação\":{\"visualizar\":true,\"configurar\":true,\"exportar\":true,\"filtros\":true},\"Configurações\":{\"visualizar\":true,\"configurar\":true,\"exportar\":true,\"filtros\":true},\"Controle de Usuários\":{\"visualizar\":true,\"configurar\":false,\"exportar\":false,\"filtros\":false},\"Documentação\":{\"visualizar\":true,\"configurar\":true,\"exportar\":true,\"filtros\":true}}",
+    "CRIADO_EM": "2026-03-14T02:57:24"
+  }
+]

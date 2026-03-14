@@ -1,0 +1,10 @@
+{
+  "id": 150,
+  "name": "auditByTipo",
+  "type": "SQL",
+  "description": "Lista auditoria por tipo",
+  "code": "SELECT * FROM SYNC_AUDIT WHERE TIPO = '{{tipo}}' ORDER BY ID DESC LIMIT {{limit}}",
+  "createdBy": "leandro.moreira@neuonsolucoes.com",
+  "createdAt": "2026-03-06T12:00:07",
+  "updatedAt": "2026-03-06T12:00:07"
+}

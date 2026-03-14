@@ -1,0 +1,10 @@
+{
+  "id": 380,
+  "name": "insertRequestLog",
+  "type": "SQL",
+  "description": "Insere log de request/response",
+  "code": "INSERT INTO REQUEST_LOG (SYNC_SESSION, TIPO, REQUEST_URL, REQUEST_METHOD, RESPONSE_CODE, RESPONSE_BODY, TICKETS_COUNT, ERRO, DURACAO_MS, DATA)\n    VALUES ('{{session}}', '{{tipo}}', '{{requestUrl}}', '{{method}}', {{responseCode}}, '{{responseBody}}', {{ticketsCount}}, '{{erro}}', {{duracaoMs}}, '{{data}}')",
+  "createdBy": "leandro.moreira@neuonsolucoes.com",
+  "createdAt": "2026-03-14T00:52:36",
+  "updatedAt": "2026-03-14T00:52:36"
+}

@@ -1,0 +1,10 @@
+{
+  "id": 338,
+  "name": "pesquisaKpis",
+  "type": "SQL",
+  "description": "KPIs pesquisa",
+  "code": "SELECT COUNT(*) AS TOTAL_RESPOSTAS, ROUND(AVG(P.VALOR), 1) AS MEDIA_NOTA, SUM(CASE WHEN P.VALOR >= 9 THEN 1 ELSE 0 END) AS PROMOTORES, SUM(CASE WHEN P.VALOR <= 6 THEN 1 ELSE 0 END) AS DETRATORES, SUM(CASE WHEN P.VALOR >= 7 AND P.VALOR <= 8 THEN 1 ELSE 0 END) AS NEUTROS FROM PESQUISAS P WHERE ('{{mes}}' = '' OR SUBSTRING(P.DATA_RESPOSTA, 1, 7) = '{{mes}}')",
+  "createdBy": "leandro.moreira@neuonsolucoes.com",
+  "createdAt": "2026-03-14T00:46:20",
+  "updatedAt": "2026-03-14T00:46:20"
+}

@@ -1,0 +1,10 @@
+{
+  "id": 273,
+  "name": "testMovideskToken",
+  "type": "JAVASCRIPT",
+  "description": "Testa token do Movidesk fazendo uma requisicao de teste",
+  "code": "\nconst token = event.token || '';\nif (!token) return { success: false, error: 'Token vazio' };\n\nconst url = 'https://api.movidesk.com/public/v1/tickets?token=' + token + '&$top=1&$select=id,subject,status';\ntry {\n  const res = await fetch(url, { signal: AbortSignal.timeout(30000) });\n  if (res.status === 403) {\n    return { success: false, error: 'HTTP 403 — Token invalido ou sem permissao', statusCode: 403 };\n  }\n  if (res.status === 429) {\n    return { success: false, error: 'HTTP 429 — Rate limit atingido. Tente novamente em 60 segundos.', statusCode: 429 };\n  }\n  if (!res.ok) {\n    const body = await res.text();\n    return { success: false, error: 'HTTP ' + res.status + ': ' + body.substring(0, 200), statusCode: res.status };\n  }\n  const data = await res.json();\n  if (Array.isArray(data) && data.length > 0) {\n    return {\n      success: true,\n      message: 'Token valido! Primeiro ticket: #' + data[0].id + ' — ' + (data[0].subject || '').substring(0, 50),\n      statusCode: 200,\n      sampleTicket: { id: data[0].id, subject: data[0].subject, status: data[0].status }\n    };\n  }\n  return { success: true, message: 'Token valido (nenhum ticket retornado)', statusCode: 200 };\n} catch (e) {\n  return { success: false, error: 'Erro de conexao: ' + String(e.message || e).substring(0, 200) };\n}\n",
+  "createdBy": "leandro.moreira@neuonsolucoes.com",
+  "createdAt": "2026-03-08T21:07:11",
+  "updatedAt": "2026-03-08T21:07:11"
+}

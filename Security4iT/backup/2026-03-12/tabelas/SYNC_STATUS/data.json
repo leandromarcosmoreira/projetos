@@ -1,0 +1,1662 @@
+[
+  {
+    "ID": 1,
+    "STATUS": "NO_CHANGES",
+    "TIPO": "INCREMENTAL",
+    "ENDPOINT": "tickets",
+    "TOTAL_PROCESSADOS": 0,
+    "ULTIMO_SYNC": "2026-03-05T22:24:40",
+    "ERRO": null,
+    "CRIADO_EM": "2026-03-05T22:24:40"
+  },
+  {
+    "ID": 2,
+    "STATUS": "COMPLETED",
+    "TIPO": "FULL_SYNC",
+    "ENDPOINT": "tickets+past+surveys",
+    "TOTAL_PROCESSADOS": 2150,
+    "ULTIMO_SYNC": "2026-03-06T10:35:48",
+    "ERRO": "",
+    "CRIADO_EM": "2026-03-06T10:35:48"
+  },
+  {
+    "ID": 3,
+    "STATUS": "COMPLETED",
+    "TIPO": "INCREMENTAL",
+    "ENDPOINT": "tickets",
+    "TOTAL_PROCESSADOS": 1,
+    "ULTIMO_SYNC": "2026-03-06T10:46:16",
+    "ERRO": "",
+    "CRIADO_EM": "2026-03-06T10:46:16"
+  },
+  {
+    "ID": 4,
+    "STATUS": "COMPLETED",
+    "TIPO": "INCREMENTAL",
+    "ENDPOINT": "tickets",
+    "TOTAL_PROCESSADOS": 3,
+    "ULTIMO_SYNC": "2026-03-06T10:52:37",
+    "ERRO": "",
+    "CRIADO_EM": "2026-03-06T10:52:37"
+  },
+  {
+    "ID": 5,
+    "STATUS": "NO_CHANGES",
+    "TIPO": "INCREMENTAL",
+    "ENDPOINT": "tickets",
+    "TOTAL_PROCESSADOS": 0,
+    "ULTIMO_SYNC": "2026-03-06T10:58:45",
+    "ERRO": "",
+    "CRIADO_EM": "2026-03-06T10:58:45"
+  },
+  {
+    "ID": 6,
+    "STATUS": "COMPLETED",
+    "TIPO": "INCREMENTAL",
+    "ENDPOINT": "tickets",
+    "TOTAL_PROCESSADOS": 1,
+    "ULTIMO_SYNC": "2026-03-06T11:05:07",
+    "ERRO": "",
+    "CRIADO_EM": "2026-03-06T11:05:07"
+  },
+  {
+    "ID": 7,
+    "STATUS": "COMPLETED",
+    "TIPO": "INCREMENTAL",
+    "ENDPOINT": "tickets",
+    "TOTAL_PROCESSADOS": 2,
+    "ULTIMO_SYNC": "2026-03-06T11:11:53",
+    "ERRO": "",
+    "CRIADO_EM": "2026-03-06T11:11:53"
+  },
+  {
+    "ID": 8,
+    "STATUS": "COMPLETED",
+    "TIPO": "INCREMENTAL",
+    "ENDPOINT": "tickets",
+    "TOTAL_PROCESSADOS": 4,
+    "ULTIMO_SYNC": "2026-03-06T11:18:39",
+    "ERRO": "",
+    "CRIADO_EM": "2026-03-06T11:18:39"
+  },
+  {
+    "ID": 9,
+    "STATUS": "RESET",
+    "TIPO": "PENDING_FULL",
+    "ENDPOINT": "tickets/past",
+    "TOTAL_PROCESSADOS": 0,
+    "ULTIMO_SYNC": "",
+    "ERRO": "",
+    "CRIADO_EM": "2026-03-06T12:03:44"
+  },
+  {
+    "ID": 10,
+    "STATUS": "TIMEOUT",
+    "TIPO": "FULL_SYNC",
+    "ENDPOINT": "tickets/past",
+    "TOTAL_PROCESSADOS": 0,
+    "ULTIMO_SYNC": "2026-03-07T22:11:36",
+    "ERRO": "Processo travado - timeout automatico na correcao",
+    "CRIADO_EM": "2026-03-07T22:11:36"
+  },
+  {
+    "ID": 11,
+    "STATUS": "TIMEOUT",
+    "TIPO": "FULL_TICKETS/PAST",
+    "ENDPOINT": "tickets/past",
+    "TOTAL_PROCESSADOS": 0,
+    "ULTIMO_SYNC": "2026-03-07T22:11:36",
+    "ERRO": "Processo travado - timeout automatico na correcao",
+    "CRIADO_EM": "2026-03-07T22:11:36"
+  },
+  {
+    "ID": 12,
+    "STATUS": "TIMEOUT",
+    "TIPO": "FULL_TICKETS/PAST",
+    "ENDPOINT": "tickets/past",
+    "TOTAL_PROCESSADOS": 50,
+    "ULTIMO_SYNC": "2026-03-07T22:12:38",
+    "ERRO": "Processo travado - timeout automatico na correcao",
+    "CRIADO_EM": "2026-03-07T22:12:38"
+  },
+  {
+    "ID": 13,
+    "STATUS": "TIMEOUT",
+    "TIPO": "FULL_TICKETS/PAST",
+    "ENDPOINT": "tickets/past",
+    "TOTAL_PROCESSADOS": 100,
+    "ULTIMO_SYNC": "2026-03-07T22:13:52",
+    "ERRO": "Processo travado - timeout automatico na correcao",
+    "CRIADO_EM": "2026-03-07T22:13:52"
+  },
+  {
+    "ID": 14,
+    "STATUS": "TIMEOUT",
+    "TIPO": "FULL_TICKETS/PAST",
+    "ENDPOINT": "tickets/past",
+    "TOTAL_PROCESSADOS": 150,
+    "ULTIMO_SYNC": "2026-03-07T22:14:52",
+    "ERRO": "Processo travado - timeout automatico na correcao",
+    "CRIADO_EM": "2026-03-07T22:14:52"
+  },
+  {
+    "ID": 15,
+    "STATUS": "TIMEOUT",
+    "TIPO": "FULL_TICKETS/PAST",
+    "ENDPOINT": "tickets/past",
+    "TOTAL_PROCESSADOS": 200,
+    "ULTIMO_SYNC": "2026-03-07T22:16:15",
+    "ERRO": "Processo travado - timeout automatico na correcao",
+    "CRIADO_EM": "2026-03-07T22:16:15"
+  },
+  {
+    "ID": 16,
+    "STATUS": "TIMEOUT",
+    "TIPO": "FULL_TICKETS/PAST",
+    "ENDPOINT": "tickets/past",
+    "TOTAL_PROCESSADOS": 250,
+    "ULTIMO_SYNC": "2026-03-07T22:17:17",
+    "ERRO": "Processo travado - timeout automatico na correcao",
+    "CRIADO_EM": "2026-03-07T22:17:17"
+  },
+  {
+    "ID": 17,
+    "STATUS": "TIMEOUT",
+    "TIPO": "FULL_TICKETS/PAST",
+    "ENDPOINT": "tickets/past",
+    "TOTAL_PROCESSADOS": 300,
+    "ULTIMO_SYNC": "2026-03-07T22:18:35",
+    "ERRO": "Processo travado - timeout automatico na correcao",
+    "CRIADO_EM": "2026-03-07T22:18:35"
+  },
+  {
+    "ID": 18,
+    "STATUS": "TIMEOUT",
+    "TIPO": "FULL_TICKETS/PAST",
+    "ENDPOINT": "tickets/past",
+    "TOTAL_PROCESSADOS": 350,
+    "ULTIMO_SYNC": "2026-03-07T22:19:36",
+    "ERRO": "Processo travado - timeout automatico na correcao",
+    "CRIADO_EM": "2026-03-07T22:19:36"
+  },
+  {
+    "ID": 19,
+    "STATUS": "TIMEOUT",
+    "TIPO": "FULL_TICKETS/PAST",
+    "ENDPOINT": "tickets/past",
+    "TOTAL_PROCESSADOS": 400,
+    "ULTIMO_SYNC": "2026-03-07T22:20:39",
+    "ERRO": "Processo travado - timeout automatico na correcao",
+    "CRIADO_EM": "2026-03-07T22:20:39"
+  },
+  {
+    "ID": 20,
+    "STATUS": "TIMEOUT",
+    "TIPO": "FULL_TICKETS/PAST",
+    "ENDPOINT": "tickets/past",
+    "TOTAL_PROCESSADOS": 450,
+    "ULTIMO_SYNC": "2026-03-07T22:21:54",
+    "ERRO": "Processo travado - timeout automatico na correcao",
+    "CRIADO_EM": "2026-03-07T22:21:54"
+  },
+  {
+    "ID": 21,
+    "STATUS": "TIMEOUT",
+    "TIPO": "FULL_TICKETS/PAST",
+    "ENDPOINT": "tickets/past",
+    "TOTAL_PROCESSADOS": 500,
+    "ULTIMO_SYNC": "2026-03-07T22:22:58",
+    "ERRO": "Processo travado - timeout automatico na correcao",
+    "CRIADO_EM": "2026-03-07T22:22:58"
+  },
+  {
+    "ID": 22,
+    "STATUS": "TIMEOUT",
+    "TIPO": "FULL_TICKETS/PAST",
+    "ENDPOINT": "tickets/past",
+    "TOTAL_PROCESSADOS": 550,
+    "ULTIMO_SYNC": "2026-03-07T22:23:58",
+    "ERRO": "Processo travado - timeout automatico na correcao",
+    "CRIADO_EM": "2026-03-07T22:23:58"
+  },
+  {
+    "ID": 23,
+    "STATUS": "TIMEOUT",
+    "TIPO": "FULL_TICKETS/PAST",
+    "ENDPOINT": "tickets/past",
+    "TOTAL_PROCESSADOS": 600,
+    "ULTIMO_SYNC": "2026-03-07T22:24:14",
+    "ERRO": "Processo travado - timeout automatico na correcao",
+    "CRIADO_EM": "2026-03-07T22:24:14"
+  },
+  {
+    "ID": 24,
+    "STATUS": "TIMEOUT",
+    "TIPO": "FULL_TICKETS/PAST",
+    "ENDPOINT": "tickets/past",
+    "TOTAL_PROCESSADOS": 650,
+    "ULTIMO_SYNC": "2026-03-07T22:25:21",
+    "ERRO": "Processo travado - timeout automatico na correcao",
+    "CRIADO_EM": "2026-03-07T22:25:21"
+  },
+  {
+    "ID": 25,
+    "STATUS": "TIMEOUT",
+    "TIPO": "FULL_TICKETS/PAST",
+    "ENDPOINT": "tickets/past",
+    "TOTAL_PROCESSADOS": 700,
+    "ULTIMO_SYNC": "2026-03-07T22:25:34",
+    "ERRO": "Processo travado - timeout automatico na correcao",
+    "CRIADO_EM": "2026-03-07T22:25:34"
+  },
+  {
+    "ID": 26,
+    "STATUS": "TIMEOUT",
+    "TIPO": "FULL_TICKETS/PAST",
+    "ENDPOINT": "tickets/past",
+    "TOTAL_PROCESSADOS": 750,
+    "ULTIMO_SYNC": "2026-03-07T22:25:46",
+    "ERRO": "Processo travado - timeout automatico na correcao",
+    "CRIADO_EM": "2026-03-07T22:25:46"
+  },
+  {
+    "ID": 27,
+    "STATUS": "TIMEOUT",
+    "TIPO": "FULL_TICKETS/PAST",
+    "ENDPOINT": "tickets/past",
+    "TOTAL_PROCESSADOS": 800,
+    "ULTIMO_SYNC": "2026-03-07T22:26:04",
+    "ERRO": "Processo travado - timeout automatico na correcao",
+    "CRIADO_EM": "2026-03-07T22:26:04"
+  },
+  {
+    "ID": 28,
+    "STATUS": "TIMEOUT",
+    "TIPO": "FULL_TICKETS/PAST",
+    "ENDPOINT": "tickets/past",
+    "TOTAL_PROCESSADOS": 850,
+    "ULTIMO_SYNC": "2026-03-07T22:27:07",
+    "ERRO": "Processo travado - timeout automatico na correcao",
+    "CRIADO_EM": "2026-03-07T22:27:07"
+  },
+  {
+    "ID": 29,
+    "STATUS": "TIMEOUT",
+    "TIPO": "FULL_TICKETS/PAST",
+    "ENDPOINT": "tickets/past",
+    "TOTAL_PROCESSADOS": 900,
+    "ULTIMO_SYNC": "2026-03-07T22:28:08",
+    "ERRO": "Processo travado - timeout automatico na correcao",
+    "CRIADO_EM": "2026-03-07T22:28:08"
+  },
+  {
+    "ID": 30,
+    "STATUS": "TIMEOUT",
+    "TIPO": "FULL_TICKETS/PAST",
+    "ENDPOINT": "tickets/past",
+    "TOTAL_PROCESSADOS": 950,
+    "ULTIMO_SYNC": "2026-03-07T22:29:07",
+    "ERRO": "Processo travado - timeout automatico na correcao",
+    "CRIADO_EM": "2026-03-07T22:29:07"
+  },
+  {
+    "ID": 31,
+    "STATUS": "TIMEOUT",
+    "TIPO": "FULL_TICKETS/PAST",
+    "ENDPOINT": "tickets/past",
+    "TOTAL_PROCESSADOS": 1000,
+    "ULTIMO_SYNC": "2026-03-07T22:30:33",
+    "ERRO": "Processo travado - timeout automatico na correcao",
+    "CRIADO_EM": "2026-03-07T22:30:33"
+  },
+  {
+    "ID": 32,
+    "STATUS": "TIMEOUT",
+    "TIPO": "FULL_TICKETS/PAST",
+    "ENDPOINT": "tickets/past",
+    "TOTAL_PROCESSADOS": 1050,
+    "ULTIMO_SYNC": "2026-03-07T22:31:38",
+    "ERRO": "Processo travado - timeout automatico na correcao",
+    "CRIADO_EM": "2026-03-07T22:31:38"
+  },
+  {
+    "ID": 33,
+    "STATUS": "TIMEOUT",
+    "TIPO": "FULL_TICKETS/PAST",
+    "ENDPOINT": "tickets/past",
+    "TOTAL_PROCESSADOS": 1100,
+    "ULTIMO_SYNC": "2026-03-07T22:33:06",
+    "ERRO": "Processo travado - timeout automatico na correcao",
+    "CRIADO_EM": "2026-03-07T22:33:06"
+  },
+  {
+    "ID": 34,
+    "STATUS": "TIMEOUT",
+    "TIPO": "FULL_TICKETS/PAST",
+    "ENDPOINT": "tickets/past",
+    "TOTAL_PROCESSADOS": 1150,
+    "ULTIMO_SYNC": "2026-03-07T22:34:20",
+    "ERRO": "Processo travado - timeout automatico na correcao",
+    "CRIADO_EM": "2026-03-07T22:34:20"
+  },
+  {
+    "ID": 35,
+    "STATUS": "TIMEOUT",
+    "TIPO": "FULL_TICKETS/PAST",
+    "ENDPOINT": "tickets/past",
+    "TOTAL_PROCESSADOS": 1200,
+    "ULTIMO_SYNC": "2026-03-07T22:35:28",
+    "ERRO": "Processo travado - timeout automatico na correcao",
+    "CRIADO_EM": "2026-03-07T22:35:28"
+  },
+  {
+    "ID": 36,
+    "STATUS": "TIMEOUT",
+    "TIPO": "FULL_TICKETS/PAST",
+    "ENDPOINT": "tickets/past",
+    "TOTAL_PROCESSADOS": 1250,
+    "ULTIMO_SYNC": "2026-03-07T22:36:42",
+    "ERRO": "Processo travado - timeout automatico na correcao",
+    "CRIADO_EM": "2026-03-07T22:36:42"
+  },
+  {
+    "ID": 37,
+    "STATUS": "TIMEOUT",
+    "TIPO": "FULL_TICKETS/PAST",
+    "ENDPOINT": "tickets/past",
+    "TOTAL_PROCESSADOS": 1300,
+    "ULTIMO_SYNC": "2026-03-07T22:37:56",
+    "ERRO": "Processo travado - timeout automatico na correcao",
+    "CRIADO_EM": "2026-03-07T22:37:56"
+  },
+  {
+    "ID": 38,
+    "STATUS": "TIMEOUT",
+    "TIPO": "FULL_TICKETS/PAST",
+    "ENDPOINT": "tickets/past",
+    "TOTAL_PROCESSADOS": 1350,
+    "ULTIMO_SYNC": "2026-03-07T22:39:26",
+    "ERRO": "Processo travado - timeout automatico na correcao",
+    "CRIADO_EM": "2026-03-07T22:39:26"
+  },
+  {
+    "ID": 39,
+    "STATUS": "TIMEOUT",
+    "TIPO": "FULL_TICKETS/PAST",
+    "ENDPOINT": "tickets/past",
+    "TOTAL_PROCESSADOS": 1400,
+    "ULTIMO_SYNC": "2026-03-07T22:40:39",
+    "ERRO": "Processo travado - timeout automatico na correcao",
+    "CRIADO_EM": "2026-03-07T22:40:39"
+  },
+  {
+    "ID": 40,
+    "STATUS": "TIMEOUT",
+    "TIPO": "FULL_TICKETS/PAST",
+    "ENDPOINT": "tickets/past",
+    "TOTAL_PROCESSADOS": 1450,
+    "ULTIMO_SYNC": "2026-03-07T22:41:50",
+    "ERRO": "Processo travado - timeout automatico na correcao",
+    "CRIADO_EM": "2026-03-07T22:41:50"
+  },
+  {
+    "ID": 41,
+    "STATUS": "TIMEOUT",
+    "TIPO": "FULL_TICKETS/PAST",
+    "ENDPOINT": "tickets/past",
+    "TOTAL_PROCESSADOS": 1500,
+    "ULTIMO_SYNC": "2026-03-07T22:43:32",
+    "ERRO": "Processo travado - timeout automatico na correcao",
+    "CRIADO_EM": "2026-03-07T22:43:32"
+  },
+  {
+    "ID": 42,
+    "STATUS": "TIMEOUT",
+    "TIPO": "FULL_TICKETS/PAST",
+    "ENDPOINT": "tickets/past",
+    "TOTAL_PROCESSADOS": 1550,
+    "ULTIMO_SYNC": "2026-03-07T22:44:53",
+    "ERRO": "Processo travado - timeout automatico na correcao",
+    "CRIADO_EM": "2026-03-07T22:44:53"
+  },
+  {
+    "ID": 43,
+    "STATUS": "TIMEOUT",
+    "TIPO": "FULL_TICKETS/PAST",
+    "ENDPOINT": "tickets/past",
+    "TOTAL_PROCESSADOS": 1600,
+    "ULTIMO_SYNC": "2026-03-07T22:45:09",
+    "ERRO": "Processo travado - timeout automatico na correcao",
+    "CRIADO_EM": "2026-03-07T22:45:09"
+  },
+  {
+    "ID": 44,
+    "STATUS": "TIMEOUT",
+    "TIPO": "FULL_TICKETS/PAST",
+    "ENDPOINT": "tickets/past",
+    "TOTAL_PROCESSADOS": 1650,
+    "ULTIMO_SYNC": "2026-03-07T22:47:32",
+    "ERRO": "Processo travado - timeout automatico na correcao",
+    "CRIADO_EM": "2026-03-07T22:47:32"
+  },
+  {
+    "ID": 45,
+    "STATUS": "TIMEOUT",
+    "TIPO": "FULL_TICKETS/PAST",
+    "ENDPOINT": "tickets/past",
+    "TOTAL_PROCESSADOS": 1700,
+    "ULTIMO_SYNC": "2026-03-07T22:48:55",
+    "ERRO": "Processo travado - timeout automatico na correcao",
+    "CRIADO_EM": "2026-03-07T22:48:55"
+  },
+  {
+    "ID": 46,
+    "STATUS": "TIMEOUT",
+    "TIPO": "FULL_TICKETS/PAST",
+    "ENDPOINT": "tickets/past",
+    "TOTAL_PROCESSADOS": 1750,
+    "ULTIMO_SYNC": "2026-03-07T22:50:26",
+    "ERRO": "Processo travado - timeout automatico na correcao",
+    "CRIADO_EM": "2026-03-07T22:50:26"
+  },
+  {
+    "ID": 47,
+    "STATUS": "TIMEOUT",
+    "TIPO": "FULL_TICKETS/PAST",
+    "ENDPOINT": "tickets/past",
+    "TOTAL_PROCESSADOS": 1800,
+    "ULTIMO_SYNC": "2026-03-07T22:51:51",
+    "ERRO": "Processo travado - timeout automatico na correcao",
+    "CRIADO_EM": "2026-03-07T22:51:51"
+  },
+  {
+    "ID": 48,
+    "STATUS": "TIMEOUT",
+    "TIPO": "FULL_TICKETS/PAST",
+    "ENDPOINT": "tickets/past",
+    "TOTAL_PROCESSADOS": 1850,
+    "ULTIMO_SYNC": "2026-03-07T22:52:04",
+    "ERRO": "Processo travado - timeout automatico na correcao",
+    "CRIADO_EM": "2026-03-07T22:52:04"
+  },
+  {
+    "ID": 49,
+    "STATUS": "TIMEOUT",
+    "TIPO": "FULL_TICKETS/PAST",
+    "ENDPOINT": "tickets/past",
+    "TOTAL_PROCESSADOS": 1900,
+    "ULTIMO_SYNC": "2026-03-07T22:52:31",
+    "ERRO": "Processo travado - timeout automatico na correcao",
+    "CRIADO_EM": "2026-03-07T22:52:31"
+  },
+  {
+    "ID": 50,
+    "STATUS": "TIMEOUT",
+    "TIPO": "FULL_TICKETS/PAST",
+    "ENDPOINT": "tickets/past",
+    "TOTAL_PROCESSADOS": 1950,
+    "ULTIMO_SYNC": "2026-03-07T22:53:09",
+    "ERRO": "Processo travado - timeout automatico na correcao",
+    "CRIADO_EM": "2026-03-07T22:53:09"
+  },
+  {
+    "ID": 51,
+    "STATUS": "TIMEOUT",
+    "TIPO": "FULL_TICKETS/PAST",
+    "ENDPOINT": "tickets/past",
+    "TOTAL_PROCESSADOS": 2000,
+    "ULTIMO_SYNC": "2026-03-07T22:53:40",
+    "ERRO": "Processo travado - timeout automatico na correcao",
+    "CRIADO_EM": "2026-03-07T22:53:40"
+  },
+  {
+    "ID": 52,
+    "STATUS": "TIMEOUT",
+    "TIPO": "FULL_TICKETS/PAST",
+    "ENDPOINT": "tickets/past",
+    "TOTAL_PROCESSADOS": 2050,
+    "ULTIMO_SYNC": "2026-03-07T22:54:09",
+    "ERRO": "Processo travado - timeout automatico na correcao",
+    "CRIADO_EM": "2026-03-07T22:54:09"
+  },
+  {
+    "ID": 53,
+    "STATUS": "TIMEOUT",
+    "TIPO": "FULL_TICKETS/PAST",
+    "ENDPOINT": "tickets/past",
+    "TOTAL_PROCESSADOS": 2100,
+    "ULTIMO_SYNC": "2026-03-07T22:56:50",
+    "ERRO": "Processo travado - timeout automatico na correcao",
+    "CRIADO_EM": "2026-03-07T22:56:50"
+  },
+  {
+    "ID": 54,
+    "STATUS": "TIMEOUT",
+    "TIPO": "FULL_TICKETS/PAST",
+    "ENDPOINT": "tickets/past",
+    "TOTAL_PROCESSADOS": 2200,
+    "ULTIMO_SYNC": "2026-03-07T22:59:52",
+    "ERRO": "Processo travado - timeout automatico na correcao",
+    "CRIADO_EM": "2026-03-07T22:59:52"
+  },
+  {
+    "ID": 55,
+    "STATUS": "TIMEOUT",
+    "TIPO": "FULL_TICKETS/PAST",
+    "ENDPOINT": "tickets/past",
+    "TOTAL_PROCESSADOS": 2250,
+    "ULTIMO_SYNC": "2026-03-07T23:00:26",
+    "ERRO": "Processo travado - timeout automatico na correcao",
+    "CRIADO_EM": "2026-03-07T23:00:26"
+  },
+  {
+    "ID": 56,
+    "STATUS": "TIMEOUT",
+    "TIPO": "FULL_TICKETS/PAST",
+    "ENDPOINT": "tickets/past",
+    "TOTAL_PROCESSADOS": 2300,
+    "ULTIMO_SYNC": "2026-03-07T23:05:48",
+    "ERRO": "Processo travado - timeout automatico na correcao",
+    "CRIADO_EM": "2026-03-07T23:05:48"
+  },
+  {
+    "ID": 57,
+    "STATUS": "TIMEOUT",
+    "TIPO": "FULL_TICKETS/PAST",
+    "ENDPOINT": "tickets/past",
+    "TOTAL_PROCESSADOS": 2350,
+    "ULTIMO_SYNC": "2026-03-07T23:06:16",
+    "ERRO": "Processo travado - timeout automatico na correcao",
+    "CRIADO_EM": "2026-03-07T23:06:16"
+  },
+  {
+    "ID": 58,
+    "STATUS": "TIMEOUT",
+    "TIPO": "FULL_TICKETS/PAST",
+    "ENDPOINT": "tickets/past",
+    "TOTAL_PROCESSADOS": 2400,
+    "ULTIMO_SYNC": "2026-03-07T23:08:35",
+    "ERRO": "Processo travado - timeout automatico na correcao",
+    "CRIADO_EM": "2026-03-07T23:08:35"
+  },
+  {
+    "ID": 59,
+    "STATUS": "TIMEOUT",
+    "TIPO": "FULL_TICKETS/PAST",
+    "ENDPOINT": "tickets/past",
+    "TOTAL_PROCESSADOS": 2450,
+    "ULTIMO_SYNC": "2026-03-07T23:12:35",
+    "ERRO": "Processo travado - timeout automatico na correcao",
+    "CRIADO_EM": "2026-03-07T23:12:35"
+  },
+  {
+    "ID": 60,
+    "STATUS": "TIMEOUT",
+    "TIPO": "FULL_TICKETS/PAST",
+    "ENDPOINT": "tickets/past",
+    "TOTAL_PROCESSADOS": 2500,
+    "ULTIMO_SYNC": "2026-03-07T23:13:04",
+    "ERRO": "Processo travado - timeout automatico na correcao",
+    "CRIADO_EM": "2026-03-07T23:13:04"
+  },
+  {
+    "ID": 61,
+    "STATUS": "TIMEOUT",
+    "TIPO": "FULL_TICKETS/PAST",
+    "ENDPOINT": "tickets/past",
+    "TOTAL_PROCESSADOS": 2550,
+    "ULTIMO_SYNC": "2026-03-07T23:13:37",
+    "ERRO": "Processo travado - timeout automatico na correcao",
+    "CRIADO_EM": "2026-03-07T23:13:37"
+  },
+  {
+    "ID": 62,
+    "STATUS": "TIMEOUT",
+    "TIPO": "FULL_TICKETS/PAST",
+    "ENDPOINT": "tickets/past",
+    "TOTAL_PROCESSADOS": 2600,
+    "ULTIMO_SYNC": "2026-03-07T23:14:11",
+    "ERRO": "Processo travado - timeout automatico na correcao",
+    "CRIADO_EM": "2026-03-07T23:14:11"
+  },
+  {
+    "ID": 63,
+    "STATUS": "TIMEOUT",
+    "TIPO": "FULL_TICKETS/PAST",
+    "ENDPOINT": "tickets/past",
+    "TOTAL_PROCESSADOS": 2650,
+    "ULTIMO_SYNC": "2026-03-07T23:14:51",
+    "ERRO": "Processo travado - timeout automatico na correcao",
+    "CRIADO_EM": "2026-03-07T23:14:51"
+  },
+  {
+    "ID": 64,
+    "STATUS": "TIMEOUT",
+    "TIPO": "FULL_TICKETS/PAST",
+    "ENDPOINT": "tickets/past",
+    "TOTAL_PROCESSADOS": 2700,
+    "ULTIMO_SYNC": "2026-03-07T23:18:04",
+    "ERRO": "Processo travado - timeout automatico na correcao",
+    "CRIADO_EM": "2026-03-07T23:18:04"
+  },
+  {
+    "ID": 65,
+    "STATUS": "TIMEOUT",
+    "TIPO": "FULL_TICKETS",
+    "ENDPOINT": "tickets",
+    "TOTAL_PROCESSADOS": 0,
+    "ULTIMO_SYNC": "2026-03-07T23:20:59",
+    "ERRO": "Processo travado - timeout automatico na correcao",
+    "CRIADO_EM": "2026-03-07T23:20:59"
+  },
+  {
+    "ID": 66,
+    "STATUS": "TIMEOUT",
+    "TIPO": "FULL_TICKETS",
+    "ENDPOINT": "tickets",
+    "TOTAL_PROCESSADOS": 50,
+    "ULTIMO_SYNC": "2026-03-07T23:22:40",
+    "ERRO": "Processo travado - timeout automatico na correcao",
+    "CRIADO_EM": "2026-03-07T23:22:40"
+  },
+  {
+    "ID": 67,
+    "STATUS": "TIMEOUT",
+    "TIPO": "FULL_PAST",
+    "ENDPOINT": "tickets/past",
+    "TOTAL_PROCESSADOS": 0,
+    "ULTIMO_SYNC": "2026-03-11T15:59:06",
+    "ERRO": "Batch sync timeout",
+    "CRIADO_EM": "2026-03-11T15:59:06"
+  },
+  {
+    "ID": 68,
+    "STATUS": "TIMEOUT",
+    "TIPO": "FULL_PAST",
+    "ENDPOINT": "tickets/past",
+    "TOTAL_PROCESSADOS": 50,
+    "ULTIMO_SYNC": "2026-03-11T16:01:10",
+    "ERRO": "Batch sync timeout",
+    "CRIADO_EM": "2026-03-11T16:01:10"
+  },
+  {
+    "ID": 69,
+    "STATUS": "TIMEOUT",
+    "TIPO": "FULL_PAST",
+    "ENDPOINT": "tickets/past",
+    "TOTAL_PROCESSADOS": 100,
+    "ULTIMO_SYNC": "2026-03-11T16:03:15",
+    "ERRO": "Batch sync timeout",
+    "CRIADO_EM": "2026-03-11T16:03:15"
+  },
+  {
+    "ID": 70,
+    "STATUS": "TIMEOUT",
+    "TIPO": "FULL_PAST",
+    "ENDPOINT": "tickets/past",
+    "TOTAL_PROCESSADOS": 150,
+    "ULTIMO_SYNC": "2026-03-11T16:07:29",
+    "ERRO": "Batch sync timeout",
+    "CRIADO_EM": "2026-03-11T16:07:29"
+  },
+  {
+    "ID": 71,
+    "STATUS": "TIMEOUT",
+    "TIPO": "FULL_PAST",
+    "ENDPOINT": "tickets/past",
+    "TOTAL_PROCESSADOS": 200,
+    "ULTIMO_SYNC": "2026-03-11T16:08:11",
+    "ERRO": "Batch sync timeout",
+    "CRIADO_EM": "2026-03-11T16:08:11"
+  },
+  {
+    "ID": 72,
+    "STATUS": "TIMEOUT",
+    "TIPO": "FULL_PAST",
+    "ENDPOINT": "tickets/past",
+    "TOTAL_PROCESSADOS": 250,
+    "ULTIMO_SYNC": "2026-03-11T16:10:32",
+    "ERRO": "Batch sync timeout",
+    "CRIADO_EM": "2026-03-11T16:10:32"
+  },
+  {
+    "ID": 73,
+    "STATUS": "TIMEOUT",
+    "TIPO": "FULL_PAST",
+    "ENDPOINT": "tickets/past",
+    "TOTAL_PROCESSADOS": 300,
+    "ULTIMO_SYNC": "2026-03-11T16:12:52",
+    "ERRO": "Batch sync timeout",
+    "CRIADO_EM": "2026-03-11T16:12:52"
+  },
+  {
+    "ID": 74,
+    "STATUS": "TIMEOUT",
+    "TIPO": "FULL_PAST",
+    "ENDPOINT": "tickets/past",
+    "TOTAL_PROCESSADOS": 350,
+    "ULTIMO_SYNC": "2026-03-11T16:15:01",
+    "ERRO": "Batch sync timeout",
+    "CRIADO_EM": "2026-03-11T16:15:01"
+  },
+  {
+    "ID": 75,
+    "STATUS": "TIMEOUT",
+    "TIPO": "BATCH_PAST",
+    "ENDPOINT": "tickets/past",
+    "TOTAL_PROCESSADOS": 0,
+    "ULTIMO_SYNC": "2026-03-11T16:16:43",
+    "ERRO": "Batch sync timeout",
+    "CRIADO_EM": "2026-03-11T16:16:43"
+  },
+  {
+    "ID": 76,
+    "STATUS": "TIMEOUT",
+    "TIPO": "FULL_PAST",
+    "ENDPOINT": "tickets/past",
+    "TOTAL_PROCESSADOS": 400,
+    "ULTIMO_SYNC": "2026-03-11T16:17:24",
+    "ERRO": "Batch sync timeout",
+    "CRIADO_EM": "2026-03-11T16:17:24"
+  },
+  {
+    "ID": 77,
+    "STATUS": "TIMEOUT",
+    "TIPO": "FULL_PAST",
+    "ENDPOINT": "tickets/past",
+    "TOTAL_PROCESSADOS": 450,
+    "ULTIMO_SYNC": "2026-03-11T16:19:26",
+    "ERRO": "Batch sync timeout",
+    "CRIADO_EM": "2026-03-11T16:19:26"
+  },
+  {
+    "ID": 78,
+    "STATUS": "TIMEOUT",
+    "TIPO": "FULL_PAST",
+    "ENDPOINT": "tickets/past",
+    "TOTAL_PROCESSADOS": 500,
+    "ULTIMO_SYNC": "2026-03-11T16:21:40",
+    "ERRO": "Batch sync timeout",
+    "CRIADO_EM": "2026-03-11T16:21:40"
+  },
+  {
+    "ID": 79,
+    "STATUS": "TIMEOUT",
+    "TIPO": "FULL_PAST",
+    "ENDPOINT": "tickets/past",
+    "TOTAL_PROCESSADOS": 550,
+    "ULTIMO_SYNC": "2026-03-11T16:22:20",
+    "ERRO": "Batch sync timeout",
+    "CRIADO_EM": "2026-03-11T16:22:20"
+  },
+  {
+    "ID": 80,
+    "STATUS": "TIMEOUT",
+    "TIPO": "FULL_PAST",
+    "ENDPOINT": "tickets/past",
+    "TOTAL_PROCESSADOS": 600,
+    "ULTIMO_SYNC": "2026-03-11T16:24:24",
+    "ERRO": "Batch sync timeout",
+    "CRIADO_EM": "2026-03-11T16:24:24"
+  },
+  {
+    "ID": 81,
+    "STATUS": "TIMEOUT",
+    "TIPO": "FULL_PAST",
+    "ENDPOINT": "tickets/past",
+    "TOTAL_PROCESSADOS": 650,
+    "ULTIMO_SYNC": "2026-03-11T16:26:38",
+    "ERRO": "Batch sync timeout",
+    "CRIADO_EM": "2026-03-11T16:26:38"
+  },
+  {
+    "ID": 82,
+    "STATUS": "TIMEOUT",
+    "TIPO": "FULL_PAST",
+    "ENDPOINT": "tickets/past",
+    "TOTAL_PROCESSADOS": 700,
+    "ULTIMO_SYNC": "2026-03-11T16:28:53",
+    "ERRO": "Batch sync timeout",
+    "CRIADO_EM": "2026-03-11T16:28:53"
+  },
+  {
+    "ID": 83,
+    "STATUS": "TIMEOUT",
+    "TIPO": "FULL_PAST",
+    "ENDPOINT": "tickets/past",
+    "TOTAL_PROCESSADOS": 750,
+    "ULTIMO_SYNC": "2026-03-11T16:31:09",
+    "ERRO": "Batch sync timeout",
+    "CRIADO_EM": "2026-03-11T16:31:09"
+  },
+  {
+    "ID": 84,
+    "STATUS": "TIMEOUT",
+    "TIPO": "FULL_PAST",
+    "ENDPOINT": "tickets/past",
+    "TOTAL_PROCESSADOS": 800,
+    "ULTIMO_SYNC": "2026-03-11T16:33:22",
+    "ERRO": "Batch sync timeout",
+    "CRIADO_EM": "2026-03-11T16:33:22"
+  },
+  {
+    "ID": 85,
+    "STATUS": "TIMEOUT",
+    "TIPO": "FULL_PAST",
+    "ENDPOINT": "tickets/past",
+    "TOTAL_PROCESSADOS": 850,
+    "ULTIMO_SYNC": "2026-03-11T16:35:36",
+    "ERRO": "Batch sync timeout",
+    "CRIADO_EM": "2026-03-11T16:35:36"
+  },
+  {
+    "ID": 86,
+    "STATUS": "TIMEOUT",
+    "TIPO": "FULL_PAST",
+    "ENDPOINT": "tickets/past",
+    "TOTAL_PROCESSADOS": 900,
+    "ULTIMO_SYNC": "2026-03-11T16:37:51",
+    "ERRO": "Batch sync timeout",
+    "CRIADO_EM": "2026-03-11T16:37:51"
+  },
+  {
+    "ID": 87,
+    "STATUS": "TIMEOUT",
+    "TIPO": "FULL_PAST",
+    "ENDPOINT": "tickets/past",
+    "TOTAL_PROCESSADOS": 950,
+    "ULTIMO_SYNC": "2026-03-11T16:39:57",
+    "ERRO": "Batch sync timeout",
+    "CRIADO_EM": "2026-03-11T16:39:57"
+  },
+  {
+    "ID": 88,
+    "STATUS": "TIMEOUT",
+    "TIPO": "FULL_PAST",
+    "ENDPOINT": "tickets/past",
+    "TOTAL_PROCESSADOS": 1000,
+    "ULTIMO_SYNC": "2026-03-11T16:40:38",
+    "ERRO": "Batch sync timeout",
+    "CRIADO_EM": "2026-03-11T16:40:38"
+  },
+  {
+    "ID": 89,
+    "STATUS": "TIMEOUT",
+    "TIPO": "FULL_PAST",
+    "ENDPOINT": "tickets/past",
+    "TOTAL_PROCESSADOS": 1050,
+    "ULTIMO_SYNC": "2026-03-11T16:42:56",
+    "ERRO": "Batch sync timeout",
+    "CRIADO_EM": "2026-03-11T16:42:56"
+  },
+  {
+    "ID": 90,
+    "STATUS": "TIMEOUT",
+    "TIPO": "FULL_PAST",
+    "ENDPOINT": "tickets/past",
+    "TOTAL_PROCESSADOS": 1100,
+    "ULTIMO_SYNC": "2026-03-11T16:45:15",
+    "ERRO": "Batch sync timeout",
+    "CRIADO_EM": "2026-03-11T16:45:15"
+  },
+  {
+    "ID": 91,
+    "STATUS": "COMPLETED",
+    "TIPO": "BATCH_PAST",
+    "ENDPOINT": "tickets/past",
+    "TOTAL_PROCESSADOS": 750,
+    "ULTIMO_SYNC": "2026-03-11T16:47:23",
+    "ERRO": "",
+    "CRIADO_EM": "2026-03-11T16:47:23"
+  },
+  {
+    "ID": 92,
+    "STATUS": "TIMEOUT",
+    "TIPO": "FULL_PAST",
+    "ENDPOINT": "tickets/past",
+    "TOTAL_PROCESSADOS": 1150,
+    "ULTIMO_SYNC": "2026-03-11T16:47:47",
+    "ERRO": "Batch sync timeout",
+    "CRIADO_EM": "2026-03-11T16:47:47"
+  },
+  {
+    "ID": 93,
+    "STATUS": "TIMEOUT",
+    "TIPO": "FULL_PAST",
+    "ENDPOINT": "tickets/past",
+    "TOTAL_PROCESSADOS": 1200,
+    "ULTIMO_SYNC": "2026-03-11T16:50:05",
+    "ERRO": "Batch sync timeout",
+    "CRIADO_EM": "2026-03-11T16:50:05"
+  },
+  {
+    "ID": 94,
+    "STATUS": "TIMEOUT",
+    "TIPO": "BATCH_PAST",
+    "ENDPOINT": "tickets/past",
+    "TOTAL_PROCESSADOS": 0,
+    "ULTIMO_SYNC": "2026-03-11T16:52:08",
+    "ERRO": "Batch sync timeout",
+    "CRIADO_EM": "2026-03-11T16:52:08"
+  },
+  {
+    "ID": 95,
+    "STATUS": "TIMEOUT",
+    "TIPO": "FULL_PAST",
+    "ENDPOINT": "tickets/past",
+    "TOTAL_PROCESSADOS": 1250,
+    "ULTIMO_SYNC": "2026-03-11T16:52:13",
+    "ERRO": "Batch sync timeout",
+    "CRIADO_EM": "2026-03-11T16:52:13"
+  },
+  {
+    "ID": 96,
+    "STATUS": "TIMEOUT",
+    "TIPO": "FULL_PAST",
+    "ENDPOINT": "tickets/past",
+    "TOTAL_PROCESSADOS": 1300,
+    "ULTIMO_SYNC": "2026-03-11T16:54:39",
+    "ERRO": "Batch sync timeout",
+    "CRIADO_EM": "2026-03-11T16:54:39"
+  },
+  {
+    "ID": 97,
+    "STATUS": "TIMEOUT",
+    "TIPO": "FULL_PAST",
+    "ENDPOINT": "tickets/past",
+    "TOTAL_PROCESSADOS": 1350,
+    "ULTIMO_SYNC": "2026-03-11T16:59:04",
+    "ERRO": "Batch sync timeout",
+    "CRIADO_EM": "2026-03-11T16:59:04"
+  },
+  {
+    "ID": 98,
+    "STATUS": "TIMEOUT",
+    "TIPO": "FULL_PAST",
+    "ENDPOINT": "tickets/past",
+    "TOTAL_PROCESSADOS": 1400,
+    "ULTIMO_SYNC": "2026-03-11T17:01:23",
+    "ERRO": "Batch sync timeout",
+    "CRIADO_EM": "2026-03-11T17:01:23"
+  },
+  {
+    "ID": 99,
+    "STATUS": "TIMEOUT",
+    "TIPO": "FULL_PAST",
+    "ENDPOINT": "tickets/past",
+    "TOTAL_PROCESSADOS": 1450,
+    "ULTIMO_SYNC": "2026-03-11T17:06:01",
+    "ERRO": "Batch sync timeout",
+    "CRIADO_EM": "2026-03-11T17:06:01"
+  },
+  {
+    "ID": 100,
+    "STATUS": "TIMEOUT",
+    "TIPO": "FULL_PAST",
+    "ENDPOINT": "tickets/past",
+    "TOTAL_PROCESSADOS": 1500,
+    "ULTIMO_SYNC": "2026-03-11T17:13:40",
+    "ERRO": "Batch sync timeout",
+    "CRIADO_EM": "2026-03-11T17:13:40"
+  },
+  {
+    "ID": 101,
+    "STATUS": "TIMEOUT",
+    "TIPO": "FULL_PAST",
+    "ENDPOINT": "tickets/past",
+    "TOTAL_PROCESSADOS": 1550,
+    "ULTIMO_SYNC": "2026-03-11T17:20:17",
+    "ERRO": "Batch sync timeout",
+    "CRIADO_EM": "2026-03-11T17:20:17"
+  },
+  {
+    "ID": 102,
+    "STATUS": "COMPLETED",
+    "TIPO": "BATCH_PAST",
+    "ENDPOINT": "tickets/past",
+    "TOTAL_PROCESSADOS": 750,
+    "ULTIMO_SYNC": "2026-03-11T17:26:01",
+    "ERRO": "",
+    "CRIADO_EM": "2026-03-11T17:26:01"
+  },
+  {
+    "ID": 103,
+    "STATUS": "TIMEOUT",
+    "TIPO": "FULL_PAST",
+    "ENDPOINT": "tickets/past",
+    "TOTAL_PROCESSADOS": 1600,
+    "ULTIMO_SYNC": "2026-03-11T17:29:18",
+    "ERRO": "Batch sync timeout",
+    "CRIADO_EM": "2026-03-11T17:29:18"
+  },
+  {
+    "ID": 104,
+    "STATUS": "TIMEOUT",
+    "TIPO": "FULL_PAST",
+    "ENDPOINT": "tickets/past",
+    "TOTAL_PROCESSADOS": 1650,
+    "ULTIMO_SYNC": "2026-03-11T17:31:41",
+    "ERRO": "Batch sync timeout",
+    "CRIADO_EM": "2026-03-11T17:31:41"
+  },
+  {
+    "ID": 105,
+    "STATUS": "TIMEOUT",
+    "TIPO": "BATCH_PAST",
+    "ENDPOINT": "tickets/past",
+    "TOTAL_PROCESSADOS": 0,
+    "ULTIMO_SYNC": "2026-03-11T17:33:21",
+    "ERRO": "Batch sync timeout",
+    "CRIADO_EM": "2026-03-11T17:33:21"
+  },
+  {
+    "ID": 106,
+    "STATUS": "TIMEOUT",
+    "TIPO": "FULL_PAST",
+    "ENDPOINT": "tickets/past",
+    "TOTAL_PROCESSADOS": 1700,
+    "ULTIMO_SYNC": "2026-03-11T17:33:55",
+    "ERRO": "Batch sync timeout",
+    "CRIADO_EM": "2026-03-11T17:33:55"
+  },
+  {
+    "ID": 107,
+    "STATUS": "TIMEOUT",
+    "TIPO": "FULL_PAST",
+    "ENDPOINT": "tickets/past",
+    "TOTAL_PROCESSADOS": 1750,
+    "ULTIMO_SYNC": "2026-03-11T17:36:23",
+    "ERRO": "Batch sync timeout",
+    "CRIADO_EM": "2026-03-11T17:36:23"
+  },
+  {
+    "ID": 108,
+    "STATUS": "TIMEOUT",
+    "TIPO": "FULL_PAST",
+    "ENDPOINT": "tickets/past",
+    "TOTAL_PROCESSADOS": 1800,
+    "ULTIMO_SYNC": "2026-03-11T17:38:51",
+    "ERRO": "Batch sync timeout",
+    "CRIADO_EM": "2026-03-11T17:38:51"
+  },
+  {
+    "ID": 109,
+    "STATUS": "TIMEOUT",
+    "TIPO": "FULL_PAST",
+    "ENDPOINT": "tickets/past",
+    "TOTAL_PROCESSADOS": 1850,
+    "ULTIMO_SYNC": "2026-03-11T17:43:17",
+    "ERRO": "Batch sync timeout",
+    "CRIADO_EM": "2026-03-11T17:43:17"
+  },
+  {
+    "ID": 110,
+    "STATUS": "TIMEOUT",
+    "TIPO": "FULL_PAST",
+    "ENDPOINT": "tickets/past",
+    "TOTAL_PROCESSADOS": 1900,
+    "ULTIMO_SYNC": "2026-03-11T17:47:47",
+    "ERRO": "Batch sync timeout",
+    "CRIADO_EM": "2026-03-11T17:47:47"
+  },
+  {
+    "ID": 111,
+    "STATUS": "TIMEOUT",
+    "TIPO": "FULL_PAST",
+    "ENDPOINT": "tickets/past",
+    "TOTAL_PROCESSADOS": 1950,
+    "ULTIMO_SYNC": "2026-03-11T17:52:36",
+    "ERRO": "Batch sync timeout",
+    "CRIADO_EM": "2026-03-11T17:52:36"
+  },
+  {
+    "ID": 112,
+    "STATUS": "TIMEOUT",
+    "TIPO": "FULL_PAST",
+    "ENDPOINT": "tickets/past",
+    "TOTAL_PROCESSADOS": 2000,
+    "ULTIMO_SYNC": "2026-03-11T17:54:59",
+    "ERRO": "Batch sync timeout",
+    "CRIADO_EM": "2026-03-11T17:54:59"
+  },
+  {
+    "ID": 113,
+    "STATUS": "TIMEOUT",
+    "TIPO": "FULL_PAST",
+    "ENDPOINT": "tickets/past",
+    "TOTAL_PROCESSADOS": 2050,
+    "ULTIMO_SYNC": "2026-03-11T17:55:52",
+    "ERRO": "Batch sync timeout",
+    "CRIADO_EM": "2026-03-11T17:55:52"
+  },
+  {
+    "ID": 114,
+    "STATUS": "TIMEOUT",
+    "TIPO": "FULL_PAST",
+    "ENDPOINT": "tickets/past",
+    "TOTAL_PROCESSADOS": 2100,
+    "ULTIMO_SYNC": "2026-03-11T17:58:09",
+    "ERRO": "Batch sync timeout",
+    "CRIADO_EM": "2026-03-11T17:58:09"
+  },
+  {
+    "ID": 115,
+    "STATUS": "TIMEOUT",
+    "TIPO": "FULL_PAST",
+    "ENDPOINT": "tickets/past",
+    "TOTAL_PROCESSADOS": 2150,
+    "ULTIMO_SYNC": "2026-03-11T18:02:49",
+    "ERRO": "Batch sync timeout",
+    "CRIADO_EM": "2026-03-11T18:02:49"
+  },
+  {
+    "ID": 116,
+    "STATUS": "TIMEOUT",
+    "TIPO": "FULL_PAST",
+    "ENDPOINT": "tickets/past",
+    "TOTAL_PROCESSADOS": 2200,
+    "ULTIMO_SYNC": "2026-03-11T18:05:02",
+    "ERRO": "Batch sync timeout",
+    "CRIADO_EM": "2026-03-11T18:05:02"
+  },
+  {
+    "ID": 117,
+    "STATUS": "TIMEOUT",
+    "TIPO": "FULL_PAST",
+    "ENDPOINT": "tickets/past",
+    "TOTAL_PROCESSADOS": 2250,
+    "ULTIMO_SYNC": "2026-03-11T18:09:21",
+    "ERRO": "Batch sync timeout",
+    "CRIADO_EM": "2026-03-11T18:09:21"
+  },
+  {
+    "ID": 118,
+    "STATUS": "TIMEOUT",
+    "TIPO": "FULL_PAST",
+    "ENDPOINT": "tickets/past",
+    "TOTAL_PROCESSADOS": 2300,
+    "ULTIMO_SYNC": "2026-03-11T18:16:37",
+    "ERRO": "Processo travado - timeout automatico",
+    "CRIADO_EM": "2026-03-11T18:16:37"
+  },
+  {
+    "ID": 119,
+    "STATUS": "COMPLETED",
+    "TIPO": "BATCH_PAST",
+    "ENDPOINT": "tickets/past",
+    "TOTAL_PROCESSADOS": 750,
+    "ULTIMO_SYNC": "2026-03-11T18:17:26",
+    "ERRO": "",
+    "CRIADO_EM": "2026-03-11T18:17:26"
+  },
+  {
+    "ID": 120,
+    "STATUS": "TIMEOUT",
+    "TIPO": "FULL_PAST",
+    "ENDPOINT": "tickets/past",
+    "TOTAL_PROCESSADOS": 2350,
+    "ULTIMO_SYNC": "2026-03-11T18:19:00",
+    "ERRO": "Processo travado - timeout automatico",
+    "CRIADO_EM": "2026-03-11T18:19:00"
+  },
+  {
+    "ID": 121,
+    "STATUS": "TIMEOUT",
+    "TIPO": "FULL_PAST",
+    "ENDPOINT": "tickets/past",
+    "TOTAL_PROCESSADOS": 2400,
+    "ULTIMO_SYNC": "2026-03-11T18:19:54",
+    "ERRO": "Processo travado - timeout automatico",
+    "CRIADO_EM": "2026-03-11T18:19:54"
+  },
+  {
+    "ID": 122,
+    "STATUS": "TIMEOUT",
+    "TIPO": "FULL_PAST",
+    "ENDPOINT": "tickets/past",
+    "TOTAL_PROCESSADOS": 2450,
+    "ULTIMO_SYNC": "2026-03-11T18:24:20",
+    "ERRO": "Processo travado - timeout automatico",
+    "CRIADO_EM": "2026-03-11T18:24:20"
+  },
+  {
+    "ID": 123,
+    "STATUS": "TIMEOUT",
+    "TIPO": "BATCH_PAST",
+    "ENDPOINT": "tickets/past",
+    "TOTAL_PROCESSADOS": 0,
+    "ULTIMO_SYNC": "2026-03-11T18:24:40",
+    "ERRO": "Processo travado - timeout automatico",
+    "CRIADO_EM": "2026-03-11T18:24:40"
+  },
+  {
+    "ID": 124,
+    "STATUS": "TIMEOUT",
+    "TIPO": "FULL_PAST",
+    "ENDPOINT": "tickets/past",
+    "TOTAL_PROCESSADOS": 2500,
+    "ULTIMO_SYNC": "2026-03-11T18:26:57",
+    "ERRO": "Processo travado - timeout automatico",
+    "CRIADO_EM": "2026-03-11T18:26:57"
+  },
+  {
+    "ID": 125,
+    "STATUS": "TIMEOUT",
+    "TIPO": "FULL_PAST",
+    "ENDPOINT": "tickets/past",
+    "TOTAL_PROCESSADOS": 2550,
+    "ULTIMO_SYNC": "2026-03-11T18:29:14",
+    "ERRO": "Processo travado - timeout automatico",
+    "CRIADO_EM": "2026-03-11T18:29:14"
+  },
+  {
+    "ID": 126,
+    "STATUS": "TIMEOUT",
+    "TIPO": "FULL_PAST",
+    "ENDPOINT": "tickets/past",
+    "TOTAL_PROCESSADOS": 2600,
+    "ULTIMO_SYNC": "2026-03-11T18:33:50",
+    "ERRO": "Processo travado - timeout automatico",
+    "CRIADO_EM": "2026-03-11T18:33:50"
+  },
+  {
+    "ID": 127,
+    "STATUS": "TIMEOUT",
+    "TIPO": "FULL_PAST",
+    "ENDPOINT": "tickets/past",
+    "TOTAL_PROCESSADOS": 2650,
+    "ULTIMO_SYNC": "2026-03-11T18:36:16",
+    "ERRO": "Processo travado - timeout automatico",
+    "CRIADO_EM": "2026-03-11T18:36:16"
+  },
+  {
+    "ID": 128,
+    "STATUS": "TIMEOUT",
+    "TIPO": "FULL_PAST",
+    "ENDPOINT": "tickets/past",
+    "TOTAL_PROCESSADOS": 2700,
+    "ULTIMO_SYNC": "2026-03-11T18:39:21",
+    "ERRO": "Processo travado - timeout automatico",
+    "CRIADO_EM": "2026-03-11T18:39:21"
+  },
+  {
+    "ID": 129,
+    "STATUS": "TIMEOUT",
+    "TIPO": "FULL_PAST",
+    "ENDPOINT": "tickets/past",
+    "TOTAL_PROCESSADOS": 2750,
+    "ULTIMO_SYNC": "2026-03-11T18:43:55",
+    "ERRO": "Processo travado - timeout automatico",
+    "CRIADO_EM": "2026-03-11T18:43:55"
+  },
+  {
+    "ID": 130,
+    "STATUS": "TIMEOUT",
+    "TIPO": "FULL_PAST",
+    "ENDPOINT": "tickets/past",
+    "TOTAL_PROCESSADOS": 2800,
+    "ULTIMO_SYNC": "2026-03-11T18:48:18",
+    "ERRO": "Processo travado - timeout automatico",
+    "CRIADO_EM": "2026-03-11T18:48:18"
+  },
+  {
+    "ID": 131,
+    "STATUS": "TIMEOUT",
+    "TIPO": "FULL_PAST",
+    "ENDPOINT": "tickets/past",
+    "TOTAL_PROCESSADOS": 2850,
+    "ULTIMO_SYNC": "2026-03-11T18:51:05",
+    "ERRO": "Processo travado - timeout automatico",
+    "CRIADO_EM": "2026-03-11T18:51:05"
+  },
+  {
+    "ID": 132,
+    "STATUS": "TIMEOUT",
+    "TIPO": "FULL_PAST",
+    "ENDPOINT": "tickets/past",
+    "TOTAL_PROCESSADOS": 2900,
+    "ULTIMO_SYNC": "2026-03-11T18:53:40",
+    "ERRO": "Processo travado - timeout automatico",
+    "CRIADO_EM": "2026-03-11T18:53:40"
+  },
+  {
+    "ID": 133,
+    "STATUS": "TIMEOUT",
+    "TIPO": "FULL_PAST",
+    "ENDPOINT": "tickets/past",
+    "TOTAL_PROCESSADOS": 2950,
+    "ULTIMO_SYNC": "2026-03-11T18:56:03",
+    "ERRO": "Processo travado - timeout automatico",
+    "CRIADO_EM": "2026-03-11T18:56:03"
+  },
+  {
+    "ID": 134,
+    "STATUS": "TIMEOUT",
+    "TIPO": "INCREMENTAL",
+    "ENDPOINT": "auto-sync",
+    "TOTAL_PROCESSADOS": 0,
+    "ULTIMO_SYNC": "2026-03-11T21:50:36",
+    "ERRO": "Processo travado - timeout automatico",
+    "CRIADO_EM": "2026-03-11T21:50:36"
+  },
+  {
+    "ID": 135,
+    "STATUS": "COMPLETED",
+    "TIPO": "INCREMENTAL",
+    "ENDPOINT": "tickets",
+    "TOTAL_PROCESSADOS": 45,
+    "ULTIMO_SYNC": "2026-03-11T21:50:40",
+    "ERRO": "",
+    "CRIADO_EM": "2026-03-11T21:50:40"
+  },
+  {
+    "ID": 136,
+    "STATUS": "TIMEOUT",
+    "TIPO": "INCREMENTAL",
+    "ENDPOINT": "auto-sync",
+    "TOTAL_PROCESSADOS": 0,
+    "ULTIMO_SYNC": "2026-03-11T21:55:40",
+    "ERRO": "Processo travado - timeout automatico",
+    "CRIADO_EM": "2026-03-11T21:55:40"
+  },
+  {
+    "ID": 137,
+    "STATUS": "ERROR",
+    "TIPO": "INCREMENTAL",
+    "ENDPOINT": "auto-sync",
+    "TOTAL_PROCESSADOS": 0,
+    "ULTIMO_SYNC": "2026-03-11T21:56:40",
+    "ERRO": "Falha no auto-sync",
+    "CRIADO_EM": "2026-03-11T21:56:40"
+  },
+  {
+    "ID": 138,
+    "STATUS": "TIMEOUT",
+    "TIPO": "BATCH_PAST",
+    "ENDPOINT": "tickets/past",
+    "TOTAL_PROCESSADOS": 0,
+    "ULTIMO_SYNC": "2026-03-11T21:57:59",
+    "ERRO": "Processo travado - timeout automatico",
+    "CRIADO_EM": "2026-03-11T21:57:59"
+  },
+  {
+    "ID": 139,
+    "STATUS": "TIMEOUT",
+    "TIPO": "INCREMENTAL",
+    "ENDPOINT": "auto-sync",
+    "TOTAL_PROCESSADOS": 0,
+    "ULTIMO_SYNC": "2026-03-11T22:00:40",
+    "ERRO": "Processo travado - timeout automatico",
+    "CRIADO_EM": "2026-03-11T22:00:40"
+  },
+  {
+    "ID": 140,
+    "STATUS": "NO_CHANGES",
+    "TIPO": "INCREMENTAL",
+    "ENDPOINT": "tickets",
+    "TOTAL_PROCESSADOS": 0,
+    "ULTIMO_SYNC": "2026-03-11T22:00:45",
+    "ERRO": "",
+    "CRIADO_EM": "2026-03-11T22:00:45"
+  },
+  {
+    "ID": 141,
+    "STATUS": "TIMEOUT",
+    "TIPO": "INCREMENTAL",
+    "ENDPOINT": "auto-sync",
+    "TOTAL_PROCESSADOS": 0,
+    "ULTIMO_SYNC": "2026-03-11T22:05:48",
+    "ERRO": "Processo travado - timeout automatico",
+    "CRIADO_EM": "2026-03-11T22:05:48"
+  },
+  {
+    "ID": 142,
+    "STATUS": "NO_CHANGES",
+    "TIPO": "INCREMENTAL",
+    "ENDPOINT": "tickets",
+    "TOTAL_PROCESSADOS": 0,
+    "ULTIMO_SYNC": "2026-03-11T22:05:52",
+    "ERRO": "",
+    "CRIADO_EM": "2026-03-11T22:05:52"
+  },
+  {
+    "ID": 143,
+    "STATUS": "TIMEOUT",
+    "TIPO": "INCREMENTAL",
+    "ENDPOINT": "auto-sync",
+    "TOTAL_PROCESSADOS": 0,
+    "ULTIMO_SYNC": "2026-03-11T22:11:48",
+    "ERRO": "Processo travado - timeout automatico",
+    "CRIADO_EM": "2026-03-11T22:11:48"
+  },
+  {
+    "ID": 144,
+    "STATUS": "NO_CHANGES",
+    "TIPO": "INCREMENTAL",
+    "ENDPOINT": "tickets",
+    "TOTAL_PROCESSADOS": 0,
+    "ULTIMO_SYNC": "2026-03-11T22:11:52",
+    "ERRO": "",
+    "CRIADO_EM": "2026-03-11T22:11:52"
+  },
+  {
+    "ID": 145,
+    "STATUS": "TIMEOUT",
+    "TIPO": "INCREMENTAL",
+    "ENDPOINT": "auto-sync",
+    "TOTAL_PROCESSADOS": 0,
+    "ULTIMO_SYNC": "2026-03-11T22:17:48",
+    "ERRO": "Processo travado - timeout automatico",
+    "CRIADO_EM": "2026-03-11T22:17:48"
+  },
+  {
+    "ID": 146,
+    "STATUS": "NO_CHANGES",
+    "TIPO": "INCREMENTAL",
+    "ENDPOINT": "tickets",
+    "TOTAL_PROCESSADOS": 0,
+    "ULTIMO_SYNC": "2026-03-11T22:17:52",
+    "ERRO": "",
+    "CRIADO_EM": "2026-03-11T22:17:52"
+  },
+  {
+    "ID": 147,
+    "STATUS": "TIMEOUT",
+    "TIPO": "INCREMENTAL",
+    "ENDPOINT": "auto-sync",
+    "TOTAL_PROCESSADOS": 0,
+    "ULTIMO_SYNC": "2026-03-11T22:23:48",
+    "ERRO": "Processo travado - timeout automatico",
+    "CRIADO_EM": "2026-03-11T22:23:48"
+  },
+  {
+    "ID": 148,
+    "STATUS": "NO_CHANGES",
+    "TIPO": "INCREMENTAL",
+    "ENDPOINT": "tickets",
+    "TOTAL_PROCESSADOS": 0,
+    "ULTIMO_SYNC": "2026-03-11T22:23:52",
+    "ERRO": "",
+    "CRIADO_EM": "2026-03-11T22:23:52"
+  },
+  {
+    "ID": 149,
+    "STATUS": "TIMEOUT",
+    "TIPO": "INCREMENTAL",
+    "ENDPOINT": "auto-sync",
+    "TOTAL_PROCESSADOS": 0,
+    "ULTIMO_SYNC": "2026-03-11T22:29:48",
+    "ERRO": "Processo travado - timeout automatico",
+    "CRIADO_EM": "2026-03-11T22:29:48"
+  },
+  {
+    "ID": 150,
+    "STATUS": "COMPLETED",
+    "TIPO": "INCREMENTAL",
+    "ENDPOINT": "tickets",
+    "TOTAL_PROCESSADOS": 1,
+    "ULTIMO_SYNC": "2026-03-11T22:29:51",
+    "ERRO": "",
+    "CRIADO_EM": "2026-03-11T22:29:51"
+  },
+  {
+    "ID": 151,
+    "STATUS": "TIMEOUT",
+    "TIPO": "INCREMENTAL",
+    "ENDPOINT": "auto-sync",
+    "TOTAL_PROCESSADOS": 0,
+    "ULTIMO_SYNC": "2026-03-11T22:35:48",
+    "ERRO": "Processo travado - timeout automatico",
+    "CRIADO_EM": "2026-03-11T22:35:48"
+  },
+  {
+    "ID": 152,
+    "STATUS": "NO_CHANGES",
+    "TIPO": "INCREMENTAL",
+    "ENDPOINT": "tickets",
+    "TOTAL_PROCESSADOS": 0,
+    "ULTIMO_SYNC": "2026-03-11T22:35:51",
+    "ERRO": "",
+    "CRIADO_EM": "2026-03-11T22:35:51"
+  },
+  {
+    "ID": 153,
+    "STATUS": "TIMEOUT",
+    "TIPO": "INCREMENTAL",
+    "ENDPOINT": "auto-sync",
+    "TOTAL_PROCESSADOS": 0,
+    "ULTIMO_SYNC": "2026-03-11T22:41:48",
+    "ERRO": "Batch sync timeout",
+    "CRIADO_EM": "2026-03-11T22:41:48"
+  },
+  {
+    "ID": 154,
+    "STATUS": "COMPLETED",
+    "TIPO": "INCREMENTAL",
+    "ENDPOINT": "tickets",
+    "TOTAL_PROCESSADOS": 1,
+    "ULTIMO_SYNC": "2026-03-11T22:41:51",
+    "ERRO": "",
+    "CRIADO_EM": "2026-03-11T22:41:51"
+  },
+  {
+    "ID": 155,
+    "STATUS": "TIMEOUT",
+    "TIPO": "INCREMENTAL",
+    "ENDPOINT": "auto-sync",
+    "TOTAL_PROCESSADOS": 0,
+    "ULTIMO_SYNC": "2026-03-11T22:47:48",
+    "ERRO": "Batch sync timeout",
+    "CRIADO_EM": "2026-03-11T22:47:48"
+  },
+  {
+    "ID": 156,
+    "STATUS": "COMPLETED",
+    "TIPO": "INCREMENTAL",
+    "ENDPOINT": "tickets",
+    "TOTAL_PROCESSADOS": 1,
+    "ULTIMO_SYNC": "2026-03-11T22:47:52",
+    "ERRO": "",
+    "CRIADO_EM": "2026-03-11T22:47:52"
+  },
+  {
+    "ID": 157,
+    "STATUS": "ERROR",
+    "TIPO": "BATCH_PAST",
+    "ENDPOINT": "tickets/past",
+    "TOTAL_PROCESSADOS": 150,
+    "ULTIMO_SYNC": "2026-03-11T22:53:37",
+    "ERRO": "5 erros consecutivos",
+    "CRIADO_EM": "2026-03-11T22:53:37"
+  },
+  {
+    "ID": 158,
+    "STATUS": "TIMEOUT",
+    "TIPO": "BATCH_PAST",
+    "ENDPOINT": "tickets/past",
+    "TOTAL_PROCESSADOS": 0,
+    "ULTIMO_SYNC": "2026-03-11T22:54:10",
+    "ERRO": "Batch sync timeout",
+    "CRIADO_EM": "2026-03-11T22:54:10"
+  },
+  {
+    "ID": 159,
+    "STATUS": "COMPLETED",
+    "TIPO": "BATCH_PAST",
+    "ENDPOINT": "tickets/past",
+    "TOTAL_PROCESSADOS": 475,
+    "ULTIMO_SYNC": "2026-03-12T01:52:36",
+    "ERRO": "",
+    "CRIADO_EM": "2026-03-12T01:52:36"
+  },
+  {
+    "ID": 160,
+    "STATUS": "TIMEOUT",
+    "TIPO": "BATCH_PAST",
+    "ENDPOINT": "tickets/past",
+    "TOTAL_PROCESSADOS": 0,
+    "ULTIMO_SYNC": "2026-03-12T01:52:53",
+    "ERRO": "Batch sync timeout",
+    "CRIADO_EM": "2026-03-12T01:52:53"
+  },
+  {
+    "ID": 161,
+    "STATUS": "COMPLETED",
+    "TIPO": "BATCH_PAST",
+    "ENDPOINT": "tickets/past",
+    "TOTAL_PROCESSADOS": 300,
+    "ULTIMO_SYNC": "2026-03-12T04:57:33",
+    "ERRO": "",
+    "CRIADO_EM": "2026-03-12T04:57:33"
+  },
+  {
+    "ID": 162,
+    "STATUS": "TIMEOUT",
+    "TIPO": "BATCH_PAST",
+    "ENDPOINT": "tickets/past",
+    "TOTAL_PROCESSADOS": 0,
+    "ULTIMO_SYNC": "2026-03-12T04:57:45",
+    "ERRO": "Processo travado - timeout automatico",
+    "CRIADO_EM": "2026-03-12T04:57:45"
+  },
+  {
+    "ID": 163,
+    "STATUS": "RUNNING",
+    "TIPO": "INCREMENTAL",
+    "ENDPOINT": "auto-sync",
+    "TOTAL_PROCESSADOS": 0,
+    "ULTIMO_SYNC": "2026-03-12T10:43:36",
+    "ERRO": "",
+    "CRIADO_EM": "2026-03-12T10:43:36"
+  },
+  {
+    "ID": 164,
+    "STATUS": "COMPLETED",
+    "TIPO": "INCREMENTAL",
+    "ENDPOINT": "tickets",
+    "TOTAL_PROCESSADOS": 12,
+    "ULTIMO_SYNC": "2026-03-12T10:43:42",
+    "ERRO": "",
+    "CRIADO_EM": "2026-03-12T10:43:42"
+  },
+  {
+    "ID": 165,
+    "STATUS": "RUNNING",
+    "TIPO": "INCREMENTAL",
+    "ENDPOINT": "auto-sync",
+    "TOTAL_PROCESSADOS": 0,
+    "ULTIMO_SYNC": "2026-03-12T10:49:36",
+    "ERRO": "",
+    "CRIADO_EM": "2026-03-12T10:49:36"
+  },
+  {
+    "ID": 166,
+    "STATUS": "NO_CHANGES",
+    "TIPO": "INCREMENTAL",
+    "ENDPOINT": "tickets",
+    "TOTAL_PROCESSADOS": 0,
+    "ULTIMO_SYNC": "2026-03-12T10:49:41",
+    "ERRO": "",
+    "CRIADO_EM": "2026-03-12T10:49:41"
+  }
+]

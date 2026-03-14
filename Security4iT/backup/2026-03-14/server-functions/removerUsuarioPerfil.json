@@ -1,0 +1,10 @@
+{
+  "id": 421,
+  "name": "removerUsuarioPerfil",
+  "type": "SQL",
+  "description": "Remove mapeamento usuario-perfil",
+  "code": "DELETE FROM USUARIO_PERFIL WHERE USER_EMAIL = '{{userEmail}}'",
+  "createdBy": "leandro.moreira@neuonsolucoes.com",
+  "createdAt": "2026-03-14T02:57:26",
+  "updatedAt": "2026-03-14T02:57:26"
+}

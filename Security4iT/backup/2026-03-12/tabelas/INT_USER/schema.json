@@ -1,0 +1,29 @@
+{
+  "name": "INT_USER",
+  "columns": [
+    {
+      "name": "ID",
+      "type": "INT",
+      "isPk": true,
+      "nullable": false
+    },
+    {
+      "name": "DESCR",
+      "type": "TEXT(256)",
+      "isPk": false,
+      "nullable": true
+    },
+    {
+      "name": "ISDEV",
+      "type": "INT",
+      "isPk": false,
+      "nullable": true
+    },
+    {
+      "name": "CUSTOM_DOMAIN",
+      "type": "TEXT(100)",
+      "isPk": false,
+      "nullable": true
+    }
+  ]
+}

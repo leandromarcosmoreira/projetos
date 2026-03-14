@@ -1,0 +1,10 @@
+{
+  "id": 406,
+  "name": "horasApontadasClienteAll",
+  "type": "SQL",
+  "description": "Horas apontadas por cliente - todas categorias",
+  "code": "SELECT TC.NOME AS name,\n       ROUND(SUM(CAST(AP.TEMPO_CONTABIL AS DECIMAL)), 1) AS value,\n       MAX(SUBSTRING(AP.DATA, 1, 7)) AS mes\nFROM APONTAMENTOS AP\nJOIN TICKETS T ON T.ID = AP.TICKET_ID\nJOIN TICKET_CLIENTES TC ON TC.TICKET_ID = T.ID\nWHERE ('{{mes}}' = '' OR SUBSTRING(AP.DATA, 1, 7) = '{{mes}}')\n  AND ('{{analista}}' = '' OR AP.CRIADO_POR_NOME = '{{analista}}')\n  AND ('{{equipe}}' = '' OR AP.EQUIPE_NOME = '{{equipe}}')\n  AND ('{{tipo}}' = '' OR AP.TIPO_TRABALHO = '{{tipo}}')\n  AND ('{{atividade}}' = '' OR AP.ATIVIDADE = '{{atividade}}')\n  AND ('{{dataInicio}}' = '' OR AP.DATA >= '{{dataInicio}}')\n  AND ('{{dataFim}}' = '' OR AP.DATA <= '{{dataFim}}')\n  AND TC.NOME IS NOT NULL AND TC.NOME != ''\nGROUP BY TC.NOME\nORDER BY value DESC\nLIMIT 20",
+  "createdBy": "leandro.moreira@neuonsolucoes.com",
+  "createdAt": "2026-03-14T00:52:41",
+  "updatedAt": "2026-03-14T00:52:41"
+}

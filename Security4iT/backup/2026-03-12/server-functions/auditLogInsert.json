@@ -1,0 +1,10 @@
+{
+  "id": 216,
+  "name": "auditLogInsert",
+  "type": "SQL",
+  "description": "Insere registro de auditoria",
+  "code": "INSERT INTO AUDIT_LOG (USUARIO, ACAO, CAMPO, VALOR_ANTERIOR, VALOR_NOVO, DETALHES, DATA) VALUES ('{{usuario}}', '{{acao}}', '{{campo}}', '{{valorAnterior}}', '{{valorNovo}}', '{{detalhes}}', '{{data}}')",
+  "createdBy": "leandro.moreira@neuonsolucoes.com",
+  "createdAt": "2026-03-07T14:11:19",
+  "updatedAt": "2026-03-07T14:11:19"
+}

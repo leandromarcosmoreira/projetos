@@ -1,0 +1,10 @@
+{
+  "id": 402,
+  "name": "pesquisaDetalhe",
+  "type": "SQL",
+  "description": "Detalhamento pesquisa - respostas individuais com nome cliente",
+  "code": "SELECT P.ID, P.TICKET_ID, P.VALOR AS NOTA, P.COMENTARIO, P.DATA_RESPOSTA, COALESCE(TC.NOME, T.CRIADO_POR_NOME, P.CLIENT_ID, '') AS CLIENTE FROM PESQUISAS P LEFT JOIN TICKET_CLIENTES TC ON TC.TICKET_ID = P.TICKET_ID LEFT JOIN TICKETS T ON T.ID = P.TICKET_ID WHERE ('{{mes}}' = '' OR SUBSTRING(P.DATA_RESPOSTA, 1, 7) = '{{mes}}') AND ('{{cliente}}' = '' OR TC.NOME = '{{cliente}}' OR T.CRIADO_POR_NOME = '{{cliente}}') AND ('{{dataInicio}}' = '' OR P.DATA_RESPOSTA >= '{{dataInicio}}') AND ('{{dataFim}}' = '' OR P.DATA_RESPOSTA <= '{{dataFim}}') ORDER BY P.DATA_RESPOSTA DESC LIMIT 500",
+  "createdBy": "leandro.moreira@neuonsolucoes.com",
+  "createdAt": "2026-03-14T00:52:40",
+  "updatedAt": "2026-03-14T00:52:40"
+}

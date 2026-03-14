@@ -1,0 +1,10 @@
+{
+  "id": 152,
+  "name": "auditTicketGaps",
+  "type": "SQL",
+  "description": "Verifica lacunas de tickets por período",
+  "code": "SELECT\n        (SELECT COUNT(*) FROM TICKETS WHERE CRIADO_EM >= '{{dataInicio}}' AND CRIADO_EM <= '{{dataFim}}') AS TOTAL_PERIODO,\n        (SELECT MIN(ID) FROM TICKETS WHERE CRIADO_EM >= '{{dataInicio}}' AND CRIADO_EM <= '{{dataFim}}') AS MIN_ID,\n        (SELECT MAX(ID) FROM TICKETS WHERE CRIADO_EM >= '{{dataInicio}}' AND CRIADO_EM <= '{{dataFim}}') AS MAX_ID,\n        (SELECT COUNT(DISTINCT OWNER_NOME) FROM TICKETS WHERE CRIADO_EM >= '{{dataInicio}}' AND CRIADO_EM <= '{{dataFim}}') AS ANALISTAS_DISTINTOS,\n        (SELECT COUNT(DISTINCT CATEGORIA) FROM TICKETS WHERE CRIADO_EM >= '{{dataInicio}}' AND CRIADO_EM <= '{{dataFim}}') AS CATEGORIAS_DISTINTAS",
+  "createdBy": "leandro.moreira@neuonsolucoes.com",
+  "createdAt": "2026-03-06T12:00:08",
+  "updatedAt": "2026-03-06T12:00:08"
+}

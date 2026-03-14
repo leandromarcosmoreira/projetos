@@ -1,0 +1,119 @@
+{
+  "name": "TICKET_CLIENTES",
+  "columns": [
+    {
+      "name": "ID",
+      "type": "INT",
+      "isPk": true,
+      "nullable": false
+    },
+    {
+      "name": "TICKET_ID",
+      "type": "INT",
+      "isPk": false,
+      "nullable": true
+    },
+    {
+      "name": "CLIENT_ID",
+      "type": "TEXT(50)",
+      "isPk": false,
+      "nullable": true
+    },
+    {
+      "name": "TIPO_PESSOA",
+      "type": "INT",
+      "isPk": false,
+      "nullable": true
+    },
+    {
+      "name": "TIPO_PERFIL",
+      "type": "INT",
+      "isPk": false,
+      "nullable": true
+    },
+    {
+      "name": "NOME",
+      "type": "TEXT(300)",
+      "isPk": false,
+      "nullable": true
+    },
+    {
+      "name": "EMAIL",
+      "type": "TEXT(200)",
+      "isPk": false,
+      "nullable": true
+    },
+    {
+      "name": "TELEFONE",
+      "type": "TEXT(50)",
+      "isPk": false,
+      "nullable": true
+    },
+    {
+      "name": "IS_DELETED",
+      "type": "INT",
+      "isPk": false,
+      "nullable": true
+    },
+    {
+      "name": "ORG_ID",
+      "type": "TEXT(50)",
+      "isPk": false,
+      "nullable": true
+    },
+    {
+      "name": "ORG_NOME",
+      "type": "TEXT(300)",
+      "isPk": false,
+      "nullable": true
+    },
+    {
+      "name": "FOTO",
+      "type": "TEXT(300)",
+      "isPk": false,
+      "nullable": true
+    },
+    {
+      "name": "ENDERECO",
+      "type": "TEXT(300)",
+      "isPk": false,
+      "nullable": true
+    },
+    {
+      "name": "COMPLEMENTO",
+      "type": "TEXT(200)",
+      "isPk": false,
+      "nullable": true
+    },
+    {
+      "name": "CEP",
+      "type": "TEXT(20)",
+      "isPk": false,
+      "nullable": true
+    },
+    {
+      "name": "CIDADE",
+      "type": "TEXT(100)",
+      "isPk": false,
+      "nullable": true
+    },
+    {
+      "name": "BAIRRO",
+      "type": "TEXT(100)",
+      "isPk": false,
+      "nullable": true
+    },
+    {
+      "name": "NUMERO",
+      "type": "TEXT(20)",
+      "isPk": false,
+      "nullable": true
+    },
+    {
+      "name": "REFERENCIA",
+      "type": "TEXT(200)",
+      "isPk": false,
+      "nullable": true
+    }
+  ]
+}

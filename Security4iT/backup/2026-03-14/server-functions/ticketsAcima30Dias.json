@@ -1,0 +1,10 @@
+{
+  "id": 390,
+  "name": "ticketsAcima30Dias",
+  "type": "SQL",
+  "description": "Tickets acima 30 dias por cliente",
+  "code": "SELECT TC.NOME AS name, COUNT(DISTINCT T.ID) AS value FROM TICKETS T JOIN TICKET_CLIENTES TC ON TC.TICKET_ID = T.ID WHERE ('{{mes}}' = '' OR SUBSTRING(T.CRIADO_EM, 1, 7) = '{{mes}}') AND ('{{status}}' = '' OR T.STATUS = '{{status}}') AND ('{{categoria}}' = '' OR T.CATEGORIA = '{{categoria}}') AND ('{{analista}}' = '' OR T.OWNER_NOME = '{{analista}}') AND ('{{urgencia}}' = '' OR T.URGENCIA = '{{urgencia}}') AND ('{{equipe}}' = '' OR T.EQUIPE = '{{equipe}}') AND ('{{origem}}' = '' OR T.ORIGEM_NOME = '{{origem}}') AND ('{{dataInicio}}' = '' OR T.CRIADO_EM >= '{{dataInicio}}') AND ('{{dataFim}}' = '' OR T.CRIADO_EM <= '{{dataFim}}') AND CAST(T.TEMPO_VIDA_MINUTOS AS DECIMAL) / 1440 > 30 AND TC.NOME IS NOT NULL AND TC.NOME != '' GROUP BY TC.NOME ORDER BY value DESC LIMIT 20",
+  "createdBy": "leandro.moreira@neuonsolucoes.com",
+  "createdAt": "2026-03-14T00:52:38",
+  "updatedAt": "2026-03-14T00:52:38"
+}

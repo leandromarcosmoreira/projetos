@@ -1,0 +1,10 @@
+{
+  "id": 400,
+  "name": "syncInsertStatus",
+  "type": "SQL",
+  "description": "Insere registro de SYNC_STATUS a partir do frontend",
+  "code": "INSERT INTO SYNC_STATUS (STATUS, TIPO, ENDPOINT, TOTAL_PROCESSADOS, ULTIMO_SYNC, ERRO, CRIADO_EM) VALUES ('{{status}}', '{{tipo}}', '{{endpoint}}', {{total}}, '{{ultimoSync}}', '{{erro}}', '{{criadoEm}}')",
+  "createdBy": "leandro.moreira@neuonsolucoes.com",
+  "createdAt": "2026-03-14T00:52:40",
+  "updatedAt": "2026-03-14T00:52:40"
+}

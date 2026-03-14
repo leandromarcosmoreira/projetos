@@ -1,0 +1,10 @@
+{
+  "id": 361,
+  "name": "auditTicketsByYear",
+  "type": "SQL",
+  "description": "Distribuicao de tickets por ano",
+  "code": "SELECT SUBSTRING(CRIADO_EM, 1, 4) AS ANO, COUNT(*) AS TOTAL, MIN(ID) AS MIN_ID, MAX(ID) AS MAX_ID FROM TICKETS GROUP BY SUBSTRING(CRIADO_EM, 1, 4) ORDER BY ANO",
+  "createdBy": "leandro.moreira@neuonsolucoes.com",
+  "createdAt": "2026-03-14T00:52:32",
+  "updatedAt": "2026-03-14T00:52:32"
+}

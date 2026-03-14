@@ -1,0 +1,10 @@
+{
+  "id": 345,
+  "name": "ownerHistoricoPorTicket",
+  "type": "SQL",
+  "description": "Historico owner",
+  "code": "SELECT OH.EQUIPE, OH.DATA_MUDANCA, OH.TEMPO_PERMANENCIA FROM OWNER_HISTORICO OH WHERE OH.TICKET_ID = {{ticketId}} ORDER BY OH.DATA_MUDANCA",
+  "createdBy": "leandro.moreira@neuonsolucoes.com",
+  "createdAt": "2026-03-14T00:46:21",
+  "updatedAt": "2026-03-14T00:46:21"
+}

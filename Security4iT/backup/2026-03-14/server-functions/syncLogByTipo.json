@@ -1,0 +1,10 @@
+{
+  "id": 353,
+  "name": "syncLogByTipo",
+  "type": "SQL",
+  "description": "Log de sync por tipo",
+  "code": "SELECT L.ID, L.TIPO, L.MENSAGEM, L.DETALHES, L.DATA FROM SYNC_LOG L WHERE ('{{tipo}}' = '' OR L.TIPO = '{{tipo}}') ORDER BY L.ID DESC LIMIT {{limit}}",
+  "createdBy": "leandro.moreira@neuonsolucoes.com",
+  "createdAt": "2026-03-14T00:52:31",
+  "updatedAt": "2026-03-14T00:52:31"
+}

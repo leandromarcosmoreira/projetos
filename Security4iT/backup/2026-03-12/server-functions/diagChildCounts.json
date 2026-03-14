@@ -1,0 +1,10 @@
+{
+  "id": 301,
+  "name": "diagChildCounts",
+  "type": "SQL",
+  "description": "Diag child counts",
+  "code": "SELECT (SELECT COUNT(*) FROM ACOES) AS ACOES, (SELECT COUNT(*) FROM APONTAMENTOS) AS APONTAMENTOS, (SELECT COUNT(*) FROM TICKET_CLIENTES) AS CLIENTES, (SELECT COUNT(*) FROM STATUS_HISTORICO) AS STATUS_HIST",
+  "createdBy": "leandro.moreira@neuonsolucoes.com",
+  "createdAt": "2026-03-11T15:55:43",
+  "updatedAt": "2026-03-11T15:55:43"
+}

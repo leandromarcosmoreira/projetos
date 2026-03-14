@@ -3,7 +3,7 @@ const sdk = require('mitra-sdk');
 const fs = require('fs');
 const path = require('path');
 
-const PROJECT_ID = 19983;
+const PROJECT_ID = parseInt(process.env.MITRA_PROJECT_ID) || 19983;
 const BACKUP_DIR = path.join(__dirname, 'backup', new Date().toISOString().slice(0, 10));
 
 function ensureDir(dir) {

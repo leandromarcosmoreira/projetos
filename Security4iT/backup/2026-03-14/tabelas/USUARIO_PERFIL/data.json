@@ -1,0 +1,14 @@
+[
+  {
+    "ID": 3,
+    "USER_ID": 17,
+    "USER_EMAIL": "leandromarcosmoreira@gmail.com",
+    "PERFIL_ID": 2
+  },
+  {
+    "ID": 4,
+    "USER_ID": 10,
+    "USER_EMAIL": "camila.cruvinel@neuonsolucoes.com",
+    "PERFIL_ID": 2
+  }
+]

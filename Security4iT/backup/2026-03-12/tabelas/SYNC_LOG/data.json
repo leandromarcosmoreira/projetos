@@ -1,0 +1,1143 @@
+[
+  {
+    "ID": 1,
+    "TIPO": "INICIO",
+    "MENSAGEM": "fix-and-complete.mjs iniciado",
+    "DETALHES": "Complemento do setup interrompido",
+    "DATA": "2026-03-05T22:23:35"
+  },
+  {
+    "ID": 2,
+    "TIPO": "FIX",
+    "MENSAGEM": "Clientes inseridos: 156",
+    "DETALHES": "INSERT IGNORE FROM TICKET_CLIENTES",
+    "DATA": "2026-03-05T22:23:36"
+  },
+  {
+    "ID": 3,
+    "TIPO": "SYNC",
+    "MENSAGEM": "Continuando sync de tickets recentes",
+    "DETALHES": "Endpoint /tickets (<=90d)",
+    "DATA": "2026-03-05T22:23:36"
+  },
+  {
+    "ID": 4,
+    "TIPO": "SETUP",
+    "MENSAGEM": "Setup completo - 2150 tickets sincronizados",
+    "DETALHES": "Tabelas: TICKETS, ACOES, APONTAMENTOS, STATUS_HISTORICO, OWNER_HISTORICO, CUSTOM_FIELD_VALUES, TICKET_ASSETS, TICKET_TAGS, TICKET_CLIENTES, CLIENTES, ANALISTAS",
+    "DATA": "2026-03-06T10:35:49"
+  },
+  {
+    "ID": 5,
+    "TIPO": "SYNC",
+    "MENSAGEM": "Pesquisas: 6397 respostas sincronizadas",
+    "DETALHES": "Endpoint: /survey/responses",
+    "DATA": "2026-03-06T10:42:58"
+  },
+  {
+    "ID": 6,
+    "TIPO": "INCREMENTAL",
+    "MENSAGEM": "Sync incremental iniciado",
+    "DETALHES": "lastSync: 2026-03-06T10:35:48",
+    "DATA": "2026-03-06T10:44:57"
+  },
+  {
+    "ID": 7,
+    "TIPO": "SYNC_PAGE",
+    "MENSAGEM": "Incremental pag 0: 1 tickets",
+    "DETALHES": "Total acumulado: 1, Skip: 0",
+    "DATA": "2026-03-06T10:46:15"
+  },
+  {
+    "ID": 8,
+    "TIPO": "INCREMENTAL",
+    "MENSAGEM": "Sync incremental concluido: 1 tickets",
+    "DETALHES": "Erros: 0",
+    "DATA": "2026-03-06T10:46:16"
+  },
+  {
+    "ID": 9,
+    "TIPO": "INCREMENTAL",
+    "MENSAGEM": "Sync incremental iniciado",
+    "DETALHES": "lastSync: 2026-03-06T10:44:57",
+    "DATA": "2026-03-06T10:51:19"
+  },
+  {
+    "ID": 10,
+    "TIPO": "SYNC_PAGE",
+    "MENSAGEM": "Incremental pag 0: 3 tickets",
+    "DETALHES": "Total acumulado: 3, Skip: 0",
+    "DATA": "2026-03-06T10:52:36"
+  },
+  {
+    "ID": 11,
+    "TIPO": "INCREMENTAL",
+    "MENSAGEM": "Sync incremental concluido: 3 tickets",
+    "DETALHES": "Erros: 0",
+    "DATA": "2026-03-06T10:52:37"
+  },
+  {
+    "ID": 12,
+    "TIPO": "INCREMENTAL",
+    "MENSAGEM": "Sync incremental iniciado",
+    "DETALHES": "lastSync: 2026-03-06T10:51:19",
+    "DATA": "2026-03-06T10:57:40"
+  },
+  {
+    "ID": 13,
+    "TIPO": "INCREMENTAL",
+    "MENSAGEM": "Sync incremental concluido: 0 tickets",
+    "DETALHES": "Erros: 0",
+    "DATA": "2026-03-06T10:58:45"
+  },
+  {
+    "ID": 14,
+    "TIPO": "INCREMENTAL",
+    "MENSAGEM": "Sync incremental iniciado",
+    "DETALHES": "lastSync: 2026-03-06T10:57:40",
+    "DATA": "2026-03-06T11:03:48"
+  },
+  {
+    "ID": 15,
+    "TIPO": "SYNC_PAGE",
+    "MENSAGEM": "Incremental pag 0: 1 tickets",
+    "DETALHES": "Total acumulado: 1, Skip: 0",
+    "DATA": "2026-03-06T11:05:06"
+  },
+  {
+    "ID": 16,
+    "TIPO": "INCREMENTAL",
+    "MENSAGEM": "Sync incremental concluido: 1 tickets",
+    "DETALHES": "Erros: 0",
+    "DATA": "2026-03-06T11:05:07"
+  },
+  {
+    "ID": 17,
+    "TIPO": "INCREMENTAL",
+    "MENSAGEM": "Sync incremental iniciado",
+    "DETALHES": "lastSync: 2026-03-06T11:03:48",
+    "DATA": "2026-03-06T11:10:10"
+  },
+  {
+    "ID": 18,
+    "TIPO": "SYNC_PAGE",
+    "MENSAGEM": "Incremental pag 0: 2 tickets",
+    "DETALHES": "Total acumulado: 2, Skip: 0",
+    "DATA": "2026-03-06T11:11:52"
+  },
+  {
+    "ID": 19,
+    "TIPO": "INCREMENTAL",
+    "MENSAGEM": "Sync incremental concluido: 2 tickets",
+    "DETALHES": "Erros: 0",
+    "DATA": "2026-03-06T11:11:54"
+  },
+  {
+    "ID": 20,
+    "TIPO": "INCREMENTAL",
+    "MENSAGEM": "Sync incremental iniciado",
+    "DETALHES": "lastSync: 2026-03-06T11:10:10",
+    "DATA": "2026-03-06T11:16:56"
+  },
+  {
+    "ID": 21,
+    "TIPO": "SYNC_PAGE",
+    "MENSAGEM": "Incremental pag 0: 4 tickets",
+    "DETALHES": "Total acumulado: 4, Skip: 0",
+    "DATA": "2026-03-06T11:18:38"
+  },
+  {
+    "ID": 22,
+    "TIPO": "INCREMENTAL",
+    "MENSAGEM": "Sync incremental concluido: 4 tickets",
+    "DETALHES": "Erros: 0",
+    "DATA": "2026-03-06T11:18:39"
+  },
+  {
+    "ID": 23,
+    "TIPO": "INICIO",
+    "MENSAGEM": "RESYNC_RECENT: Iniciando sync de tickets",
+    "DETALHES": "pageSize=20, orderBy=lastUpdate asc",
+    "DATA": "2026-03-06T14:34:35"
+  },
+  {
+    "ID": 24,
+    "TIPO": "INICIO",
+    "MENSAGEM": "RESYNC_RECENT: Iniciando sync de tickets",
+    "DETALHES": "pageSize=30, orderBy=lastUpdate asc",
+    "DATA": "2026-03-06T14:48:35"
+  },
+  {
+    "ID": 25,
+    "TIPO": "SYNC_PAGE",
+    "MENSAGEM": "RESYNC_RECENT p0: 30t, total=30",
+    "DETALHES": "IDs 86627-86580, 151s, anexos=34",
+    "DATA": "2026-03-06T14:51:07"
+  },
+  {
+    "ID": 26,
+    "TIPO": "INICIO",
+    "MENSAGEM": "FULL SYNC INICIADO",
+    "DETALHES": "Modo: Full (tickets/past -> tickets -> pesquisas)",
+    "DATA": "2026-03-07T22:11:35"
+  },
+  {
+    "ID": 27,
+    "TIPO": "INICIO",
+    "MENSAGEM": "Iniciando sync: tickets/past (>90 dias)",
+    "DETALHES": "Endpoint: tickets/past",
+    "DATA": "2026-03-07T22:11:36"
+  },
+  {
+    "ID": 28,
+    "TIPO": "SYNC_PAGE",
+    "MENSAGEM": "Pagina 0: 50 tickets processados",
+    "DETALHES": "Acoes: 148, Apontamentos: 25, Clientes: 50 | Total acumulado: 50",
+    "DATA": "2026-03-07T22:12:37"
+  },
+  {
+    "ID": 29,
+    "TIPO": "SYNC_PAGE",
+    "MENSAGEM": "Pagina 1: 50 tickets processados",
+    "DETALHES": "Acoes: 217, Apontamentos: 16, Clientes: 53 | Total acumulado: 100",
+    "DATA": "2026-03-07T22:13:52"
+  },
+  {
+    "ID": 30,
+    "TIPO": "SYNC_PAGE",
+    "MENSAGEM": "Pagina 2: 50 tickets processados",
+    "DETALHES": "Acoes: 270, Apontamentos: 41, Clientes: 56 | Total acumulado: 150",
+    "DATA": "2026-03-07T22:14:51"
+  },
+  {
+    "ID": 31,
+    "TIPO": "SYNC_PAGE",
+    "MENSAGEM": "Pagina 3: 50 tickets processados",
+    "DETALHES": "Acoes: 307, Apontamentos: 31, Clientes: 50 | Total acumulado: 200",
+    "DATA": "2026-03-07T22:16:15"
+  },
+  {
+    "ID": 32,
+    "TIPO": "SYNC_PAGE",
+    "MENSAGEM": "Pagina 4: 50 tickets processados",
+    "DETALHES": "Acoes: 304, Apontamentos: 15, Clientes: 53 | Total acumulado: 250",
+    "DATA": "2026-03-07T22:17:17"
+  },
+  {
+    "ID": 33,
+    "TIPO": "SYNC_PAGE",
+    "MENSAGEM": "Pagina 5: 50 tickets processados",
+    "DETALHES": "Acoes: 320, Apontamentos: 24, Clientes: 54 | Total acumulado: 300",
+    "DATA": "2026-03-07T22:18:35"
+  },
+  {
+    "ID": 34,
+    "TIPO": "SYNC_PAGE",
+    "MENSAGEM": "Pagina 6: 50 tickets processados",
+    "DETALHES": "Acoes: 271, Apontamentos: 30, Clientes: 52 | Total acumulado: 350",
+    "DATA": "2026-03-07T22:19:35"
+  },
+  {
+    "ID": 35,
+    "TIPO": "SYNC_PAGE",
+    "MENSAGEM": "Pagina 7: 50 tickets processados",
+    "DETALHES": "Acoes: 249, Apontamentos: 6, Clientes: 55 | Total acumulado: 400",
+    "DATA": "2026-03-07T22:20:39"
+  },
+  {
+    "ID": 36,
+    "TIPO": "SYNC_PAGE",
+    "MENSAGEM": "Pagina 8: 50 tickets processados",
+    "DETALHES": "Acoes: 208, Apontamentos: 35, Clientes: 54 | Total acumulado: 450",
+    "DATA": "2026-03-07T22:21:53"
+  },
+  {
+    "ID": 37,
+    "TIPO": "SYNC_PAGE",
+    "MENSAGEM": "Pagina 9: 50 tickets processados",
+    "DETALHES": "Acoes: 249, Apontamentos: 24, Clientes: 51 | Total acumulado: 500",
+    "DATA": "2026-03-07T22:22:57"
+  },
+  {
+    "ID": 38,
+    "TIPO": "SYNC_PAGE",
+    "MENSAGEM": "Pagina 10: 50 tickets processados",
+    "DETALHES": "Acoes: 220, Apontamentos: 15, Clientes: 57 | Total acumulado: 550",
+    "DATA": "2026-03-07T22:23:57"
+  },
+  {
+    "ID": 39,
+    "TIPO": "SYNC_PAGE",
+    "MENSAGEM": "Pagina 11: 50 tickets processados",
+    "DETALHES": "Acoes: 308, Apontamentos: 2, Clientes: 55 | Total acumulado: 600",
+    "DATA": "2026-03-07T22:24:14"
+  },
+  {
+    "ID": 40,
+    "TIPO": "SYNC_PAGE",
+    "MENSAGEM": "Pagina 12: 50 tickets processados",
+    "DETALHES": "Acoes: 389, Apontamentos: 52, Clientes: 54 | Total acumulado: 650",
+    "DATA": "2026-03-07T22:25:21"
+  },
+  {
+    "ID": 41,
+    "TIPO": "SYNC_PAGE",
+    "MENSAGEM": "Pagina 13: 50 tickets processados",
+    "DETALHES": "Acoes: 258, Apontamentos: 22, Clientes: 55 | Total acumulado: 700",
+    "DATA": "2026-03-07T22:25:33"
+  },
+  {
+    "ID": 42,
+    "TIPO": "SYNC_PAGE",
+    "MENSAGEM": "Pagina 14: 50 tickets processados",
+    "DETALHES": "Acoes: 232, Apontamentos: 15, Clientes: 54 | Total acumulado: 750",
+    "DATA": "2026-03-07T22:25:46"
+  },
+  {
+    "ID": 43,
+    "TIPO": "SYNC_PAGE",
+    "MENSAGEM": "Pagina 15: 50 tickets processados",
+    "DETALHES": "Acoes: 327, Apontamentos: 38, Clientes: 54 | Total acumulado: 800",
+    "DATA": "2026-03-07T22:26:04"
+  },
+  {
+    "ID": 44,
+    "TIPO": "SYNC_PAGE",
+    "MENSAGEM": "Pagina 16: 50 tickets processados",
+    "DETALHES": "Acoes: 193, Apontamentos: 20, Clientes: 56 | Total acumulado: 850",
+    "DATA": "2026-03-07T22:27:06"
+  },
+  {
+    "ID": 45,
+    "TIPO": "SYNC_PAGE",
+    "MENSAGEM": "Pagina 17: 50 tickets processados",
+    "DETALHES": "Acoes: 309, Apontamentos: 60, Clientes: 56 | Total acumulado: 900",
+    "DATA": "2026-03-07T22:28:08"
+  },
+  {
+    "ID": 46,
+    "TIPO": "SYNC_PAGE",
+    "MENSAGEM": "Pagina 18: 50 tickets processados",
+    "DETALHES": "Acoes: 179, Apontamentos: 34, Clientes: 50 | Total acumulado: 950",
+    "DATA": "2026-03-07T22:29:07"
+  },
+  {
+    "ID": 47,
+    "TIPO": "SYNC_PAGE",
+    "MENSAGEM": "Pagina 19: 50 tickets processados",
+    "DETALHES": "Acoes: 229, Apontamentos: 29, Clientes: 52 | Total acumulado: 1000",
+    "DATA": "2026-03-07T22:30:33"
+  },
+  {
+    "ID": 48,
+    "TIPO": "SYNC_PAGE",
+    "MENSAGEM": "Pagina 20: 50 tickets processados",
+    "DETALHES": "Acoes: 183, Apontamentos: 81, Clientes: 50 | Total acumulado: 1050",
+    "DATA": "2026-03-07T22:31:38"
+  },
+  {
+    "ID": 49,
+    "TIPO": "SYNC_PAGE",
+    "MENSAGEM": "Pagina 21: 50 tickets processados",
+    "DETALHES": "Acoes: 262, Apontamentos: 162, Clientes: 53 | Total acumulado: 1100",
+    "DATA": "2026-03-07T22:33:06"
+  },
+  {
+    "ID": 50,
+    "TIPO": "SYNC_PAGE",
+    "MENSAGEM": "Pagina 22: 50 tickets processados",
+    "DETALHES": "Acoes: 360, Apontamentos: 264, Clientes: 53 | Total acumulado: 1150",
+    "DATA": "2026-03-07T22:34:20"
+  },
+  {
+    "ID": 51,
+    "TIPO": "SYNC_PAGE",
+    "MENSAGEM": "Pagina 23: 50 tickets processados",
+    "DETALHES": "Acoes: 308, Apontamentos: 229, Clientes: 55 | Total acumulado: 1200",
+    "DATA": "2026-03-07T22:35:28"
+  },
+  {
+    "ID": 52,
+    "TIPO": "SYNC_PAGE",
+    "MENSAGEM": "Pagina 24: 50 tickets processados",
+    "DETALHES": "Acoes: 216, Apontamentos: 169, Clientes: 59 | Total acumulado: 1250",
+    "DATA": "2026-03-07T22:36:42"
+  },
+  {
+    "ID": 53,
+    "TIPO": "SYNC_PAGE",
+    "MENSAGEM": "Pagina 25: 50 tickets processados",
+    "DETALHES": "Acoes: 380, Apontamentos: 288, Clientes: 53 | Total acumulado: 1300",
+    "DATA": "2026-03-07T22:37:56"
+  },
+  {
+    "ID": 54,
+    "TIPO": "SYNC_PAGE",
+    "MENSAGEM": "Pagina 26: 50 tickets processados",
+    "DETALHES": "Acoes: 174, Apontamentos: 132, Clientes: 51 | Total acumulado: 1350",
+    "DATA": "2026-03-07T22:39:26"
+  },
+  {
+    "ID": 55,
+    "TIPO": "SYNC_PAGE",
+    "MENSAGEM": "Pagina 27: 50 tickets processados",
+    "DETALHES": "Acoes: 159, Apontamentos: 129, Clientes: 52 | Total acumulado: 1400",
+    "DATA": "2026-03-07T22:40:39"
+  },
+  {
+    "ID": 56,
+    "TIPO": "SYNC_PAGE",
+    "MENSAGEM": "Pagina 28: 50 tickets processados",
+    "DETALHES": "Acoes: 229, Apontamentos: 170, Clientes: 52 | Total acumulado: 1450",
+    "DATA": "2026-03-07T22:41:50"
+  },
+  {
+    "ID": 57,
+    "TIPO": "SYNC_PAGE",
+    "MENSAGEM": "Pagina 29: 50 tickets processados",
+    "DETALHES": "Acoes: 196, Apontamentos: 153, Clientes: 52 | Total acumulado: 1500",
+    "DATA": "2026-03-07T22:43:32"
+  },
+  {
+    "ID": 58,
+    "TIPO": "SYNC_PAGE",
+    "MENSAGEM": "Pagina 30: 50 tickets processados",
+    "DETALHES": "Acoes: 233, Apontamentos: 205, Clientes: 54 | Total acumulado: 1550",
+    "DATA": "2026-03-07T22:44:53"
+  },
+  {
+    "ID": 59,
+    "TIPO": "SYNC_PAGE",
+    "MENSAGEM": "Pagina 31: 50 tickets processados",
+    "DETALHES": "Acoes: 228, Apontamentos: 181, Clientes: 53 | Total acumulado: 1600",
+    "DATA": "2026-03-07T22:45:08"
+  },
+  {
+    "ID": 60,
+    "TIPO": "ERRO",
+    "MENSAGEM": "Erro na pagina 32: HTTP 500",
+    "DETALHES": "https://api.movidesk.com/public/v1/tickets/past?token=6673d100-6814-4737-b5ba-0ae2a3e3bfc5&$top=50&$skip=1600&$select=id,protocol,type,subject,category,urgency,status,baseStatus,justification,origin,c",
+    "DATA": "2026-03-07T22:45:39"
+  },
+  {
+    "ID": 61,
+    "TIPO": "ERRO",
+    "MENSAGEM": "Erro na pagina 32: HTTP 500",
+    "DETALHES": "https://api.movidesk.com/public/v1/tickets/past?token=6673d100-6814-4737-b5ba-0ae2a3e3bfc5&$top=50&$skip=1600&$select=id,protocol,type,subject,category,urgency,status,baseStatus,justification,origin,c",
+    "DATA": "2026-03-07T22:47:10"
+  },
+  {
+    "ID": 62,
+    "TIPO": "SYNC_PAGE",
+    "MENSAGEM": "Pagina 32: 50 tickets processados",
+    "DETALHES": "Acoes: 195, Apontamentos: 158, Clientes: 55 | Total acumulado: 1650",
+    "DATA": "2026-03-07T22:47:32"
+  },
+  {
+    "ID": 63,
+    "TIPO": "SYNC_PAGE",
+    "MENSAGEM": "Pagina 33: 50 tickets processados",
+    "DETALHES": "Acoes: 221, Apontamentos: 158, Clientes: 55 | Total acumulado: 1700",
+    "DATA": "2026-03-07T22:48:54"
+  },
+  {
+    "ID": 64,
+    "TIPO": "SYNC_PAGE",
+    "MENSAGEM": "Pagina 34: 50 tickets processados",
+    "DETALHES": "Acoes: 252, Apontamentos: 194, Clientes: 52 | Total acumulado: 1750",
+    "DATA": "2026-03-07T22:50:26"
+  },
+  {
+    "ID": 65,
+    "TIPO": "SYNC_PAGE",
+    "MENSAGEM": "Pagina 35: 50 tickets processados",
+    "DETALHES": "Acoes: 310, Apontamentos: 202, Clientes: 54 | Total acumulado: 1800",
+    "DATA": "2026-03-07T22:51:51"
+  },
+  {
+    "ID": 66,
+    "TIPO": "SYNC_PAGE",
+    "MENSAGEM": "Pagina 36: 50 tickets processados",
+    "DETALHES": "Acoes: 212, Apontamentos: 146, Clientes: 52 | Total acumulado: 1850",
+    "DATA": "2026-03-07T22:52:04"
+  },
+  {
+    "ID": 67,
+    "TIPO": "SYNC_PAGE",
+    "MENSAGEM": "Pagina 37: 50 tickets processados",
+    "DETALHES": "Acoes: 365, Apontamentos: 241, Clientes: 55 | Total acumulado: 1900",
+    "DATA": "2026-03-07T22:52:30"
+  },
+  {
+    "ID": 68,
+    "TIPO": "SYNC_PAGE",
+    "MENSAGEM": "Pagina 38: 50 tickets processados",
+    "DETALHES": "Acoes: 301, Apontamentos: 228, Clientes: 53 | Total acumulado: 1950",
+    "DATA": "2026-03-07T22:53:09"
+  },
+  {
+    "ID": 69,
+    "TIPO": "SYNC_PAGE",
+    "MENSAGEM": "Pagina 39: 50 tickets processados",
+    "DETALHES": "Acoes: 226, Apontamentos: 168, Clientes: 54 | Total acumulado: 2000",
+    "DATA": "2026-03-07T22:53:40"
+  },
+  {
+    "ID": 70,
+    "TIPO": "SYNC_PAGE",
+    "MENSAGEM": "Pagina 40: 50 tickets processados",
+    "DETALHES": "Acoes: 294, Apontamentos: 228, Clientes: 56 | Total acumulado: 2050",
+    "DATA": "2026-03-07T22:54:08"
+  },
+  {
+    "ID": 71,
+    "TIPO": "ERRO",
+    "MENSAGEM": "Erro na pagina 41: HTTP 500",
+    "DETALHES": "https://api.movidesk.com/public/v1/tickets/past?token=6673d100-6814-4737-b5ba-0ae2a3e3bfc5&$top=50&$skip=2050&$select=id,protocol,type,subject,category,urgency,status,baseStatus,justification,origin,c",
+    "DATA": "2026-03-07T22:55:23"
+  },
+  {
+    "ID": 72,
+    "TIPO": "SYNC_PAGE",
+    "MENSAGEM": "Pagina 41: 50 tickets processados",
+    "DETALHES": "Acoes: 229, Apontamentos: 154, Clientes: 56 | Total acumulado: 2100",
+    "DATA": "2026-03-07T22:56:50"
+  },
+  {
+    "ID": 73,
+    "TIPO": "ERRO",
+    "MENSAGEM": "Erro na pagina 42: HTTP 500",
+    "DETALHES": "https://api.movidesk.com/public/v1/tickets/past?token=6673d100-6814-4737-b5ba-0ae2a3e3bfc5&$top=50&$skip=2100&$select=id,protocol,type,subject,category,urgency,status,baseStatus,justification,origin,c",
+    "DATA": "2026-03-07T22:57:21"
+  },
+  {
+    "ID": 74,
+    "TIPO": "ERRO",
+    "MENSAGEM": "Erro na pagina 43: HTTP 500",
+    "DETALHES": "https://api.movidesk.com/public/v1/tickets/past?token=6673d100-6814-4737-b5ba-0ae2a3e3bfc5&$top=50&$skip=2150&$select=id,protocol,type,subject,category,urgency,status,baseStatus,justification,origin,c",
+    "DATA": "2026-03-07T22:59:19"
+  },
+  {
+    "ID": 75,
+    "TIPO": "SYNC_PAGE",
+    "MENSAGEM": "Pagina 43: 50 tickets processados",
+    "DETALHES": "Acoes: 167, Apontamentos: 132, Clientes: 50 | Total acumulado: 2200",
+    "DATA": "2026-03-07T22:59:51"
+  },
+  {
+    "ID": 76,
+    "TIPO": "SYNC_PAGE",
+    "MENSAGEM": "Pagina 44: 50 tickets processados",
+    "DETALHES": "Acoes: 226, Apontamentos: 172, Clientes: 53 | Total acumulado: 2250",
+    "DATA": "2026-03-07T23:00:26"
+  },
+  {
+    "ID": 77,
+    "TIPO": "ERRO",
+    "MENSAGEM": "Erro na pagina 45: HTTP 504",
+    "DETALHES": "https://api.movidesk.com/public/v1/tickets/past?token=6673d100-6814-4737-b5ba-0ae2a3e3bfc5&$top=50&$skip=2250&$select=id,protocol,type,subject,category,urgency,status,baseStatus,justification,origin,c",
+    "DATA": "2026-03-07T23:02:27"
+  },
+  {
+    "ID": 78,
+    "TIPO": "ERRO",
+    "MENSAGEM": "Erro na pagina 45: HTTP 500",
+    "DETALHES": "https://api.movidesk.com/public/v1/tickets/past?token=6673d100-6814-4737-b5ba-0ae2a3e3bfc5&$top=50&$skip=2250&$select=id,protocol,type,subject,category,urgency,status,baseStatus,justification,origin,c",
+    "DATA": "2026-03-07T23:03:03"
+  },
+  {
+    "ID": 79,
+    "TIPO": "ERRO",
+    "MENSAGEM": "Erro na pagina 45: HTTP 500",
+    "DETALHES": "https://api.movidesk.com/public/v1/tickets/past?token=6673d100-6814-4737-b5ba-0ae2a3e3bfc5&$top=50&$skip=2250&$select=id,protocol,type,subject,category,urgency,status,baseStatus,justification,origin,c",
+    "DATA": "2026-03-07T23:04:22"
+  },
+  {
+    "ID": 80,
+    "TIPO": "SYNC_PAGE",
+    "MENSAGEM": "Pagina 45: 50 tickets processados",
+    "DETALHES": "Acoes: 568, Apontamentos: 278, Clientes: 51 | Total acumulado: 2300",
+    "DATA": "2026-03-07T23:05:48"
+  },
+  {
+    "ID": 81,
+    "TIPO": "SYNC_PAGE",
+    "MENSAGEM": "Pagina 46: 50 tickets processados",
+    "DETALHES": "Acoes: 243, Apontamentos: 200, Clientes: 51 | Total acumulado: 2350",
+    "DATA": "2026-03-07T23:06:15"
+  },
+  {
+    "ID": 82,
+    "TIPO": "ERRO",
+    "MENSAGEM": "Erro na pagina 47: HTTP 500",
+    "DETALHES": "https://api.movidesk.com/public/v1/tickets/past?token=6673d100-6814-4737-b5ba-0ae2a3e3bfc5&$top=50&$skip=2350&$select=id,protocol,type,subject,category,urgency,status,baseStatus,justification,origin,c",
+    "DATA": "2026-03-07T23:06:46"
+  },
+  {
+    "ID": 83,
+    "TIPO": "ERRO",
+    "MENSAGEM": "Erro na pagina 47: HTTP 500",
+    "DETALHES": "https://api.movidesk.com/public/v1/tickets/past?token=6673d100-6814-4737-b5ba-0ae2a3e3bfc5&$top=50&$skip=2350&$select=id,protocol,type,subject,category,urgency,status,baseStatus,justification,origin,c",
+    "DATA": "2026-03-07T23:07:22"
+  },
+  {
+    "ID": 84,
+    "TIPO": "ERRO",
+    "MENSAGEM": "Erro na pagina 47: HTTP 500",
+    "DETALHES": "https://api.movidesk.com/public/v1/tickets/past?token=6673d100-6814-4737-b5ba-0ae2a3e3bfc5&$top=50&$skip=2350&$select=id,protocol,type,subject,category,urgency,status,baseStatus,justification,origin,c",
+    "DATA": "2026-03-07T23:07:58"
+  },
+  {
+    "ID": 85,
+    "TIPO": "SYNC_PAGE",
+    "MENSAGEM": "Pagina 47: 50 tickets processados",
+    "DETALHES": "Acoes: 283, Apontamentos: 166, Clientes: 51 | Total acumulado: 2400",
+    "DATA": "2026-03-07T23:08:34"
+  },
+  {
+    "ID": 86,
+    "TIPO": "ERRO",
+    "MENSAGEM": "Erro na pagina 48: HTTP 500",
+    "DETALHES": "https://api.movidesk.com/public/v1/tickets/past?token=6673d100-6814-4737-b5ba-0ae2a3e3bfc5&$top=50&$skip=2400&$select=id,protocol,type,subject,category,urgency,status,baseStatus,justification,origin,c",
+    "DATA": "2026-03-07T23:09:05"
+  },
+  {
+    "ID": 87,
+    "TIPO": "ERRO",
+    "MENSAGEM": "Erro na pagina 48: HTTP 500",
+    "DETALHES": "https://api.movidesk.com/public/v1/tickets/past?token=6673d100-6814-4737-b5ba-0ae2a3e3bfc5&$top=50&$skip=2400&$select=id,protocol,type,subject,category,urgency,status,baseStatus,justification,origin,c",
+    "DATA": "2026-03-07T23:10:40"
+  },
+  {
+    "ID": 88,
+    "TIPO": "ERRO",
+    "MENSAGEM": "Erro na pagina 48: HTTP 500",
+    "DETALHES": "https://api.movidesk.com/public/v1/tickets/past?token=6673d100-6814-4737-b5ba-0ae2a3e3bfc5&$top=50&$skip=2400&$select=id,protocol,type,subject,category,urgency,status,baseStatus,justification,origin,c",
+    "DATA": "2026-03-07T23:12:03"
+  },
+  {
+    "ID": 89,
+    "TIPO": "SYNC_PAGE",
+    "MENSAGEM": "Pagina 48: 50 tickets processados",
+    "DETALHES": "Acoes: 256, Apontamentos: 173, Clientes: 51 | Total acumulado: 2450",
+    "DATA": "2026-03-07T23:12:35"
+  },
+  {
+    "ID": 90,
+    "TIPO": "SYNC_PAGE",
+    "MENSAGEM": "Pagina 49: 50 tickets processados",
+    "DETALHES": "Acoes: 399, Apontamentos: 244, Clientes: 52 | Total acumulado: 2500",
+    "DATA": "2026-03-07T23:13:04"
+  },
+  {
+    "ID": 91,
+    "TIPO": "SYNC_PAGE",
+    "MENSAGEM": "Pagina 50: 50 tickets processados",
+    "DETALHES": "Acoes: 245, Apontamentos: 172, Clientes: 51 | Total acumulado: 2550",
+    "DATA": "2026-03-07T23:13:37"
+  },
+  {
+    "ID": 92,
+    "TIPO": "SYNC_PAGE",
+    "MENSAGEM": "Pagina 51: 50 tickets processados",
+    "DETALHES": "Acoes: 366, Apontamentos: 240, Clientes: 58 | Total acumulado: 2600",
+    "DATA": "2026-03-07T23:14:11"
+  },
+  {
+    "ID": 93,
+    "TIPO": "SYNC_PAGE",
+    "MENSAGEM": "Pagina 52: 50 tickets processados",
+    "DETALHES": "Acoes: 251, Apontamentos: 164, Clientes: 54 | Total acumulado: 2650",
+    "DATA": "2026-03-07T23:14:51"
+  },
+  {
+    "ID": 94,
+    "TIPO": "ERRO",
+    "MENSAGEM": "Erro na pagina 53: HTTP 500",
+    "DETALHES": "https://api.movidesk.com/public/v1/tickets/past?token=6673d100-6814-4737-b5ba-0ae2a3e3bfc5&$top=50&$skip=2650&$select=id,protocol,type,subject,category,urgency,status,baseStatus,justification,origin,c",
+    "DATA": "2026-03-07T23:16:26"
+  },
+  {
+    "ID": 95,
+    "TIPO": "SYNC_PAGE",
+    "MENSAGEM": "Pagina 53: 50 tickets processados",
+    "DETALHES": "Acoes: 403, Apontamentos: 301, Clientes: 50 | Total acumulado: 2700",
+    "DATA": "2026-03-07T23:18:04"
+  },
+  {
+    "ID": 96,
+    "TIPO": "ERRO",
+    "MENSAGEM": "Erro na pagina 54: HTTP 500",
+    "DETALHES": "https://api.movidesk.com/public/v1/tickets/past?token=6673d100-6814-4737-b5ba-0ae2a3e3bfc5&$top=50&$skip=2700&$select=id,protocol,type,subject,category,urgency,status,baseStatus,justification,origin,c",
+    "DATA": "2026-03-07T23:18:35"
+  },
+  {
+    "ID": 97,
+    "TIPO": "ERRO",
+    "MENSAGEM": "Erro na pagina 54: HTTP 500",
+    "DETALHES": "https://api.movidesk.com/public/v1/tickets/past?token=6673d100-6814-4737-b5ba-0ae2a3e3bfc5&$top=50&$skip=2700&$select=id,protocol,type,subject,category,urgency,status,baseStatus,justification,origin,c",
+    "DATA": "2026-03-07T23:19:11"
+  },
+  {
+    "ID": 98,
+    "TIPO": "ERRO",
+    "MENSAGEM": "Erro na pagina 54: HTTP 500",
+    "DETALHES": "https://api.movidesk.com/public/v1/tickets/past?token=6673d100-6814-4737-b5ba-0ae2a3e3bfc5&$top=50&$skip=2700&$select=id,protocol,type,subject,category,urgency,status,baseStatus,justification,origin,c",
+    "DATA": "2026-03-07T23:19:47"
+  },
+  {
+    "ID": 99,
+    "TIPO": "ERRO",
+    "MENSAGEM": "Erro na pagina 54: HTTP 500",
+    "DETALHES": "https://api.movidesk.com/public/v1/tickets/past?token=6673d100-6814-4737-b5ba-0ae2a3e3bfc5&$top=50&$skip=2700&$select=id,protocol,type,subject,category,urgency,status,baseStatus,justification,origin,c",
+    "DATA": "2026-03-07T23:20:22"
+  },
+  {
+    "ID": 100,
+    "TIPO": "ERRO",
+    "MENSAGEM": "Erro na pagina 54: HTTP 500",
+    "DETALHES": "https://api.movidesk.com/public/v1/tickets/past?token=6673d100-6814-4737-b5ba-0ae2a3e3bfc5&$top=50&$skip=2700&$select=id,protocol,type,subject,category,urgency,status,baseStatus,justification,origin,c",
+    "DATA": "2026-03-07T23:20:58"
+  },
+  {
+    "ID": 101,
+    "TIPO": "ERRO",
+    "MENSAGEM": "Abortando tickets/past (>90 dias): 5 erros consecutivos",
+    "DETALHES": "",
+    "DATA": "2026-03-07T23:20:58"
+  },
+  {
+    "ID": 102,
+    "TIPO": "INICIO",
+    "MENSAGEM": "Iniciando sync: tickets (<=90 dias)",
+    "DETALHES": "Endpoint: tickets",
+    "DATA": "2026-03-07T23:20:59"
+  },
+  {
+    "ID": 103,
+    "TIPO": "SYNC_PAGE",
+    "MENSAGEM": "Pagina 0: 50 tickets processados",
+    "DETALHES": "Acoes: 1069, Apontamentos: 962, Clientes: 50 | Total acumulado: 50",
+    "DATA": "2026-03-07T23:22:40"
+  },
+  {
+    "ID": 104,
+    "TIPO": "INICIO",
+    "MENSAGEM": "FULL_PAST: Iniciando sync de tickets/past",
+    "DETALHES": "Filter: &$filter=lastUpdate ge 2019-01-01T00:00:00z",
+    "DATA": "2026-03-11T15:59:06"
+  },
+  {
+    "ID": 105,
+    "TIPO": "SYNC_PAGE",
+    "MENSAGEM": "FULL_PAST pag 0: 50 tickets",
+    "DETALHES": "Total acumulado: 50, Tempo: 124s",
+    "DATA": "2026-03-11T16:01:10"
+  },
+  {
+    "ID": 106,
+    "TIPO": "SYNC_PAGE",
+    "MENSAGEM": "FULL_PAST pag 1: 50 tickets",
+    "DETALHES": "Total acumulado: 100, Tempo: 249s",
+    "DATA": "2026-03-11T16:03:15"
+  },
+  {
+    "ID": 107,
+    "TIPO": "SYNC_PAGE",
+    "MENSAGEM": "FULL_PAST pag 2: 50 tickets",
+    "DETALHES": "Total acumulado: 150, Tempo: 503s",
+    "DATA": "2026-03-11T16:07:29"
+  },
+  {
+    "ID": 108,
+    "TIPO": "SYNC_PAGE",
+    "MENSAGEM": "FULL_PAST pag 3: 50 tickets",
+    "DETALHES": "Total acumulado: 200, Tempo: 546s",
+    "DATA": "2026-03-11T16:08:11"
+  },
+  {
+    "ID": 109,
+    "TIPO": "SYNC_PAGE",
+    "MENSAGEM": "FULL_PAST pag 4: 50 tickets",
+    "DETALHES": "Total acumulado: 250, Tempo: 686s",
+    "DATA": "2026-03-11T16:10:32"
+  },
+  {
+    "ID": 110,
+    "TIPO": "SYNC_PAGE",
+    "MENSAGEM": "FULL_PAST pag 5: 50 tickets",
+    "DETALHES": "Total acumulado: 300, Tempo: 826s",
+    "DATA": "2026-03-11T16:12:52"
+  },
+  {
+    "ID": 111,
+    "TIPO": "SYNC_PAGE",
+    "MENSAGEM": "FULL_PAST pag 6: 50 tickets",
+    "DETALHES": "Total acumulado: 350, Tempo: 955s",
+    "DATA": "2026-03-11T16:15:01"
+  },
+  {
+    "ID": 112,
+    "TIPO": "SYNC_PAGE",
+    "MENSAGEM": "FULL_PAST pag 7: 50 tickets",
+    "DETALHES": "Total acumulado: 400, Tempo: 1098s",
+    "DATA": "2026-03-11T16:17:24"
+  },
+  {
+    "ID": 113,
+    "TIPO": "SYNC_PAGE",
+    "MENSAGEM": "FULL_PAST pag 8: 50 tickets",
+    "DETALHES": "Total acumulado: 450, Tempo: 1220s",
+    "DATA": "2026-03-11T16:19:26"
+  },
+  {
+    "ID": 114,
+    "TIPO": "SYNC_PAGE",
+    "MENSAGEM": "FULL_PAST pag 9: 50 tickets",
+    "DETALHES": "Total acumulado: 500, Tempo: 1354s",
+    "DATA": "2026-03-11T16:21:40"
+  },
+  {
+    "ID": 115,
+    "TIPO": "SYNC_PAGE",
+    "MENSAGEM": "FULL_PAST pag 10: 50 tickets",
+    "DETALHES": "Total acumulado: 550, Tempo: 1394s",
+    "DATA": "2026-03-11T16:22:20"
+  },
+  {
+    "ID": 116,
+    "TIPO": "SYNC_PAGE",
+    "MENSAGEM": "FULL_PAST pag 11: 50 tickets",
+    "DETALHES": "Total acumulado: 600, Tempo: 1518s",
+    "DATA": "2026-03-11T16:24:23"
+  },
+  {
+    "ID": 117,
+    "TIPO": "SYNC_PAGE",
+    "MENSAGEM": "FULL_PAST pag 12: 50 tickets",
+    "DETALHES": "Total acumulado: 650, Tempo: 1653s",
+    "DATA": "2026-03-11T16:26:38"
+  },
+  {
+    "ID": 118,
+    "TIPO": "SYNC_PAGE",
+    "MENSAGEM": "FULL_PAST pag 13: 50 tickets",
+    "DETALHES": "Total acumulado: 700, Tempo: 1787s",
+    "DATA": "2026-03-11T16:28:53"
+  },
+  {
+    "ID": 119,
+    "TIPO": "SYNC_PAGE",
+    "MENSAGEM": "FULL_PAST pag 14: 50 tickets",
+    "DETALHES": "Total acumulado: 750, Tempo: 1923s",
+    "DATA": "2026-03-11T16:31:09"
+  },
+  {
+    "ID": 120,
+    "TIPO": "SYNC_PAGE",
+    "MENSAGEM": "FULL_PAST pag 15: 50 tickets",
+    "DETALHES": "Total acumulado: 800, Tempo: 2057s",
+    "DATA": "2026-03-11T16:33:22"
+  },
+  {
+    "ID": 121,
+    "TIPO": "SYNC_PAGE",
+    "MENSAGEM": "FULL_PAST pag 16: 50 tickets",
+    "DETALHES": "Total acumulado: 850, Tempo: 2190s",
+    "DATA": "2026-03-11T16:35:36"
+  },
+  {
+    "ID": 122,
+    "TIPO": "SYNC_PAGE",
+    "MENSAGEM": "FULL_PAST pag 17: 50 tickets",
+    "DETALHES": "Total acumulado: 900, Tempo: 2325s",
+    "DATA": "2026-03-11T16:37:50"
+  },
+  {
+    "ID": 123,
+    "TIPO": "SYNC_PAGE",
+    "MENSAGEM": "FULL_PAST pag 18: 50 tickets",
+    "DETALHES": "Total acumulado: 950, Tempo: 2451s",
+    "DATA": "2026-03-11T16:39:57"
+  },
+  {
+    "ID": 124,
+    "TIPO": "SYNC_PAGE",
+    "MENSAGEM": "FULL_PAST pag 19: 50 tickets",
+    "DETALHES": "Total acumulado: 1000, Tempo: 2492s",
+    "DATA": "2026-03-11T16:40:38"
+  },
+  {
+    "ID": 125,
+    "TIPO": "SYNC_PAGE",
+    "MENSAGEM": "FULL_PAST pag 20: 50 tickets",
+    "DETALHES": "Total acumulado: 1050, Tempo: 2630s",
+    "DATA": "2026-03-11T16:42:56"
+  },
+  {
+    "ID": 126,
+    "TIPO": "SYNC_PAGE",
+    "MENSAGEM": "FULL_PAST pag 21: 50 tickets",
+    "DETALHES": "Total acumulado: 1100, Tempo: 2769s",
+    "DATA": "2026-03-11T16:45:14"
+  },
+  {
+    "ID": 127,
+    "TIPO": "SYNC_PAGE",
+    "MENSAGEM": "FULL_PAST pag 22: 50 tickets",
+    "DETALHES": "Total acumulado: 1150, Tempo: 2921s",
+    "DATA": "2026-03-11T16:47:47"
+  },
+  {
+    "ID": 128,
+    "TIPO": "SYNC_PAGE",
+    "MENSAGEM": "FULL_PAST pag 23: 50 tickets",
+    "DETALHES": "Total acumulado: 1200, Tempo: 3059s",
+    "DATA": "2026-03-11T16:50:05"
+  },
+  {
+    "ID": 129,
+    "TIPO": "SYNC_PAGE",
+    "MENSAGEM": "FULL_PAST pag 24: 50 tickets",
+    "DETALHES": "Total acumulado: 1250, Tempo: 3187s",
+    "DATA": "2026-03-11T16:52:13"
+  },
+  {
+    "ID": 130,
+    "TIPO": "SYNC_PAGE",
+    "MENSAGEM": "FULL_PAST pag 25: 50 tickets",
+    "DETALHES": "Total acumulado: 1300, Tempo: 3333s",
+    "DATA": "2026-03-11T16:54:39"
+  },
+  {
+    "ID": 131,
+    "TIPO": "SYNC_PAGE",
+    "MENSAGEM": "FULL_PAST pag 26: 50 tickets",
+    "DETALHES": "Total acumulado: 1350, Tempo: 3598s",
+    "DATA": "2026-03-11T16:59:04"
+  },
+  {
+    "ID": 132,
+    "TIPO": "SYNC_PAGE",
+    "MENSAGEM": "FULL_PAST pag 27: 50 tickets",
+    "DETALHES": "Total acumulado: 1400, Tempo: 3737s",
+    "DATA": "2026-03-11T17:01:22"
+  },
+  {
+    "ID": 133,
+    "TIPO": "SYNC_PAGE",
+    "MENSAGEM": "FULL_PAST pag 28: 50 tickets",
+    "DETALHES": "Total acumulado: 1450, Tempo: 4015s",
+    "DATA": "2026-03-11T17:06:01"
+  },
+  {
+    "ID": 134,
+    "TIPO": "SYNC_PAGE",
+    "MENSAGEM": "FULL_PAST pag 29: 50 tickets",
+    "DETALHES": "Total acumulado: 1500, Tempo: 4474s",
+    "DATA": "2026-03-11T17:13:40"
+  },
+  {
+    "ID": 135,
+    "TIPO": "SYNC_PAGE",
+    "MENSAGEM": "FULL_PAST pag 30: 50 tickets",
+    "DETALHES": "Total acumulado: 1550, Tempo: 4871s",
+    "DATA": "2026-03-11T17:20:17"
+  },
+  {
+    "ID": 136,
+    "TIPO": "SYNC_PAGE",
+    "MENSAGEM": "FULL_PAST pag 31: 50 tickets",
+    "DETALHES": "Total acumulado: 1600, Tempo: 5413s",
+    "DATA": "2026-03-11T17:29:18"
+  },
+  {
+    "ID": 137,
+    "TIPO": "SYNC_PAGE",
+    "MENSAGEM": "FULL_PAST pag 32: 50 tickets",
+    "DETALHES": "Total acumulado: 1650, Tempo: 5555s",
+    "DATA": "2026-03-11T17:31:41"
+  },
+  {
+    "ID": 138,
+    "TIPO": "SYNC_PAGE",
+    "MENSAGEM": "FULL_PAST pag 33: 50 tickets",
+    "DETALHES": "Total acumulado: 1700, Tempo: 5689s",
+    "DATA": "2026-03-11T17:33:55"
+  },
+  {
+    "ID": 139,
+    "TIPO": "SYNC_PAGE",
+    "MENSAGEM": "FULL_PAST pag 34: 50 tickets",
+    "DETALHES": "Total acumulado: 1750, Tempo: 5837s",
+    "DATA": "2026-03-11T17:36:22"
+  },
+  {
+    "ID": 140,
+    "TIPO": "SYNC_PAGE",
+    "MENSAGEM": "FULL_PAST pag 35: 50 tickets",
+    "DETALHES": "Total acumulado: 1800, Tempo: 5985s",
+    "DATA": "2026-03-11T17:38:51"
+  },
+  {
+    "ID": 141,
+    "TIPO": "SYNC_PAGE",
+    "MENSAGEM": "FULL_PAST pag 36: 50 tickets",
+    "DETALHES": "Total acumulado: 1850, Tempo: 6251s",
+    "DATA": "2026-03-11T17:43:17"
+  },
+  {
+    "ID": 142,
+    "TIPO": "SYNC_PAGE",
+    "MENSAGEM": "FULL_PAST pag 37: 50 tickets",
+    "DETALHES": "Total acumulado: 1900, Tempo: 6521s",
+    "DATA": "2026-03-11T17:47:46"
+  },
+  {
+    "ID": 143,
+    "TIPO": "SYNC_PAGE",
+    "MENSAGEM": "FULL_PAST pag 38: 50 tickets",
+    "DETALHES": "Total acumulado: 1950, Tempo: 6811s",
+    "DATA": "2026-03-11T17:52:36"
+  },
+  {
+    "ID": 144,
+    "TIPO": "SYNC_PAGE",
+    "MENSAGEM": "FULL_PAST pag 39: 50 tickets",
+    "DETALHES": "Total acumulado: 2000, Tempo: 6953s",
+    "DATA": "2026-03-11T17:54:59"
+  },
+  {
+    "ID": 145,
+    "TIPO": "SYNC_PAGE",
+    "MENSAGEM": "FULL_PAST pag 40: 50 tickets",
+    "DETALHES": "Total acumulado: 2050, Tempo: 7007s",
+    "DATA": "2026-03-11T17:55:52"
+  },
+  {
+    "ID": 146,
+    "TIPO": "SYNC_PAGE",
+    "MENSAGEM": "FULL_PAST pag 41: 50 tickets",
+    "DETALHES": "Total acumulado: 2100, Tempo: 7144s",
+    "DATA": "2026-03-11T17:58:09"
+  },
+  {
+    "ID": 147,
+    "TIPO": "SYNC_PAGE",
+    "MENSAGEM": "FULL_PAST pag 42: 50 tickets",
+    "DETALHES": "Total acumulado: 2150, Tempo: 7424s",
+    "DATA": "2026-03-11T18:02:49"
+  },
+  {
+    "ID": 148,
+    "TIPO": "SYNC_PAGE",
+    "MENSAGEM": "FULL_PAST pag 43: 50 tickets",
+    "DETALHES": "Total acumulado: 2200, Tempo: 7556s",
+    "DATA": "2026-03-11T18:05:02"
+  },
+  {
+    "ID": 149,
+    "TIPO": "SYNC_PAGE",
+    "MENSAGEM": "FULL_PAST pag 44: 50 tickets",
+    "DETALHES": "Total acumulado: 2250, Tempo: 7815s",
+    "DATA": "2026-03-11T18:09:21"
+  },
+  {
+    "ID": 150,
+    "TIPO": "SYNC_PAGE",
+    "MENSAGEM": "FULL_PAST pag 45: 50 tickets",
+    "DETALHES": "Total acumulado: 2300, Tempo: 8252s",
+    "DATA": "2026-03-11T18:16:37"
+  },
+  {
+    "ID": 151,
+    "TIPO": "SYNC_PAGE",
+    "MENSAGEM": "FULL_PAST pag 46: 50 tickets",
+    "DETALHES": "Total acumulado: 2350, Tempo: 8394s",
+    "DATA": "2026-03-11T18:19:00"
+  },
+  {
+    "ID": 152,
+    "TIPO": "SYNC_PAGE",
+    "MENSAGEM": "FULL_PAST pag 47: 50 tickets",
+    "DETALHES": "Total acumulado: 2400, Tempo: 8449s",
+    "DATA": "2026-03-11T18:19:54"
+  },
+  {
+    "ID": 153,
+    "TIPO": "SYNC_PAGE",
+    "MENSAGEM": "FULL_PAST pag 48: 50 tickets",
+    "DETALHES": "Total acumulado: 2450, Tempo: 8714s",
+    "DATA": "2026-03-11T18:24:20"
+  },
+  {
+    "ID": 154,
+    "TIPO": "SYNC_PAGE",
+    "MENSAGEM": "FULL_PAST pag 49: 50 tickets",
+    "DETALHES": "Total acumulado: 2500, Tempo: 8871s",
+    "DATA": "2026-03-11T18:26:56"
+  },
+  {
+    "ID": 155,
+    "TIPO": "SYNC_PAGE",
+    "MENSAGEM": "FULL_PAST pag 50: 50 tickets",
+    "DETALHES": "Total acumulado: 2550, Tempo: 9008s",
+    "DATA": "2026-03-11T18:29:13"
+  },
+  {
+    "ID": 156,
+    "TIPO": "SYNC_PAGE",
+    "MENSAGEM": "FULL_PAST pag 51: 50 tickets",
+    "DETALHES": "Total acumulado: 2600, Tempo: 9284s",
+    "DATA": "2026-03-11T18:33:49"
+  },
+  {
+    "ID": 157,
+    "TIPO": "SYNC_PAGE",
+    "MENSAGEM": "FULL_PAST pag 52: 50 tickets",
+    "DETALHES": "Total acumulado: 2650, Tempo: 9430s",
+    "DATA": "2026-03-11T18:36:16"
+  },
+  {
+    "ID": 158,
+    "TIPO": "SYNC_PAGE",
+    "MENSAGEM": "FULL_PAST pag 53: 50 tickets",
+    "DETALHES": "Total acumulado: 2700, Tempo: 9616s",
+    "DATA": "2026-03-11T18:39:21"
+  },
+  {
+    "ID": 159,
+    "TIPO": "SYNC_PAGE",
+    "MENSAGEM": "FULL_PAST pag 54: 50 tickets",
+    "DETALHES": "Total acumulado: 2750, Tempo: 9889s",
+    "DATA": "2026-03-11T18:43:55"
+  },
+  {
+    "ID": 160,
+    "TIPO": "SYNC_PAGE",
+    "MENSAGEM": "FULL_PAST pag 55: 50 tickets",
+    "DETALHES": "Total acumulado: 2800, Tempo: 10152s",
+    "DATA": "2026-03-11T18:48:17"
+  },
+  {
+    "ID": 161,
+    "TIPO": "SYNC_PAGE",
+    "MENSAGEM": "FULL_PAST pag 56: 50 tickets",
+    "DETALHES": "Total acumulado: 2850, Tempo: 10320s",
+    "DATA": "2026-03-11T18:51:05"
+  },
+  {
+    "ID": 162,
+    "TIPO": "SYNC_PAGE",
+    "MENSAGEM": "FULL_PAST pag 57: 50 tickets",
+    "DETALHES": "Total acumulado: 2900, Tempo: 10474s",
+    "DATA": "2026-03-11T18:53:40"
+  },
+  {
+    "ID": 163,
+    "TIPO": "SYNC_PAGE",
+    "MENSAGEM": "FULL_PAST pag 58: 50 tickets",
+    "DETALHES": "Total acumulado: 2950, Tempo: 10617s",
+    "DATA": "2026-03-11T18:56:03"
+  }
+]

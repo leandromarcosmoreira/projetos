@@ -1,0 +1,70 @@
+[
+  {
+    "key": ":VAR_USER",
+    "value": "5"
+  },
+  {
+    "key": ":VAR_SESSION",
+    "value": ""
+  },
+  {
+    "key": ":VAR_TOKEN",
+    "value": "***MASKED***"
+  },
+  {
+    "key": ":VAR_URL",
+    "value": "https://mergerelease.mitralab.io"
+  },
+  {
+    "key": ":VAR_PUBLIC_URL",
+    "value": "https://18273-42829.prod.mitralab.io/w/18273/p/42829"
+  },
+  {
+    "key": ":VAR_WIDGETSCREEN",
+    "value": "FALSE"
+  },
+  {
+    "key": ":VAR_SYNC_LAST_RUN",
+    "value": "2026-03-12T10:49:41"
+  },
+  {
+    "key": ":VAR_SYNC_INTERVAL",
+    "value": "5"
+  },
+  {
+    "key": ":VAR_SYNC_ENABLED",
+    "value": "1"
+  },
+  {
+    "key": ":VAR_ULTIMO_SYNC",
+    "value": "2026-03-12T10:49:41"
+  },
+  {
+    "key": ":VAR_SYNC_TYPE",
+    "value": "FULL"
+  },
+  {
+    "key": ":VAR_SYNC_MODE",
+    "value": "full"
+  },
+  {
+    "key": ":VAR_SYNC_START_DATE",
+    "value": "2020-03-31"
+  },
+  {
+    "key": ":VAR_MOVIDESK_TOKEN",
+    "value": "***MASKED***"
+  },
+  {
+    "key": ":VAR_SYNC_BREAK_DETECTED",
+    "value": "false"
+  },
+  {
+    "key": ":VAR_SYNC_FULL_PHASE",
+    "value": "past"
+  },
+  {
+    "key": ":VAR_SYNC_FULL_LAST_SKIP",
+    "value": "3975"
+  }
+]

@@ -1,0 +1,10 @@
+{
+  "id": 300,
+  "name": "diagTicketsByYear",
+  "type": "SQL",
+  "description": "Diag por ano",
+  "code": "SELECT SUBSTRING(CRIADO_EM,1,4) AS ANO, COUNT(*) AS TOTAL FROM TICKETS GROUP BY ANO ORDER BY ANO",
+  "createdBy": "leandro.moreira@neuonsolucoes.com",
+  "createdAt": "2026-03-11T15:55:42",
+  "updatedAt": "2026-03-11T15:55:42"
+}

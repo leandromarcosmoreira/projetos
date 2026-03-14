@@ -1,0 +1,101 @@
+[
+  {
+    "ID": 2,
+    "CHAVE": "ULTIMO_SYNC",
+    "VALOR": "2026-03-14T03:30:28",
+    "DESCRICAO": "Ultima sincronizacao completa",
+    "GRUPO": "sistema",
+    "ATUALIZADO_EM": "2026-03-14T01:09:05",
+    "ATUALIZADO_POR": "system"
+  },
+  {
+    "ID": 3,
+    "CHAVE": "TOTAL_TICKETS",
+    "VALOR": "2150",
+    "DESCRICAO": "Total tickets sincronizados (aprox)",
+    "GRUPO": "sistema",
+    "ATUALIZADO_EM": null,
+    "ATUALIZADO_POR": null
+  },
+  {
+    "ID": 8,
+    "CHAVE": "SYNC_PAGE_SIZE",
+    "VALOR": "50",
+    "DESCRICAO": "Quantidade de tickets por pagina na sincronizacao",
+    "GRUPO": "sync",
+    "ATUALIZADO_EM": "2026-03-12T21:09:02",
+    "ATUALIZADO_POR": null
+  },
+  {
+    "ID": 9,
+    "CHAVE": "SYNC_MAX_PAGES",
+    "VALOR": "200",
+    "DESCRICAO": "Numero maximo de paginas por ciclo de sincronizacao",
+    "GRUPO": "sync",
+    "ATUALIZADO_EM": "2026-03-12T21:09:03",
+    "ATUALIZADO_POR": null
+  },
+  {
+    "ID": 10,
+    "CHAVE": "CHART_sla_resolucao",
+    "VALOR": "{\"colors\":[{\"key\":\"No Prazo\",\"label\":\"No Prazo\",\"color\":\"#3b82f6\"},{\"key\":\"Fora do Prazo\",\"label\":\"Fora do Prazo\",\"color\":\"#ef4444\"}],\"stacked\":true,\"showLabels\":true,\"showLegendCounts\":true,\"labelPosition\":\"above\",\"fontSize\":\"12\",\"fontBold\":false,\"alertaColorMap\":{\"No Prazo\":\"#3b82f6\",\"Fora do Prazo\":\"#ef4444\"},\"suporteColorMap\":{\"No Prazo\":\"#22c55e\",\"Fora do Prazo\":\"#ef4444\"}}",
+    "DESCRICAO": "Config grafico SLA resolucao",
+    "GRUPO": "chart_config",
+    "ATUALIZADO_EM": "2026-03-13T00:47:53",
+    "ATUALIZADO_POR": "Admin"
+  },
+  {
+    "ID": 11,
+    "CHAVE": "CHART_sla_primeira_resposta",
+    "VALOR": "{\"colors\":[{\"key\":\"No Prazo\",\"label\":\"No Prazo\",\"color\":\"#3b82f6\"},{\"key\":\"Fora do Prazo\",\"label\":\"Fora do Prazo\",\"color\":\"#ef4444\"}],\"stacked\":true,\"showLabels\":true,\"showLegendCounts\":true,\"labelPosition\":\"above\",\"fontSize\":\"12\",\"fontBold\":false,\"alertaColorMap\":{\"No Prazo\":\"#3b82f6\",\"Fora do Prazo\":\"#ef4444\"},\"suporteColorMap\":{\"No Prazo\":\"#22c55e\",\"Fora do Prazo\":\"#ef4444\"}}",
+    "DESCRICAO": "Config grafico SLA primeira resposta",
+    "GRUPO": "chart_config",
+    "ATUALIZADO_EM": "2026-03-13T01:01:17",
+    "ATUALIZADO_POR": "Admin"
+  },
+  {
+    "ID": 12,
+    "CHAVE": "SYNC_MODE",
+    "VALOR": "incremental",
+    "DESCRICAO": "Modo de sincronizacao",
+    "GRUPO": "SYNC",
+    "ATUALIZADO_EM": null,
+    "ATUALIZADO_POR": null
+  },
+  {
+    "ID": 13,
+    "CHAVE": "SYNC_ENABLED",
+    "VALOR": "1",
+    "DESCRICAO": "Sync automatico ativo (1=sim 0=nao)",
+    "GRUPO": "sistema",
+    "ATUALIZADO_EM": null,
+    "ATUALIZADO_POR": null
+  },
+  {
+    "ID": 14,
+    "CHAVE": "SYNC_INTERVAL",
+    "VALOR": "5",
+    "DESCRICAO": "Intervalo sync em minutos",
+    "GRUPO": "sistema",
+    "ATUALIZADO_EM": null,
+    "ATUALIZADO_POR": null
+  },
+  {
+    "ID": 15,
+    "CHAVE": "SYNC_START_DATE",
+    "VALOR": "2019-02-11",
+    "DESCRICAO": "Data de inicio da sincronizacao",
+    "GRUPO": "SYNC",
+    "ATUALIZADO_EM": null,
+    "ATUALIZADO_POR": null
+  },
+  {
+    "ID": 16,
+    "CHAVE": "MOVIDESK_TOKEN",
+    "VALOR": "6673d100-6814-4737-b5ba-0ae2a3e3bfc5",
+    "DESCRICAO": "Token API Movidesk",
+    "GRUPO": "integracao",
+    "ATUALIZADO_EM": null,
+    "ATUALIZADO_POR": null
+  }
+]

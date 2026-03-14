@@ -1,0 +1,10 @@
+{
+  "id": 314,
+  "name": "kpisGerais",
+  "type": "SQL",
+  "description": "KPIs gerais",
+  "code": "SELECT COUNT(*) AS TOTAL, SUM(CASE WHEN T.STATUS_BASE NOT IN ('Closed','Canceled','Resolved') THEN 1 ELSE 0 END) AS ABERTOS, SUM(CASE WHEN T.STATUS_BASE IN ('Resolved','Closed') THEN 1 ELSE 0 END) AS RESOLVIDOS, SUM(CASE WHEN T.STATUS_BASE = 'Canceled' THEN 1 ELSE 0 END) AS CANCELADOS, ROUND(AVG(CASE WHEN CAST(T.TEMPO_VIDA_MINUTOS AS DECIMAL) > 0 THEN CAST(T.TEMPO_VIDA_MINUTOS AS DECIMAL) ELSE NULL END) / 60, 1) AS TEMPO_MEDIO_HORAS, SUM(CASE WHEN T.RESOLVIDO_PRIMEIRO_CONTATO = 1 THEN 1 ELSE 0 END) AS PRIMEIRO_CONTATO, SUM(CASE WHEN T.REABERTO_EM != '' AND T.REABERTO_EM IS NOT NULL THEN 1 ELSE 0 END) AS REABERTOS FROM TICKETS T WHERE ('{{mes}}' = '' OR SUBSTRING(T.CRIADO_EM, 1, 7) = '{{mes}}') AND ('{{status}}' = '' OR T.STATUS = '{{status}}') AND ('{{categoria}}' = '' OR T.CATEGORIA = '{{categoria}}') AND ('{{analista}}' = '' OR T.OWNER_NOME = '{{analista}}') AND ('{{urgencia}}' = '' OR T.URGENCIA = '{{urgencia}}') AND ('{{equipe}}' = '' OR T.EQUIPE = '{{equipe}}') AND ('{{origem}}' = '' OR T.ORIGEM_NOME = '{{origem}}')",
+  "createdBy": "leandro.moreira@neuonsolucoes.com",
+  "createdAt": "2026-03-14T00:46:15",
+  "updatedAt": "2026-03-14T00:46:15"
+}

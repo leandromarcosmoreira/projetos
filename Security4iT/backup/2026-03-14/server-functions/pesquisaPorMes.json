@@ -1,0 +1,10 @@
+{
+  "id": 339,
+  "name": "pesquisaPorMes",
+  "type": "SQL",
+  "description": "Pesquisa por mes",
+  "code": "SELECT SUBSTRING(P.DATA_RESPOSTA, 1, 7) AS name, ROUND(AVG(P.VALOR), 1) AS value, COUNT(*) AS total FROM PESQUISAS P WHERE ('{{mes}}' = '' OR SUBSTRING(P.DATA_RESPOSTA, 1, 7) = '{{mes}}') AND P.DATA_RESPOSTA != '' GROUP BY name ORDER BY name",
+  "createdBy": "leandro.moreira@neuonsolucoes.com",
+  "createdAt": "2026-03-14T00:46:20",
+  "updatedAt": "2026-03-14T00:46:20"
+}
